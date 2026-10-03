@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>When Grammar Learns to Respect Women - Le Varikal</title>
+    <meta name="description" content="How patriarchy hides inside our sentences — and how Malayalam quietly refuses it. A linguistic and historical exploration.">
+    <meta name="author" content="Aadil Samjeed">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://taplink.cc/levarikal">
+    <meta property="og:title" content="When Grammar Learns to Respect Women">
+    <meta property="og:description" content="How patriarchy hides inside our sentences — and how Malayalam quietly refuses it.">
+    <meta property="og:image" content="https://blogger.googleusercontent.com/img/a/AVvXsEj95b2plQpPa_p-xRP1Zv3zwJ6EPd-Cv44mo_S02VammdGzWRt6KFgoICjvRvqnYUtvOO4yo-dwWBibSotW7q12gsuBinzsYXzPtF1PuucD6YIVaKbxYqiSjVwCuQ_zI7KjF0JIKUqyIQFgPc_spDVewwCPwEbT2Kj-SgYq_Ll3YBZbgAPk0TKUpUeZWRW-">
+
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://taplink.cc/levarikal">
+    <meta property="twitter:title" content="When Grammar Learns to Respect Women">
+    <meta property="twitter:description" content="How patriarchy hides inside our sentences — and how Malayalam quietly refuses it.">
+    <meta property="twitter:image" content="https://blogger.googleusercontent.com/img/a/AVvXsEj95b2plQpPa_p-xRP1Zv3zwJ6EPd-Cv44mo_S02VammdGzWRt6KFgoICjvRvqnYUtvOO4yo-dwWBibSotW7q12gsuBinzsYXzPtF1PuucD6YIVaKbxYqiSjVwCuQ_zI7KjF0JIKUqyIQFgPc_spDVewwCPwEbT2Kj-SgYq_Ll3YBZbgAPk0TKUpUeZWRW-">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manjari:wght@100;400;700&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300&family=Inter:wght@400;500;600;800&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- CSS Variables --- */
+        :root {
+            --bg-color: #fdfdfc;
+            --text-primary: #222;
+            --text-secondary: #555;
+            --accent-color: #d9480f; /* Deep Orange */
+            --malayalam-color: #00796b; /* Teal */
+            --patriarchy-color: #c62828; /* Red */
+            --highlight-bg: #fff9db;
+            --font-serif: 'Merriweather', serif;
+            --font-sans: 'Inter', sans-serif;
+            --font-display: 'Playfair Display', serif;
+            --font-malayalam: 'Manjari', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            font-family: var(--font-serif);
+            line-height: 1.8;
+            margin: 0;
+            padding: 0;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden; /* Prevent horizontal scroll from animations */
+        }
+
+        a { text-decoration: none; color: inherit; transition: 0.2s; }
+
+        /* --- Scroll Progress Bar --- */
+        .progress-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: transparent;
+            z-index: 9999;
+        }
+
+        .progress-bar {
+            height: 5px;
+            background: var(--accent-color);
+            width: 0%;
+            transition: width 0.1s;
+        }
+
+        /* --- Layout --- */
+        .container {
+            max-width: 740px;
+            margin: 0 auto;
+            padding: 40px 20px 100px;
+        }
+
+        /* --- Animation Classes --- */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- Brand Masthead (Le Varikal) --- */
+        .brand-masthead {
+            text-align: center;
+            margin-bottom: 2.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        .brand-name {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: #111;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .brand-motto {
+            font-family: var(--font-sans);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent-color);
+            font-weight: 600;
+        }
+
+        /* --- Cover Image --- */
+        .cover-image-container {
+            width: 100%;
+            margin-bottom: 3rem;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        .cover-image {
+            width: 100%;
+            height: auto;
+            max-height: 450px;
+            object-fit: cover;
+            object-position: center;
+            display: block;
+            transition: transform 1.5s ease;
+        }
+
+        /* Subtle zoom effect on hover/load */
+        .cover-image-container:hover .cover-image {
+            transform: scale(1.02);
+        }
+
+        /* --- Article Typography --- */
+        h1 {
+            font-family: var(--font-sans);
+            font-size: 2.5rem;
+            font-weight: 800;
+            line-height: 1.15;
+            margin-bottom: 1rem;
+            letter-spacing: -0.03em;
+            color: #111;
+        }
+
+        h2.subtitle {
+            font-family: var(--font-sans);
+            font-size: 1.35rem;
+            font-weight: 400;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            line-height: 1.4;
+        }
+
+        h3 {
+            font-family: var(--font-sans);
+            font-size: 1.5rem;
+            margin-top: 3.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            color: #111;
+        }
+
+        p {
+            font-size: 1.125rem;
+            margin-bottom: 1.8rem;
+            color: #2a2a2a;
+        }
+
+        /* --- Author Header --- */
+        .author-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 3rem;
+            margin-top: 2rem;
+        }
+
+        .author-img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 15px;
+            border: 2px solid white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .author-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .author-link {
+            font-family: var(--font-sans);
+            font-weight: 700;
+            font-size: 1.05rem;
+            color: #111;
+            border-bottom: 1px solid transparent;
+        }
+        
+        .author-link:hover {
+            color: var(--accent-color);
+            border-bottom-color: var(--accent-color);
+        }
+
+        .article-meta {
+            font-family: var(--font-sans);
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-top: 3px;
+        }
+
+        /* --- Visual Elements --- */
+        hr.styled-hr {
+            border: 0;
+            height: 1px;
+            background-color: #eaeaea;
+            margin: 3rem 0;
+        }
+
+        .dot-separator {
+            text-align: center;
+            color: #ccc;
+            font-size: 1.5rem;
+            margin: 2rem 0;
+            letter-spacing: 12px;
+        }
+
+        .highlight {
+            background-color: var(--highlight-bg);
+            padding: 0 4px;
+            border-radius: 3px;
+            box-decoration-break: clone;
+            -webkit-box-decoration-break: clone;
+        }
+
+        .emphasis-text {
+            font-weight: 700;
+            color: var(--accent-color);
+        }
+
+        /* --- Comparison Boxes --- */
+        .comparison-box {
+            background: #fff;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            padding: 30px;
+            margin: 30px 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+            border-left: 4px solid #ddd;
+            transition: transform 0.3s ease;
+        }
+
+        .comparison-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+        }
+
+        .script-text {
+            font-family: var(--font-malayalam);
+            font-size: 1.6rem;
+            font-weight: 700;
+            display: block;
+            margin-bottom: 5px;
+            line-height: 1.4;
+        }
+
+        .hindi-text { color: var(--patriarchy-color); }
+        .mal-text { color: var(--malayalam-color); }
+
+        .translation {
+            font-family: var(--font-sans);
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            display: block;
+            margin-bottom: 20px;
+        }
+        .translation:last-child { margin-bottom: 0; }
+
+        /* --- Blockquote --- */
+        blockquote {
+            border-left: 3px solid var(--accent-color);
+            margin: 2.5rem 0;
+            padding-left: 25px;
+            font-style: italic;
+            font-size: 1.3rem;
+            color: #444;
+            line-height: 1.6;
+            background: linear-gradient(to right, rgba(217, 72, 15, 0.03), transparent);
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+        
+        blockquote strong {
+            display: block;
+            margin-top: 15px;
+            font-style: normal;
+            font-family: var(--font-sans);
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #111;
+        }
+
+        /* --- Final Thought --- */
+        .final-thought-box {
+            background-color: #1a1a1a;
+            color: #f0f0f0;
+            padding: 40px;
+            border-radius: 8px;
+            margin-top: 50px;
+            text-align: center;
+        }
+
+        .final-thought-box p {
+            color: #ddd;
+            font-size: 1.25rem;
+        }
+        
+        .punchline {
+            display: block;
+            margin-top: 25px;
+            font-family: var(--font-sans);
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--accent-color);
+        }
+
+        /* --- Share Section --- */
+        .share-container {
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        .share-label {
+            font-family: var(--font-sans);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #888;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .share-buttons {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .share-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 20px;
+            border-radius: 50px;
+            background-color: white;
+            border: 1px solid #e0e0e0;
+            color: #333;
+            font-family: var(--font-sans);
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .share-btn:hover {
+            background-color: #f9f9f9;
+            border-color: #bbb;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .share-btn svg {
+            width: 18px;
+            height: 18px;
+            margin-right: 8px;
+            fill: currentColor;
+        }
+        
+        .share-btn.wa:hover { color: #25D366; border-color: #25D366; }
+        .share-btn.fb:hover { color: #1877F2; border-color: #1877F2; }
+        .share-btn.x:hover { color: #000; border-color: #000; }
+
+        /* --- Mobile --- */
+        @media (max-width: 600px) {
+            h1 { font-size: 2rem; }
+            .brand-name { font-size: 1.8rem; }
+            .container { padding: 30px 20px; }
+            .share-btn { padding: 10px 15px; font-size: 0.85rem; }
+            .share-text { display: none; } 
+            .share-btn svg { margin-right: 0; }
+        }
+        
+        @media (min-width: 601px) {
+             .share-text { display: inline; }
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="progress-container">
+    <div class="progress-bar" id="progressBar"></div>
+</div>
+
+<div class="container">
+
+    <div class="brand-masthead reveal">
+        <span class="brand-name">Le Varikal</span>
+        <span class="brand-motto">Voice. Vision. Verse.</span>
+    </div>
+
+    <div class="cover-image-container reveal">
+        <img src="https://blogger.googleusercontent.com/img/a/AVvXsEj95b2plQpPa_p-xRP1Zv3zwJ6EPd-Cv44mo_S02VammdGzWRt6KFgoICjvRvqnYUtvOO4yo-dwWBibSotW7q12gsuBinzsYXzPtF1PuucD6YIVaKbxYqiSjVwCuQ_zI7KjF0JIKUqyIQFgPc_spDVewwCPwEbT2Kj-SgYq_Ll3YBZbgAPk0TKUpUeZWRW-" 
+             alt="When Grammar Learns to Respect Women Cover Art" 
+             class="cover-image">
+    </div>
+
+    <header class="reveal">
+        <h1>When Grammar Learns to Respect Women</h1>
+        <h2 class="subtitle">How patriarchy hides inside our sentences — and how Malayalam quietly refuses it</h2>
+        
+        <div class="author-header">
+            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgdUDJBbezFz1-UKmlPgeEHVzidBU0ZQa_vgfI4BP7PDodOdh6AXbzfDFPrL3Z-7DvYawFjPTTmUFP1oZfuEd-j4kqOIiCaNcayT9CUrRQolzVY_45utqfwI5251xN55yhuEC_YYqf57qW25X3cNVoRXcHcUzOU59yuVBEVQuLKMSjMfjaiLC4FugyZHHw9/s1724/12199.jpg" 
+                 alt="Aadil Samjeed" class="author-img">
+            <div class="author-info">
+                <a href="../index.html" class="author-link">Aadil Samjeed</a>
+                <span class="article-meta">Jan 11, 2026 · 5 min read</span>
+            </div>
+        </div>
+    </header>
+
+    <hr class="styled-hr reveal">
+
+    <section class="reveal">
+        <p>Language is not just how we speak. It is how power trains us to think. Every sentence we form carries invisible assumptions about who matters, who leads, and who is allowed to simply exist without explanation. We often look for sexism in laws, customs, and institutions, but some of the most stubborn forms of inequality live quietly inside grammar itself.</p>
+
+        <p>Every time we say “he,” “she,” “went,” or “did,” we are rehearsing an old worldview.</p>
+
+        <p>Most of the world’s major languages were shaped in deeply patriarchal societies, and they still wear that history. In English, a man is simply <strong>Mr.</strong>, unchanged by marriage or status. A woman must be <strong>Miss, Mrs., or Ms.</strong>, her identity filtered through her relationship to a man. In many languages, professions are split into male and female forms, as if doing the same job somehow becomes different when a woman does it.</p>
+
+        <p class="emphasis-text">But the deepest bias hides in verbs.</p>
+    </section>
+
+    <div class="reveal">
+        <h3>1. When Actions Are Forced to Have a Gender</h3>
+        <p>In Hindi, the pronoun <span class="highlight">“वह” (vah)</span> is used for both “he” and “she.” On the surface, that looks neutral. But the verb tells the real story:</p>
+
+        <div class="comparison-box" style="border-left-color: var(--patriarchy-color);">
+            <span class="script-text hindi-text">वह गया</span>
+            <span class="translation">— he went</span>
+            <br>
+            <span class="script-text hindi-text">वह गई</span>
+            <span class="translation">— she went</span>
+        </div>
+
+        <p>The action itself changes based on gender. A man does not simply go; he goes in a masculine way. A woman does not simply go; she goes in a feminine way. Walking, leaving, moving — all of it is forced to wear gender.</p>
+
+        <p>The language hides gender in the pronoun and then stamps it onto the action. It quietly teaches the mind that masculinity and femininity are not just identities — they are properties of motion itself.</p>
+
+        <p><strong>This is not neutrality. It is patriarchy in grammatical form.</strong></p>
+    </div>
+
+    <div class="dot-separator reveal">• • •</div>
+
+    <div class="reveal">
+        <h3>2. Malayalam’s Quiet Rebellion</h3>
+        <p>Now look at Malayalam.</p>
+
+        <div class="comparison-box" style="border-left-color: var(--malayalam-color);">
+            <span class="script-text mal-text">അവൻ പോയി</span>
+            <span class="translation">— he went</span>
+            <br>
+            <span class="script-text mal-text">അവൾ പോയി</span>
+            <span class="translation">— she went</span>
+        </div>
+
+        <p>Here, gender appears in the pronoun, where it belongs — identity is personal, chosen, intimate. But the verb?</p>
+
+        <p><span class="highlight script-text mal-text" style="display:inline; font-size:1.3rem;">പോയി (poyi) never changes.</span></p>
+
+        <p>The action is free from gender.<br>
+        A man goes.<br>
+        A woman goes.<br>
+        A non-binary person goes.</p>
+
+        <p class="emphasis-text">Going is just going.</p>
+
+        <blockquote>
+            Malayalam makes a subtle but powerful philosophical choice:
+            <strong>identity belongs to the person, but action belongs to humanity.</strong>
+        </blockquote>
+
+        <p>That single grammatical decision separates Malayalam from most patriarchal languages on earth.</p>
+    </div>
+
+    <div class="dot-separator reveal">• • •</div>
+
+    <div class="reveal">
+        <h3>3. Jobs Without Gender Cages</h3>
+        <p>The same logic shows up in professions. English fractures roles into male and female — actor and actress, waiter and waitress. Many Indian languages do the same. The masculine form becomes the default; the feminine becomes a variation.</p>
+
+        <p>Malayalam often resists this. <span class="mal-text script-text" style="display:inline; font-size:1.15rem;">ഡോക്ടർ, അധ്യാപകർ, എഴുത്തുകാരൻ</span> — the role comes first. Gender can be added, but it is not required. The language allows a woman to be a doctor without turning her into a special grammatical category.</p>
+
+        <p>It sounds small. It is not.<br>
+        <span class="highlight">It means what you do is more important than what you are.</span></p>
+    </div>
+
+    <div class="reveal">
+        <h3>4. Why Malayalam Ended Up Different</h3>
+        <p>Kerala was never a feminist paradise. Patriarchy has always existed here — in Malabar, in Travancore, everywhere. Women were expected to manage the home, raise children, stay modest, and depend on male income. Men were cast as providers. Women were cast as dependents. Control over women’s mobility, sexuality, and choices was real and often brutal.</p>
+        
+        <p>That lived memory, passed down through mothers and grandmothers, is true.</p>
+
+        <p>But Kerala also carried something rare in South Asia: <strong>pockets of matrilineal tradition</strong>. Among Nairs, Ezhavas, and some Muslim and tribal communities, property and lineage passed through women. A husband came to a wife’s home. Children belonged to the mother’s family line.</p>
+
+        <p>This did not remove male power — men still dominated politics, religion, and public authority — but it disrupted one crucial assumption: that women were economically and genealogically disposable.</p>
+
+        <p>So Kerala lived inside a contradiction.</p>
+        
+        <p style="padding-left: 15px; border-left: 3px solid #ddd;">
+            Socially patriarchal.<br>
+            <strong style="color:var(--malayalam-color)">Structurally not entirely.</strong>
+        </p>
+
+        <p>Women could be controlled — but not erased. They could be subordinated — but not fully uprooted.</p>
+
+        <p>Languages grow from such tensions. Malayalam absorbed this mixed reality. It did not become feminist, but it did not collapse into pure male-default grammar either. It left a small grammatical space where women could remain subjects, not just extensions. And that space became everything.</p>
+    </div>
+
+    <div class="reveal">
+        <h3>5. Why This Matters Beyond Grammar</h3>
+        <p>Language decides what feels natural. If every sentence reminds you that women are different, secondary, marked, society follows. If a language lets women walk, work, speak, and leave without turning every action into a gendered performance, it creates friction against patriarchy.</p>
+
+        <p>That friction is where dignity grows.</p>
+
+        <p>Malayalam does not shout equality. It simply refuses to make masculinity the default state of being.</p>
+    </div>
+
+    <div class="final-thought-box reveal">
+        <p style="margin-bottom:10px;">Most languages turn men into humans and women into footnotes.</p>
+        <p style="margin-bottom:10px;">Malayalam, shaped by a complicated and contradictory history, quietly does something rarer.</p>
+        <p>It lets people act — before it lets them be judged by gender.</p>
+        
+        <span class="punchline">It is grammar learning how to respect women.</span>
+    </div>
+
+    <hr class="styled-hr reveal">
+
+    <div class="share-container reveal">
+        <span class="share-label">Share this article</span>
+        <div class="share-buttons">
+            
+            <a href="#" onclick="shareWhatsApp(); return false;" class="share-btn wa">
+                <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+                <span class="share-text">WhatsApp</span>
+            </a>
+
+            <a href="#" onclick="shareX(); return false;" class="share-btn x">
+                <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                <span class="share-text">Post</span>
+            </a>
+
+            <a href="#" onclick="shareFacebook(); return false;" class="share-btn fb">
+                <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                <span class="share-text">Facebook</span>
+            </a>
+
+            <button onclick="copyLink()" class="share-btn" id="copyBtn">
+                <svg viewBox="0 0 24 24"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
+                <span class="share-text" id="copyText">Copy Link</span>
+            </button>
+        </div>
+    </div>
+
+    <div style="text-align:center; margin-top:50px; font-size:0.8rem; color:#aaa; font-family:var(--font-sans);">
+        © 2026 Aadil Samjeed | Le Varikal
+    </div>
+
+</div>
+
+<script>
+    // 1. Scroll Progress Bar
+    window.onscroll = function() {
+        let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+        let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        let scrolled = (winScroll / height) * 100;
+        document.getElementById("progressBar").style.width = scrolled + "%";
+    };
+
+    // 2. Scroll Animation (Fade In Up)
+    function reveal() {
+        var reveals = document.querySelectorAll(".reveal");
+        for (var i = 0; i < reveals.length; i++) {
+            var windowHeight = window.innerHeight;
+            var elementTop = reveals[i].getBoundingClientRect().top;
+            var elementVisible = 50; // Trigger point
+            if (elementTop < windowHeight - elementVisible) {
+                reveals[i].classList.add("active");
+            }
+        }
+    }
+    // Trigger on scroll and on initial load
+    window.addEventListener("scroll", reveal);
+    window.onload = reveal;
+
+    // 3. Share Functionality
+    const pageUrl = window.location.href;
+    const pageTitle = document.title;
+
+    function shareWhatsApp() {
+        const url = `https://wa.me/?text=${encodeURIComponent(pageTitle + " - " + pageUrl)}`;
+        window.open(url, '_blank');
+    }
+
+    function shareX() {
+        const url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(pageTitle)}&url=${encodeURIComponent(pageUrl)}`;
+        window.open(url, '_blank');
+    }
+
+    function shareFacebook() {
+        const url = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(pageUrl)}`;
+        window.open(url, '_blank');
+    }
+
+    function copyLink() {
+        navigator.clipboard.writeText(pageUrl).then(function() {
+            const btn = document.getElementById('copyBtn');
+            const txt = document.getElementById('copyText');
+            txt.innerText = "Copied!";
+            btn.style.backgroundColor = "#e6f7ff";
+            btn.style.borderColor = "#1890ff";
+            setTimeout(() => {
+                txt.innerText = "Copy Link";
+                btn.style.backgroundColor = "white";
+                btn.style.borderColor = "#e0e0e0";
+            }, 2000);
+        });
+    }
+</script>
+
+</body>
+</html>

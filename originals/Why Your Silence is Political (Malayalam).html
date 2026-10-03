@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>എന്തുകൊണ്ട് നിങ്ങളുടെ മൗനം രാഷ്ട്രീയമാണ്</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Added Noto Serif Malayalam for beautiful script rendering -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Malayalam:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Serif Malayalam', serif;
+            background-color: #fdfbf7; /* Warm editorial paper color */
+            color: #1a1a1a;
+            line-height: 1.8; /* Increased line height for Malayalam readability */
+        }
+        h1, h2, h3 {
+            font-family: 'Noto Serif Malayalam', serif;
+        }
+        .sans {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Adjusted hover effect for Malayalam script */
+        .author-link {
+            position: relative;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .author-link::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            transform: scaleX(0);
+            height: 1px;
+            bottom: 0;
+            left: 0;
+            background-color: currentColor;
+            transform-origin: bottom right;
+            transition: transform 0.25s ease-out;
+        }
+        .author-link:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #fdfbf7;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #d6d3cd;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #a8a29e;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-red-900 selection:text-white">
+
+    <!-- Progress Bar -->
+    <div class="fixed top-0 left-0 w-full h-1 z-50">
+        <div id="progress-bar" class="h-full bg-red-800 w-0 transition-all duration-100 ease-out"></div>
+    </div>
+
+    <main class="max-w-4xl mx-auto px-6 py-12 md:py-16">
+        
+        <!-- Header Section with Cover Image -->
+        <header class="mb-12 text-center">
+            <span class="sans text-xs font-bold tracking-[0.2em] uppercase text-red-700 block mb-6">Editorial</span>
+            
+            <h1 class="text-4xl md:text-6xl font-bold leading-tight mb-8 text-stone-900">
+                എന്തുകൊണ്ട് നിങ്ങളുടെ മൗനവും <span class="text-red-800">രാഷ്ട്രീയമാകുന്നു</span>
+            </h1>
+
+            <!-- Cover Image -->
+            <div class="w-full h-64 md:h-96 mb-10 rounded-sm overflow-hidden shadow-lg">
+                <img 
+                    src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEitwpBSaqCdOpI1yOsfJUv5-327x7dWc-6oSyypppceQzeZK9F3Ku3fS4AyDMWyngV8nhsxELR-HSwMPqnMz_Vyv0TxDFh12DFG_z5-qeQJRLRtvGhGFWGzxY1ezzVEE6ms11xXyAn8P2A0uE9zUEeYnTtB-Fr1Qc0tQOknWXmFyzfqwNIaSjmtXbQKZsy9/s1024/20109.png" 
+                    alt="Abstract minimalist representation of silence" 
+                    class="w-full h-full object-cover hover:scale-105 transition-transform duration-700 ease-in-out"
+                >
+            </div>
+
+            <p class="text-stone-500 text-sm md:text-base max-w-xl mx-auto leading-relaxed border-b border-stone-200 pb-8">
+                ഉദാസീനതയുടെ ഈ കാലഘട്ടത്തിൽ കൂട്ടുപ്രതിയാകുന്നതിന്‍റെ ഒരു ഭാര പരിശോധന.
+            </p>
+        </header>
+
+        <!-- Article Body -->
+        <article class="prose prose-stone prose-lg md:prose-xl mx-auto text-stone-800 leading-loose max-w-2xl text-justify">
+            
+            <p class="mb-8">
+                <span class="text-red-800 font-bold text-2xl float-left mr-2 mt-[-6px]">മ</span>ൗനം ഒരിക്കലും നിഷ്പക്ഷമല്ല. നമ്മൾ മാറിനിൽക്കുന്നതിലൂടെ പ്രശ്നങ്ങളിൽ നിന്ന് ഒഴിഞ്ഞുമാറാം എന്നത് നമുക്ക് സ്വയം നൽകാവുന്ന ഒരു ആശ്വാസവാക്ക് മാത്രമാണ്. നിഷ്പക്ഷത എന്നത് സംഘർഷങ്ങളിൽ നിന്നോ വിവാദങ്ങളിൽ നിന്നോ അകന്നുനിൽക്കാൻ കഴിയുന്ന ഒരു സുരക്ഷിത താവളമാണെന്ന് നാം കരുതുന്നു. എന്നാൽ സാമൂഹിക ഘടനയിൽ, മൗനം പാലിക്കാനുള്ള ഓരോ തീരുമാനവും രാഷ്ട്രീയത്തിലും മനുഷ്യരാശിയിലും ഒരുപോലെ പ്രത്യാഘാതങ്ങൾ സൃഷ്ടിക്കുന്നു.
+            </p>
+
+            <p class="mb-8">
+                മിണ്ടാതിരിക്കുന്നത് നമ്മളെ സംരക്ഷിക്കുമെന്നാണ് നമ്മൾ പലപ്പോഴും വിശ്വസിക്കുന്നത്. അതൊരു കവചം പോലെയാണ്. നമ്മൾ സംസാരിക്കുന്നില്ലെങ്കിൽ, നമ്മളെ ആർക്കും വിമർശിക്കാൻ കഴിയില്ല; നമ്മൾ പക്ഷം ചേരുന്നില്ലെങ്കിൽ, നമുക്ക് തെറ്റുപറ്റില്ല. എന്നിരുന്നാലും, വാക്കുകളേക്കാൾ ശക്തമായ സന്ദേശമാണ് നിങ്ങളുടെ മൗനം നൽകുന്നത്. പ്രതികരിക്കാതിരിക്കുക എന്നത് അംഗീകാരത്തിന്‍റെയോ, അല്ലെങ്കിൽ വിധേയത്വത്തിന്‍റെയോ സൂചനയാണ്. അടിച്ചമർത്തുന്നവനെ സംബന്ധിച്ചിടത്തോളം മൗനം സമ്മതമാണ്. ഇരയെ സംബന്ധിച്ചിടത്തോളം, മൗനം കൈയൊഴിയലാണ്.
+            </p>
+
+            <h2 class="text-2xl md:text-3xl font-bold text-stone-900 mt-12 mb-6">ഉദാസീനതയുടെ ഭാരം</h2>
+
+            <p class="mb-8">
+                ദൈനംദിന ജീവിതത്തിലെ ഉദാസീനതയുടെ ഭാരം ഒന്ന് ചിന്തിച്ചുനോക്കൂ. അത് വലിയൊരു വഞ്ചനയായിരിക്കില്ല, മറിച്ച് ചെറിയ ചെറിയ അവഗണനകളാണ്. സാധാരണവൽക്കരിക്കപ്പെട്ട അഴിമതി കണ്ടില്ലെന്ന് നടിക്കുക, നമ്മുടെ നഗരങ്ങളിൽ നിലനിൽക്കുന്ന അസമത്വങ്ങളെ അവഗണിക്കുക, തൊഴിലിടങ്ങളിലെ പീഡനങ്ങൾ സഹിക്കുക, അല്ലെങ്കിൽ വ്യാജവാർത്തകൾക്ക് മുന്നിൽ നിഷ്ക്രിയരായിരിക്കുക എന്നിവയാണത്.
+            </p>
+
+            <p class="mb-8">
+                നമ്മൾ മുഖം തിരിക്കുമ്പോൾ, നിലവിലുള്ള അവസ്ഥയെ നമ്മൾ സാധൂകരിക്കുകയാണ്. സ്വീകാര്യമല്ലാത്ത കാര്യങ്ങളെ സാധാരണമായി മാറാൻ നമ്മൾ അനുവദിക്കുന്നു. ഇതാണ് മൗനത്തിന്റെ രാഷ്ട്രീയം: കാര്യങ്ങൾ എത്രത്തോളം വഷളായാലും അവ അതേപടി തുടരാൻ നൽകുന്ന വോട്ട്.
+            </p>
+
+            <h2 class="text-2xl md:text-3xl font-bold text-stone-900 mt-12 mb-6">ശബ്ദമുയർത്തുന്നതിന്‍റെ ശക്തി</h2>
+
+            <p class="mb-8">
+                മൗനത്തിനുള്ള മറുപടി ബഹളമല്ല. നിങ്ങളുടെ ശബ്ദം ഫലപ്രദമാകാൻ അത് മറ്റുള്ളവരുടേതിനേക്കാൾ ഉച്ചത്തിലാകണമെന്നില്ല. "ശബ്ദമുയർത്തുക" എന്നത് "ബഹളം വയ്ക്കുക" ആണെന്ന് നമ്മൾ പലപ്പോഴും തെറ്റിദ്ധരിക്കാറുണ്ട്. എന്നാൽ യഥാർത്ഥ ഇടപെടലുകൾ പലപ്പോഴും ശാന്തമാണ്.
+            </p>
+
+            <p class="mb-8">
+                അപകടകരമായ ഒരു പൊതുധാരണയെ തകർക്കുന്ന ഒരു ചെറിയ ചോദ്യമായിരിക്കാം അത്. ഒരു നുണയെ വെല്ലുവിളിക്കുന്ന അഭിപ്രായമായിരിക്കാം അത്. മറ്റുള്ളവർ ഫോണിൽ നോക്കി നടക്കുമ്പോൾ, നടക്കുന്ന അനീതിയിലേക്ക് വിരൽ ചൂണ്ടുന്നതാകാം അത്. ഇത്തരം ചെറിയ ഇടപെടലുകൾക്ക് വലിയ സ്വാധീനമുണ്ട്. അവ ഏകാഭിപ്രായമെന്ന മിഥ്യയെ തകർക്കുന്നു. വിയോജിപ്പുകൾ സാധ്യമാണെന്നും, സഹാനുഭൂതി ഇനിയും മരിച്ചിട്ടില്ലെന്നും അത് മറ്റുള്ളവരെ ഓർമ്മിപ്പിക്കുന്നുമുണ്ട്.
+            </p>
+
+            <blockquote class="border-l-4 border-red-800 pl-6 my-10 italic text-stone-600 bg-stone-100 py-6 pr-6 rounded-r-lg">
+                "മൗനം ആ നിമിഷത്തിൽ സുരക്ഷിതമായി തോന്നാം, പക്ഷേ അത് കൂട്ടുപ്രതിയാകുന്നതിന്‍റെ ഭാരം ചുമക്കുകയാണ് സത്യത്തിൽ. ഓരോ നിഷ്ക്രിയ നിമിഷവും അനീതി നിലനിൽക്കാൻ ഉള്ള കാരണമായി മാറുന്നുണ്ട്."
+            </blockquote>
+
+            <p class="mb-12">
+                നിങ്ങൾ എവിടെ നിൽക്കുന്നു, എപ്പോൾ സംസാരിക്കുന്നു എന്നത് ശ്രദ്ധാപൂർവ്വം തിരഞ്ഞെടുക്കുക. ലോകത്തിന് ആവശ്യം കൂടുതൽ ബഹളമല്ല, മറിച്ച് കൂടുതൽ സത്യമാണ്. മിണ്ടാതിരിക്കുന്നത് നിരുപദ്രവകരമാണെന്ന് കരുതുന്നവർക്കായി ഇത് പങ്കുവെക്കുക—കാരണം അവസാനത്തിൽ, നമ്മൾ ഓർക്കുക ശത്രുക്കളുടെ വാക്കുകളല്ല, മറിച്ച് സുഹൃത്തുക്കളുടെ മൗനമായിരിക്കും.
+            </p>
+
+        </article>
+
+        <!-- Divider -->
+        <div class="w-full max-w-2xl mx-auto h-px bg-stone-300 mt-12 mb-8"></div>
+
+        <!-- Footer / Author Section -->
+        <footer class="max-w-2xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="flex items-center gap-4">
+                <!-- 
+                   IMPORTANT: 
+                   Save your Spider-Man image as "author.jpg" in the same folder.
+                -->
+                <div class="h-14 w-14 rounded-full overflow-hidden border border-stone-300 flex-shrink-0 bg-stone-200 relative group">
+                    <img 
+                        src="author.jpg" 
+                        onerror="this.src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgdUDJBbezFz1-UKmlPgeEHVzidBU0ZQa_vgfI4BP7PDodOdh6AXbzfDFPrL3Z-7DvYawFjPTTmUFP1oZfuEd-j4kqOIiCaNcayT9CUrRQolzVY_45utqfwI5251xN55yhuEC_YYqf57qW25X3cNVoRXcHcUzOU59yuVBEVQuLKMSjMfjaiLC4FugyZHHw9/s1724/12199.jpg'" 
+                        alt="Le Varikal..." 
+                        class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                    >
+                </div>
+                <div>
+                    <p class="sans text-xs text-stone-500 uppercase tracking-widest mb-1">രചന</p>
+                    <a href="../index.html" rel="noopener noreferrer" class="author-link text-xl font-bold text-stone-900 hover:text-red-800 font-serif">
+                        Le Varikal...
+                    </a>
+                </div>
+            </div>
+
+            <div class="flex gap-4">
+                <button onclick="sharePage()" class="sans text-sm font-medium text-stone-500 hover:text-stone-900 flex items-center gap-2 transition-colors hover:bg-stone-100 px-4 py-2 rounded-full">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+                    പങ്കുവെക്കുക
+                </button>
+            </div>
+        </footer>
+
+    </main>
+
+    <script>
+        // Progress bar logic
+        window.onscroll = function() {
+            let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            let scrolled = (winScroll / height) * 100;
+            document.getElementById("progress-bar").style.width = scrolled + "%";
+        };
+
+        // Simple share functionality
+        function sharePage() {
+            if (navigator.share) {
+                navigator.share({
+                    title: 'എന്തുകൊണ്ട് നിങ്ങളുടെ മൗനം രാഷ്ട്രീയമാണ്',
+                    text: 'മൗനം ഒരിക്കലും നിഷ്പക്ഷമല്ല. മൗനം പാലിക്കാനുള്ള ഓരോ തീരുമാനവും പ്രത്യാഘാതങ്ങൾ സൃഷ്ടിക്കുന്നുണ്ട്.',
+                    url: window.location.href
+                })
+                .catch((error) => console.log('Error sharing', error));
+            } else {
+                // Fallback
+                const tempInput = document.createElement("input");
+                tempInput.value = window.location.href;
+                document.body.appendChild(tempInput);
+                tempInput.select();
+                document.execCommand("copy");
+                document.body.removeChild(tempInput);
+                alert("ലിങ്ക് കോപ്പി ചെയ്തു!");
+            }
+        }
+    </script>
+</body>
+</html>
+

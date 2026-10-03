@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="ml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Primary Meta Tags -->
+    <title>ഒരാളുടെ വേണ്ടപ്പെട്ട മനുഷ്യനാകാൻ - Le Varikal</title>
+    <meta name="title" content="ഒരാളുടെ വേണ്ടപ്പെട്ട മനുഷ്യനാകാൻ - Le Varikal">
+    <meta name="description" content="ഒരാളുടെ പ്രിയപ്പെട്ടവരാകാൻ ചില അടിസ്ഥാന യോഗ്യതകളുണ്ട്. അവരുടെ സങ്കടങ്ങൾക്കും ശ്വാസംമുട്ടലുകൾക്കും നമ്മളൊരിക്കലും കാരണമാവാതിരിക്കുക എന്നതാണ് അതിൽ പ്രധാനം.">
+
+    <!-- Open Graph / Facebook / WhatsApp / Telegram -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://whytechofficial.github.io/---.../Someone's%20One.html">
+    <meta property="og:title" content="ഒരാളുടെ വേണ്ടപ്പെട്ട മനുഷ്യനാകാൻ - Le Varikal">
+    <meta property="og:description" content="ഒരാളുടെ പ്രിയപ്പെട്ടവരാകാൻ ചില അടിസ്ഥാന യോഗ്യതകളുണ്ട്. അവരുടെ സങ്കടങ്ങൾക്കും ശ്വാസംമുട്ടലുകൾക്കും നമ്മളൊരിക്കലും കാരണമാവാതിരിക്കുക എന്നതാണ് അതിൽ പ്രധാനം.">
+    <meta property="og:image" content="https://blogger.googleusercontent.com/img/a/AVvXsEjdm2sgxcyVp-kod8D7DYf36QR12qJdndJxynJXcG3_N8T8JxGoWLwgeL3wLG0T39v8Skkvlq96PojpJ67VvmBOrhCVklAfheUL85hC-hChtFSUYHB-09OcHOqysvcF80aYNlMRnWS3hB2f2mC4lwWUkGqgx-5oLHTH60lKYsGWwODcJ0iZFPG-e02Ex4dW">
+
+    <!-- Twitter / X -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://whytechofficial.github.io/---.../Someone's%20One.html">
+    <meta property="twitter:title" content="ഒരാളുടെ വേണ്ടപ്പെട്ട മനുഷ്യനാകാൻ - Le Varikal">
+    <meta property="twitter:description" content="ഒരാളുടെ പ്രിയപ്പെട്ടവരാകാൻ ചില അടിസ്ഥാന യോഗ്യതകളുണ്ട്. അവരുടെ സങ്കടങ്ങൾക്കും ശ്വാസംമുട്ടലുകൾക്കും നമ്മളൊരിക്കലും കാരണമാവാതിരിക്കുക എന്നതാണ് അതിൽ പ്രധാനം.">
+    <meta property="twitter:image" content="https://blogger.googleusercontent.com/img/a/AVvXsEjdm2sgxcyVp-kod8D7DYf36QR12qJdndJxynJXcG3_N8T8JxGoWLwgeL3wLG0T39v8Skkvlq96PojpJ67VvmBOrhCVklAfheUL85hC-hChtFSUYHB-09OcHOqysvcF80aYNlMRnWS3hB2f2mC4lwWUkGqgx-5oLHTH60lKYsGWwODcJ0iZFPG-e02Ex4dW">
+
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Malayalam:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #fcfaf8;
+            --text-color: #2c2c2c;
+            --accent-color: #c0392b;
+            --card-bg: #ffffff;
+            --border-color: rgba(192, 57, 43, 0.2);
+            --icon-bg: #f5f0eb;
+        }
+        [data-theme="dark"] {
+            --bg-color: #121212;
+            --text-color: #e0e0e0;
+            --accent-color: #e74c3c;
+            --card-bg: #1e1e1e;
+            --border-color: rgba(231, 76, 60, 0.3);
+            --icon-bg: #2a2a2a;
+        }
+        body {
+            font-family: 'Noto Sans Malayalam', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.85;
+            margin: 0;
+            padding: 0;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        
+        /* Reading Progress Bar */
+        .progress-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: transparent;
+            z-index: 1001;
+        }
+        .progress-bar {
+            height: 100%;
+            background: var(--accent-color);
+            width: 0%;
+            transition: width 0.1s ease-out;
+            border-radius: 0 2px 2px 0;
+        }
+
+        /* Reading Animations */
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .animate-on-load {
+            animation: fadeUp 0.8s ease-out forwards;
+        }
+        .stagger-1 { animation-delay: 0.1s; opacity: 0; }
+        .stagger-2 { animation-delay: 0.3s; opacity: 0; }
+        .stagger-3 { animation-delay: 0.5s; opacity: 0; }
+        .stagger-4 { animation-delay: 0.7s; opacity: 0; }
+
+        .container {
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 50px 20px;
+        }
+        
+        .cover-image {
+            width: 100%;
+            height: auto;
+            max-height: 400px;
+            object-fit: cover;
+            border-radius: 16px;
+            margin-bottom: 35px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+            border: 1px solid var(--border-color);
+            transition: transform 0.4s ease;
+        }
+        .cover-image:hover {
+            transform: scale(1.01);
+        }
+
+        h1 {
+            font-size: 30px;
+            font-weight: 700;
+            margin-bottom: 35px;
+            color: var(--accent-color);
+            line-height: 1.4;
+            text-align: left;
+        }
+        .content p {
+            font-size: 18px;
+            margin-bottom: 28px;
+            text-align: left; 
+            letter-spacing: 0.2px;
+        }
+        .highlight {
+            color: var(--accent-color);
+            font-weight: 700;
+        }
+        .quote-block {
+            border-left: 5px solid var(--accent-color);
+            padding: 25px 30px;
+            font-style: italic;
+            margin: 40px 0;
+            background-color: var(--card-bg);
+            border-radius: 0 12px 12px 0;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+            font-size: 19px;
+            line-height: 1.9;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .quote-block:hover {
+            transform: translateX(5px);
+            box-shadow: -2px 6px 20px rgba(0,0,0,0.06);
+        }
+        
+        /* Icon Only Theme Toggle Button */
+        .theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: var(--card-bg);
+            color: var(--text-color);
+            border: 1px solid var(--border-color);
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+        .theme-toggle:hover {
+            border-color: var(--accent-color);
+            color: var(--accent-color);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(192, 57, 43, 0.15);
+        }
+        .theme-toggle svg {
+            width: 22px;
+            height: 22px;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+        
+        body:not([data-theme="dark"]) .sun-icon { display: none; }
+        body:not([data-theme="dark"]) .moon-icon { display: block; }
+        body[data-theme="dark"] .sun-icon { display: block; }
+        body[data-theme="dark"] .moon-icon { display: none; }
+
+        .separator {
+            border: 0;
+            height: 1px;
+            background: var(--border-color);
+            margin: 60px 0 40px 0;
+        }
+        
+        /* Unified Author and Share Section */
+        .engagement-container {
+            background-color: var(--card-bg);
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+            border: 1px solid var(--border-color);
+        }
+        .author-section {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            margin-bottom: 25px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .author-img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--accent-color);
+            padding: 3px;
+        }
+        .author-info h3 {
+            margin: 0 0 4px 0;
+            font-size: 22px;
+        }
+        .author-info h3 a {
+            color: var(--accent-color);
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+        .author-info h3 a:hover {
+            opacity: 0.8;
+            text-decoration: underline;
+        }
+        .author-motto {
+            margin: 0 !important;
+            font-size: 13px;
+            font-weight: 700;
+            color: #7f8c8d;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+        }
+        
+        /* Material 3 Monochrome Share Section */
+        .share-section {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        .share-label {
+            font-weight: 600;
+            font-size: 16px;
+            color: var(--text-color);
+        }
+        .share-buttons {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        .share-btn {
+            background-color: var(--icon-bg);
+            border: 1px solid transparent;
+            color: var(--text-color);
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .share-btn svg {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+            transition: transform 0.2s ease;
+        }
+        .share-btn:hover {
+            background-color: var(--accent-color);
+            color: #ffffff;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(192, 57, 43, 0.2);
+        }
+        .share-btn:hover svg {
+            transform: scale(1.1);
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 60px;
+            font-size: 14px;
+            opacity: 0.6;
+        }
+        
+        @media (max-width: 600px) {
+            .share-section {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 20px;
+            }
+            .author-section {
+                flex-direction: column;
+                text-align: center;
+                align-items: center;
+            }
+            .quote-block {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Reading Progress Bar -->
+    <div class="progress-container">
+        <div class="progress-bar" id="readingProgress"></div>
+    </div>
+
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle Dark Mode" title="Toggle Theme">
+        <svg class="moon-icon" viewBox="0 0 24 24">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+        <svg class="sun-icon" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+    </button>
+
+    <div class="container">
+        <article class="content">
+            <img src="https://blogger.googleusercontent.com/img/a/AVvXsEjdm2sgxcyVp-kod8D7DYf36QR12qJdndJxynJXcG3_N8T8JxGoWLwgeL3wLG0T39v8Skkvlq96PojpJ67VvmBOrhCVklAfheUL85hC-hChtFSUYHB-09OcHOqysvcF80aYNlMRnWS3hB2f2mC4lwWUkGqgx-5oLHTH60lKYsGWwODcJ0iZFPG-e02Ex4dW" alt="Article Cover" class="cover-image animate-on-load stagger-1">
+            
+            <h1 class="animate-on-load stagger-2">ഒരാളുടെ വേണ്ടപ്പെട്ട മനുഷ്യനാകാൻ ചില മിനിമം യോഗ്യതകളുണ്ട്</h1>
+            
+            <div class="animate-on-load stagger-3">
+                <p>ഒരാളുടെ പ്രിയപ്പെട്ടവരാകാൻ ചില അടിസ്ഥാന യോഗ്യതകളുണ്ട്. അതിൽ ഏറ്റവും പ്രധാനം, <span class="highlight">അവരുടെ സങ്കടങ്ങൾക്കും ശ്വാസംമുട്ടലുകൾക്കും നമ്മളൊരിക്കലും കാരണമാവാതിരിക്കുക</span> എന്നതാണ്. നമ്മെ വിശ്വസിക്കുകയും സ്നേഹിക്കുകയും ചെയ്യുന്നവരോട് പുലർത്തേണ്ട ഏറ്റവും വലിയ നീതിയാണത്. പ്രിയപ്പെട്ടവരായിരിക്കുക എന്നതിനർത്ഥം അവരുടെ നിസ്സഹായതകളെക്കൂടി ആഴത്തിൽ മനസ്സിലാക്കുക എന്നതാണ്.</p>
+
+                <p>ഇതല്ല എന്റെ ജീവിതം, അല്ലെങ്കിൽ ഇതല്ല എനിക്ക് വേണ്ടത് എന്ന് പൂർണ്ണ ബോധ്യമുണ്ടായിട്ടും, പ്രിയപ്പെട്ടവരുടെ ചോദ്യം ചെയ്യലുകളെയും മുൻവിധികളെയും ഭയന്ന് മാത്രം ഒരിടത്ത് തന്നെ തളച്ചിടപ്പെടുന്നവരുണ്ട്. 'വേണ്ട' എന്ന് എങ്ങനെ പറയുമെന്ന ചിന്തയുടെ കുരുക്കിൽ പെട്ട്, <span class="highlight">ഒട്ടും ഇഷ്ടമില്ലാത്തൊരു വിഭവം നിർബന്ധിതമായി കഴിക്കുന്നതുപോലെ</span> അവർ തങ്ങളുടെ ജീവിതത്തെ മുഴുവൻ കയ്പ്പുള്ളതാക്കി മാറ്റുന്നു.</p>
+
+                <div class="quote-block">
+                    പുറംലോകത്തു നിന്നോ തൊഴിലിടങ്ങളിൽ നിന്നോ അപമാനിക്കപ്പെട്ട് തളർന്നുവരുന്ന ഒരാൾക്ക്, സ്വന്തം മുറിവുകളുണക്കാൻ ഒരു സുരക്ഷിത ഇടം ആവശ്യമുണ്ട്. ആ ഒരിടം തേടിയാവും അവർ നിങ്ങളിലേക്ക് ഓടിയെത്തുന്നത്.
+                </div>
+
+                <p>എന്നാൽ, വീണ്ടും വീണ്ടും കുത്തിനോവിക്കുന്നവരോ, കേൾക്കാൻ തയ്യാറാവാത്തവരോ ആണ് ചുറ്റുമുള്ളതെങ്കിൽ, ആ മനുഷ്യൻ അവിടെ തികച്ചും ഏകാകിയാവുന്നു. സ്വന്തം സങ്കടങ്ങളോടുള്ള ആ ഒറ്റയാൾ പോരാട്ടം അവസാനിപ്പിച്ച് എന്നെങ്കിലുമൊരിക്കൽ അവർ ആ പടിയിറങ്ങിപ്പോയേക്കാം.</p>
+
+                <p>സ്വന്തം വിശ്വാസങ്ങളും അഭിപ്രായങ്ങളും മുറുകെ പിടിക്കുമ്പോഴും, അവ മറ്റൊരാളുടെ മേൽ അടിച്ചേൽപ്പിക്കാതിരിക്കുക. <span class="highlight">അധികാരത്തിന്റെ കണിക പോലുമില്ലാതെ അവരെ അവരുടെ ഇഷ്ടങ്ങൾക്ക് വിടുക.</span> പാമ്പുകടിയേറ്റ കുട്ടിയെ ആശുപത്രിയിൽ കൊണ്ടുപോവാതെ നാട്ടു വൈദ്യനെ കാണിക്കാൻ തീരുമാനിക്കുന്നതുപോലുള്ള ചില പിടിവാശികൾ, കൂടെയുള്ളവരുടെ ജീവിതത്തിന് തന്നെ പൂർണ്ണവിരാമമിട്ടേക്കാം.</p>
+
+                <p>ഓരോ മനുഷ്യനും അവർക്ക് മാത്രം അറിയാവുന്ന വേദനകളും മുറിവുകളുമായാണ് ജീവിക്കുന്നത്. കാലൊടിഞ്ഞു വീണു കിടക്കുമ്പോൾ ഒരു കൈത്താങ്ങായി ഒപ്പം നിൽക്കാനെങ്കിലും പ്രിയപ്പെട്ടവർക്ക് ബാധ്യതയുണ്ട്. അതിനുപോലും കഴിയാത്തവർ മറ്റുള്ളവരിലേക്ക് അടുക്കാതിരിക്കുന്നതാണ് ഏറ്റവും നല്ലത്.</p>
+
+                <p style="color: var(--accent-color); font-weight: 700; font-size: 20px; margin-top: 50px; text-align: center; line-height: 1.7;">
+                    "നിങ്ങൾക്കൊരു തണൽ വേണമെന്നുണ്ടെങ്കിൽ, ആ മരത്തിന്റെ ചുവട്ടിൽ വെള്ളമൊഴിക്കാൻ കൂടി നിങ്ങൾ തയ്യാറാവണം. പൊള്ളുന്ന വെയിലിൽ ഒരു തുള്ളി നനവ് നൽകാൻ കഴിയാത്ത ബന്ധങ്ങൾ മനുഷ്യർക്ക് ആവശ്യമില്ല."
+                </p>
+            </div>
+        </article>
+
+        <hr class="separator animate-on-load stagger-4">
+        
+        <div class="engagement-container animate-on-load stagger-4">
+            <div class="author-section">
+                <img src="https://blogger.googleusercontent.com/img/a/AVvXsEjqpLadYdybrF5HalPwqYrGnLWjqHOak_oYKbxtEXp0wGwwnLDM_SjA28jsNtRmoM4c979Q82L67s7M61b3lfdBOpaP-QRT7N7LLS8neJ73pa0-4w53FyDoBid9a1HKu6rizfPcOzlHTnbA0t1aRs8HcuMkokIScoJGwSKoJ7vgCZRRlqdRYC4qAA-zNuJw" alt="Author Profile Image" class="author-img">
+                <div class="author-info">
+                    <h3><a href="../index.html">ലെ വരികൾ...</a></h3>
+                    <p class="author-motto">Voice. Vision. Verse.</p>
+                </div>
+            </div>
+
+            <div class="share-section">
+                <span class="share-label">Share:</span>
+                <div class="share-buttons">
+                    <button class="share-btn" aria-label="Share on WhatsApp" title="WhatsApp">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.885m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/>
+                        </svg>
+                    </button>
+                    <button class="share-btn" aria-label="Share on Facebook" title="Facebook">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.469h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.469h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                        </svg>
+                    </button>
+                    <button class="share-btn" aria-label="Share on Instagram" title="Instagram">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.203 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm3.98-10.405a1.44 1.44 0 1 1-2.88 0 1.44 1.44 0 0 1 2.88 0z"/>
+                        </svg>
+                    </button>
+                    <button class="share-btn" aria-label="Share on X" title="X (Twitter)">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/>
+                        </svg>
+                    </button>
+                    <button class="share-btn" aria-label="Copy Link" title="Copy Link">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <footer class="animate-on-load stagger-4">
+            &copy; 2026 Le Varikal Archive. All rights reserved.
+        </footer>
+    </div>
+
+    <script>
+        // Theme Toggle Logic
+        const toggleBtn = document.getElementById('themeToggle');
+        toggleBtn.addEventListener('click', () => {
+            const isDark = document.body.getAttribute('data-theme') === 'dark';
+            if (isDark) {
+                document.body.removeAttribute('data-theme');
+            } else {
+                document.body.setAttribute('data-theme', 'dark');
+            }
+        });
+
+        // Reading Progress Bar Logic
+        window.onscroll = function() {
+            let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            let scrolled = (winScroll / height) * 100;
+            document.getElementById("readingProgress").style.width = scrolled + "%";
+        };
+    </script>
+</body>
+</html>
