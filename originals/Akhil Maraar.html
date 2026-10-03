@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="ml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>സാമാന്യബോധവും നിയമബോധവും: ഒരു തുറന്ന കത്ത്</title>
+    
+    <meta property="og:title" content="സാമാന്യബോധവും നിയമബോധവും: ഒരു തുറന്ന കത്ത്" />
+    <meta property="og:description" content="നടി ആക്രമിക്കപ്പെട്ട കേസിലെ വിധിപ്രസ്താവത്തെ തുടർന്ന് ഉയരുന്ന വിഷലിപ്തമായ പ്രതികരണങ്ങളോട് ഒരു വിയോജിപ്പ്." />
+    <meta property="og:type" content="article" />
+
+    <link href="https://fonts.googleapis.com/css2?family=Manjari:wght@100;400;700&family=Noto+Serif+Malayalam:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-red: #c0392b;
+            --accent-blue: #2980b9;
+            --bg-color: #fdfbf7;
+            --text-color: #333;
+            --highlight-yellow: #fff3cd;
+            --highlight-white: #ffffff;
+            --whatsapp-color: #25D366;
+            --facebook-color: #1877F2;
+            --x-color: #000000;
+            --copy-color: #7f8c8d;
+        }
+
+        body {
+            font-family: 'Noto Serif Malayalam', serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.9;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px 25px 40px 25px;
+        }
+
+        /* --- Header & Cover SVG --- */
+        .header-svg-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .header-svg {
+            max-width: 100%;
+            height: auto;
+            max-height: 200px;
+            filter: drop-shadow(0px 4px 6px rgba(0,0,0,0.1));
+        }
+
+        header {
+            /* border-bottomremoved in favor of SVG */
+            padding-bottom: 20px;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        h1 {
+            font-family: 'Manjari', sans-serif;
+            font-weight: 700;
+            font-size: 2.2rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            line-height: 1.3;
+            text-wrap: balance;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: #666;
+            font-style: italic;
+            display: block;
+            margin-top: 10px;
+        }
+
+        /* --- Content Styling --- */
+        h2 {
+            font-family: 'Manjari', sans-serif;
+            color: var(--accent-blue);
+            margin-top: 45px;
+            margin-bottom: 20px;
+            font-size: 1.6rem;
+            text-align: center;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+            display: inline-block;
+            width: 100%;
+        }
+
+        p {
+            font-size: 1.15rem;
+            margin-bottom: 25px;
+            text-align: justify;
+            text-justify: inter-word;
+            hyphens: auto;
+        }
+
+        .highlight-text {
+            background-color: var(--highlight-yellow);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 600;
+            color: #2c3e50;
+            box-shadow: 1px 1px 2px rgba(0,0,0,0.05);
+        }
+
+        .alert-box {
+            background-color: #ffeaea;
+            border-left: 5px solid var(--accent-red);
+            padding: 25px;
+            margin: 30px 0;
+            border-radius: 5px;
+            text-align: justify;
+        }
+
+        .alert-box strong {
+            color: var(--accent-red);
+            font-size: 1.2rem;
+            display: block;
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        .legal-note {
+            background-color: #e8f4f8;
+            border-left: 5px solid var(--accent-blue);
+            padding: 25px;
+            margin: 35px 0;
+            font-size: 1.1rem;
+            color: #2c3e50;
+            text-align: justify;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .legal-note .highlight-text {
+            background-color: var(--highlight-white);
+            color: var(--accent-blue);
+            border: 1px solid #d6eaf8;
+        }
+
+        blockquote {
+            font-family: 'Manjari', sans-serif;
+            font-size: 1.3rem;
+            color: #444;
+            margin: 40px 0;
+            padding: 20px 30px;
+            text-align: center;
+            border-top: 1px solid #ccc;
+            border-bottom: 1px solid #ccc;
+            font-style: italic;
+            background-color: #fff;
+        }
+
+        .strong-emphasis {
+            color: var(--accent-red);
+            font-weight: bold;
+        }
+
+        /* --- Author Section --- */
+        .author-container {
+            margin-top: 50px;
+            padding-top: 30px;
+        }
+
+        .separator-line {
+            border: 0;
+            height: 1px;
+            background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(44, 62, 80, 0.3), rgba(0, 0, 0, 0));
+            margin-bottom: 30px;
+        }
+
+        .author-profile {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+
+        .author-img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--accent-blue);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            margin-right: 20px;
+        }
+
+        .author-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .author-name {
+            font-family: 'Manjari', sans-serif;
+            font-weight: 700;
+            font-size: 1.4rem;
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .author-name:hover {
+            color: var(--accent-blue);
+        }
+
+        .author-motto {
+            font-family: 'Noto Serif Malayalam', serif;
+            font-size: 1rem;
+            color: #777;
+            font-style: italic;
+            margin-top: 5px;
+        }
+
+        /* --- Share Section --- */
+        .share-section {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+
+        .share-btn {
+            display: flex;
+            align-items: center;
+            padding: 10px 20px;
+            border-radius: 30px;
+            text-decoration: none;
+            color: white;
+            font-family: 'Manjari', sans-serif;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .share-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        .share-btn svg {
+            width: 18px;
+            height: 18px;
+            margin-right: 8px;
+            fill: currentColor;
+        }
+
+        .btn-whatsapp { background-color: var(--whatsapp-color); }
+        .btn-facebook { background-color: var(--facebook-color); }
+        .btn-x { background-color: var(--x-color); }
+        .btn-copy { background-color: var(--copy-color); }
+        .btn-copy.copied { background-color: #27ae60; }
+
+        /* --- Footer --- */
+        .footer-note {
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            font-size: 0.9rem;
+            color: #777;
+            text-align: center;
+        }
+
+        /* Mobile Optimization */
+        @media (max-width: 600px) {
+            h1 { font-size: 1.8rem; }
+            .container { padding: 20px 18px; }
+            blockquote { font-size: 1.15rem; padding: 15px; }
+            p { font-size: 1.1rem; }
+            
+            .author-profile {
+                flex-direction: column;
+                text-align: center;
+            }
+            .author-img { margin-right: 0; margin-bottom: 15px; }
+            .share-btn { padding: 10px 15px; font-size: 0.85rem;}
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header-svg-container">
+        <svg class="header-svg" viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" style="stop-color:#2c3e50;stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:#c0392b;stop-opacity:1" />
+                </linearGradient>
+            </defs>
+            <g opacity="0.1">
+                 <path d="M150,150 Q400,50 650,150 T150,150" fill="none" stroke="url(#grad1)" stroke-width="2"/>
+                 <path d="M100,180 Q400,80 700,180" fill="none" stroke="#2980b9" stroke-width="1" opacity="0.5"/>
+            </g>
+            <path d="M400,50 L400,250 M300,100 L500,100" stroke="#2c3e50" stroke-width="4" stroke-linecap="round"/>
+            <circle cx="400" cy="50" r="10" fill="#c0392b"/>
+            
+            <g transform="translate(300, 100)">
+                <line x1="0" y1="0" x2="-50" y2="80" stroke="#555" stroke-width="2"/>
+                <path d="M-80,180 Q-50,200 -20,180 L-20,170 Q-50,190 -80,170 Z" fill="#2980b9" opacity="0.8"/>
+                <rect x="-85" y="160" width="70" height="10" fill="#2c3e50"/>
+            </g>
+             <g transform="translate(500, 100)">
+                <line x1="0" y1="0" x2="50" y2="80" stroke="#555" stroke-width="2"/>
+                 <path d="M20,190 Q50,210 80,190 L80,180 Q50,200 20,180 Z" fill="#c0392b" opacity="0.8" transform="rotate(15, 50, 180)"/>
+                <rect x="15" y="160" width="70" height="10" fill="#2c3e50" transform="rotate(15, 50, 165)"/>
+            </g>
+            <text x="400" y="280" font-family="Manjari, sans-serif" font-size="14" fill="#777" text-anchor="middle">നീതി | സത്യം | സമൂഹം</text>
+        </svg>
+    </div>
+
+    <header>
+        <h1>സാമാന്യബോധവും നിയമബോധവും പണയം വെക്കുന്നവരോട്...</h1>
+        <span class="subtitle">നടി ആക്രമിക്കപ്പെട്ട കേസിലെ വിധിപ്രസ്താവത്തെ തുടർന്ന് ഉയരുന്ന വിഷലിപ്തമായ പ്രതികരണങ്ങളോട് ഒരു വിയോജിപ്പ്.</span>
+    </header>
+
+    <p>സാമാന്യ ബുദ്ധിയും കേവല ബോധവും എങ്കിലും കാര്യങ്ങൾ പടച്ചുവിടുന്നതിനു മുൻപ് കാണിക്കാൻ ശ്രമിച്ചു കൂടെ? നടി ആക്രമിക്കപ്പെട്ട കേസിലെ വിധി പ്രസ്താവത്തെ തുടർന്ന് പുറത്തുവരുന്ന അഖിൽ മാരാരിന്റെ പ്രതികരണങ്ങൾ <span class="strong-emphasis">അങ്ങേയറ്റം നീചമാണെന്ന്</span> തന്നെ പറയട്ടെ.</p>
+
+    <p>നിങ്ങൾക്ക് അവളോടൊപ്പം നിൽക്കുകയോ, ആരോപണ വിധേയനായിരുന്നയാൾക്കൊപ്പം നിൽക്കുകയോ ചെയ്യാം. അത് പൂർണ്ണമായും നിങ്ങളുടെ സ്വാതന്ത്ര്യമാണ്. എന്നാൽ അത്തരമൊരു കേസിനെ, അവളുടെ ആരോപണത്തെ എത്ര നിസ്സാരവൽക്കരിച്ചും, അതിലേറെ അസഹിഷ്ണുതയോടെയുമാണ് നിങ്ങൾ നോക്കിക്കാണുന്നത്?</p>
+
+    <div class="alert-box">
+        <strong>"ഡെമോൺസ്ട്രേറ്റ് ചെയ്തു കാണിക്കൂ..."</strong>
+        നിങ്ങൾ നിങ്ങളുടെ പങ്കാളിയോടൊപ്പം അത് ഡെമോൺസ്ട്രേറ്റ് ചെയ്യൂ എന്നാവശ്യപ്പെടുന്നത് എത്ര ഹീനമായ പ്രവർത്തിയാണ്. എങ്ങനെയാണ് ഏതെങ്കിലും ഒരാളോട് ഒരു റേപ്പ് ഡെമോൺസ്ട്രേറ്റ് ചെയ്യാൻ ആവശ്യപ്പെടാൻ നിങ്ങൾക്ക് സാധിക്കുക?
+    </div>
+
+    <p>റേപ്പിന്റെ രീതികളും, വരുംവരായികകളും, ആ സമയത്തുണ്ടാകുന്ന പ്രതികരണങ്ങളും ഒക്കെ പരീക്ഷിച്ചു തെളിയിക്കാൻ സാധിക്കുമെന്ന് ചിന്തിക്കാൻ പോലും കഴിയുന്നത് എത്ര വികൃതമാണ്. എത്രത്തോളം അധഃപതിച്ചു പോയിരിക്കുന്നു നിങ്ങളുടെ ചിന്താധാരകൾ.</p>
+
+    <h2>1. ഓടുന്ന വാഹനങ്ങളിലെ ക്രൂരതകൾ: ചരിത്രം സാക്ഷി</h2>
+
+    <p>ഓടിക്കൊണ്ടിരിക്കുന്ന കാറിന്റെ പിൻസീറ്റിലെ സൗകര്യങ്ങളിൽ ഏത് തീവ്രതയിൽ പീഡിപ്പിക്കാൻ സാധിക്കുമെന്നും, 2017-ലെ മൊബൈൽ ക്യാമറയുടെ ക്വാളിറ്റി വെച്ച് എത്രത്തോളം ക്ലാരിറ്റിയിൽ അത് പകർത്താൻ കഴിയുമെന്നും ഒക്കെ ചോദിക്കുന്ന ഒരാളിലെ വൈകൃതം തെല്ലൊന്നുമല്ല എന്നെ അലോസരപ്പെടുത്തുന്നത്.</p>
+
+    <p>ഓടുന്ന ബസ്സും ട്രെയിനും കാറും ഇടുങ്ങിയ സ്ഥലവും ഒന്നും ലൈംഗിക വൈകൃതത്തിന്റെ അങ്ങേയറ്റത്ത് നിൽക്കുന്ന നരാധമന്മാരെ പിന്തിരിപ്പിച്ചിട്ടില്ല എന്നതിന് ജീവിക്കുന്നതും മരണപ്പെട്ടവരുമായ ഉദാഹരണങ്ങൾ ഉള്ള നാടാണ് നമ്മുടേതെന്ന് ഖേദത്തോടെ ഓർമിപ്പിക്കട്ടെ.</p>
+
+    <blockquote>
+        "ഓടുന്ന ബസ്സിൽ ക്രൂരമായി പീഡിപ്പിക്കപ്പെട്ട നിർഭയയുടെ നിലവിളികൾ ഇന്നും മുഴങ്ങുന്ന ഒരു രാജ്യത്തിരുന്നാണ്, നിങ്ങൾ കാറിലെ 'ലെഗ് സ്പേസ്' അളക്കുന്നത്."
+    </blockquote>
+
+    <p>അത്തരം ഒരിടത്താണ് കാറിലെ സ്ഥലപരിമിതിക്കുള്ളിൽ ഏത് തീവ്രതയിൽ പീഡിപ്പിക്കാൻ സാധിക്കും എന്ന അഖിൽ മാരാരുടെ ചോദ്യം പ്രസക്തമാകുന്നത്. ഇത് അജ്ഞതയല്ല, മറിച്ച് കുറ്റകൃത്യത്തിന്റെ ഗൗരവത്തെ റദ്ദാക്കാനുള്ള മനഃപൂർവ്വമായ ശ്രമമാണ്.</p>
+
+    <h2>2. നിയമം പറയുന്നത് എന്ത്?</h2>
+    
+    <div class="legal-note">
+        <p style="margin-bottom: 0;"><strong>നിയമപരമായ വസ്തുത:</strong> കോടതി വിധിയിൽ ഗൂഢാലോചന തെളിയിക്കാൻ സാധിച്ചില്ല എന്നതുകൊണ്ട് <b>കുറ്റകൃത്യം നടന്നില്ല എന്ന് അർത്ഥമില്ല.</b> ഒന്നാം പ്രതിയായ പൾസർ സുനി ഉൾപ്പെടെയുള്ളവർ കുറ്റക്കാരാണെന്ന് കോടതി കണ്ടെത്തുകയും ശിക്ഷിക്കുകയും ചെയ്തിട്ടുണ്ട്. അതായത്, ഓടുന്ന കാറിൽ ആ പെൺകുട്ടി പീഡിപ്പിക്കപ്പെട്ടു എന്നത് ഒരു 'കഥ'യല്ല, മറിച്ച് കോടതി അംഗീകരിച്ച <span class="highlight-text">Facts in Issue (തർക്കവിഷയമല്ലാത്ത വസ്തുത)</span> ആണ്.</p>
+    </div>
+
+    <p>അവളുടെ പരാതിയിലെ കുറ്റകൃത്യങ്ങൾ നടന്നിട്ടുണ്ടോ എന്ന് സംശയിക്കുന്ന തരത്തിലെ ചോദ്യങ്ങൾ, അത് നടന്നിട്ടുണ്ട് എന്ന് കോടതി നിരീക്ഷിക്കുകയും പ്രതികളെ കോടതി കണ്ടെത്തുകയും ചെയ്ത സാഹചര്യത്തിലാണ് എന്നതിലെ വിരോധാഭാസം കൂടി കണക്കിലെടുക്കേണ്ടതുണ്ട്.</p>
+
+    <h2>3. അറ്റൻഷൻ സീക്കിങ്ങോ, അതോ ക്രൂരതയോ?</h2>
+
+    <p>നിങ്ങളുടെ നികൃഷ്ട ചിന്താധാരകളെ പറഞ്ഞു തിരുത്താം എന്ന വ്യാമോഹം ഒന്നും എനിക്കില്ല. പക്ഷേ നിങ്ങളുടെ ഉള്ളിലെ വിഷം ഇടയ്ക്കിടെ ഇങ്ങനെ പുറത്തു വരുമ്പോൾ അത് അറ്റൻഷൻ സീക്കിങ്ങിന് വേണ്ടി മാത്രമായിട്ടാണെങ്കിൽ കൂടിയും, അതിൽ നിങ്ങൾ മുന്നോട്ട് വയ്ക്കുന്ന ക്രൂരവും വികലവുമായ ആരോപണങ്ങളെ എപ്രകാരമാണ് കണ്ടില്ലെന്ന് നടിക്കാനാവുക?</p>
+
+    <p>ഒരാൾ തനിക്ക് നേരെ ഉണ്ടായ ക്രൂരതകളെ അതിജീവിക്കുകയും നിയമ പോരാട്ടം നടത്തുകയും നീതിക്കുവേണ്ടി വർഷങ്ങളോളം പൊരുതുകയും തുടർന്നും പൊരുതാൻ തീരുമാനിക്കുകയുമൊക്കെ ചെയ്യുന്ന ഇടത്താണ് തന്നെപ്പോലെയുള്ള <span class="highlight-text">മാന്യതയുടെ മൂടുപടം അണിഞ്ഞ ചെന്നായകളുടെ കടിച്ചുകീറലുകൾ.</span></p>
+
+    <p>അവൾ അനുഭവിച്ച ക്രൂരതകളെ എത്ര നികൃഷ്ടമായാണ് നിരാകരിക്കാനും നിസ്സാരവൽക്കരിക്കാനും നിങ്ങൾ ശ്രമിക്കുന്നതെന്ന് സ്വയം വിലയിരുത്തി നോക്കുക.</p>
+
+    <h2>ഉപസംഹാരം</h2>
+
+    <p>നിങ്ങൾക്ക് അയാളോടൊപ്പം നിൽക്കാം. നിങ്ങളിൽ നിന്നും മറ്റൊന്നും പ്രതീക്ഷിക്കുന്നുമില്ല. എന്നാൽ <strong>'അവൾക്കൊപ്പം'</strong> എന്നതിനോട് നിങ്ങൾ പുലർത്തുന്ന അസഹിഷ്‌ണത ഇത്തരം വികല ചിന്താധാരകളുടെ വിഷം നിറച്ച വാക്കുകളായി സമൂഹത്തിലേക്ക് പുറന്തള്ളാതിരിക്കുക.</p>
+    
+    <div class="alert-box" style="background-color: #f1f8e9; border-left-color: #558b2f;">
+        <p style="margin-bottom: 0; color: #2e7d32; font-weight: 600;">
+            നാളെ നിങ്ങളുടെ വീട്ടിൽ ഇത് സംഭവിച്ചാൽ (ആർക്കും സംഭവിക്കാതിരിക്കട്ടെ) അപ്പോഴും സംഭവം നടന്ന സ്ഥലത്തെ സ്ഥലപരിമിതിയും ക്യാമറ ക്വാളിറ്റിയും ഒക്കെ തിരയാനും, ഡെമോൺസ്ട്രേറ്റ് ചെയ്ത് സംഭവം നടന്നിട്ടുണ്ടോ എന്ന് തെളിയിക്കാൻ ആവശ്യപ്പെടാനുമൊക്കെ ആകുമോ മാരാരെ നിങ്ങളുടെ ശുഷ്കാന്തി?
+        </p>
+    </div>
+    
+    <p style="text-align: center; margin-top: 30px;"><strong>സ്വയം പരിശോധിക്കുക. കാരണം, നീതി എന്നത് സൗകര്യങ്ങൾക്കനുസരിച്ച് അളന്നു മുറിക്കാവുന്ന ഒന്നല്ല.</strong></p>
+
+    <div class="author-container">
+        <hr class="separator-line">
+        
+        <div class="author-profile">
+            <img src="https://blogger.googleusercontent.com/img/a/AVvXsEhptyy505_TYbnkqkC2XwheDNCpL2UzafddR46leObmyeEHGPoW8u4QUq7dBq5Y1jpjh7gyYuNv2vgWVHBSIlr07g5R7f8piIwavDHCEHHy5Yqj5RDFBsvwvYDgvBg9vtEmQzXfAe1jUMKgjz9Uqxr97zvM6nEcmoEQ5rD_ww9EI3i8i9FI6ZvTxTVZsXGE" alt="Author Profile" class="author-img">
+            <div class="author-info">
+                <a href="https://www.instagram.com/p/DSHKh2jEm0a/" target="_blank" class="author-name">ജാഡ സ്റ്റോറീസ്</a>
+                <span class="author-motto">വാക്കുകൾ, ചിന്തകൾ, വരികൾ.</span>
+            </div>
+        </div>
+
+        <div class="share-section">
+            <button class="share-btn btn-whatsapp" onclick="shareTo('whatsapp')">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                WhatsApp
+            </button>
+            <button class="share-btn btn-facebook" onclick="shareTo('facebook')">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                Facebook
+            </button>
+            <button class="share-btn btn-x" onclick="shareTo('x')">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                X (Twitter)
+            </button>
+            <button class="share-btn btn-copy" id="copyLinkBtn" onclick="copyLink()">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22 6v16h-16v-16h16zm2-2h-20v20h20v-20zm-24 17v-21h21v2h-19v19h-2z"/></svg>
+                ലിങ്ക് കോപ്പി ചെയ്യുക
+            </button>
+        </div>
+
+    </div>
+
+    <div class="footer-note">
+        ഇതൊരു പ്രതികരണ കുറിപ്പാണ്. അതിജീവിതയോടുള്ള ഐക്യദാർഢ്യം പ്രഖ്യാപിക്കുന്നു.
+    </div>
+</div>
+
+<script>
+    function shareTo(platform) {
+        const currentUrl = encodeURIComponent(window.location.href);
+        const title = encodeURIComponent(document.title);
+        let shareUrl = '';
+
+        switch(platform) {
+            case 'whatsapp':
+                shareUrl = `https://wa.me/?text=${title} - ${currentUrl}`;
+                break;
+            case 'facebook':
+                shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${currentUrl}`;
+                break;
+            case 'x':
+                shareUrl = `https://twitter.com/intent/tweet?url=${currentUrl}&text=${title}`;
+                break;
+        }
+
+        if (shareUrl) {
+            window.open(shareUrl, '_blank', 'width=600,height=400');
+        }
+    }
+
+    function copyLink() {
+        const url = window.location.href;
+        navigator.clipboard.writeText(url).then(() => {
+            const copyBtn = document.getElementById('copyLinkBtn');
+            const originalText = copyBtn.innerHTML;
+            copyBtn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"/></svg> കോപ്പി ചെയ്തു!';
+            copyBtn.classList.add('copied');
+            
+            setTimeout(() => {
+                copyBtn.innerHTML = originalText;
+                copyBtn.classList.remove('copied');
+            }, 3000);
+        }).catch(err => {
+            console.error('Failed to copy link: ', err);
+            alert('ലിങ്ക് കോപ്പി ചെയ്യാൻ സാധിച്ചില്ല.');
+        });
+    }
+</script>
+
+</body>
+</html>

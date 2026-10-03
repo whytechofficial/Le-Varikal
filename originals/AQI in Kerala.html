@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="ml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ഹരിതനാടിന്റെ ശ്വാസം നിലയ്ക്കുമ്പോൾ | Le Varikal</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Manjari:wght@100;400;700&family=Noto+Serif+Malayalam:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <style>
+        /* --- CSS VARIABLES (THEMING) --- */
+        :root {
+            /* Light Mode (Default) */
+            --bg-color: #f0f2f5;
+            --container-shadow: 0 20px 40px rgba(0,0,0,0.08);
+            --card-bg: #ffffff;
+            --text-primary: #1d1d1f;
+            --text-secondary: #515154;
+            --text-heading: #111111;
+            --accent-green: #007d43; 
+            --accent-red: #d70015;
+            --highlight-bg: #fff5bc;
+            --highlight-text: #000;
+            --quote-bg: linear-gradient(to right, #f5f9f7, #ffffff);
+            --quote-text: #2c3e50;
+            --author-bg: #fafafa;
+            --author-border: #eee;
+            --author-text: #111;
+            --divider-color: #eee;
+            --overlay-gradient: linear-gradient(to top, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
+            
+            /* Structural */
+            --radius-lg: 24px;
+            --radius-sm: 12px;
+            --font-serif: 'Noto Serif Malayalam', serif;
+            --font-sans: 'Manjari', sans-serif;
+        }
+
+        /* Dark Mode Overrides */
+        body.dark-mode {
+            --bg-color: #121212;
+            --container-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            --card-bg: #1e1e1e;
+            --text-primary: #e0e0e0;
+            --text-secondary: #a0a0a0;
+            --text-heading: #ffffff;
+            --accent-green: #66bb6a;
+            --accent-red: #ff5252;
+            --highlight-bg: #3e4a36;
+            --highlight-text: #e0e0e0;
+            --quote-bg: linear-gradient(to right, #252525, #1e1e1e);
+            --quote-text: #d1d5db;
+            --author-bg: #252525;
+            --author-border: #333;
+            --author-text: #fff;
+            --divider-color: #444;
+            --overlay-gradient: linear-gradient(to top, rgba(30,30,30,1) 0%, rgba(30,30,30,0) 100%);
+        }
+
+        /* --- ANIMATION KEYFRAMES --- */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes gentleZoom {
+            from { transform: scale(1.05); opacity: 0; }
+            to { transform: scale(1.0); opacity: 1; }
+        }
+
+        body {
+            font-family: var(--font-serif);
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.9;
+            margin: 0;
+            padding: 20px 0; /* Added padding to body for better spacing */
+            font-size: 19px;
+            transition: background-color 0.5s ease, color 0.5s ease;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--container-shadow);
+            position: relative;
+            transition: background-color 0.5s ease, box-shadow 0.5s ease;
+            /* Entrance Animation */
+            animation: fadeInUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+            opacity: 0; /* Start hidden */
+        }
+
+        /* --- THEME TOGGLE BUTTON --- */
+        .theme-toggle-btn {
+            position: absolute;
+            top: 25px;
+            right: 25px;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.3);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            color: #fff;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        body.dark-mode .theme-toggle-btn {
+            background: rgba(0, 0, 0, 0.3);
+            color: #ffd700;
+            border-color: rgba(255,255,255,0.1);
+        }
+
+        .theme-toggle-btn:hover {
+            transform: scale(1.1) rotate(15deg);
+        }
+
+        /* --- IMPROVED COVER PHOTO INTEGRATION --- */
+        .cover-wrapper {
+            width: 100%;
+            height: 400px; /* Increased height for better impact */
+            position: relative;
+            /* Rounded corners only at the top to fit the card */
+            border-top-left-radius: var(--radius-lg);
+            border-top-right-radius: var(--radius-lg);
+            overflow: hidden;
+        }
+
+        /* The Image itself */
+        img.cover-photo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            /* Animation for image load */
+            animation: gentleZoom 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+        }
+
+        /* The magic ingredient: A gradient overlay at the bottom */
+        .cover-wrapper::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 30%; /* Covers the bottom 30% of the image */
+            background: var(--overlay-gradient);
+            pointer-events: none; /* Lets clicks pass through */
+            transition: background 0.5s ease;
+        }
+
+        /* Dim the photo slightly in dark mode to reduce glare */
+        body.dark-mode img.cover-photo {
+            filter: brightness(0.8) contrast(1.1);
+        }
+
+        /* Content Area */
+        .content {
+            padding: 50px 40px;
+        }
+
+        /* Content Cascading Animations */
+        .content > * {
+            opacity: 0;
+            animation: fadeInUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+        }
+        .content header { animation-delay: 0.2s; }
+        .content article p:nth-child(1) { animation-delay: 0.3s; }
+        .content article p:nth-child(2) { animation-delay: 0.4s; }
+        .content article h2:nth-of-type(1) { animation-delay: 0.5s; }
+        .content article p:nth-child(4) { animation-delay: 0.5s; }
+        .content article blockquote { animation-delay: 0.6s; }
+        /* (We stop delaying here so the rest loads quickly) */
+        .content article > *:nth-child(n+7) { animation-delay: 0.7s; }
+        .divider, .author-card, .share-section { animation-delay: 0.8s; }
+
+
+        /* Headings */
+        h1 {
+            font-family: var(--font-sans);
+            font-size: 2.8rem;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            margin-bottom: 15px;
+            line-height: 1.2;
+            color: var(--text-heading);
+        }
+
+        .subtitle {
+            font-family: var(--font-sans);
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-bottom: 45px;
+            font-weight: 500;
+            border-left: 4px solid var(--accent-green);
+            padding-left: 15px;
+        }
+
+        /* Body Text */
+        p {
+            margin-bottom: 30px;
+            text-align: justify;
+        }
+
+        h2 {
+            font-family: var(--font-sans);
+            color: var(--accent-green);
+            font-size: 1.8rem;
+            margin-top: 55px;
+            margin-bottom: 25px;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+        }
+
+        /* Highlights & Quotes */
+        .highlight {
+            background-color: var(--highlight-bg);
+            color: var(--highlight-text);
+            padding: 2px 6px;
+            border-radius: 6px;
+            transition: background-color 0.3s ease;
+            box-decoration-break: clone;
+            -webkit-box-decoration-break: clone;
+        }
+
+        .danger-text {
+            color: var(--accent-red);
+            font-weight: 700;
+        }
+
+        blockquote {
+            background: var(--quote-bg);
+            border-left: 6px solid var(--accent-green);
+            margin: 40px 0;
+            padding: 30px 35px;
+            font-family: var(--font-sans);
+            font-style: italic;
+            font-size: 1.35rem;
+            color: var(--quote-text);
+            border-radius: var(--radius-sm);
+            box-shadow: 0 10px 30px -10px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+        
+        body.dark-mode blockquote {
+             box-shadow: 0 10px 30px -10px rgba(0,0,0,0.2);
+        }
+
+        /* Separator */
+        .divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--divider-color), transparent);
+            margin: 70px 0 50px 0;
+            border: none;
+            opacity: 0.6;
+        }
+
+        /* --- AUTHOR CARD --- */
+        .author-card {
+            display: flex;
+            align-items: center;
+            background: var(--author-bg);
+            border: 1px solid var(--author-border);
+            border-radius: var(--radius-lg);
+            padding: 30px;
+            margin-bottom: 50px;
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        .author-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-green);
+            box-shadow: 0 15px 30px -5px rgba(0,0,0,0.08);
+        }
+        
+        body.dark-mode .author-card:hover {
+             box-shadow: 0 15px 30px -5px rgba(0,0,0,0.3);
+        }
+
+        .author-avatar {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--card-bg);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+            margin-right: 30px;
+            flex-shrink: 0;
+            transition: transform 0.3s ease;
+        }
+        
+        .author-card:hover .author-avatar {
+            transform: scale(1.05);
+        }
+
+        .author-details {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .author-link {
+            font-family: var(--font-sans);
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--author-text);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        
+        .author-link:hover {
+            color: var(--accent-green);
+        }
+
+        .author-moto {
+            font-family: var(--font-serif);
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            margin: 8px 0 0 0;
+            font-style: italic;
+        }
+
+        /* --- SHARE BUTTONS --- */
+        .share-section {
+            text-align: center;
+            padding-bottom: 20px;
+        }
+
+        .share-title {
+            font-family: var(--font-sans);
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 25px;
+            font-weight: 700;
+        }
+
+        .social-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn-social {
+            border: none;
+            padding: 12px 28px;
+            border-radius: 50px;
+            font-family: var(--font-sans);
+            font-size: 1rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .btn-social:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .btn-whatsapp { background: #25D366; }
+        .btn-facebook { background: #1877F2; }
+        
+        .btn-x { background: #000000; } 
+        body.dark-mode .btn-x { background: #fff; color: #000; }
+
+        .btn-copy { background: #5f6368; }
+
+        /* Toast */
+        #toast {
+            visibility: hidden;
+            min-width: 250px;
+            background-color: var(--text-primary);
+            color: var(--card-bg);
+            text-align: center;
+            border-radius: 50px;
+            padding: 16px;
+            position: fixed;
+            z-index: 100;
+            left: 50%;
+            bottom: 30px;
+            transform: translateX(-50%) translateY(20px);
+            font-family: var(--font-sans);
+            font-size: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            opacity: 0;
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        #toast.show {
+            visibility: visible;
+            opacity: 1;
+            bottom: 50px;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            body { padding: 0; }
+            .container { margin: 0; border-radius: 0; box-shadow: none; }
+            .cover-wrapper { border-radius: 0; height: 300px; }
+            .content { padding: 40px 25px; }
+            h1 { font-size: 2.2rem; }
+            blockquote { padding: 25px; font-size: 1.2rem; }
+            .theme-toggle-btn { top: 15px; right: 15px; }
+            .author-card { flex-direction: column; text-align: center; padding: 25px; }
+            .author-avatar { margin-right: 0; margin-bottom: 20px; width: 80px; height: 80px; }
+            .btn-social span { display: none; }
+            .btn-social { padding: 16px; border-radius: 50%; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle Dark Mode">
+            <i class="fas fa-moon"></i>
+        </button>
+
+        <div class="cover-wrapper">
+            <img src="https://blogger.googleusercontent.com/img/a/AVvXsEgNZs3Kmq_Xa72eCj2Bud-_Wll0mT5u-QdBVKbgUfyg2QN9xuUHmL6tHMOCJ0N0CHzgp8lVaiPUO-4_7NLdUi-yFSwzerCCc7kPr0adblg2ElgN157QWel5l5PDW3Kkpy49PqBuMxOvtrBNtxCIo_apB8B3lY9l6OQi5E-0-8dI12mhMOuOuCtNdnrHtg8S" 
+                 alt="A hand holding a young plant seedling in soil" 
+                 class="cover-photo">
+        </div>
+
+        <div class="content">
+            <header>
+                <h1>ഹരിതനാടിന്റെ ശ്വാസം നിലയ്ക്കുമ്പോൾ</h1>
+                <div class="subtitle">കാണാപ്പുറങ്ങളിലെ രാഷ്ട്രീയം: ഒരു സാമൂഹിക അന്വേഷണം</div>
+            </header>
+
+            <article>
+                <p>
+                    "ദൈവത്തിന്റെ സ്വന്തം നാട്", "ഹരിതനാട്" എന്നിങ്ങനെ വിനോദസഞ്ചാര ബ്രോഷറുകളിൽ നമ്മൾ സ്വയം വിശേഷിപ്പിക്കാറുണ്ട്. പച്ചപ്പും കായലുകളും ഇടവപ്പാതിയും ചേർന്ന മനോഹരമായ ഒരു ഭാവനയാണത്. എന്നാൽ, ആ ഭാവനയ്ക്കുള്ളിൽ നമ്മൾ സൗകര്യപൂർവ്വം മറച്ചുപിടിക്കുന്ന, അല്ലെങ്കിൽ കണ്ടില്ലെന്ന് നടിക്കുന്ന ഭയപ്പെടുത്തുന്ന ഒരു യാഥാർത്ഥ്യമുണ്ട്; <span class="danger-text">ഈ നാട് പതുക്കെ ശ്വാസംമുട്ടുകയാണ്.</span>
+                </p>
+
+                <p>
+                    നമ്മുടെ പൊതുബോധം വിചിത്രമാണ്. മഴ പെയ്യുമ്പോൾ ഇവിടെ വാർത്തയുണ്ട്, വെള്ളപ്പൊക്കം വന്നാൽ അത്താഴപ്പട്ടിണി ചർച്ചകളുണ്ട്. കാരണം പ്രളയം ദൃശ്യമാണ്; അത് വീടിന്റെ പടിവാതിൽക്കൽ എത്തുമ്പോൾ നമ്മൾ ഭയക്കുന്നു. എന്നാൽ, നമ്മൾ ഓരോ നിമിഷവും ഉള്ളിലേക്ക് വലിച്ചെടുക്കുന്ന വായുവിന്റെ കാര്യമോ? അത് ഇവിടെ ഒരു രാഷ്ട്രീയ വിഷയമേയല്ല. കാരണം ലളിതമാണ്, വായു മലിനീകരണം കണ്ണിന് മുന്നിൽ പെട്ടെന്ന് തെളിയുന്ന ഒന്നല്ല. <span class="highlight">കാണാനാകാത്ത പ്രശ്നങ്ങൾ കേരളത്തിൽ വോട്ടാകാറില്ല.</span>
+                </p>
+
+                <h2>"ഇത് ഡൽഹിയല്ലല്ലോ" എന്ന മാരകമായ മിഥ്യാബോധം</h2>
+
+                <p>
+                    കേരളത്തിൽ വായു മലിനീകരണം ഇല്ലെന്നല്ല, അത് ഇല്ലെന്ന് നമ്മൾ <em>തീരുമാനിച്ചിരിക്കുകയാണ്</em>. ഡൽഹിയിലെ പുകമഞ്ഞിന്റെ ചിത്രങ്ങൾ കണ്ട് "നമ്മുടെ AQI (Air Quality Index) അത്ര മോശമല്ലല്ലോ" എന്ന് പറഞ്ഞ് മലയാളി സ്വയം ആശ്വസിക്കുന്നു. എന്നാൽ ഈ ആശ്വാസം ഒരു വലിയ ദുരന്തത്തിലേക്കുള്ള ഒളിച്ചോട്ടമാണ്. 
+                </p>
+
+                <blockquote>
+                    കേരളത്തിലെ വികസനം ഇന്ന് പൊടിയിലാണ് നടക്കുന്നത്. റോഡുകളുടെ പൊടി, കൂറ്റൻ കെട്ടിടങ്ങളുടെ പൊടി, ക്വാറികളിൽ പാറ പൊട്ടുന്ന പൊടി. ഈ പൊടി നമ്മുടെ ശ്വാസകോശത്തിലേക്ക് കയറുമ്പോൾ, അത് "വികസനത്തിന്റെ അനിവാര്യമായ വില" ആയി ന്യായീകരിക്കപ്പെടുന്നു.
+                </blockquote>
+
+                <h2>മഴയുടെയും മണ്ണിന്റെയും പ്രതികാരം</h2>
+
+                <p>
+                    മഴയുടെ കാര്യവും വ്യത്യസ്തമല്ല. മൺസൂണിന്റെ താളം തെറ്റി എന്ന് നാം പരിതപിക്കുമ്പോഴും, ആരാണ് ആ താളം തെറ്റിച്ചതെന്ന് ചോദിക്കാൻ നാം മടിക്കുന്നു. പശ്ചിമഘട്ടത്തെ സംരക്ഷിക്കാൻ മാധവ് ഗാഡ്ഗിൽ നൽകിയ മുന്നറിയിപ്പുകളെ <span class="highlight">വികസനവിരുദ്ധമായി മുദ്രകുത്തി ചവറ്റുകുട്ടയിലിട്ട അതേ രാഷ്ട്രീയമാണ്</span>, ഇന്ന് നമ്മുടെ ശ്വാസകോശങ്ങളെയും കാർന്നുതിന്നുന്നത്.
+                </p>
+
+                <h2>മൗനം മരണമാണ്</h2>
+
+                <p>
+                    എന്തുകൊണ്ടാണ് ഇത് ചർച്ചയാകാത്തത്? ഉത്തരം ലളിതമാണ്: ഇതിന് വോട്ട് ഇല്ല. വായു മലിനീകരണം കുറയ്ക്കുന്നത് ഒരു ഉദ്ഘാടനവേദി നൽകില്ല, ഫ്ലെക്സ് ബോർഡിൽ നേട്ടമായി എഴുതാൻ പറ്റില്ല. 
+                </p>
+                <p>
+                    ഒരു ദിവസം ഈ മൗനം തന്നെ നമ്മളെ ശ്വാസംമുട്ടിച്ചേക്കാം. അന്ന് "നമ്മൾ അറിഞ്ഞില്ല" എന്ന് പറഞ്ഞിട്ട് കാര്യമില്ല. കാരണം, സത്യം ഇതാണ്: നമ്മൾ അറിഞ്ഞിട്ടും മിണ്ടിയില്ല. <span class="danger-text">ശ്വസിക്കാനുള്ള അവകാശം ചോദിച്ചുവാങ്ങാൻ നമ്മൾ തയ്യാറാകുന്നില്ലെങ്കിൽ, ഇവിടെ കൊട്ടിഘോഷിക്കുന്ന വികസനത്തിന് ഒരർത്ഥവുമില്ല.</span>
+                </p>
+            </article>
+
+            <hr class="divider">
+
+            <div class="author-card">
+                <img src="https://blogger.googleusercontent.com/img/a/AVvXsEjqpLadYdybrF5HalPwqYrGnLWjqHOak_oYKbxtEXp0wGwwnLDM_SjA28jsNtRmoM4c979Q82L67s7M61b3lfdBOpaP-QRT7N7LLS8neJ73pa0-4w53FyDoBid9a1HKu6rizfPcOzlHTnbA0t1aRs8HcuMkokIScoJGwSKoJ7vgCZRRlqdRYC4qAA-zNuJw" alt="Author Profile" class="author-avatar">
+                <div class="author-details">
+                    <a href="../index.html" class="author-link">ലെ വരികൾ...</a>
+                    <p class="author-moto">"വാക്കുകൾ, ചിന്തകൾ, വരികൾ."</p>
+                </div>
+            </div>
+
+            <div class="share-section">
+                <div class="share-title">Share this article</div>
+                <div class="social-buttons">
+                    <button class="btn-social btn-whatsapp" onclick="shareToWhatsApp()">
+                        <i class="fab fa-whatsapp"></i> <span>WhatsApp</span>
+                    </button>
+                    
+                    <button class="btn-social btn-facebook" onclick="shareToFacebook()">
+                        <i class="fab fa-facebook-f"></i> <span>Facebook</span>
+                    </button>
+                    
+                    <button class="btn-social btn-x" onclick="shareToTwitter()">
+                        <i class="fa-brands fa-x-twitter"></i> <span>Post</span>
+                    </button>
+                    
+                    <button class="btn-social btn-copy" onclick="copyLink()">
+                        <i class="fas fa-link"></i> <span>Copy Link</span>
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="toast">Link Copied!</div>
+
+    <script>
+        // --- THEME TOGGLER LOGIC ---
+        const toggleBtn = document.getElementById('theme-toggle');
+        const icon = toggleBtn.querySelector('i');
+        const body = document.body;
+
+        // Check Local Storage for preference
+        const currentTheme = localStorage.getItem('theme');
+        if (currentTheme === 'dark') {
+            body.classList.add('dark-mode');
+            icon.classList.remove('fa-moon');
+            icon.classList.add('fa-sun');
+        }
+
+        toggleBtn.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            
+            // Toggle Icon and Save Preference
+            if (body.classList.contains('dark-mode')) {
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                icon.classList.remove('fa-sun');
+                icon.classList.add('fa-moon');
+                localStorage.setItem('theme', 'light');
+            }
+        });
+
+        // --- SHARE LOGIC ---
+        function getUrl() { return window.location.href; }
+        function getTitle() { return encodeURIComponent("ഹരിതനാടിന്റെ ശ്വാസം നിലയ്ക്കുമ്പോൾ - കേരളത്തിന്റെ പാരിസ്ഥിതിക യാഥാർത്ഥ്യം"); }
+
+        function shareToWhatsApp() {
+            window.open("https://wa.me/?text=" + getTitle() + "%20" + encodeURIComponent(getUrl()), '_blank');
+        }
+
+        function shareToFacebook() {
+            window.open("https://www.facebook.com/sharer/sharer.php?u=" + encodeURIComponent(getUrl()), '_blank');
+        }
+
+        function shareToTwitter() {
+            window.open("https://twitter.com/intent/tweet?text=" + getTitle() + "&url=" + encodeURIComponent(getUrl()), '_blank');
+        }
+
+        function copyLink() {
+            navigator.clipboard.writeText(getUrl()).then(() => {
+                const toast = document.getElementById("toast");
+                toast.classList.add("show");
+                setTimeout(() => toast.classList.remove("show"), 3000);
+            }).catch(err => alert('Could not copy link'));
+        }
+    </script>
+
+</body>
+</html>
