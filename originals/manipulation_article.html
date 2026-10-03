@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="ml" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Puppet Master | Understanding Manipulation</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manjari:wght@100;400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <script src="https://unpkg.com/feather-icons"></script>
+
+    <style>
+        /* --- 1. THEME VARIABLES --- */
+        :root {
+            /* Default Dark Theme */
+            --bg-body: #0f0f0f;
+            --bg-card: #181818;
+            --bg-highlight: #1f1f1f;
+            
+            --text-main: #e0e0e0;
+            --text-muted: #a4b0be;
+            --text-heading: #ffffff;
+            
+            --accent-color: #ff4757; /* Danger Red */
+            --term-color: #2ed573;   /* Neon Green */
+            --quote-color: #ffa502;  /* Warm Orange */
+            --border-color: #333333;
+            
+            --shadow: 0 8px 30px rgba(0,0,0,0.6);
+            --transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease;
+        }
+
+        [data-theme="light"] {
+            /* Light Theme Overrides */
+            --bg-body: #f4f6f8;
+            --bg-card: #ffffff;
+            --bg-highlight: #e9ecef;
+            
+            --text-main: #2d3436;
+            --text-muted: #636e72;
+            --text-heading: #000000;
+            
+            --accent-color: #d63031; /* Darker Red for light bg */
+            --term-color: #009432;   /* Darker Green for readability */
+            --quote-color: #e67e22;
+            --border-color: #dfe6e9;
+            
+            --shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+
+        /* --- 2. BASE STYLES --- */
+        body {
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            font-family: 'Manjari', 'Inter', sans-serif;
+            line-height: 1.9; /* Optimized for Malayalam stacking characters */
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            transition: var(--transition);
+        }
+
+        .container {
+            max-width: 760px; /* Optimal reading width */
+            margin: 0 auto;
+            padding: 40px 24px;
+        }
+
+        /* --- 3. TYPOGRAPHY --- */
+        h1, h2, h3 {
+            font-family: 'Playfair Display', 'Manjari', serif;
+            color: var(--text-heading);
+            margin-top: 0;
+            transition: color 0.4s ease;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            line-height: 1.1;
+            text-align: center;
+        }
+
+        .subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            margin-bottom: 60px;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 30px;
+        }
+
+        h2 {
+            font-size: 2rem;
+            border-left: 5px solid var(--accent-color);
+            padding-left: 20px;
+            margin-top: 70px;
+            margin-bottom: 30px;
+        }
+
+        p {
+            font-size: 1.15rem;
+            margin-bottom: 28px;
+            text-align: left; /* Left align to avoid 'rivers' in Malayalam */
+            color: var(--text-main);
+        }
+
+        /* Highlights */
+        .term {
+            color: var(--term-color);
+            font-weight: 700;
+        }
+
+        .highlight-text {
+            background: rgba(255, 71, 87, 0.1);
+            color: var(--accent-color);
+            padding: 0 4px;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        /* --- 4. COMPONENTS --- */
+        
+        /* Theme Toggle Button */
+        .theme-switch-wrapper {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            z-index: 100;
+        }
+        .theme-btn {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+            padding: 10px;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        .theme-btn:hover {
+            transform: scale(1.1);
+        }
+
+        /* Quote Box */
+        .quote-box {
+            background-color: var(--bg-highlight);
+            border-left: 4px solid var(--quote-color);
+            padding: 30px;
+            margin: 45px 0;
+            border-radius: 0 12px 12px 0;
+            font-style: italic;
+            color: var(--quote-color);
+            font-size: 1.25rem;
+            box-shadow: var(--shadow);
+        }
+
+        /* Tactics Grid */
+        .tactics-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 25px;
+            margin-top: 35px;
+        }
+        @media (min-width: 768px) {
+            .tactics-grid { grid-template-columns: 1fr 1fr; }
+        }
+
+        .tactic-card {
+            background: var(--bg-card);
+            padding: 25px;
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .tactic-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--term-color);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        .tactic-title {
+            color: var(--term-color);
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            display: block;
+        }
+        .tactic-card p {
+            margin-bottom: 0;
+            font-size: 1rem;
+            color: var(--text-muted);
+        }
+
+        /* Warning Box */
+        .warning-box {
+            border: 2px solid var(--accent-color);
+            background: rgba(255, 71, 87, 0.05);
+            padding: 35px;
+            border-radius: 16px;
+            margin-top: 70px;
+            text-align: center;
+        }
+        .warning-header {
+            color: var(--accent-color);
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+        }
+
+        /* --- 5. SHARE SECTION & AUTHOR --- */
+        .separator {
+            border: 0;
+            height: 1px;
+            background: var(--border-color);
+            margin: 80px 0 50px 0;
+            opacity: 0.5;
+        }
+
+        .share-container {
+            margin-bottom: 40px;
+            text-align: center;
+        }
+        .share-title {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            display: block;
+        }
+        .share-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        .share-btn {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+            padding: 10px 20px;
+            border-radius: 30px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+        .share-btn:hover {
+            background-color: var(--term-color);
+            color: #000;
+            border-color: var(--term-color);
+            transform: translateY(-2px);
+        }
+        .share-btn.copy-btn:active {
+            background-color: var(--quote-color);
+        }
+
+        /* Author Profile */
+        .author-container {
+            display: flex;
+            align-items: center;
+            background-color: var(--bg-card);
+            padding: 25px;
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow);
+            flex-direction: column;
+            text-align: center;
+        }
+        @media (min-width: 600px) {
+            .author-container { flex-direction: row; text-align: left; }
+        }
+        .author-image {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--term-color);
+            margin-bottom: 15px;
+        }
+        @media (min-width: 600px) {
+            .author-image { margin-bottom: 0; margin-right: 20px; }
+        }
+        .author-link {
+            text-decoration: none;
+            color: var(--text-heading);
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+        
+        .footer {
+            margin-top: 60px;
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        /* Animation */
+        .fade-in { animation: fadeIn 0.8s ease-out forwards; opacity: 0; }
+        @keyframes fadeIn { to { opacity: 1; } }
+
+    </style>
+</head>
+<body>
+
+    <div class="theme-switch-wrapper">
+        <button class="theme-btn" id="theme-toggle" aria-label="Toggle Dark Mode">
+            <i data-feather="sun" id="theme-icon"></i>
+        </button>
+    </div>
+
+    <div class="container fade-in">
+        
+        <header>
+            <h1>The Puppet Master</h1>
+            <div class="subtitle">മനസ്സുകളെ നിയന്ത്രിക്കുന്ന കറുത്ത കരം</div>
+        </header>
+
+        <section>
+            <p>
+                <span class="term">Manipulation</span> is not just influence; it is psychological warfare. ഇത് വെറുമൊരു സ്വാധീനം ചെലുത്തലല്ല. മറിച്ച്, അവരുടേതായ <span class="highlight-text">hidden tactics</span> ഉപയോഗിച്ച് മറ്റൊരാളുടെ ചിന്തകളെയും വികാരങ്ങളെയും പൂർണ്ണമായി ഹൈജാക്ക് ചെയ്യുന്ന പ്രക്രിയയാണ്.
+            </p>
+            <p>
+                മാനിപ്പുലേറ്റർമാർക്ക് <strong>Cognitive Empathy</strong> ഉണ്ട്. അതായത്, നിങ്ങൾക്ക് എന്ത് ഫീൽ ചെയ്യുന്നു എന്ന് മനസ്സിലാക്കാൻ അവർക്ക് സാധിക്കും, പക്ഷെ ആ വേദന അവരെ ബാധിക്കില്ല. ഇരയാക്കപ്പെടുന്ന വ്യക്തി എങ്ങനെ പെരുമാറും, ഏത് അറ്റം വരെ പോകും എന്ന് വ്യക്തമായി ഊഹിക്കാൻ ഇവർക്ക് അസാമാന്യ കഴിവുണ്ട്.
+            </p>
+        </section>
+
+        <section>
+            <h2>Step 1: The Trap (Love Bombing)</h2>
+            <p>
+                എല്ലാം തുടങ്ങുന്നത് ഒരു മാന്ത്രിക ലോകത്ത് നിന്നാണ്. ബന്ധത്തിന്റെ തുടക്കത്തിൽ അവർ നിങ്ങൾക്ക് നൽകുന്നത് അമിതമായ സ്നേഹവും പരിഗണനയുമാണ്. ഇതിനെ <span class="term">Love Bombing</span> എന്ന് വിളിക്കുന്നു.
+            </p>
+            <p>
+                <em>"എന്റെ ജീവിതത്തിൽ ഞാൻ കാത്തിരുന്ന ആൾ നീയാണ്"</em> എന്ന് പറഞ്ഞു അവർ നിങ്ങളെ വിശ്വസിപ്പിക്കും. പെട്ടെന്ന് അടുപ്പം സ്ഥാപിക്കുക, നിരന്തരം മെസ്സേജുകൾ അയക്കുക, സമ്മാനങ്ങൾ നൽകുക... ഇതെല്ലാം കണ്ട് <strong>"ഇതാണ് എനിക്ക് കിട്ടാവുന്നതിൽ വെച്ച് ഏറ്റവും ബെസ്റ്റ്"</strong> എന്ന് ഇര വിശ്വസിച്ചു തുടങ്ങുന്നിടത്ത് അവരുടെ കളി ആരംഭിക്കുന്നു.
+            </p>
+        </section>
+
+        <section>
+            <h2>Step 2: The Devaluation</h2>
+            <p>
+                നിങ്ങൾ അവരുടെ വലയിൽ വീണു എന്ന് ഉറപ്പായാൽ, പിന്നെ മാസ്ക് അഴിഞ്ഞു വീഴും. പിന്നീട് അങ്ങോട്ട് കുറ്റപ്പെടുത്തലുകളുടെയും അവഗണനയുടെയും കാലമാണ്.
+            </p>
+
+            <div class="tactics-grid">
+                <div class="tactic-card">
+                    <span class="tactic-title">Gaslighting</span>
+                    <p>
+                        ഏറ്റവും ക്രൂരമായ ആയുധം. നടന്ന സംഭവങ്ങളെ തള്ളിപ്പറഞ്ഞ്, <em>"നിനക്ക് തോന്നുന്നതാ," "നിനക്ക് വട്ടാണ്"</em> എന്ന് പറഞ്ഞു ഇരയുടെ ഓർമ്മശക്തിയെയും ബുദ്ധിയെയും ചോദ്യം ചെയ്യുന്നു.
+                    </p>
+                </div>
+
+                <div class="tactic-card">
+                    <span class="tactic-title">Silent Treatment</span>
+                    <p>
+                        മറ്റെയാൾ ചെയ്യുന്ന ചെറിയ കാര്യങ്ങൾക്ക് പോലും കടുത്ത ശിക്ഷ നൽകുന്നു. മിണ്ടാതിരിക്കുക, ബ്ലോക്ക് ചെയ്യുക. വേദന സഹിക്കവയ്യാതെ ഇര മാപ്പ് പറയാൻ വരുമ്പോൾ അവർക്ക് അധികാരം കിട്ടുന്നു.
+                    </p>
+                </div>
+
+                <div class="tactic-card">
+                    <span class="tactic-title">Triangulation</span>
+                    <p>
+                        രണ്ടു പേർക്കിടയിലേക്ക് മൂന്നാമതൊരാളെ കൊണ്ടു വരുന്നു. <em>"അവളെ കണ്ടോ, അവൾ എത്ര നല്ലതാണ്"</em> എന്ന് ചോദിച്ചു താരതമ്യം ചെയ്ത് ഇരയിൽ <span class="highlight-text">Insecurity</span> ഉണ്ടാക്കുന്നു.
+                    </p>
+                </div>
+
+                <div class="tactic-card">
+                    <span class="tactic-title">Victim Card</span>
+                    <p>
+                        എന്ത് തെറ്റ് ചെയ്താലും അവസാനം അവർ പാവപ്പെട്ടവരായി മാറും. <em>"എന്റെ പഴയ പാസ്റ്റ് കാരണമാണ് ഞാൻ ഇങ്ങനെ ആയത്"</em> എന്ന് പറഞ്ഞു ഇരയെ കൊണ്ട് തന്നെ അവരെ സമാധാനിപ്പിക്കുന്നു.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>The Emotional Hook</h2>
+            <div class="quote-box">
+                "ഞാൻ നിനക്ക് വേണ്ടിയല്ലേ ഇതൊക്കെ പറയുന്നത്? നിനക്ക് എന്നെ ഒട്ടും വിശ്വാസമില്ലേ?"
+            </div>
+            <p>
+                ഇതൊരു <span class="term">Trauma Bond</span> ആണ്. ഇടയ്ക്കിടെ കിട്ടുന്ന ചെറിയ സ്നേഹത്തിന് വേണ്ടി (Breadcrumbing), ബാക്കി സമയം മുഴുവൻ അനുഭവിക്കുന്ന പീഡനങ്ങൾ ഇര സഹിക്കുന്നു. സ്ലോട്ട് മെഷീനിൽ ചൂത് കളിക്കുന്നത് പോലെ, "എപ്പോഴെങ്കിലും ജയിക്കും" എന്ന പ്രതീക്ഷയിൽ അവർ ആ ബന്ധത്തിൽ കുടുങ്ങി കിടക്കുന്നു.
+            </p>
+        </section>
+
+        <section>
+            <h2>Breaking The Cycle</h2>
+            <p>
+                മാനിപ്പുലേറ്ററെ മാറ്റാൻ കഴിയില്ല. <strong>You cannot fix them.</strong> ഏക വഴി ആ സിലിണ്ടറിൽ നിന്ന് പുറത്ത് കടക്കുക എന്നത് മാത്രമാണ്.
+            </p>
+            <p>
+                ഇവർക്കെതിരെ പ്രയോഗിക്കാൻ പറ്റുന്ന ഏറ്റവും വലിയ ആയുധം <span class="term">Grey Rock Method</span> ആണ്. ഒരു പാറക്കല്ല് പോലെ വികാരരഹിതമായി മാറുക. അവർ എന്ത് പറഞ്ഞാലും, എന്ത് ചെയ്താലും പ്രതികരിക്കാതിരിക്കുക. പ്രതികരണമാണ് അവരുടെ ഭക്ഷണം.
+            </p>
+
+            <div class="warning-box">
+                <div class="warning-header">⚠ Red Alert: The Smear Campaign</div>
+                <p>
+                    നിങ്ങൾ അവരെ വിട്ടു പോയാൽ, അവർ വെറുതെ ഇരിക്കില്ല. നാട്ടുകാരുടെയും സുഹൃത്തുക്കളുടെയും മുന്നിൽ അവർ നിങ്ങളെ "ഭ്രാന്തനും/ഭ്രാന്തിയും" മോശം സ്വഭാവമുള്ളവരും ആക്കി ചിത്രീകരിക്കും. 
+                </p>
+                <p>
+                    കഥയറിയാതെ ആൾക്കാർ നിങ്ങളെ കുറ്റപ്പെടുത്തിയേക്കാം. <strong>Let them talk.</strong> സത്യം അറിയാവുന്ന ഒരേയൊരാൾ നിങ്ങൾ മാത്രമാണ്. ആ ബോധ്യം മതി മുന്നോട്ട് ജീവിക്കാൻ.
+                </p>
+            </div>
+        </section>
+
+        <hr class="separator">
+
+        <div class="share-container">
+            <span class="share-title">Share this Reality</span>
+            <div class="share-buttons">
+                <button class="share-btn" id="native-share-btn" style="display: none;">
+                    <i data-feather="share-2"></i> Share
+                </button>
+                
+                <a href="#" id="wa-share" target="_blank" class="share-btn">
+                    <i data-feather="message-circle"></i> WhatsApp
+                </a>
+                <a href="#" id="x-share" target="_blank" class="share-btn">
+                    <i data-feather="twitter"></i> X
+                </a>
+                
+                <button class="share-btn copy-btn" id="copy-link-btn">
+                    <i data-feather="link"></i> <span>Copy Link</span>
+                </button>
+            </div>
+        </div>
+
+        <section class="author-container">
+            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgdUDJBbezFz1-UKmlPgeEHVzidBU0ZQa_vgfI4BP7PDodOdh6AXbzfDFPrL3Z-7DvYawFjPTTmUFP1oZfuEd-j4kqOIiCaNcayT9CUrRQolzVY_45utqfwI5251xN55yhuEC_YYqf57qW25X3cNVoRXcHcUzOU59yuVBEVQuLKMSjMfjaiLC4FugyZHHw9/s1724/12199.jpg" alt="Le Varikal" class="author-image">
+            <div class="author-details">
+                <h3><a href="../index.html" class="author-link">ലെ വരികൾ...</a></h3>
+                <div style="color: var(--text-muted); margin-top: 5px;">"വാക്കുകൾ, വിചാരങ്ങൾ, വരികൾ."</div>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <p>&copy; 2025 Le Varikal. All rights reserved.</p>
+        </footer>
+
+    </div>
+
+    <script>
+        // 1. Initialize Icons
+        feather.replace();
+
+        // 2. THEME TOGGLE LOGIC
+        const toggleBtn = document.getElementById('theme-toggle');
+        const themeIcon = document.getElementById('theme-icon');
+        const root = document.documentElement;
+        
+        // Check LocalStorage
+        const currentTheme = localStorage.getItem('theme') || 'dark';
+        root.setAttribute('data-theme', currentTheme);
+        updateIcon(currentTheme);
+
+        toggleBtn.addEventListener('click', () => {
+            let newTheme = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+            root.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateIcon(newTheme);
+        });
+
+        function updateIcon(theme) {
+            if (theme === 'light') {
+                themeIcon.innerHTML = '<circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>'; // Sun SVG content
+                feather.replace();
+            } else {
+                themeIcon.innerHTML = '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>'; // Moon SVG content
+                feather.replace();
+            }
+        }
+
+        // 3. SHARE LOGIC
+        const pageTitle = "The Puppet Master: Understanding Manipulation";
+        const pageUrl = window.location.href;
+        
+        // Setup Native Share
+        const nativeBtn = document.getElementById('native-share-btn');
+        if (navigator.share) {
+            nativeBtn.style.display = 'inline-flex';
+            nativeBtn.addEventListener('click', () => {
+                navigator.share({
+                    title: pageTitle,
+                    text: 'Read this about manipulation tactics.',
+                    url: pageUrl
+                }).catch(console.error);
+            });
+        }
+
+        // Setup Fallback Links
+        document.getElementById('wa-share').href = `https://api.whatsapp.com/send?text=${encodeURIComponent(pageTitle + ' ' + pageUrl)}`;
+        document.getElementById('x-share').href = `https://twitter.com/intent/tweet?text=${encodeURIComponent(pageTitle)}&url=${encodeURIComponent(pageUrl)}`;
+
+        // Copy Link Functionality
+        const copyBtn = document.getElementById('copy-link-btn');
+        const copySpan = copyBtn.querySelector('span');
+        
+        copyBtn.addEventListener('click', () => {
+            navigator.clipboard.writeText(pageUrl).then(() => {
+                const originalText = copySpan.innerText;
+                copySpan.innerText = "Copied!";
+                copyBtn.style.backgroundColor = "var(--term-color)";
+                copyBtn.style.color = "#000";
+                
+                setTimeout(() => {
+                    copySpan.innerText = originalText;
+                    copyBtn.style.backgroundColor = "";
+                    copyBtn.style.color = "";
+                }, 2000);
+            });
+        });
+    </script>
+
+</body>
+</html>
