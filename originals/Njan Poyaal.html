@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="ml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="The Fading Echo | ലെ വരികൾ">
+    <meta property="og:description" content="ഓർക്കാപ്പുറത്ത് ഒരു ദിവസം ഞാനങ്ങ് മരിച്ചുപോയാൽ നീയറിയുമോ..?? A journey through love, loss, and the silence that follows.">
+    <meta property="og:url" content="https://taplink.cc/levarikal"> <meta property="og:image" content="https://blogger.googleusercontent.com/img/a/AVvXsEix82ReFoH0uQNcCRhKcLwBjB1u4Y86rpBn7o58zqCHGxRyIz0x59Wzl0GZKt6lTb9o_2f0s9EfXOBCbklZUD83XDOuAr52PMOxq0IQllK-HksAIVci6QqWu7q4EnFCNyfTLtrSj1qIN8BItrbrgnO4HClAUsYaxh1IjngbOL_w5tfb4qV7y9F4K-iKuaHX">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="The Fading Echo | ലെ വരികൾ">
+    <meta name="twitter:description" content="ഓർക്കാപ്പുറത്ത് ഒരു ദിവസം ഞാനങ്ങ് മരിച്ചുപോയാൽ നീയറിയുമോ..??">
+    <meta name="twitter:image" content="https://blogger.googleusercontent.com/img/a/AVvXsEix82ReFoH0uQNcCRhKcLwBjB1u4Y86rpBn7o58zqCHGxRyIz0x59Wzl0GZKt6lTb9o_2f0s9EfXOBCbklZUD83XDOuAr52PMOxq0IQllK-HksAIVci6QqWu7q4EnFCNyfTLtrSj1qIN8BItrbrgnO4HClAUsYaxh1IjngbOL_w5tfb4qV7y9F4K-iKuaHX">
+
+    <title>The Fading Echo | ലെ വരികൾ</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Malayalam:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <style>
+        :root {
+            --bg-color: #121212;
+            --text-primary: #e0e0e0;
+            --text-secondary: #a0a0a0;
+            --accent-color: #8c3b3b;
+            --card-bg: #1e1e1e;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            font-family: 'Lora', serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        /* --- READING PROGRESS BAR --- */
+        .progress-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: transparent;
+            z-index: 1000;
+        }
+
+        .progress-bar {
+            height: 4px;
+            background: var(--accent-color);
+            width: 0%;
+            box-shadow: 0 0 10px var(--accent-color);
+        }
+
+        /* --- COVER IMAGE BLENDING --- */
+        .cover-wrapper {
+            position: relative;
+            width: 100%;
+            height: 50vh; /* Takes up half the screen height initially */
+            overflow: hidden;
+            margin-bottom: -50px; /* Slight overlap with content */
+        }
+
+        .cover-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            /* The mask creates the fade-out effect into the black background */
+            mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 100%);
+            -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 100%);
+            opacity: 0.8;
+            transition: transform 10s ease;
+        }
+        
+        /* Slow zoom effect on load */
+        .cover-wrapper:hover .cover-img {
+            transform: scale(1.05);
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            position: relative;
+            z-index: 2; /* Ensures text sits above any background bleed */
+        }
+
+        /* Typography */
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            color: var(--text-primary);
+            margin-bottom: 10px;
+            text-align: center;
+            letter-spacing: 2px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+            animation: fadeIn 2s ease-in;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: var(--accent-color);
+            font-style: italic;
+            margin-bottom: 60px;
+            font-size: 1.2rem;
+            opacity: 0.8;
+        }
+
+        /* Verse Styling */
+        .verse {
+            font-family: 'Noto Serif Malayalam', serif;
+            font-size: 1.3rem;
+            color: #fff;
+            background: linear-gradient(to bottom, var(--card-bg), #181818);
+            padding: 30px;
+            border-left: 3px solid var(--accent-color);
+            margin: 40px 0;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            border-radius: 0 10px 10px 0;
+            position: relative;
+            transition: transform 0.3s ease;
+        }
+
+        .verse:hover {
+            transform: translateX(5px);
+        }
+
+        .verse p { margin: 0 0 15px 0; }
+        .verse p:last-child { margin-bottom: 0; }
+
+        /* Narrative Styling */
+        .narrative {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin: 30px 0;
+            font-style: italic;
+            text-align: justify;
+            padding: 0 10px;
+            border-right: 2px solid #333; 
+        }
+
+        /* Separator */
+        hr.separator {
+            border: 0;
+            height: 1px;
+            background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(140, 59, 59, 0.75), rgba(0, 0, 0, 0));
+            margin: 60px 0;
+        }
+
+        /* --- AUTHOR SECTION --- */
+        .author-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        .author-img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--accent-color);
+            box-shadow: 0 0 15px rgba(140, 59, 59, 0.3);
+            margin-bottom: 15px;
+            transition: transform 0.3s ease;
+        }
+
+        .author-img:hover {
+            transform: scale(1.05);
+        }
+
+        .author-name {
+            font-family: 'Noto Serif Malayalam', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            text-decoration: none;
+            position: relative;
+            display: inline-block;
+        }
+
+        .author-name:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: var(--accent-color);
+            transition: width 0.3s;
+        }
+
+        .author-name:hover:after {
+            width: 100%;
+        }
+
+        .author-motto {
+            font-family: 'Playfair Display', serif;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-top: 5px;
+        }
+
+        /* --- SHARE SECTION --- */
+        .share-container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .share-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background-color: var(--card-bg);
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 1.2rem;
+            border: 1px solid #333;
+            cursor: pointer;
+        }
+
+        .share-btn:hover {
+            transform: translateY(-3px);
+            color: #fff;
+        }
+
+        /* Brand Colors on Hover */
+        .share-btn.whatsapp:hover { background-color: #25D366; border-color: #25D366; }
+        .share-btn.facebook:hover { background-color: #1877F2; border-color: #1877F2; }
+        .share-btn.twitter:hover { background-color: #000; border-color: #fff; } /* X/Twitter */
+        .share-btn.copy:hover { background-color: var(--accent-color); border-color: var(--accent-color); }
+        
+        /* Toast Notification */
+        #toast {
+            visibility: hidden;
+            min-width: 200px;
+            margin-left: -100px;
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            border-radius: 5px;
+            padding: 10px;
+            position: fixed;
+            z-index: 100;
+            left: 50%;
+            bottom: 30px;
+            font-size: 0.9rem;
+            box-shadow: 0 0 10px rgba(0,0,0,0.5);
+        }
+        #toast.show {
+            visibility: visible;
+            animation: fadein 0.5s, fadeout 0.5s 2.5s;
+        }
+
+        @keyframes fadein { from {bottom: 0; opacity: 0;} to {bottom: 30px; opacity: 1;} }
+        @keyframes fadeout { from {bottom: 30px; opacity: 1;} to {bottom: 0; opacity: 0;} }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+        .fade-in-scroll { opacity: 0; animation: fadeIn 1.5s ease-in forwards; }
+        .delay-1 { animation-delay: 0.5s; }
+        .delay-2 { animation-delay: 1s; }
+
+        @media (max-width: 600px) {
+            h1 { font-size: 2rem; }
+            .verse { font-size: 1.1rem; padding: 20px; }
+            .author-img { width: 80px; height: 80px; }
+            .cover-wrapper { height: 40vh; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="progress-container">
+        <div class="progress-bar" id="progressBar"></div>
+    </div>
+
+    <div class="cover-wrapper">
+        <img src="https://blogger.googleusercontent.com/img/a/AVvXsEix82ReFoH0uQNcCRhKcLwBjB1u4Y86rpBn7o58zqCHGxRyIz0x59Wzl0GZKt6lTb9o_2f0s9EfXOBCbklZUD83XDOuAr52PMOxq0IQllK-HksAIVci6QqWu7q4EnFCNyfTLtrSj1qIN8BItrbrgnO4HClAUsYaxh1IjngbOL_w5tfb4qV7y9F4K-iKuaHX" alt="The Fading Echo Cover" class="cover-img">
+    </div>
+
+    <div class="container">
+        
+        <header>
+            <h1>The Last Notification</h1>
+            <div class="subtitle">ഒരു ഓർമ്മക്കുറിപ്പ്</div>
+        </header>
+
+        <section class="narrative fade-in-scroll delay-1">
+            <p>We often wonder about our own absence. In the grand theater of life, if one actor leaves the stage abruptly, does the play stop? Or does the audience merely shift in their seats, uncomfortable for a moment, before the next scene begins?</p>
+        </section>
+
+        <div class="verse fade-in-scroll delay-2">
+            <p>ഓർക്കാപ്പുറത്ത് ഒരു ദിവസം ഞാനങ്ങ് മരിച്ചുപോയാൽ നീയറിയുമോ.??</p>
+            <p>ഒരു പക്ഷേ...</p>
+        </div>
+
+        <section class="narrative">
+            <p>Imagine a typical evening. The chaos of the day is settling into the silence of twilight. The routine is safe, predictable, and warm. And then, the news breaks.</p>
+        </section>
+
+        <div class="verse">
+            <p>നീറ്റലൊടുങ്ങി ചാരമായ കനലിന്റെ അവസാനത്തെ തീപ്പിണർപ്പും അണഞ്ഞു തുടങ്ങിയ ഒരു വൈകുന്നേരം ഇളം കട്ടനൊപ്പം എന്റെ മരണ വാർത്തയറിഞ്ഞാൽ പിന്നെയും നിനക്കാ തേയിലപ്പൊടിയുടെ ലഹരി ആസ്വദിക്കാനാകുമോ...?</p>
+            <p>ഇല്ലായിരിക്കും ലെ.....</p>
+            <br>
+            <p><strong>അന്ന് പെയ്യുന്ന മഴയ്ക്ക് എന്റെ ഗന്ധമുണ്ടാകുമെന്ന് നിനക്ക് തോന്നില്ലേ..? ജനൽ കമ്പികളിൽ പിടിച്ചു പുറത്തേക്ക് നോക്കുമ്പോൾ, അറിയാതെ ഒരു തുള്ളി കണ്ണീർ ആ കട്ടനിലേക്ക് വീണു ഉപ്പു ചുവപ്പിച്ച് പോവില്ലേ..?</strong></p>
+        </div>
+
+        <section class="narrative">
+            <p>Do you remember the sanctuary we found in words? The way we leaned against the fading history of others to write our own?</p>
+        </section>
+
+        <div class="verse">
+            <p>മദ്യത്തിനേക്കാൾ ലഹരി വരികൾക്കുണ്ടെന്ന് പണ്ട് ലൈബ്രറിയിലെ ആ നിറം മങ്ങി തുടങ്ങിയ ചുവന്ന ചുവരിൽ ചാരിനിന്ന് നീ പറഞ്ഞത് ഞാനിന്നും മറന്നിട്ടില്ല.</p>
+            <p>ഉറപ്പായും അതിലും ലഹരി പ്രണയത്തിന് കാണണമല്ലോ...</p>
+        </div>
+
+        <hr class="separator">
+
+        <section class="narrative">
+            <p>People say grief is loud. They speak of wailing and tearing of clothes. But I know you better. I know that true devastation is silent. It is a frost that settles over the soul.</p>
+        </section>
+
+        <div class="verse">
+            <p>ഞാൻ മരിച്ചെന്നറിഞ്ഞാൽ നീ മരവിക്കും...  മറന്നിരുന്നെങ്കിലും നീ മരവിക്കുമെന്ന് എനിക്കറിയാം. അല്ലെങ്കിലും എത്ര മറന്നാലും ഒരു നിമിഷം പോരെ നമുക്ക് പരസ്പരം ഓർത്തെടുക്കാൻ....</p>
+            <p>ഒരു വരി പോരെ നമുക്കടുക്കാൻ...</p>
+            <p>ഒരീണം പോരെ നമുക്കിടറാൻ... ഉള്ളിലേക്കെടുത്തവസാനിച്ച ഒരു ശ്വാസം പോരെ നമുക്ക് ക്ഷമിക്കാൻ...</p>
+        </div>
+
+        <section class="narrative">
+            <p>And then comes the night. The digital ghosts will haunt you. The blue light of the screen, illuminating a chat that will never scroll down again.</p>
+        </section>
+
+        <div class="verse">
+            <p>അന്ന് രാത്രി നിനക്കുറങ്ങാൻ സാധിക്കുമോ...??</p>
+            <br>
+            <p><strong>ഇനി ഒരിക്കലും 'ഓൺലൈൻ' ആകാത്ത എന്റെ നമ്പറിലേക്ക്, മറുപടി കിട്ടില്ലെന്നറിഞ്ഞിട്ടും വിറയ്ക്കുന്ന കൈകളോടെ നീ ഒരു മെസ്സേജ് അയക്കുമോ..? 'തിരിച്ചു വാ' എന്നോ, 'മാപ്പ്' എന്നോ പാതിവഴിയിൽ മുറിഞ്ഞുപോയൊരു വാക്ക്..? ബ്ലോക്ക് ലിസ്റ്റിലെ എന്റെ പേര് നീ വിചിന്തനങ്ങൾക്ക് ഒടുവിൽ അൺബ്ലോക്ക് ചെയ്യുമോ..?</strong></p>
+        </div>
+
+        <div class="verse">
+            <p>ഇടങ്കവിളിലെ എന്റെ ഇളം നുണക്കുഴി നീ ഓർക്കില്ലേ...</p>
+            <p>വലം കണ്ണിലെ മറുക് നീയോർക്കില്ലേ...</p>
+            <p><strong>ഒരുപക്ഷേ, എന്റെ നെഞ്ചിലെ താളം നിലച്ചുവെന്നറിയുമ്പോൾ, നിന്റെ നെഞ്ചിലൊരു വിങ്ങൽ തറച്ചു കയറില്ലേ..?</strong></p>
+        </div>
+
+        <section class="narrative">
+            <p>The artifacts of a relationship. The intangible souvenirs we collected. The beach where the ocean witnessed our vulnerability.</p>
+        </section>
+
+        <div class="verse">
+            <p>നമ്മുടെ മാത്രം എന്ന് പറഞ്ഞു കാത്തുവെച്ചിരുന്ന കവിതകൾ.....</p>
+            <p>എണ്ണിയാലൊടുങ്ങാത്ത ഉച്ചവെയിൽ തണലുകൾ...</p>
+            <p>നിശ്വാസങ്ങൾ...</p>
+            <br>
+            <p>വീണ്ടും വീണ്ടും വായിച്ചിട്ടും ഓരോ തവണയും പുതുമ കൂടുന്ന കത്തുകൾ...</p>
+            <p>ഇടിഞ്ഞു പൊളിഞ്ഞ മ്യൂസിയത്തിന്റെ തളർന്ന ഗോവണിപടികൾ....</p>
+            <p>പരസ്പരം അവസാനമായി കെട്ടിപ്പിടിച്ചു കരഞ്ഞ കടലോരം...</p>
+            <p><strong>തിരമാലകൾ മായ്ച്ചിട്ടും മായാതെ കിടന്ന നമ്മുടെ കാൽപ്പാടുകൾ...</strong></p>
+            <br>
+            <p>ഇതൊക്ക നീ ഓർത്തു പോകില്ലേ....???</p>
+        </div>
+
+        <hr class="separator">
+
+        <section class="narrative">
+            <p>Everything fades. That is the law of nature. But in that fading, there is a cruel beauty. The obituary column doesn't just list names; it lists the end of universes.</p>
+        </section>
+
+        <div class="verse">
+            <p>അല്ലെങ്കിലും മങ്ങാത്തതേതുണ്ട്....??</p>
+            <p>മങ്ങിയ നമ്മുടെ പ്രണയം..</p>
+            <p>മുറിവേറ്റ നമ്മുടെ വിരഹം..</p>
+            <p>വിരഹമായ എന്റെ മരണം..</p>
+            <p>മരിച്ചുപോയ നമ്മുടെ നമ്മൾ...</p>
+            <p>നമ്മുടെ മാത്രം നമ്മൾ...</p>
+            <br>
+            <p>അടുത്ത ദിവസത്തെ ചരമകോളത്തിൽ മുകളിൽ നിന്ന് രണ്ടാമത്തെ വരിയിൽ എന്റെ പടം കാണുമായിരിക്കും ... ചിരി മങ്ങിയ പടം.. മങ്ങിയ കണ്ണുകൾ.... മങ്ങിയ ചുറ്റുപാടുകൾ... മങ്ങി, മങ്ങി, നരച്ച ജീവിതങ്ങൾ....</p>
+        </div>
+
+        <div class="verse">
+            <p><strong>അന്നത്തെ പത്രത്താളിൽ എന്റെ പേര് കാണുമ്പോൾ, അക്ഷരങ്ങൾക്കിടയിൽ നീ എന്നെ തിരയുമോ? അതോ, ആ പേജ് മറിക്കാൻ ധൈര്യമില്ലാതെ നീ പത്രം മടക്കിവയ്ക്കുമോ..?</strong></p>
+            <br>
+            <p style="text-align: center; font-size: 1.5rem; border-top: 1px solid #333; padding-top: 20px;">
+                <strong>അറിയില്ല... ഒന്നുമാത്രം എനിക്കറിയാം... ഞാനില്ലാത്ത ലോകത്ത്, നീ വല്ലാതെ ഒറ്റയ്ക്കായിപ്പോകും...!</strong>
+            </p>
+        </div>
+
+        <hr class="separator">
+
+        <div class="author-section">
+            <img src="https://blogger.googleusercontent.com/img/a/AVvXsEhf3R8-2F8huIJPEzCUzNrqn-0TiOt68GTIRzcoBEH5z9F2melVwYb4-ey1hsQiesOwVScXh9EgbUfXrOp9nT9hdNxd3MY_rxeLLRt3RYR4IKkBPfWyMaZRi-iANPVYBgxtoAmZpJE7Cv2oU3k4-CMb7dbzo_BZGycT5EYclxLEnOSoeili-QwstkE4_gXh" alt="Author Profile" class="author-img">
+            
+            <a href="../index.html" class="author-name">ലെ വരികൾ</a>
+            <div class="author-motto">Voice. Vision. Verse.</div>
+            
+            <div class="share-container">
+                <a href="#" onclick="shareTo('whatsapp')" class="share-btn whatsapp" title="Share on WhatsApp">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+                
+                <a href="#" onclick="shareTo('facebook')" class="share-btn facebook" title="Share on Facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                
+                <a href="#" onclick="shareTo('twitter')" class="share-btn twitter" title="Share on X">
+                    <i class="fa-brands fa-x-twitter"></i>
+                </a>
+
+                <div class="share-btn copy" onclick="copyLink()" title="Copy Link">
+                    <i class="fas fa-link"></i>
+                </div>
+            </div>
+        </div>
+
+        <div style="text-align:center; margin-top:50px; color:#555; font-size:0.8rem;">
+            &copy; 2025 ലെ വരികൾ. All rights reserved.
+        </div>
+
+        <div id="toast">Link Copied to Clipboard!</div>
+
+    </div>
+
+    <script>
+        // Reading Progress Bar Script
+        window.onscroll = function() {myFunction()};
+
+        function myFunction() {
+            var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            var scrolled = (winScroll / height) * 100;
+            document.getElementById("progressBar").style.width = scrolled + "%";
+        }
+
+        // Scroll Animation Script
+        document.addEventListener('DOMContentLoaded', function() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.verse, .narrative').forEach(el => {
+                el.style.opacity = 0;
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = 'all 0.8s ease-out';
+                observer.observe(el);
+            });
+        });
+        
+        // Copy Link Function
+        function copyLink() {
+            const url = window.location.href;
+            navigator.clipboard.writeText(url).then(() => {
+                var toast = document.getElementById("toast");
+                toast.className = "show";
+                setTimeout(function(){ toast.className = toast.className.replace("show", ""); }, 3000);
+            });
+        }
+
+        // Social Share Function
+        function shareTo(platform) {
+            const url = encodeURIComponent(window.location.href);
+            const title = encodeURIComponent("The Fading Echo | ലെ വരികൾ");
+            let shareUrl = "";
+
+            if (platform === 'whatsapp') {
+                shareUrl = `https://api.whatsapp.com/send?text=${title}%20${url}`;
+            } else if (platform === 'facebook') {
+                shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
+            } else if (platform === 'twitter') {
+                shareUrl = `https://twitter.com/intent/tweet?text=${title}&url=${url}`;
+            }
+
+            window.open(shareUrl, '_blank');
+        }
+    </script>
+</body>
+</html>
+

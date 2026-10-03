@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="ml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>കറ പിടിച്ച നോട്ടങ്ങൾ | ലെ വരികൾ...</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manjari:wght@100;400;700&family=Noto+Serif+Malayalam:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <style>
+        /* --- Color Variables --- */
+        :root {
+            /* Light Mode (Default) */
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-main: #2c2c2c;
+            --text-muted: #666666;
+            --accent-red: #d32f2f;
+            --highlight-bg: #fff3cd;
+            --metaphor-bg: #fafafa;
+            --dialogue-bg: #fff5f5;
+            --trap-step-bg: #fcfcfc;
+            --trap-border: #eee;
+            --share-bg: #f8f9fa;
+            --shadow-color: rgba(0,0,0,0.08);
+            
+            /* Typography */
+            --font-malayalam: 'Manjari', sans-serif;
+            --font-serif: 'Noto Serif Malayalam', serif;
+            --font-english: 'Playfair Display', serif;
+        }
+
+        /* Dark Mode Override */
+        body.dark-mode {
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --text-main: #e0e0e0;
+            --text-muted: #b0b0b0;
+            --accent-red: #ef5350; /* Lighter red for dark bg */
+            --highlight-bg: #4a3b00; /* Darker yellow/gold */
+            --metaphor-bg: #2d2d2d;
+            --dialogue-bg: #2c1a1a;
+            --trap-step-bg: #252525;
+            --trap-border: #333;
+            --share-bg: #252525;
+            --shadow-color: rgba(0,0,0,0.5);
+        }
+
+        body {
+            font-family: var(--font-malayalam);
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            margin: 0;
+            padding: 0;
+            line-height: 1.9;
+            font-size: 19px;
+            overflow-x: hidden;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        /* --- Toggle Button --- */
+        .theme-toggle-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background: var(--card-bg);
+            border: 1px solid var(--trap-border);
+            color: var(--text-main);
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .theme-toggle-btn:hover {
+            transform: scale(1.1);
+        }
+
+        /* --- Layout --- */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            box-shadow: 0 15px 40px var(--shadow-color);
+            min-height: 100vh;
+            position: relative;
+            transition: background-color 0.3s ease;
+        }
+
+        /* --- Cover Image --- */
+        .cover-image-container {
+            width: 100%;
+            height: 400px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .cover-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .cover-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: linear-gradient(to bottom, transparent, var(--card-bg));
+            transition: background 0.3s ease;
+        }
+
+        /* --- Body Content --- */
+        .article-body {
+            padding: 40px 60px 80px 60px;
+        }
+
+        h1 {
+            font-family: var(--font-serif);
+            font-size: 2.8rem;
+            color: var(--text-main);
+            margin-bottom: 10px;
+            line-height: 1.2;
+            margin-top: -40px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .subtitle {
+            font-size: 1.3rem;
+            color: var(--text-muted);
+            margin-bottom: 30px;
+            font-weight: 400;
+        }
+
+        /* --- Author --- */
+        .author-section {
+            display: flex;
+            align-items: center;
+            padding: 20px 0;
+            border-top: 1px solid var(--trap-border);
+            border-bottom: 1px solid var(--trap-border);
+            margin-bottom: 50px;
+        }
+
+        .author-img {
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 15px;
+            border: 2px solid var(--card-bg);
+            box-shadow: 0 4px 10px var(--shadow-color);
+        }
+
+        .author-name {
+            font-family: var(--font-malayalam);
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--text-main);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .author-name:hover { color: var(--accent-red); }
+
+        .author-motto {
+            font-family: var(--font-english);
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            letter-spacing: 0.5px;
+            margin-top: 2px;
+        }
+
+        /* --- Text Styling --- */
+        h2 {
+            font-family: var(--font-serif);
+            margin-top: 60px;
+            font-size: 1.8rem;
+            color: var(--text-main);
+            border-left: 4px solid var(--accent-red);
+            padding-left: 15px;
+        }
+
+        h3 {
+            font-size: 1.4rem;
+            color: var(--text-main);
+            margin-top: 40px;
+        }
+
+        p {
+            margin-bottom: 24px;
+            color: var(--text-main);
+        }
+
+        .highlight {
+            background: var(--highlight-bg);
+            padding: 0 5px;
+            font-weight: 700;
+            color: var(--text-main);
+            border-radius: 4px;
+        }
+
+        .red-text { color: var(--accent-red); font-weight: bold; }
+
+        /* --- Boxes --- */
+        .metaphor-box {
+            background-color: var(--metaphor-bg);
+            border-radius: 8px;
+            padding: 30px;
+            font-style: italic;
+            border: 1px solid var(--trap-border);
+            margin: 30px 0;
+            color: var(--text-muted);
+        }
+
+        .dialogue-box {
+            background-color: var(--dialogue-bg);
+            padding: 25px;
+            border-radius: 12px;
+            border-left: 4px solid var(--accent-red);
+            margin: 30px 0;
+            font-weight: 600;
+            color: var(--accent-red);
+        }
+
+        /* --- Trap Steps --- */
+        .trap-step {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+            padding: 15px;
+            background: var(--trap-step-bg);
+            border: 1px solid var(--trap-border);
+            border-radius: 8px;
+            transition: transform 0.2s;
+        }
+        .trap-step:hover { transform: translateX(5px); }
+        
+        .step-number {
+            background: var(--text-main);
+            color: var(--card-bg);
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-size: 0.9rem;
+            flex-shrink: 0;
+        }
+
+        /* --- CTA Grid --- */
+        .cta-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .cta-card {
+            padding: 25px;
+            border-radius: 10px;
+            border: 1px solid var(--trap-border);
+            font-size: 0.95rem;
+        }
+
+        /* Specific CTA Colors */
+        .cta-men { background-color: rgba(33, 150, 243, 0.1); border-left: 5px solid #2196f3; }
+        .cta-women { background-color: rgba(233, 30, 99, 0.1); border-left: 5px solid #e91e63; }
+        
+        body.dark-mode .cta-men { background-color: rgba(33, 150, 243, 0.15); color: #e3f2fd; }
+        body.dark-mode .cta-women { background-color: rgba(233, 30, 99, 0.15); color: #fce4ec; }
+
+        /* --- Share Section --- */
+        .share-container {
+            margin-top: 80px;
+            padding: 30px;
+            background: var(--share-bg);
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .share-title {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            font-family: var(--font-english);
+        }
+
+        .share-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .share-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--card-bg);
+            color: var(--text-main);
+            text-decoration: none;
+            box-shadow: 0 4px 6px var(--shadow-color);
+            transition: all 0.3s ease;
+            font-size: 1.2rem;
+            border: 1px solid var(--trap-border);
+            cursor: pointer;
+        }
+
+        .share-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 15px var(--shadow-color);
+        }
+
+        .whatsapp:hover { background: #25D366; color: white; border-color: #25D366; }
+        .facebook:hover { background: #1877F2; color: white; border-color: #1877F2; }
+        .twitter:hover { background: #000; color: white; border-color: #000; } /* X/Twitter Black */
+        body.dark-mode .twitter:hover { background: #fff; color: black; border-color: #fff; } /* Invert on Dark mode */
+        .copy-link:hover { background: #777; color: white; border-color: #777; }
+
+        /* --- Scroll Animation Classes --- */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Mobile */
+        @media (max-width: 700px) {
+            .article-body { padding: 30px 20px; }
+            h1 { font-size: 2.2rem; margin-top: -20px;}
+            .cover-image-container { height: 250px; }
+            .cta-grid { grid-template-columns: 1fr; }
+            .theme-toggle-btn { top: 15px; right: 15px; width: 40px; height: 40px; }
+        }
+    </style>
+</head>
+<body>
+
+    <button class="theme-toggle-btn" onclick="toggleTheme()" aria-label="Toggle Dark Mode">
+        <i class="fas fa-moon" id="theme-icon"></i>
+    </button>
+
+    <div class="container">
+        
+        <div class="cover-image-container">
+            <img src="https://blogger.googleusercontent.com/img/a/AVvXsEiidjwT9aihWXBK41yMhtDhjEHSdPFJGGRDv9E2T1k7c4Xqi9cSIE8dxvufk4ETPfZ9idy4NC7S7_tQg0Wppvf9ctBHyhwhCJm6cr9YNh3u-2TAUtRkeExKEvfraJoYae0_0wjxLC3HqAM3DWDkpr1OavQp1PyaFLBKIZ3ssk9eGN8D9CQr427KRzDKY3lA" alt="Cover Image" class="cover-image">
+            <div class="cover-overlay"></div>
+        </div>
+
+        <div class="article-body">
+            
+            <header class="reveal">
+                <h1>കറ പിടിച്ച നോട്ടങ്ങൾ</h1>
+                <p class="subtitle">എന്തുകൊണ്ടാണ് പെൺകുട്ടികൾ എപ്പോഴും പേടിച്ച് ഒതുങ്ങേണ്ടി വരുന്നത്?</p>
+            </header>
+
+            <div class="author-section reveal">
+                <a href="../index.html">
+                    <img src="https://blogger.googleusercontent.com/img/a/AVvXsEjqpLadYdybrF5HalPwqYrGnLWjqHOak_oYKbxtEXp0wGwwnLDM_SjA28jsNtRmoM4c979Q82L67s7M61b3lfdBOpaP-QRT7N7LLS8neJ73pa0-4w53FyDoBid9a1HKu6rizfPcOzlHTnbA0t1aRs8HcuMkokIScoJGwSKoJ7vgCZRRlqdRYC4qAA-zNuJw" alt="Author" class="author-img">
+                </a>
+                <div class="author-details">
+                    <a href="../index.html" class="author-name">ലെ വരികൾ...</a>
+                    <span class="author-motto">Voice. Vision. Verse.</span>
+                </div>
+            </div>
+
+            <main>
+                <section class="reveal">
+                    <h3>ആമുഖം: കറ പുരണ്ട കണ്ണടകൾ</h3>
+                    <div class="metaphor-box">
+                        <p>നമുക്കൊരു ഉദാഹരണത്തിൽ നിന്ന് തുടങ്ങാം. ഒരാൾ ഒരു കണ്ണട വെച്ചിട്ടുണ്ട് എന്ന് കരുതുക. പക്ഷേ ആ കണ്ണട നിറയെ പൊടിയും ചളിയും പിടിച്ചിരിക്കുകയാണ്. ആ കണ്ണടയിലൂടെ അയാൾ നോക്കുന്നതെല്ലാം അയാൾക്ക് വൃത്തികേടായാണ് തോന്നുന്നത്. സത്യത്തിൽ പുറത്തുള്ള കാഴ്ചയ്ക്കാണോ കുഴപ്പം? അതോ അയാൾ വെച്ചിരിക്കുന്ന ആ കണ്ണടയ്ക്കാണോ?</p>
+                    </div>
+                    
+                    <p>ഇവിടെ ആ <strong>'കണ്ണട'</strong> എന്നത് നമ്മുടെ സമൂഹത്തിലെ ചില ആണുങ്ങളുടെ <span class="highlight">മനോഭാവമാണ് (Attitude)</span>. കുട്ടിക്കാലം മുതൽ കണ്ടും കേട്ടും പഠിച്ച തെറ്റായ കാര്യങ്ങൾ, സിനിമകളിലെ മോശം തമാശകൾ, ഫോണിൽ കാണുന്ന അശ്ലീല വീഡിയോകൾ—ഇവയെല്ലാമാണ് കണ്ണടയിലെ ആ അഴുക്ക്.</p>
+
+                    <p>ഈ കണ്ണടയിലൂടെ നോക്കുമ്പോൾ അവർക്ക് മുന്നിലൂടെ പോകുന്ന ഒരു സ്ത്രീയെ വെറുമൊരു മനുഷ്യനായിട്ടല്ല തോന്നുക, മറിച്ച്:</p>
+                    <ul>
+                        <li>• അവൾ നടക്കുന്നത് വെറും നടത്തമായിട്ട് അവർ കാണില്ല.</li>
+                        <li>• അവൾ ചിരിക്കുന്നത് സന്തോഷം കൊണ്ടാണെന്ന് അവർ കരുതുന്നില്ല.</li>
+                        <li>• അവൾ ജീവിക്കുന്നത് തന്നെ ഇവരുടെയൊക്കെ ആനന്ദത്തിന് വേണ്ടിയാണെന്ന് ഇക്കൂട്ടർ തെറ്റിദ്ധരിക്കുന്നു.</li>
+                    </ul>
+                </section>
+
+                <section class="reveal">
+                    <h2>1. എന്തുകൊണ്ടാണ് അവർ അങ്ങനെ നോക്കുന്നത്?</h2>
+                    <p><em>"ഇതൊരു അബദ്ധം പറ്റുന്നതാണോ? അറിയാതെ നോക്കിപ്പോകുന്നതാണോ?"</em></p>
+                    
+                    <p>ഒരിക്കലുമല്ല. <span class="red-text">ഇതൊരു ശീലമാണ്.</span> പല ആണുങ്ങളും സ്ത്രീകളെ കാണുമ്പോൾ തന്നെ അവരെ ഒരു 'ശരീരം' മാത്രമായി കാണാൻ തുടങ്ങുന്നു. ബസ്സിലായാലും, ക്ലാസ്സിലായാലും, വഴിയോരത്തായാലും—ഒരു സ്ത്രീയെ കാണുമ്പോൾ അവളുടെ വ്യക്തിത്വത്തേക്കാൾ ഉപരിയായി അവർക്ക് തോന്നുന്നത് ലൈംഗികമായ ചിന്തകളാണ്.</p>
+
+                    <p><strong>ഇതിന്റെ പ്രധാന കാരണങ്ങൾ:</strong></p>
+                    <ul>
+                        <li>• <strong>തെറ്റായ ധാരണകൾ:</strong> "ആണുങ്ങളായാൽ പെണ്ണുങ്ങളെ അങ്ങനെ നോക്കണം" എന്ന തെറ്റായ ചിന്ത.</li>
+                        <li>• <strong>അശ്ലീലം (Pornography):</strong> ഫോണിലും മറ്റും കാണുന്ന വീഡിയോകൾ സ്ത്രീകളെ വെറും ഉപഭോഗവസ്തുവായി ചിത്രീകരിക്കുന്നു.</li>
+                        <li>• <strong>ശിക്ഷയില്ലായ്മ:</strong> ആരും ചോദിക്കാനില്ലാത്തതുകൊണ്ട് "എന്തുമാവാം" എന്ന തോന്നൽ.</li>
+                    </ul>
+                </section>
+
+                <section class="reveal">
+                    <h2>2. ആരാണ് യഥാർത്ഥ കുറ്റക്കാരൻ?</h2>
+                    <p>ഒരു പെൺകുട്ടി ഇതിനോട് പ്രതികരിച്ചാൽ എന്താണ് സംഭവിക്കുക? അവിടെയാണ് വലിയൊരു തട്ടിപ്പ് നടക്കുന്നത്.</p>
+                    
+                    <div class="dialogue-box">
+                    <p>"ഓ, ഇവൾക്കെന്താ ഇത്ര അഹങ്കാരം?"</p>
+                    <p>"വെറുതെ നോക്കിയതിനാണ് ഇവളീ ഷോ കാണിക്കുന്നത്."</p>
+                    </div>
+
+                    <p>ഇവിടെ നടക്കുന്നതെന്താണെന്ന് ശ്രദ്ധിച്ചോ?</p>
+                    <div class="trap-step">
+                        <span class="step-number">1</span>
+                        <span>ആദ്യം അവൻ അവളെ ബുദ്ധിമുട്ടിക്കുന്നു (Action).</span>
+                    </div>
+                    <div class="trap-step">
+                        <span class="step-number">2</span>
+                        <span>അവൾ അതിനോട് പ്രതികരിക്കുന്നു (Reaction).</span>
+                    </div>
+                    <div class="trap-step" style="background-color: rgba(239, 83, 80, 0.1); border: 1px solid var(--accent-red);">
+                        <span class="step-number" style="background-color: var(--accent-red); color:white;">3</span>
+                        <span>അവസാനം, <strong>അവളുടെ പ്രതികരണമാണ് പ്രശ്നം</strong> എന്ന് അവൻ വരുത്തിത്തീർക്കുന്നു.</span>
+                    </div>
+                </section>
+
+                <section class="reveal">
+                    <h2>3. പേടിച്ച് ജീവിക്കുന്നവർ (Self-Policing)</h2>
+                    <p>ഇങ്ങനെയൊക്കെ സംഭവിക്കുമ്പോൾ പെൺകുട്ടികൾ സ്വയം ഒരു ജയിലിലെന്ന പോലെ ജീവിക്കാൻ തുടങ്ങുന്നു. ഓരോ തവണ പുറത്തിറങ്ങുമ്പോഴും നൂറു ചോദ്യങ്ങൾ അവരുടെ മനസ്സിലുണ്ടാകും:</p>
+                    
+                    <p style="text-align: center; font-style: italic; color: var(--text-muted);">"ഈ വസ്ത്രം ധരിച്ചാൽ ആരെങ്കിലും എന്തെങ്കിലും പറയുമോ?"<br>"ഞാൻ ഉച്ചത്തിൽ സംസാരിച്ചാൽ അത് തെറ്റാകുമോ?"</p>
+
+                    <p>ഇങ്ങനെ പേടിച്ച്, ഒതുങ്ങി, സ്വന്തം വ്യക്തിത്വം തന്നെ മാറ്റിമറിക്കുന്ന അവസ്ഥയിലേക്ക് അവർ എത്തുന്നു.</p>
+                    
+                    <p class="highlight">ഇതിലെ വൈരുദ്ധ്യം: ഇങ്ങനെ ഒതുങ്ങിപ്പോയ പെൺകുട്ടികളെ കാണുമ്പോൾ "നീ എന്താ ഇത്ര സൈലന്റ് ആയത്?" എന്ന് ചോദിക്കുന്നതും ഇതേ സമൂഹം തന്നെയാണ്.</p>
+                </section>
+
+                <section class="reveal">
+                    <h2>4. നമുക്ക് എന്ത് ചെയ്യാൻ പറ്റും?</h2>
+                    
+                    <div class="cta-grid">
+                        <div class="cta-card cta-men">
+                            <strong>ഇത് വായിക്കുന്ന ആൺകുട്ടികളോട്:</strong><br><br>
+                            സ്ത്രീകളെ തുറിച്ചു നോക്കുന്നതോ, മോശം കമന്റ് പറയുന്നതോ അല്ല "പൗരുഷം". അത് നിങ്ങളുടെ ബലഹീനതയാണ്. ഒരു പെൺകുട്ടിക്ക് നിങ്ങളുടെ സാന്നിധ്യത്തിൽ <em>"ഞാൻ സുരക്ഷിതയാണ്"</em> എന്ന് തോന്നുന്നുണ്ടോ? എങ്കിൽ അതാണ് യഥാർത്ഥ ഹീറോയിസം.
+                        </div>
+                        <div class="cta-card cta-women">
+                            <strong>ഇത് വായിക്കുന്ന പെൺകുട്ടികളോട്:</strong><br><br>
+                            ഇത്തരം കാരണങ്ങളാൽ നിങ്ങൾക്ക് എന്തെങ്കിലും അസ്വസ്ഥത തോന്നുന്നുണ്ടെങ്കിൽ, അത് നിങ്ങളുടെ കുഴപ്പമല്ല. നിങ്ങളുടെ തോന്നലുകൾ (Instincts) ശരിയാണ്. ആരും നിങ്ങളെ കുറ്റപ്പെടുത്താൻ അനുവദിക്കരുത്.
+                        </div>
+                    </div>
+                </section>
+
+                <section class="reveal" style="margin-top: 60px;">
+                    <div class="metaphor-box" style="border-left: 4px solid var(--highlight-bg); background-color: var(--share-bg);">
+                        <h3>ഉപസംഹാരം</h3>
+                        <p>നിങ്ങൾ ഒരു കണ്ണാടിയിൽ മുഖം നോക്കുന്നു എന്ന് കരുതുക. ആ കണ്ണാടി നിറയെ പൊടിയാണെങ്കിൽ, നിങ്ങൾ സ്വന്തം മുഖമാണോ തുടയ്ക്കുക? അതോ കണ്ണാടിയാണോ തുടയ്ക്കുക?<br>
+                        <strong>ഉറപ്പായും കണ്ണാടിയാണ് തുടയ്ക്കുക, അല്ലേ?</strong></p>
+                    </div>
+                    <p>ഇവിടെയും അത് തന്നെയാണ് സത്യം. സമൂഹത്തിന്റെ നോട്ടത്തിനാണ് (കണ്ണാടിക്കാണ്) തകരാറ്. അതിന് പെൺകുട്ടികൾ സ്വന്തം വ്യക്തിത്വം മാറ്റി ഒളിച്ചിരിക്കേണ്ട കാര്യമില്ല.</p>
+                    <p style="font-size: 1.2rem; text-align: center; margin-top: 40px; font-weight: bold; font-family: var(--font-serif);">
+                        ഓർക്കുക, പേടിപ്പിച്ച് നിർത്തുന്നതല്ല, പറക്കാൻ അനുവദിക്കുന്നതാണ് യഥാർത്ഥ സ്നേഹം.
+                    </p>
+                </section>
+
+                <div class="share-container reveal">
+                    <p class="share-title">Share this article</p>
+                    <div class="share-buttons">
+                        <a href="#" class="share-btn whatsapp" onclick="shareToWhatsApp()"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#" class="share-btn facebook" onclick="shareToFacebook()"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="share-btn twitter" onclick="shareToTwitter()"><i class="fa-brands fa-x-twitter"></i></a>
+                        <button class="share-btn copy-link" onclick="copyLink()"><i class="fas fa-link"></i></button>
+                    </div>
+                </div>
+
+            </main>
+        </div>
+    </div>
+
+    <script>
+        // --- Theme Toggle ---
+        const themeBtn = document.querySelector('.theme-toggle-btn');
+        const themeIcon = document.getElementById('theme-icon');
+        const body = document.body;
+
+        // Check Local Storage
+        const currentTheme = localStorage.getItem('theme');
+        if (currentTheme == 'dark') {
+            body.classList.add('dark-mode');
+            themeIcon.classList.remove('fa-moon');
+            themeIcon.classList.add('fa-sun');
+        }
+
+        function toggleTheme() {
+            body.classList.toggle('dark-mode');
+            
+            if (body.classList.contains('dark-mode')) {
+                themeIcon.classList.remove('fa-moon');
+                themeIcon.classList.add('fa-sun');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                themeIcon.classList.remove('fa-sun');
+                themeIcon.classList.add('fa-moon');
+                localStorage.setItem('theme', 'light');
+            }
+        }
+
+        // --- Reading Animation ---
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            var windowHeight = window.innerHeight;
+            var elementVisible = 150;
+
+            for (var i = 0; i < reveals.length; i++) {
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                }
+            }
+        }
+        window.addEventListener("scroll", reveal);
+        reveal();
+
+        // --- Share Functionality ---
+        const pageTitle = encodeURIComponent("കറ പിടിച്ച നോട്ടങ്ങൾ: എന്തുകൊണ്ടാണ് പെൺകുട്ടികൾ എപ്പോഴും പേടിക്കേണ്ടി വരുന്നത്?");
+        const pageUrl = encodeURIComponent(window.location.href);
+
+        function shareToWhatsApp() {
+            window.open(`https://api.whatsapp.com/send?text=${pageTitle}%20${pageUrl}`, '_blank');
+        }
+
+        function shareToFacebook() {
+            window.open(`https://www.facebook.com/sharer/sharer.php?u=${pageUrl}`, '_blank');
+        }
+
+        function shareToTwitter() {
+            window.open(`https://twitter.com/intent/tweet?text=${pageTitle}&url=${pageUrl}`, '_blank');
+        }
+
+        function copyLink() {
+            navigator.clipboard.writeText(window.location.href).then(() => {
+                const btn = document.querySelector('.copy-link');
+                const originalIcon = btn.innerHTML;
+                btn.innerHTML = '<i class="fas fa-check"></i>';
+                setTimeout(() => {
+                    btn.innerHTML = originalIcon;
+                }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>
+                     

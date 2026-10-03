@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Why Political Outrage Is Addictive | Digital Psychology Explored</title>
+    <meta name="title" content="Why Political Outrage Is Addictive | Digital Psychology Explored">
+    <meta name="description" content="An investigation into how moral anger is hijacked by digital algorithms, transforming political discourse into an addictive cycle of social reward.">
+    <meta name="author" content="Aadil Samjeed">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://whytechofficial.github.io/---.../Political%20Outrage.html">
+    <meta property="og:title" content="Why Political Outrage Is Addictive">
+    <meta property="og:description" content="An investigation into how moral anger is hijacked by digital algorithms, transforming political discourse into an addictive cycle of social reward.">
+    <meta property="og:image" content="https://blogger.googleusercontent.com/img/a/AVvXsEhd9SVwudNdhn3IsNVvytAsVF9T69GQCi103DhCwCok727bTIsEY04O4VayHLXSz5YLBaOsQ_tqnHhUUFL2RxAentftd4Mpf2qnBJmfsBdPkIE2K1DvEBoT4qNwb6_Mx_MF6Wrx2lx0p1Q_yi9un8NDMTkHJoWH4NE2FB8xp53zIBF-LOr-bD8Z4HVUBht5">
+
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://yourwebsite.com/article-url">
+    <meta property="twitter:title" content="Why Political Outrage Is Addictive">
+    <meta property="twitter:description" content="An investigation into how moral anger is hijacked by digital algorithms, transforming political discourse into an addictive cycle of social reward.">
+    <meta property="twitter:image" content="https://blogger.googleusercontent.com/img/a/AVvXsEhd9SVwudNdhn3IsNVvytAsVF9T69GQCi103DhCwCok727bTIsEY04O4VayHLXSz5YLBaOsQ_tqnHhUUFL2RxAentftd4Mpf2qnBJmfsBdPkIE2K1DvEBoT4qNwb6_Mx_MF6Wrx2lx0p1Q_yi9un8NDMTkHJoWH4NE2FB8xp53zIBF-LOr-bD8Z4HVUBht5">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        :root {
+            --bg-color: #f6f8fa;
+            --card-bg: #ffffff;
+            --text-main: #1a1d21;
+            --text-muted: #57606a;
+            --accent-color: #dc2626;
+            --font-stack: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: var(--font-stack);
+            line-height: 1.75;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        /* Reading Progress Bar */
+        .progress-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: rgba(0, 0, 0, 0.05);
+            z-index: 1000;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: var(--accent-color);
+            width: 0%;
+            transition: width 0.1s ease-out;
+            box-shadow: 0 0 10px rgba(220, 38, 38, 0.5);
+        }
+
+        /* Main Container */
+        .main-wrapper {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px 100px 20px;
+        }
+
+        /* Cover Image Styling */
+        .cover-image-container {
+            width: 100%;
+            border-radius: 16px;
+            overflow: hidden;
+            margin-bottom: 2rem;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            opacity: 0;
+            animation: imageReveal 1.2s ease-out forwards;
+            background: #000;
+        }
+
+        .cover-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+            filter: brightness(0.9) contrast(1.1);
+        }
+
+        /* Title Styling */
+        h1 {
+            font-size: 2.75rem;
+            font-weight: 800;
+            letter-spacing: -0.025em;
+            color: var(--text-main);
+            text-align: left;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            opacity: 0;
+            animation: textSlideUp 0.8s ease-out forwards 0.3s;
+        }
+
+        /* Author and Share Bar Container */
+        .meta-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 3rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid rgba(0,0,0,0.08);
+            opacity: 0;
+            animation: textSlideUp 0.8s ease-out forwards 0.5s;
+        }
+
+        /* Author Info */
+        .author-section {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .author-pic {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            border: 2px solid var(--card-bg);
+        }
+
+        .author-details {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .author-name {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--text-main);
+            text-decoration: none;
+            transition: color 0.2s ease;
+            line-height: 1.2;
+        }
+
+        .author-name:hover {
+            color: var(--accent-color);
+            text-decoration: underline;
+        }
+
+        .author-brand {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-main);
+            margin-top: 2px;
+        }
+
+        .brand-motto {
+            font-weight: 400;
+            font-style: italic;
+            color: var(--text-muted);
+        }
+
+        .author-date {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-top: 2px;
+        }
+
+        /* Share Buttons */
+        .share-bar {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .share-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+            font-size: 1.1rem;
+            color: #fff;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            text-decoration: none;
+            position: relative;
+        }
+
+        .share-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+
+        .btn-x { background-color: #000000; }
+        .btn-facebook { background-color: #1877F2; }
+        .btn-whatsapp { background-color: #25D366; }
+        .btn-copy { background-color: #57606a; }
+
+        /* Copy Tooltip */
+        .copy-tooltip {
+            position: absolute;
+            top: -35px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #1a1d21;
+            color: #fff;
+            font-size: 0.75rem;
+            padding: 4px 8px;
+            border-radius: 4px;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s;
+            white-space: nowrap;
+        }
+
+        .share-btn.copied .copy-tooltip {
+            opacity: 1;
+        }
+
+        /* Paragraph Card Styling */
+        .container p {
+            background-color: var(--card-bg);
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            border-radius: 12px;
+            font-size: 1.2rem;
+            color: var(--text-main);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05), 0 1px 2px rgba(0,0,0,0.1);
+            border: 1px solid rgba(0,0,0,0.03);
+            opacity: 0;
+            transform: translateY(30px) scale(0.98);
+            transition: opacity 0.7s ease, transform 0.7s ease, box-shadow 0.3s ease;
+            will-change: transform, opacity;
+        }
+
+        .container p:first-of-type {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--accent-color);
+            line-height: 1.6;
+            border-left: 6px solid var(--accent-color);
+            background: rgba(220, 38, 38, 0.03);
+        }
+
+        .container p.visible {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+
+        .container p:hover:not(:first-of-type) {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.03);
+            border-color: rgba(220, 38, 38, 0.1);
+        }
+
+        /* Animations */
+        @keyframes imageReveal {
+            from { opacity: 0; transform: scale(1.05); filter: blur(5px) brightness(0.5); }
+            to { opacity: 1; transform: scale(1); filter: blur(0) brightness(0.9) contrast(1.1); }
+        }
+
+        @keyframes textSlideUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .main-wrapper { padding: 20px 15px; }
+            h1 { font-size: 2rem; margin-bottom: 1rem; }
+            .meta-container { flex-direction: column; align-items: flex-start; gap: 20px; }
+            .container p { padding: 1.5rem; font-size: 1.1rem; }
+            .container p:first-of-type { font-size: 1.25rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="progress-container">
+        <div class="progress-bar" id="progressBar"></div>
+    </div>
+
+    <div class="main-wrapper">
+        
+        <div class="cover-image-container">
+            <img src="https://blogger.googleusercontent.com/img/a/AVvXsEhd9SVwudNdhn3IsNVvytAsVF9T69GQCi103DhCwCok727bTIsEY04O4VayHLXSz5YLBaOsQ_tqnHhUUFL2RxAentftd4Mpf2qnBJmfsBdPkIE2K1DvEBoT4qNwb6_Mx_MF6Wrx2lx0p1Q_yi9un8NDMTkHJoWH4NE2FB8xp53zIBF-LOr-bD8Z4HVUBht5" 
+                 alt="Political Outrage Theme Concept" 
+                 class="cover-image">
+        </div>
+
+        <div id="article-header">
+            </div>
+
+        <div class="meta-container">
+            <div class="author-section">
+                <img src="https://blogger.googleusercontent.com/img/a/AVvXsEjqpLadYdybrF5HalPwqYrGnLWjqHOak_oYKbxtEXp0wGwwnLDM_SjA28jsNtRmoM4c979Q82L67s7M61b3lfdBOpaP-QRT7N7LLS8neJ73pa0-4w53FyDoBid9a1HKu6rizfPcOzlHTnbA0t1aRs8HcuMkokIScoJGwSKoJ7vgCZRRlqdRYC4qAA-zNuJw" 
+                     alt="Aadil Samjeed Profile" class="author-pic">
+                <div class="author-details">
+                    <a href="../index.html" rel="noopener noreferrer" class="author-name">Aadil Samjeed</a>
+                    <span class="author-brand">Le Varikal <span class="brand-motto">&bull; Voice. Vision. Verse.</span></span>
+                    <span class="author-date" id="current-date"></span>
+                </div>
+            </div>
+
+            <div class="share-bar">
+                <button class="share-btn btn-x" onclick="shareToX()" aria-label="Share on X">
+                    <i class="fa-brands fa-x-twitter"></i>
+                </button>
+                <button class="share-btn btn-facebook" onclick="shareToFacebook()" aria-label="Share on Facebook">
+                    <i class="fa-brands fa-facebook-f"></i>
+                </button>
+                <button class="share-btn btn-whatsapp" onclick="shareToWhatsApp()" aria-label="Share on WhatsApp">
+                    <i class="fa-brands fa-whatsapp"></i>
+                </button>
+                <button class="share-btn btn-copy" onclick="copyLink(this)" aria-label="Copy Link">
+                    <i class="fa-solid fa-link"></i>
+                    <span class="copy-tooltip">Copied!</span>
+                </button>
+            </div>
+        </div>
+
+        <div id="article-content">
+            </div>
+    </div>
+
+    <script type="application/json" id="article-data">
+    {
+        "title": "WHY POLITICAL OUTRAGE IS ADDICTIVE",
+        "paragraphs": [
+            "Political outrage is not merely anger. It is moral anger, and that distinction matters.",
+            "Psychologist Jonathan Haidt argues that moral emotions evolved to regulate collective life. When we perceive violations of fairness, harm, loyalty, or authority, outrage functions as a social alarm system. It signals that a boundary has been crossed and that the group must respond.",
+            "In this sense, outrage is not a breakdown of reason but an adaptive response designed to preserve moral order. It binds communities together by clearly identifying what is unacceptable.",
+            "However, moral outrage not only regulates behaviour; it also feels rewarding. Expressions of righteous anger activate the brain's reward circuitry, particularly when they are met with affirmation from others. Each like, repost, or public agreement provides a small but meaningful reinforcement signal.",
+            "The brain begins to associate moral expression with social reward. Over time, outrage is not simply expressed because something is wrong. It is expressed because it produces recognition, validation, and a sense of belonging. The emotional satisfaction becomes inseparable from the moral stance.",
+            "Legal scholar Cass Sunstein has shown that when like-minded individuals deliberate together, their views tend to become more extreme rather than more moderate. This phenomenon, known as group polarisation, demonstrates that shared outrage rarely stabilises at a fixed intensity. Instead, each expression subtly shifts the group's emotional baseline.",
+            "What once seemed excessive gradually appears insufficient. The collective mood intensifies, and moderation begins to look like indifference. In such environments, outrage is escalated.",
+            "Digital platforms did not invent moral outrage, but they have perfected its circulation. Content that triggers strong emotional arousal spreads more rapidly than content that requires patience or nuance. Anger, in particular, generates higher engagement metrics, which algorithms interpret as value.",
+            "The system is structurally indifferent to the epistemic quality of content; it rewards attention, not accuracy. As a result, outrage becomes algorithmically privileged. What feels like spontaneous moral expression is often operating within an incentive structure that amplifies intensity over reflection.",
+            "Outrage also provides psychological relief in a complex and unstable political world. It simplifies ambiguity by dividing reality into clear moral categories. In moments of uncertainty, such clarity feels stabilising. Yet as Hannah Arendt warned, the erosion of reflective judgment weakens democratic life.",
+            "Political thinking requires the capacity to hold competing truths, to tolerate contradiction, and to resist immediate moral finality. Outrage offers certainty, but certainty can become a substitute for thought.",
+            "In contemporary politics, belief has become increasingly fused with identity. Political affiliation signals who we are, what we value, and where we belong. When criticism targets our ideological group, the threat is experienced not only as intellectual disagreement but as personal attack.",
+            "Expressing outrage becomes a way of demonstrating loyalty and reinforcing group solidarity. Over time, anger functions as proof of commitment. The absence of visible outrage can be interpreted as moral weakness or insufficient allegiance.",
+            "The deeper concern is not that outrage exists, because outrage can be morally justified and historically necessary. The concern is that when outrage becomes psychologically rewarding, socially incentivised, and structurally amplified, it risks reshaping democratic culture itself.",
+            "Democracy requires tolerance for complexity, patience with disagreement, and the ability to distinguish between opposition and evil.",
+            "If political engagement becomes dependent on emotional escalation, compromise feels like betrayal, and nuance looks like complicity. The question, then, is not whether outrage is legitimate. It is whether we are gradually being conditioned to need it to feel politically alive."
+        ]
+    }
+    </script>
+
+    <script>
+        // 1. Parse JSON and Render Content
+        const jsonString = document.getElementById('article-data').textContent;
+        const articleObj = JSON.parse(jsonString);
+        
+        // Add Title
+        const headerDiv = document.getElementById('article-header');
+        const titleElement = document.createElement('h1');
+        titleElement.textContent = articleObj.title;
+        headerDiv.appendChild(titleElement);
+        
+        // Setup Date
+        const dateElement = document.getElementById('current-date');
+        const today = new Date();
+        dateElement.textContent = today.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+        
+        // Add Paragraphs
+        const contentDiv = document.getElementById('article-content');
+        const articleTextContainer = document.createElement('div');
+        articleTextContainer.className = 'container';
+        contentDiv.appendChild(articleTextContainer);
+        
+        articleObj.paragraphs.forEach(paragraphText => {
+            const pElement = document.createElement('p');
+            pElement.textContent = paragraphText;
+            articleTextContainer.appendChild(pElement);
+        });
+
+        // 2. Share Functions
+        function getShareData() {
+            return {
+                url: window.location.href,
+                title: document.title
+            };
+        }
+
+        function shareToX() {
+            const data = getShareData();
+            window.open(`https://twitter.com/intent/tweet?url=${encodeURIComponent(data.url)}&text=${encodeURIComponent(data.title)}`, '_blank');
+        }
+
+        function shareToFacebook() {
+            const data = getShareData();
+            window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(data.url)}`, '_blank');
+        }
+
+        function shareToWhatsApp() {
+            const data = getShareData();
+            window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(data.title + " " + data.url)}`, '_blank');
+        }
+
+        function copyLink(buttonElement) {
+            const data = getShareData();
+            navigator.clipboard.writeText(data.url).then(() => {
+                buttonElement.classList.add('copied');
+                setTimeout(() => {
+                    buttonElement.classList.remove('copied');
+                }, 2000);
+            });
+        }
+
+        // 3. Scroll-Triggered Fade-In Animation
+        const paragraphs = document.querySelectorAll('.container p');
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px 0px -50px 0px',
+            threshold: 0.1 
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        paragraphs.forEach(p => observer.observe(p));
+
+        // 4. Smooth Reading Progress Bar Logic
+        const progressBar = document.getElementById("progressBar");
+        const updateProgressBar = () => {
+            let winScroll = document.documentElement.scrollTop;
+            let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            let scrolled = (winScroll / height) * 100;
+            progressBar.style.width = scrolled + "%";
+        };
+
+        window.addEventListener('scroll', updateProgressBar);
+        updateProgressBar();
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="ml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta property="og:title" content="നിതീഷ് കുമാറിന് ചുറ്റുമുള്ള ഈ നിശ്ശബ്ദത">
+    <meta property="og:site_name" content="ലെ വരികൾ...">
+    <meta property="og:url" content="https://taplink.cc/levarikal">
+    <meta property="og:description" content="അധികാരത്തിന്റെ അശ്ലീലച്ചിരിയും ജനാധിപത്യത്തിന്റെ വിലാപവും - ലെ വരികൾ...">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://blogger.googleusercontent.com/img/a/AVvXsEhrSoeyC0t3N0u7VCCIZ06HoCjofnDcYAED4vBj1pX_osS50zGjUwCuk-83vU1dX40I12Qo9bavSsL8pLNFzBGiY2Z4J-UaWgHr1Df3D4uf0YxZ5q3UlliX2-iicMnxB04AJWBad0a8U3yxCq9IWbQiaa8jjQ2kezdKuQYy_ly5J3CuL75NUx8CVGRG1Lw6">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="നിതീഷ് കുമാറിന് ചുറ്റുമുള്ള ഈ നിശ്ശബ്ദത">
+    <meta name="twitter:description" content="അധികാരത്തിന്റെ അശ്ലീലച്ചിരിയും ജനാധിപത്യത്തിന്റെ വിലാപവും">
+    <meta name="twitter:image" content="https://blogger.googleusercontent.com/img/a/AVvXsEhrSoeyC0t3N0u7VCCIZ06HoCjofnDcYAED4vBj1pX_osS50zGjUwCuk-83vU1dX40I12Qo9bavSsL8pLNFzBGiY2Z4J-UaWgHr1Df3D4uf0YxZ5q3UlliX2-iicMnxB04AJWBad0a8U3yxCq9IWbQiaa8jjQ2kezdKuQYy_ly5J3CuL75NUx8CVGRG1Lw6">
+
+    <title>അധികാരത്തിന്റെ അശ്ലീലച്ചിരി - ലെ വരികൾ...</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Malayalam:wght@400;700&family=Noto+Sans+Malayalam:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <style>
+        :root {
+            --bg-color: #fdfdfd;
+            --text-color: #222;
+            --accent-color: #b91c1c; 
+            --secondary-color: #4b5563;
+            --highlight-color: #fef08a; 
+            --font-serif: 'Noto Serif Malayalam', serif;
+            --font-sans: 'Noto Sans Malayalam', sans-serif;
+        }
+
+        /* Reading Progress Bar */
+        #reading-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 4px;
+            background: var(--accent-color);
+            z-index: 9999;
+            transition: width 0.1s ease;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.9;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        /* Cover Image Styling - FIXED SCALING */
+        .cover-image-container {
+            width: 100%;
+            height: auto; /* Removed fixed height to prevent cropping */
+            line-height: 0;
+            background-color: #000; /* Fallback */
+        }
+
+        .cover-image {
+            width: 100%;
+            height: auto; /* Ensures aspect ratio is preserved */
+            display: block;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: -60px auto 0; /* Slight overlap */
+            padding: 50px 30px;
+            background: #ffffff;
+            box-shadow: 0 -10px 30px rgba(0,0,0,0.1);
+            position: relative;
+            border-radius: 12px 12px 0 0;
+            animation: fadeUp 1s ease-out;
+            z-index: 10;
+        }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Author Section */
+        .author-header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+            margin-bottom: 30px;
+        }
+
+        .author-img {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid white;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .author-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .author-name {
+            font-family: var(--font-serif);
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #000;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .author-name:hover {
+            color: var(--accent-color);
+        }
+
+        .author-moto {
+            font-size: 0.85rem;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 2px;
+        }
+
+        /* Article Typography */
+        h1 {
+            font-family: var(--font-serif);
+            font-size: 2.4rem;
+            color: #111;
+            margin-bottom: 15px;
+            line-height: 1.3;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: var(--secondary-color);
+            font-style: italic;
+            margin-bottom: 40px;
+            display: block;
+        }
+
+        h2 {
+            font-family: var(--font-serif);
+            color: var(--accent-color);
+            margin-top: 50px;
+            font-size: 1.6rem;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #eee;
+        }
+
+        p {
+            margin-bottom: 25px;
+            font-size: 1.15rem;
+            text-align: justify;
+            color: #333;
+        }
+
+        .drop-cap::first-letter {
+            font-size: 3.5rem;
+            float: left;
+            margin-right: 12px;
+            margin-top: -8px;
+            color: var(--accent-color);
+            font-family: var(--font-serif);
+            font-weight: bold;
+        }
+
+        .highlight {
+            background-color: var(--highlight-color);
+            padding: 2px 4px;
+            border-radius: 4px;
+        }
+
+        .danger-text {
+            color: #dc2626;
+            font-weight: 700;
+        }
+
+        .quote-box {
+            background: #fff7ed;
+            border-left: 4px solid #ea580c;
+            padding: 25px 30px;
+            margin: 35px 0;
+            font-family: var(--font-serif);
+            font-size: 1.3rem;
+            color: #9a3412;
+            font-style: italic;
+            border-radius: 0 8px 8px 0;
+        }
+
+        /* Credits Section */
+        .credits-section {
+            margin-top: 60px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border: 1px solid #eee;
+            text-align: center;
+        }
+
+        .credits-title {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #777;
+            margin-bottom: 15px;
+            display: block;
+            font-weight: bold;
+        }
+
+        .credit-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+            color: #333;
+            background: white;
+            padding: 10px 20px;
+            border-radius: 50px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .credit-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .credit-img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .credit-name {
+            font-weight: 700;
+            font-family: var(--font-sans);
+        }
+
+        /* Share Section */
+        .share-container {
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 1px solid #e5e5e5;
+            text-align: center;
+        }
+
+        .share-label {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .share-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .share-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: transform 0.2s, opacity 0.2s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .share-btn:hover {
+            transform: scale(1.1);
+            opacity: 0.9;
+        }
+
+        .wa { background-color: #25D366; }
+        .fb { background-color: #1877F2; }
+        .x-tw { background-color: #000000; } 
+        .copy { background-color: #7f8c8d; }
+
+        /* Notification Toast */
+        #toast {
+            visibility: hidden;
+            min-width: 250px;
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            border-radius: 4px;
+            padding: 16px;
+            position: fixed;
+            z-index: 1000;
+            left: 50%;
+            bottom: 30px;
+            transform: translateX(-50%);
+            font-size: 14px;
+        }
+
+        #toast.show {
+            visibility: visible;
+            animation: fadein 0.5s, fadeout 0.5s 2.5s;
+        }
+
+        @keyframes fadein { from {bottom: 0; opacity: 0;} to {bottom: 30px; opacity: 1;} }
+        @keyframes fadeout { from {bottom: 30px; opacity: 1;} to {bottom: 0; opacity: 0;} }
+
+        /* Mobile Adjustments */
+        @media (max-width: 600px) {
+            .container { padding: 30px 20px; margin-top: -30px; }
+            h1 { font-size: 1.8rem; }
+            .drop-cap::first-letter { font-size: 3rem; }
+            .share-btn { width: 45px; height: 45px; font-size: 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="reading-progress"></div>
+
+    <div class="cover-image-container">
+        <img src="https://blogger.googleusercontent.com/img/a/AVvXsEhrSoeyC0t3N0u7VCCIZ06HoCjofnDcYAED4vBj1pX_osS50zGjUwCuk-83vU1dX40I12Qo9bavSsL8pLNFzBGiY2Z4J-UaWgHr1Df3D4uf0YxZ5q3UlliX2-iicMnxB04AJWBad0a8U3yxCq9IWbQiaa8jjQ2kezdKuQYy_ly5J3CuL75NUx8CVGRG1Lw6" alt="Democracy in Silence" class="cover-image">
+    </div>
+
+    <div class="container">
+        <div class="author-header">
+            <img src="https://blogger.googleusercontent.com/img/a/AVvXsEjqpLadYdybrF5HalPwqYrGnLWjqHOak_oYKbxtEXp0wGwwnLDM_SjA28jsNtRmoM4c979Q82L67s7M61b3lfdBOpaP-QRT7N7LLS8neJ73pa0-4w53FyDoBid9a1HKu6rizfPcOzlHTnbA0t1aRs8HcuMkokIScoJGwSKoJ7vgCZRRlqdRYC4qAA-zNuJw" alt="Author" class="author-img">
+            <div class="author-info">
+                <a href="../index.html" class="author-name">ലെ വരികൾ...</a>
+                <span class="author-moto">Voice. Vision. Verse.</span>
+            </div>
+        </div>
+
+        <header>
+            <h1>നിതീഷ് കുമാറിന് ചുറ്റുമുള്ള ഈ നിശ്ശബ്ദത, നാണമില്ലാത്തൊരു ജനാധിപത്യത്തിന്റെ മുഴക്കമാണ്</h1>
+            <span class="subtitle">അധികാരത്തിന്റെ അശ്ലീലച്ചിരിയും ജനാധിപത്യത്തിന്റെ വിലാപവും</span>
+        </header>
+
+        <article>
+            <p class="drop-cap">ഒരു രാജ്യം തകരുന്നത് എപ്പോഴും യുദ്ധങ്ങളിലൂടെയോ, പട്ടാള അട്ടിമറികളിലൂടെയോ, വലിയ സാമ്പത്തിക പ്രതിസന്ധികളിലൂടെയോ മാത്രമല്ല. <strong>പലപ്പോഴും ജനാധിപത്യം മരിക്കുന്നത് വളരെ നിശ്ശബ്ദമായാണ്.</strong> ശീലങ്ങളിലൂടെ, പതിവുകളിലൂടെ, ഒരുകാലത്ത് നമ്മളെ ഞെട്ടിച്ചിരുന്ന പലതും പിന്നീട് സ്വാഭാവികമായി മാറുന്നതിലൂടെ, അങ്ങനെ ഉള്ളിൽ നിന്ന് ദ്രവിച്ചുതുടങ്ങുമ്പോഴാണ് ഒരു ജനത പരാജയപ്പെടുന്നത്.</p>
+
+            <p>ഒരു റിപ്പബ്ലിക് അതിന്റെ യഥാർത്ഥ മുഖം വെളിപ്പെടുത്തുന്നത് വലിയ നിയമനിർമ്മാണങ്ങളിലൂടെയോ നേതാക്കന്മാരുടെ പ്രസംഗങ്ങളിലൂടെയോ അല്ല. മറിച്ച്, അപ്രതീക്ഷിതമായ ചില സന്ദർഭങ്ങളിൽ അത് എങ്ങനെ പെരുമാറുന്നു എന്നതിലൂടെയാണ്. ചിന്തിക്കുന്നതിന് മുമ്പ് അത് എങ്ങനെ പ്രതികരിക്കുന്നു, എന്തിനെയൊക്കെ ന്യായീകരിക്കുന്നു, എന്തിനെയൊക്കെ കണ്ടില്ലെന്ന് നടിക്കുന്നു, <span class="highlight">എന്തിനെയൊക്കെ നോക്കി ലജ്ജയില്ലാതെ ചിരിക്കുന്നു</span> എന്നതിലാണ് ആ രാജ്യത്തിന്റെ ധാർമ്മികത അളക്കപ്പെടുന്നത്.</p>
+
+            <h2>അധികാരത്തിന്റെ അഹങ്കാരം</h2>
+            
+            <p>ബീഹാർ മുഖ്യമന്ത്രി നിതീഷ് കുമാർ പൊതുവേദിയിൽ വെച്ച് ഒരു സ്ത്രീയുടെ ഹിജാബ് പിടിച്ചു മാറ്റിയ സംഭവം അത്തരമൊരു നിമിഷമായിരുന്നു. ഭാരതമെന്ന ജനാധിപത്യ രാജ്യത്തിന്റെ സദാചാരബോധം എത്രത്തോളം അധഃപതിച്ചു എന്ന് ആ ഒറ്റ നിമിഷം നമ്മളെ ബോധ്യപ്പെടുത്തി. ഇതൊരു തെറ്റിദ്ധാരണയല്ല. ഇതൊരു സാംസ്കാരികമായ സ്വാഭാവികതയുമല്ല. സ്നേഹപൂർവ്വം ചെയ്തൊരു പ്രവൃത്തിയായി ഇതിനെ കാണാനുമാകില്ല.</p>
+
+            <div class="quote-box">
+                ഇത് അധികാരത്തിന്റെ അഹങ്കാരമാണ്. തനിക്ക് തോന്നുന്ന രീതിയിൽ, ആരുടെ ശരീരത്തിലും മതപരമായ ചിഹ്നങ്ങളിലും കൈകടത്താൻ തനിക്ക് അധികാരമുണ്ട് എന്ന, ഒരു ഭരണാധികാരിയുടെ ധാർഷ്ട്യമാണത്.
+            </div>
+
+            <p>ഇന്ത്യയിലെ ഏറ്റവും ഉയർന്ന ഭരണഘടനാ പദവികളിലൊന്ന് അലങ്കരിക്കുന്ന ഒരാൾ, ഒരു സ്ത്രീയുടെ മതപരമായ അന്തസ്സിനെയും വ്യക്തിപരമായ സ്വാതന്ത്ര്യത്തെയും പൊതുസമൂഹത്തിന് മുന്നിൽ വെച്ച് അപമാനിക്കുന്നു. അതും യാതൊരു മടിയും കൂടാതെ, തികഞ്ഞ ലാഘവത്തോടെ. ഈ പ്രവൃത്തി കേവലമൊരു സ്പർശനമല്ല. <strong>ഇതൊരു പരീക്ഷണമാണ്.</strong> താൻ ഇത് ചെയ്താലും ഇവിടെ ആരും ചോദിക്കാനില്ലെന്നും, സമൂഹം ഇതിനെ നിസ്സാരമായി കാണുമെന്നുമുള്ള അധികാരത്തിന്റെ പരീക്ഷണം.</p>
+
+            <p>ഖേദകരമെന്നു പറയട്ടെ, ഇന്ത്യ ആ പരീക്ഷണത്തിൽ ദയനീയമായി പരാജയപ്പെട്ടു.</p>
+
+            <h2>ചിരി എന്ന ക്രൂരത</h2>
+
+            <p>ഈ സംഭവത്തിന് ശേഷം ഉയർന്നുകേട്ടത് പ്രതിഷേധങ്ങളല്ല, മറിച്ച് ന്യായീകരണങ്ങളാണ്. കുറ്റപ്പെടുത്തലുകളല്ല, പരിഹാസങ്ങളാണ്. ഉത്തർപ്രദേശ് മന്ത്രിസഭയിലെ അംഗമായ സഞ്ജയ് നിഷാദ് നടത്തിയ പ്രതികരണം ഇതിലും ഭയാനകമായിരുന്നു.</p>
+            
+            <p style="text-align: center; font-size: 1.25rem; font-family: var(--font-serif);" class="danger-text">"അദ്ദേഹം മറ്റെവിടെയെങ്കിലും തൊട്ടിരുന്നെങ്കിലോ?"</p>
+            
+            <p>ഈ ചോദ്യം ചോദിക്കുമ്പോൾ, അതും ചിരിച്ചുകൊണ്ട് പറയുമ്പോൾ, അദ്ദേഹം അപമാനിക്കുന്നത് ആ സ്ത്രീയെ മാത്രമല്ല, നമ്മുടെ ഭരണഘടനയെക്കൂടിയാണ്. ഒരു ലൈംഗികാതിക്രമത്തെ തമാശയാക്കി മാറ്റാനും, സ്ത്രീശരീരത്തെ കേവലമൊരു തമാശയ്ക്കുള്ള ഉപാധിയായി കാണാനും ഒരു മന്ത്രിക്ക് കഴിയുന്നു എന്നത് നമ്മുടെ രാഷ്ട്രീയ സദാചാരത്തിന്റെ തകർച്ചയെയാണ് കാണിക്കുന്നത്.</p>
+
+            <p>പക്ഷേ, അതിലും വലിയ ദുരന്തം അതല്ല. <span class="highlight">അദ്ദേഹത്തെ ഇന്റർവ്യൂ ചെയ്ത മാധ്യമപ്രവർത്തകൻ ആ വർത്തമാനം കേട്ട് ചിരിച്ചു എന്നതാണ്.</span> ആ ചിരി... അത് വെറുമൊരു ചിരിയല്ല. അതൊരു വലിയ വീഴ്ചയാണ്. ജനാധിപത്യത്തിന്റെ കാവൽക്കാർ എന്ന് സ്വയം വിശേഷിപ്പിക്കുന്ന മാധ്യമങ്ങൾ, അധികാരത്തിന് മുന്നിൽ എത്രത്തോളം വിധേയപ്പെടുന്നു എന്നതിന്റെ തെളിവാണത്.</p>
+
+            <p>ആ ചോദ്യം കേട്ടപ്പോൾ മാധ്യമപ്രവർത്തകന് ഉണ്ടാവേണ്ടിയിരുന്നത് അറപ്പും വെറുപ്പുമായിരുന്നു. എന്നാൽ അവിടെ കണ്ടത് സൗഹൃദപരമായ ചിരിയാണ്. "ഇതൊക്കെ ഇവിടെ സാധാരണമല്ലേ" എന്ന മട്ടിലുള്ള പെരുമാറ്റം. പത്രസ്വാതന്ത്ര്യം ഇല്ലാതാകുന്നത് മാധ്യമങ്ങളെ നിരോധിക്കുമ്പോഴല്ല. മറിച്ച്, അധികാരവർഗ്ഗം കാണിക്കുന്ന വൃത്തികേടുകൾ കണ്ട് മാധ്യമങ്ങൾ കൂടി ആസ്വദിച്ചു ചിരിക്കുമ്പോഴാണ്. അധികാരികൾക്ക് എന്തും പറയാമെന്നും, എന്ത് അശ്ലീലവും ഇവിടെ തമാശയായി സ്വീകരിക്കപ്പെടുമെന്നും ആ ചിരി ഉറക്കെ പ്രഖ്യാപിക്കുന്നു.</p>
+
+            <h2>നിശ്ശബ്ദമായ അനന്തരഫലം: ഒരു പിന്മാറ്റം</h2>
+
+            <p>എന്നാൽ ഈ സംഭവത്തിന്റെ ഏറ്റവും വേദനിപ്പിക്കുന്ന അനന്തരഫലം ഇതൊന്നുമല്ല. അത് തികച്ചും നിശ്ശബ്ദമായ ഒന്നാണ്. 
+            ഏത് സ്ത്രീയുടെ ഹിജാബ് ആണോ പരസ്യമായി നീക്കം ചെയ്യപ്പെട്ടത്, <span class="danger-text">ആ സ്ത്രീ പൊതുസേവന രംഗത്തേക്കുള്ള തന്റെ പ്രവേശനം വേണ്ടെന്നു വെച്ചു.</span> സർക്കാർ ജോലിയിൽ പ്രവേശിക്കാൻ യോഗ്യതയുണ്ടായിരുന്നിട്ടും, അതിനുള്ള കഴിവുണ്ടായിരുന്നിട്ടും, അവർ പിന്മാറി.</p>
+
+            <p>എന്തുകൊണ്ട്? തനിക്ക് അർഹമായ ജോലി തുടങ്ങുന്നതിന് മുമ്പ് തന്നെ, തന്റെ വ്യക്തിത്വം പരസ്യമായി അപമാനിക്കപ്പെട്ടു എന്നതുകൊണ്ട്. തന്നെ സംരക്ഷിക്കേണ്ടവർ തന്നെ വേട്ടക്കാരായി മാറിയപ്പോൾ, ആ വേട്ടയാടലിന് സമൂഹം കൈയ്യടിച്ചപ്പോൾ, അവർ തോറ്റുപിന്മാറാൻ നിർബന്ധിതയായി.</p>
+
+            <div class="quote-box">
+                ഇങ്ങനെയാണ് ജനാധിപത്യത്തിൽ നിന്ന് ചില വിഭാഗങ്ങൾ ഒഴിവാക്കപ്പെടുന്നത്. നിയമം മൂലം നിരോധിച്ചുകൊണ്ടല്ല, മറിച്ച് അപമാനിച്ചുകൊണ്ട്. പൊതുരംഗത്ത് നിൽക്കാനുള്ള അവരുടെ ആത്മവിശ്വാസം തകർത്തുകൊണ്ട്.
+            </div>
+
+            <p>അവർ ഒരു മുസ്ലിം സ്ത്രീ ആയതുകൊണ്ട് കൂടിയാണ് ഈ അപമാനം ഇത്രത്തോളം ആഘോഷിക്കപ്പെട്ടത് എന്നത് നിഷേധിക്കാനാവാത്ത സത്യമാണ്. അവരുടെ വേദന ഒരു കാഴ്ചവസ്തുവായും, അവരുടെ പിന്മാറ്റം ചിലരുടെ വിജയമായും മാറി. ന്യൂനപക്ഷങ്ങൾക്കും സ്ത്രീകൾക്കും ഇതൊരു മുന്നറിയിപ്പാണ്: <em>"അധികാരത്തിന്റെ ഇടനാഴികളിലേക്ക് കടന്നുവന്നാൽ, നിങ്ങളുടെ അന്തസ്സ് സംരക്ഷിക്കാൻ ഇവിടെ ആരുമുണ്ടാകില്ല"</em> എന്ന മുന്നറിയിപ്പ്.</p>
+
+            <h2>നിതീഷ് കുമാറിന്റെ കാപട്യം</h2>
+
+            <p>ഇവിടെ നിതീഷ് കുമാറിന്റെ കാപട്യം ആകാശം മുട്ടെ വളർന്നു നിൽക്കുന്നു. സ്ത്രീശാക്തീകരണത്തിന്റെ വക്താവായി സ്വയം പ്രഖ്യാപിച്ച നേതാവാണ് അദ്ദേഹം. പെൺകുട്ടികൾക്ക് സ്കൂളിൽ പോകാൻ സൈക്കിൾ നൽകിയത് തന്റെ ഭരണനേട്ടമായി കൊട്ടിഘോഷിക്കുന്ന അദ്ദേഹം, അതേ പെൺകുട്ടികൾ വലുതാകുമ്പോൾ അവരുടെ അന്തസ്സിന് എന്ത് വിലയാണ് നൽകുന്നത്?</p>
+            
+            <p><span class="highlight">ഒരു സ്ത്രീക്ക് പൊതുസ്ഥലത്ത് ആരുടേയും കൈകടത്തലുകളില്ലാതെ നിൽക്കാൻ കഴിയുന്നില്ലെങ്കിൽ, നിങ്ങൾ നൽകിയ സൈക്കിളുകൾക്ക് എന്ത് അർത്ഥമാണുള്ളത്?</span> അധികാരം കയ്യിലുണ്ടെങ്കിൽ എന്തുമാകാം എന്ന് ഭരണാധികാരി കരുതുന്നുണ്ടെങ്കിൽ പിന്നെ എന്ത് സ്ത്രീശാക്തീകരണമാണുള്ളത്?</p>
+
+            <p>ഹിജാബോ, സാരിയോ, ജീൻസോ ആകട്ടെ; ഒരു സ്ത്രീയുടെ വസ്ത്രം എന്നത് പൊതുസ്വത്തല്ല. അത് രാഷ്ട്രീയ നാടകങ്ങൾക്കുള്ള കളിപ്പാട്ടവുമല്ല. അത് തൊടാനും അഴിച്ചുനോക്കാനും ഒരു മുഖ്യമന്ത്രിക്കും അവകാശമില്ല. അങ്ങനെ ചെയ്യുമ്പോൾ അത് അധികാര ദുർവിനിയോഗമാകുന്നു. അതിനെ ന്യായീകരിക്കുമ്പോൾ അത് ജനാധിപത്യത്തിന്റെ ജീർണ്ണതയാകുന്നു. അത് കണ്ട് മാധ്യമങ്ങൾ ചിരിക്കുമ്പോൾ, ജനാധിപത്യം തന്നെ അർത്ഥശൂന്യമാകുന്നു.</p>
+
+            <h2>ഉപസംഹാരം</h2>
+
+            <p>ഇന്ത്യൻ ഭരണഘടന ഉറപ്പുനൽകുന്നത് അന്തസ്സാണ്. അത് മതമോ ജാതിയോ നോക്കി നൽകേണ്ട ഒന്നല്ല. ഭൂരിപക്ഷത്തിന് ഇഷ്ടമുള്ളപ്പോൾ മാത്രം നൽകേണ്ട ദാനവുമല്ല. അത് ഓരോ പൗരന്റെയും അവകാശമാണ്. എന്നാൽ ഇന്ന്, ആ അന്തസ്സ് ചോദ്യം ചെയ്യപ്പെടുകയാണ്. 
+            "പൊതുരംഗത്തേക്ക് വന്നാൽ നിങ്ങൾ അപമാനിക്കപ്പെടും, എതിർത്താൽ നിങ്ങൾ പരിഹസിക്കപ്പെടും, പിന്മാറിയാൽ രാജ്യം കൈയ്യടിക്കും" - ഇതാണ് ഈ സംഭവം നൽകുന്ന പാഠം.</p>
+
+            <p>ഇത് ജനാധിപത്യമല്ല. ഇത് ശാക്തീകരണമല്ല. ഇത് ഭയപ്പെടുത്തി നിശബ്ദരാക്കലാണ്.</p>
+
+            <p style="font-size: 1.3rem; font-weight: bold; margin-top: 40px; border-top: 1px solid #eee; padding-top: 20px;">
+                ചാനൽ ചർച്ചകളിലും രാഷ്ട്രീയ ഇടനാഴികളിലും മുഴങ്ങുന്ന ആ ചിരി വെറും ശബ്ദമല്ല. അത് നട്ടെല്ല് നഷ്ടപ്പെട്ട, നാണം എന്താണെന്ന് മറന്നുപോയ ഒരു ജനതയുടെ, അധഃപതിച്ച ജനാധിപത്യത്തിന്റെ വിലാപമാണ് എന്ന് ഓർമ്മിപ്പിക്കട്ടെ...
+            </p>
+        </article>
+
+        <div class="credits-section">
+            <span class="credits-title">കടപ്പാട്</span>
+            <a href="https://www.youthkiawaaz.com/2025/12/the-sound-of-a-republic-losing-its-shame/?utm_source=linktree&utm_medium=instagram&utm_campaign=linktree&utm_content=link_in_bio&__cf_chl_tk=ja9hdYQTnT9MoRUNW1Pr2o7.B9VRwmV55avp93M00OI-1766146270-1.0.1.1-U7_km1dx469Ei3tDNb_jTwRZ18vCdn6EcWoXxd53CD4" class="credit-link" target="_blank">
+                <img src="https://blogger.googleusercontent.com/img/a/AVvXsEjKK1EvUDx9E8qo22lh33aY8MdejEmGgD3LE6f1YMNZQlqMNKZ_BKdKs_vKxk5beu4dm--wnihk9f5nzDlyv8Hr9LveQzB_5Kwaxjbhoqn1GsxKTl2sehOLg2T8yc9a2p5ru3-Lt1yIeH7444GP1FCzdAPV7b7v2vxKppydBrJ3oWhwgGqmQRL-0PX7AAHo" alt="Geetika Kaur" class="credit-img">
+                <span class="credit-name">Geetika Kaur</span>
+            </a>
+        </div>
+
+        <div class="share-container">
+            <span class="share-label">ഈ ലേഖനം പങ്കുവെക്കൂ</span>
+            <div class="share-buttons">
+                <a href="#" class="share-btn wa" onclick="shareToWhatsapp()"><i class="fa-brands fa-whatsapp"></i></a>
+                <a href="#" class="share-btn fb" onclick="shareToFacebook()"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#" class="share-btn x-tw" onclick="shareToX()"><i class="fa-brands fa-x-twitter"></i></a>
+                <button class="share-btn copy" onclick="copyLink()"><i class="fa-solid fa-link"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <div id="toast">Link Copied to Clipboard!</div>
+
+    <script>
+        // Reading Progress Bar
+        window.onscroll = function() {myFunction()};
+
+        function myFunction() {
+            var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            var scrolled = (winScroll / height) * 100;
+            document.getElementById("reading-progress").style.width = scrolled + "%";
+        }
+
+        // Sharing Functionality
+        const pageUrl = encodeURIComponent(window.location.href);
+        const pageTitle = encodeURIComponent(document.title);
+
+        function shareToWhatsapp() {
+            window.open(`https://wa.me/?text=${pageTitle}%20${pageUrl}`, '_blank');
+        }
+
+        function shareToFacebook() {
+            window.open(`https://www.facebook.com/sharer/sharer.php?u=${pageUrl}`, '_blank');
+        }
+
+        function shareToX() {
+            window.open(`https://twitter.com/intent/tweet?text=${pageTitle}&url=${pageUrl}`, '_blank');
+        }
+
+        function copyLink() {
+            navigator.clipboard.writeText(window.location.href).then(() => {
+                var x = document.getElementById("toast");
+                x.className = "show";
+                setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+            });
+        }
+    </script>
+</body>
+</html>
