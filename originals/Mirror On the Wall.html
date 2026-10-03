@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="ml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>കണ്ണാടിയിലെ വിപ്ലവകാരികൾ | The Aesthetics of Dissent</title>
+    <meta name="description" content="മുതലാളിത്തത്തെ തെറിവിളിക്കുന്നത് ഐഫോൺ 17-ൽ. സോഷ്യൽ മീഡിയയിലെ ആക്ടിവിസത്തിന്റെ ഉള്ളുകള്ളികൾ. ആദിൽ സംജീദ് എഴുതുന്നു.">
+    <meta name="author" content="Le Varikal">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="കണ്ണാടിയിലെ വിപ്ലവകാരികൾ: രാഷ്ട്രീയം വെറുമൊരു 'ഷോ' ആയി മാറുമ്പോൾ">
+    <meta property="og:description" content="മുതലാളിത്തത്തെ തെറിവിളിക്കുന്നത് ഐഫോൺ 17-ൽ. സോഷ്യൽ മീഡിയയിലെ ആക്ടിവിസത്തിന്റെ ഉള്ളുകള്ളികൾ.">
+    <meta property="og:image" content="https://blogger.googleusercontent.com/img/a/AVvXsEihAWAdMvHe8Ar8Pgp2sBvRXeAYJHjKdz3pC-2ZxgfOrrD3PyO_NPlpqhr_qnSbl85Llbb-N31euQCPxFEFxoUL9dbPBuJDIA0rS6IZNfEW9A89rPZYI_UhTX8WyUQouiQuwHckfnGOJzjMZDAiAcu-qKSGlg228zwBMA3K7y1Y92XFfEI8zZATFcbkT42J">
+    <meta property="og:url" content="https://taplink.cc/levarikal"> <meta property="og:site_name" content="Le Varikal">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="കണ്ണാടിയിലെ വിപ്ലവകാരികൾ: രാഷ്ട്രീയം വെറുമൊരു 'ഷോ' ആയി മാറുമ്പോൾ">
+    <meta name="twitter:description" content="മുതലാളിത്തത്തെ തെറിവിളിക്കുന്നത് ഐഫോൺ 17-ൽ. സോഷ്യൽ മീഡിയയിലെ ആക്ടിവിസത്തിന്റെ ഉള്ളുകള്ളികൾ.">
+    <meta name="twitter:image" content="https://blogger.googleusercontent.com/img/a/AVvXsEihAWAdMvHe8Ar8Pgp2sBvRXeAYJHjKdz3pC-2ZxgfOrrD3PyO_NPlpqhr_qnSbl85Llbb-N31euQCPxFEFxoUL9dbPBuJDIA0rS6IZNfEW9A89rPZYI_UhTX8WyUQouiQuwHckfnGOJzjMZDAiAcu-qKSGlg228zwBMA3K7y1Y92XFfEI8zZATFcbkT42J">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manjari:wght@100;400;700&family=Noto+Serif+Malayalam:wght@300;400;700;900&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        :root {
+            --bg-color: #faf9f6;
+            --text-primary: #1a1a1a;
+            --text-secondary: #555555;
+            --accent-color: #c92a2a;
+            --link-color: #000000;
+            --highlight-bg: #fff9db;
+            --border-color: #e0e0e0;
+        }
+
+        /* Reading Progress Bar */
+        #progress-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: transparent;
+            z-index: 1000;
+        }
+
+        #progress-bar {
+            height: 100%;
+            background: var(--accent-color);
+            width: 0%;
+            transition: width 0.1s ease-out;
+        }
+
+        body {
+            font-family: 'Manjari', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.9;
+            margin: 0;
+            padding: 0;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 760px;
+            margin: 40px auto;
+            padding: 40px;
+            background: #ffffff;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+            border-radius: 4px;
+            /* Initial Animation State */
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeUp 1s ease-out forwards;
+        }
+
+        @keyframes fadeUp {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* --- COVER IMAGE --- */
+        .cover-image-wrapper {
+            margin-bottom: 35px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        .cover-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .cover-image:hover {
+            transform: scale(1.02);
+        }
+
+        /* --- Typography & Animations --- */
+        /* Scroll Reveal Class */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        h1 {
+            font-family: 'Noto Serif Malayalam', serif;
+            font-weight: 900;
+            font-size: 2.4rem;
+            line-height: 1.3;
+            margin-bottom: 25px;
+            color: var(--text-primary);
+            letter-spacing: -0.5px;
+        }
+
+        h2 {
+            font-family: 'Noto Serif Malayalam', serif;
+            font-weight: 700;
+            font-size: 1.6rem;
+            margin-top: 50px;
+            margin-bottom: 15px;
+            color: var(--text-primary);
+        }
+
+        p {
+            font-size: 1.15rem;
+            margin-bottom: 28px;
+            color: #2c2c2c;
+            font-weight: 400;
+        }
+
+        /* --- Author Section --- */
+        .author-container {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 40px;
+        }
+
+        .author-profile {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+
+        .profile-pic {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #fff;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            flex-shrink: 0;
+        }
+
+        .author-details {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .author-name {
+            font-family: 'Noto Serif Malayalam', serif;
+            font-weight: 700;
+            font-size: 1.3rem;
+            color: var(--link-color);
+            text-decoration: none;
+            line-height: 1.1;
+            margin-bottom: 4px;
+        }
+
+        .author-name:hover {
+            color: var(--accent-color);
+            text-decoration: underline;
+            text-underline-offset: 4px;
+        }
+
+        .author-motto {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .separator-line {
+            height: 1px;
+            background-color: var(--border-color);
+            width: 100%;
+            margin-bottom: 15px;
+        }
+
+        /* --- Share Buttons --- */
+        .share-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .read-time {
+            font-weight: 600;
+            color: var(--accent-color);
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 1px;
+        }
+
+        .share-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .share-btn {
+            background: none;
+            border: 1px solid #ddd;
+            border-radius: 50%;
+            width: 35px;
+            height: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: #555;
+            font-size: 0.9rem;
+        }
+
+        .share-btn:hover {
+            border-color: var(--accent-color);
+            color: var(--accent-color);
+            transform: translateY(-2px);
+        }
+
+        .share-btn.wa:hover { color: #25D366; border-color: #25D366; }
+        .share-btn.fb:hover { color: #1877F2; border-color: #1877F2; }
+        .share-btn.x:hover { color: #000; border-color: #000; }
+
+        /* --- Components --- */
+        .dropcap {
+            float: left;
+            font-family: 'Noto Serif Malayalam', serif;
+            font-size: 4.8rem;
+            line-height: 0.75;
+            margin-right: 12px;
+            margin-top: 5px;
+            color: var(--accent-color);
+        }
+
+        .highlight-text {
+            background-color: var(--highlight-bg);
+            color: #000;
+            padding: 2px 4px;
+            border-radius: 3px;
+        }
+
+        .english-term {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-weight: 600;
+            color: #444;
+        }
+
+        .pull-quote {
+            border-left: 4px solid var(--accent-color);
+            padding: 20px 30px;
+            margin: 40px 0;
+            background: #fdfdfd;
+            font-family: 'Noto Serif Malayalam', serif;
+            font-size: 1.35rem;
+            font-style: italic;
+            color: #333;
+            line-height: 1.6;
+            box-shadow: inset 0 0 20px rgba(0,0,0,0.02);
+            transition: transform 0.3s ease;
+        }
+        
+        .pull-quote:hover {
+            transform: translateX(5px);
+        }
+
+        .aesthetic-card {
+            background-color: #222;
+            color: #fff;
+            padding: 35px;
+            border-radius: 8px;
+            margin: 40px 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .aesthetic-card h3 {
+            font-family: 'Playfair Display', serif;
+            color: var(--accent-color);
+            margin-top: 0;
+            font-size: 1.2rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border-bottom: 1px solid #444;
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+        }
+
+        .aesthetic-card p {
+            color: #ddd;
+            font-size: 1.05rem;
+            margin-bottom: 8px;
+            line-height: 1.6;
+        }
+
+        .footer {
+            margin-top: 60px;
+            border-top: 1px solid var(--border-color);
+            padding-top: 30px;
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        @media (max-width: 600px) {
+            .container { padding: 25px 20px; margin: 0; }
+            h1 { font-size: 1.8rem; }
+            .share-row { flex-direction: column; align-items: flex-start; gap: 10px; }
+            .pull-quote { padding: 15px 20px; font-size: 1.2rem; }
+        }
+    </style>
+</head>
+<body>
+
+<div id="progress-container">
+    <div id="progress-bar"></div>
+</div>
+
+<div class="container">
+
+    <div class="cover-image-wrapper">
+        <img src="https://blogger.googleusercontent.com/img/a/AVvXsEihAWAdMvHe8Ar8Pgp2sBvRXeAYJHjKdz3pC-2ZxgfOrrD3PyO_NPlpqhr_qnSbl85Llbb-N31euQCPxFEFxoUL9dbPBuJDIA0rS6IZNfEW9A89rPZYI_UhTX8WyUQouiQuwHckfnGOJzjMZDAiAcu-qKSGlg228zwBMA3K7y1Y92XFfEI8zZATFcbkT42J" 
+             alt="The Aesthetics of Dissent Cover Art" 
+             class="cover-image">
+    </div>
+    
+    <h1>കണ്ണാടിയിലെ വിപ്ലവകാരികൾ: രാഷ്ട്രീയം വെറുമൊരു 'ഷോ' ആയി മാറുമ്പോൾ</h1>
+
+    <div class="author-container">
+        <div class="author-profile">
+            <img src="https://blogger.googleusercontent.com/img/a/AVvXsEjqpLadYdybrF5HalPwqYrGnLWjqHOak_oYKbxtEXp0wGwwnLDM_SjA28jsNtRmoM4c979Q82L67s7M61b3lfdBOpaP-QRT7N7LLS8neJ73pa0-4w53FyDoBid9a1HKu6rizfPcOzlHTnbA0t1aRs8HcuMkokIScoJGwSKoJ7vgCZRRlqdRYC4qAA-zNuJw" 
+                 alt="Le Varikal" 
+                 class="profile-pic">
+            
+            <div class="author-details">
+                <a href="../index.html" class="author-name">ലെ വരികൾ...</a>
+                <div class="author-motto">Voice. Vision. Verse.</div>
+            </div>
+        </div>
+
+        <div class="separator-line"></div>
+
+        <div class="share-row">
+            <span class="read-time">5 Min Read • Culture</span>
+            <div class="share-buttons">
+                <button class="share-btn wa" onclick="shareArticle('whatsapp')" title="Share on WhatsApp"><i class="fa-brands fa-whatsapp"></i></button>
+                <button class="share-btn fb" onclick="shareArticle('facebook')" title="Share on Facebook"><i class="fa-brands fa-facebook-f"></i></button>
+                <button class="share-btn x" onclick="shareArticle('x')" title="Share on X"><i class="fa-brands fa-x-twitter"></i></button>
+                <button class="share-btn" onclick="copyToClipboard()" title="Copy Link"><i class="fa-solid fa-link"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <article>
+        <p class="reveal"><span class="dropcap">ന</span>മ്മുടെ നാട്ടിലെ പ്രമുഖ കഫേകളിലോ, ലുലു മാളിലോ, അല്ലെങ്കിൽ കോളേജ് ക്യാമ്പസുകളിലോ ഈയിടെയായി സ്ഥിരം കാണുന്ന ഒരു <span class="english-term">Scene</span> ഉണ്ട്. ശ്രദ്ധിച്ചിട്ടുണ്ടോ? ഒടുക്കത്തെ ലുക്കിൽ, ലൂയി ഫിലിപ്പിന്റെയോ (Louis Philippe) സാരയുടെയോ (Zara) ബ്രാൻഡഡ് ഉടുപ്പുമിട്ട്, ലേറ്റസ്റ്റ് ഐഫോണും കയ്യിൽ പിടിച്ച് 'മുതലാളിത്തം' (Capitalism) എത്ര മോശമാണെന്ന് വാചാലരാകുന്ന ന്യൂ-ജനറേഷൻ.</p> 
+        
+        <p class="reveal">കാണുമ്പോൾ ഒരു ചിരി വരാറുണ്ടല്ലേ?</p>
+
+        <p class="reveal">പക്ഷേ ചിരിക്കണ്ട, നമ്മൾ ജീവിക്കുന്ന കാലഘട്ടത്തിന്റെ ഏറ്റവും വലിയ തമാശയാണിത്. ഈ വൈരുദ്ധ്യം യാദൃശ്ചികമല്ല. നമ്മൾ ഏത് സിസ്റ്റത്തെയാണോ എതിർക്കുന്നത്, അതേ സിസ്റ്റത്തിന്റെ അടിമകളാണ് നമ്മൾ എന്നതാണ് ഇതിലെ കയ്പേറിയ സത്യം.</p>
+
+        <div class="pull-quote reveal">
+            "നമ്മൾ മുതലാളിത്തത്തെ തെറിവിളിക്കുന്നത് ഐഫോൺ 17-ൽ എടുത്ത ഇൻസ്റ്റാഗ്രാം റീലുകളിലൂടെയാണ്."
+        </div>
+
+        <p class="reveal">വാട്‌സ്ആപ്പിലെ പ്രൈവറ്റ് ഗ്രൂപ്പുകളിൽ സ്ത്രീവിരുദ്ധത നിറഞ്ഞ <span class="english-term">Dark Jokes</span> ആസ്വദിച്ച് ചിരിക്കുന്നവർ തന്നെ, ഇൻസ്റ്റാഗ്രാം സ്റ്റോറിയിൽ വലിയ സ്ത്രീപക്ഷവാദി ആകും. ആക്ടിവിസം വേണമെന്ന് നമ്മൾ വാശിപിടിക്കും, പക്ഷേ സ്വന്തം ജീവിതത്തിൽ ഒരു ചെറിയ ത്യാഗം സഹിക്കാൻ പോലും നമ്മൾ തയ്യാറല്ല. വെയിൽ കൊണ്ടുള്ള സമരമോ, കംഫർട്ട് സോൺ വിട്ടുള്ള പണിയോ നമുക്ക് വയ്യ.</p>
+
+        <p class="reveal">ഇതിനെ വെറും കാപട്യം എന്ന് വിളിക്കാൻ പറ്റില്ല. ഇത് അതിനേക്കാൾ വലിയൊരു കോമഡിയാണ്. നമ്മുടെ വിശ്വാസവും ജീവിതവും തമ്മിലുള്ള ഈ <span class="english-term">Mismatch</span> (പൊരുത്തക്കേട്) ഇന്ന് നോർമലാണ്. പണ്ടുള്ളവർക്ക് അത്യാഗ്രഹവും കുഴപ്പങ്ങളുമുണ്ടെങ്കിൽ അവർ അത് തുറന്ന് സമ്മതിക്കുമായിരുന്നു. പക്ഷേ നമ്മളോ? നമ്മൾ <span class="highlight-text">'ഐറണി' (Irony)</span> എന്നൊരു സാധനത്തിന്റെ പുറകിൽ ഒളിക്കും. "ഞാനൊരു <span class="english-term">Devil's Advocate</span> ആണ് ബ്രോ" എന്ന് പറഞ്ഞ് നമ്മൾ എന്തും ന്യായീകരിക്കും.</p>
+
+        <h2 class="reveal">'പെർഫോമറ്റീവ് പ്രോഗ്രസീവ്' എന്ന പുതിയ അവതാരം</h2>
+
+        <p class="reveal">സോഷ്യൽ മീഡിയയിൽ ഈ വൈരുദ്ധ്യത്തിന് ഒരു പുതിയ പേരുണ്ട്. ഇതിനെ <strong>"പെർഫോമറ്റീവ് പ്രോഗ്രസീവ്"</strong> (അഭിനയിക്കുന്ന പുരോഗമനവാദി) എന്ന് വിളിക്കാം. ഇവരെ തിരിച്ചറിയാൻ വളരെ എളുപ്പമാണ്. അവരുടെ ലുക്ക് തന്നെ ഒരു സ്റ്റേറ്റ്‌മെന്റാണ്:</p>
+
+        <div class="aesthetic-card reveal">
+            <h3>THE AESTHETIC KIT</h3>
+            <p>👜 തോളിലൊരു <strong>Tote Bag</strong> (പരിസ്ഥിതി സ്നേഹം കാണിക്കാൻ).</p>
+            <p>📚 കയ്യിൽ ഗൗരവമുള്ള ഫെമിനിസ്റ്റ് സാഹിത്യമോ കാഫ്കയോ.</p>
+            <p>🎧 ബ്ലൂടൂത്തിന് പകരം വയർ ഉള്ള പഴയ ഇയർഫോൺ (അതാണല്ലോ ഇപ്പോഴത്തെ <strong>Vibe</strong>).</p>
+            <p>📱 ക്യാപ്ഷനിൽ തലേദിവസം രാത്രി അൽഗോരിതം ഫീഡ് ചെയ്ത ഏതെങ്കിലും വിഷയം.</p>
+        </div>
+
+        <p class="reveal">അതിപ്പോ പരിസ്ഥിതിയാകാം, ഫെമിനിസമാകാം, പാലസ്തീൻ ഐക്യദാർഢ്യമാകാം—അതിനെപ്പറ്റി വലിയ അറിവുള്ള പോലെ ഒരു സ്റ്റോറി ഇടുക. ചോദ്യം ഇതാണ്: ഇതൊക്കെ ആത്മാർത്ഥമായിട്ടാണോ? അതോ വെറും <span class="english-term">Content</span> ആണോ?</p>
+        
+        <p class="reveal">ആർക്കറിയാം! പലർക്കും ഇന്ന് രാഷ്ട്രീയം എന്നത് ഒരു വിശ്വാസമല്ല, അതൊരു <span class="highlight-text">Look</span> ആണ്. "എന്നെ നോക്കൂ, ഞാൻ എത്ര മോഡേൺ ആണ്, എത്ര പൊളിറ്റിക്കലി കറക്റ്റ് ആണ്" എന്ന് കാണിക്കാനുള്ള വെമ്പൽ. പി.ആർ (PR) പാക്കേജുകൾ കൂമ്പാരമായി കിടക്കുന്ന മുറിയിലിരുന്ന് "കൺസ്യൂമറിസം മോശമാണ് ഗയ്സ്" എന്ന് പറയുന്ന ഇൻഫ്ലുവൻസർമാരെ നമ്മൾ കാണാറില്ലേ? എച്ച് ആന്റ് എം (H&M) ഷർട്ടും ഇട്ട് ഫാസ്റ്റ് ഫാഷനെതിരെ സംസാരിക്കുന്നവർ! ഈ വൈരുദ്ധ്യം ഇപ്പോൾ <strong>യൂണിവേഴ്സൽ</strong> ആണ്.</p>
+
+        <p class="reveal">തൊട്ടടുത്ത് നിൽക്കുന്നയാളേക്കാൾ കൂടുതൽ 'ബോധം' എനിക്കുണ്ട് എന്ന് കാണിക്കാൻ നമ്മളെല്ലാം കൂടി ഒരു വലിയ നാടകത്തിൽ അഭിനയിക്കുകയാണ്.</p>
+
+        <h2 class="reveal">രാഷ്ട്രീയം എന്ന ഫാൻസി ഡ്രസ്സ്</h2>
+
+        <p class="reveal">സോഷ്യൽ മീഡിയയിലെ ലൈക്കിനും റീച്ചിനും വേണ്ടി സ്വന്തം വ്യക്തിത്വത്തെപ്പോലും നമ്മൾ 'എഡിറ്റ്' ചെയ്യുന്നു. ആണുങ്ങൾക്ക് കൂൾ ആകാൻ ഫെമിനിസ്റ്റ് ആകണം, പെണ്ണുങ്ങൾക്ക് സ്വീകാര്യത കിട്ടാൻ "എല്ലാം അറിയുന്നവർ" (Self-aware) ആകണം.</p>
+
+        <p class="reveal">ഇവിടെ രാഷ്ട്രീയം എന്നത് ഒരു <span class="highlight-text">ഹാലോവീൻ കോസ്റ്റ്യൂം (Halloween Costume)</span> പോലെയാണ്. ട്രെൻഡ് ഉള്ളപ്പോൾ എടുത്തണിയുക, മടുക്കുമ്പോൾ ഊരി മാറ്റുക. ഇതിൽ ഏറ്റവും പെട്ടുപോകുന്നത് സ്വന്തമായി ഒരു ഐഡന്റിറ്റി ഉണ്ടാക്കാൻ പാടുപെടുന്ന പാവം <strong>'വാൾഫ്ളവേഴ്സ്' (Wallflowers)</strong> ആണ്. സോഷ്യൽ മീഡിയയിൽ കാണിക്കുന്നതാണ് ശരിക്കുള്ള വിപ്ലവം എന്ന് അവർ തെറ്റിദ്ധരിക്കുന്നു. അവർക്ക് മൂല്യങ്ങളേക്കാൾ വലുത് ഓൺലൈനിലെ പ്രസന്റേഷനാണ്.</p>
+
+        <h2 class="reveal">അഭിനയിച്ച് മടുക്കുമ്പോൾ</h2>
+
+        <p class="reveal">സത്യം പറഞ്ഞാൽ, എപ്പോഴും ഇങ്ങനെ 'പൊളിറ്റിക്കലി കറക്റ്റ്' ആയി അഭിനയിക്കുന്നത് നല്ല മടുപ്പുള്ള പണിയാണ്. ലോകത്തെ എല്ലാ പ്രശ്നങ്ങളെക്കുറിച്ചും (<span class="english-term">Doom-scrolling</span> വഴി കിട്ടുന്ന ദുരന്തവാർത്തകൾ) നമുക്ക് ഉത്കണ്ഠയൊന്നും ഉണ്ടായിട്ടല്ല. മറിച്ച് അൽഗോരിതത്തിന് മുന്നിൽ പിടിച്ചു നിൽക്കാൻ നമ്മൾ അങ്ങനെ അഭിനയിക്കുന്നതാണ്.</p>
+        
+        <p class="reveal">തെറ്റുകൾ പറ്റുന്നത് സമ്മതിക്കാൻ നമുക്ക് പേടിയാണ്, കാരണം ഇന്റർനെറ്റ് ക്ഷമിക്കില്ലല്ലോ. ഒരു ചെറിയ പിഴവ് മതി 'ക്യാൻസൽ' (Cancel) ചെയ്യപ്പെടാൻ. അതുകൊണ്ട് നമ്മൾ എല്ലാം തികഞ്ഞവരായി നടക്കുന്നു. പഠിക്കാൻ തയ്യാറാകുന്നതിന് പകരം, എല്ലാം അറിയുന്നവരെപ്പോലെ നടിക്കുന്നു.</p>
+
+        <div class="pull-quote reveal">
+            "ഒരു കാര്യം നമ്മൾ സമ്മതിച്ചേ തീരൂ: നമ്മളാരും മുതലാളിത്തത്തിന് പുറത്തല്ല ജീവിക്കുന്നത്."
+        </div>
+
+        <p class="reveal">ഈ ലേഖനം എഴുതുന്ന ഞാനും ഇതിന്റെ ഭാഗം തന്നെയാണ്. നമ്മളാരും വിശുദ്ധരല്ല. നമ്മൾ ജീവിക്കുന്നത് ഈ സിസ്റ്റത്തിനുള്ളിൽ തന്നെയാണ്. പക്ഷേ, 15 സെക്കൻഡ് റീൽ കൊണ്ടോ, എ.ഐ (AI) എഴുതിത്തന്ന മനോഹരമായ ക്യാപ്ഷൻ കൊണ്ടോ ഈ ലോകം മാറുമെന്ന് വിശ്വസിക്കുന്നിടത്താണ് പ്രശ്നം.</p>
+
+        <p class="reveal">വെറും അഭിനയം (Performativity) കൊണ്ട് മാത്രം സ്ത്രീകളെ ഉയർത്താനോ, പ്രകൃതിയെ രക്ഷിക്കാനോ, ദാരിദ്ര്യം മാറ്റാനോ കഴിയില്ല. അതിന് മണ്ണിലിറങ്ങണം, പ്രിവിലേജുകൾ കുറക്കണം.</p>
+
+        <p class="reveal">അതുകൊണ്ട്, ഒരു നിമിഷം ആലോചിക്കുക. ഈ വേഷങ്ങൾ എല്ലാം അഴിച്ചുവെച്ച്, ഫിൽട്ടറുകൾ മാറ്റി, ഫോൺ ഒന്ന് ഓഫ് ചെയ്താൽ... <strong>ബാക്കി നമ്മളിൽ എന്താണ് യഥാർത്ഥമായിട്ടുള്ളത്?</strong></p>
+    </article>
+
+    <div class="footer reveal">
+        <p>&copy; 2025 ലെ വരികൾ. All rights reserved.<br>Voice. Vision. Verse.</p>
+    </div>
+</div>
+
+<script>
+    // 1. Share Functionality
+    function shareArticle(platform) {
+        const url = encodeURIComponent(window.location.href);
+        const title = encodeURIComponent("കണ്ണാടിയിലെ വിപ്ലവകാരികൾ: രാഷ്ട്രീയം വെറുമൊരു 'ഷോ' ആയി മാറുമ്പോൾ");
+        let link = "";
+
+        if (platform === 'whatsapp') {
+            link = `https://api.whatsapp.com/send?text=${title} ${url}`;
+        } else if (platform === 'facebook') {
+            link = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
+        } else if (platform === 'x') {
+            link = `https://twitter.com/intent/tweet?text=${title}&url=${url}`;
+        }
+
+        if (link) {
+            window.open(link, '_blank');
+        }
+    }
+
+    function copyToClipboard() {
+        navigator.clipboard.writeText(window.location.href).then(() => {
+            alert("Link copied to clipboard!");
+        }).catch(err => {
+            console.error('Failed to copy: ', err);
+        });
+    }
+
+    // 2. Reading Progress Bar
+    window.onscroll = function() {
+        let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+        let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        let scrolled = (winScroll / height) * 100;
+        document.getElementById("progress-bar").style.width = scrolled + "%";
+    };
+
+    // 3. Scroll Reveal Animation
+    window.addEventListener('scroll', reveal);
+    
+    // Trigger once on load to show initial elements
+    reveal();
+
+    function reveal() {
+        var reveals = document.querySelectorAll('.reveal');
+        
+        for (var i = 0; i < reveals.length; i++) {
+            var windowheight = window.innerHeight;
+            var revealtop = reveals[i].getBoundingClientRect().top;
+            var revealpoint = 100; // Trigger when element is 100px from bottom
+
+            if (revealtop < windowheight - revealpoint) {
+                reveals[i].classList.add('active');
+            }
+        }
+    }
+</script>
+
+</body>
+</html>

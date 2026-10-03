@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="ml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>പ്രണയം, നഷ്ടം, പിന്നെ 'What If'കൾ | ലെ വരികൾ...</title>
+    <style>
+        /* Typography and Imports */
+        @import url('https://fonts.googleapis.com/css2?family=Manjari:wght@100;400;700&family=Noto+Serif+Malayalam:wght@400;700&display=swap');
+
+        :root {
+            --bg-color: #fafaf9; /* Warm paper-like off-white */
+            --text-color: #2d2d2d;
+            --accent-color: #9a2b4f; /* Deep Maroon/Wine */
+            --highlight-bg: #e6f4f1; /* Soft Teal */
+            --highlight-text: #004d40;
+            --link-color: #007aff;
+        }
+
+        body {
+            font-family: 'Noto Serif Malayalam', serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.8;
+            margin: 0;
+            padding: 0;
+            font-size: 19px; /* Slightly larger for readability */
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Layout */
+        .container {
+            max-width: 740px; /* Optimal reading width */
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        /* Header Styling */
+        header {
+            text-align: left;
+            margin-bottom: 50px;
+        }
+
+        h1 {
+            font-family: 'Manjari', sans-serif;
+            font-weight: 700;
+            font-size: 2.8rem;
+            color: #1a1a1a;
+            margin-bottom: 10px;
+            line-height: 1.2;
+            letter-spacing: -0.5px;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: #757575;
+            font-family: 'Manjari', sans-serif;
+        }
+
+        /* Content Styling */
+        article p {
+            margin-bottom: 28px;
+            color: #333;
+        }
+
+        /* Highlighted Text Styles */
+        .highlight {
+            background-color: var(--highlight-bg);
+            color: var(--highlight-text);
+            padding: 2px 4px;
+            border-radius: 4px;
+            font-family: 'Manjari', sans-serif;
+            font-weight: 600;
+        }
+
+        .emotional-text {
+            color: var(--accent-color);
+            font-weight: 600;
+        }
+
+        /* Blockquote Styling */
+        blockquote {
+            border-left: 4px solid var(--accent-color);
+            margin: 40px 0;
+            padding-left: 25px;
+            font-style: italic;
+            font-size: 1.3rem;
+            color: #555;
+            background: transparent;
+        }
+
+        /* Lists for 'What Ifs' */
+        ul.what-ifs {
+            list-style: none;
+            padding: 0;
+            margin: 30px 0;
+        }
+
+        ul.what-ifs li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 15px;
+            font-weight: 500;
+            color: #444;
+        }
+
+        ul.what-ifs li::before {
+            content: "—";
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        /* Footer Quote */
+        .footer-note {
+            text-align: center;
+            font-family: 'Manjari', sans-serif;
+            font-weight: 700;
+            font-size: 1.6rem;
+            margin-top: 50px;
+            padding: 40px;
+            background-color: #1e1e1e;
+            color: #f0f0f0;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        /* =========================================
+           AUTHOR SECTION STYLING
+           ========================================= */
+        
+        /* The Horizontal Separator */
+        .author-separator {
+            border: 0;
+            height: 1px;
+            background: #e0e0e0;
+            margin: 60px 0 40px 0;
+        }
+
+        .author-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            padding: 10px 0;
+        }
+
+        .author-info {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            flex: 1;
+            min-width: 250px;
+        }
+
+        /* Circular Profile Image */
+        .author-img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #fff;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            /* Placeholder background color */
+            background-color: var(--accent-color); 
+        }
+
+        .author-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .written-by {
+            font-size: 0.9rem;
+            color: #888;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-family: 'Manjari', sans-serif;
+            margin-bottom: 4px;
+        }
+
+        /* The Author Link */
+        .author-name {
+            font-family: 'Manjari', sans-serif;
+            font-weight: 700;
+            font-size: 1.4rem;
+            color: #000;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .author-name:hover {
+            color: var(--accent-color);
+            text-decoration: underline;
+            text-decoration-thickness: 2px;
+            text-underline-offset: 4px;
+        }
+
+        /* Share Section */
+        .share-section {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .share-btn {
+            background: #fff;
+            border: 1px solid #ddd;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-family: 'Manjari', sans-serif;
+            font-size: 0.9rem;
+            color: #555;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .share-btn:hover {
+            border-color: var(--accent-color);
+            color: var(--accent-color);
+            background: #fff5f8;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            h1 { font-size: 2.2rem; }
+            body { font-size: 17px; }
+            .author-container { flex-direction: column; align-items: flex-start; gap: 20px; }
+            .share-section { width: 100%; justify-content: flex-start; }
+            .footer-note { font-size: 1.3rem; padding: 30px 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <header>
+            <h1>നഷ്ടപ്രണയവും ബാക്കിയാകുന്ന 'What If' ചോദ്യങ്ങളും</h1>
+            <div class="subtitle">ഹൃദയം തൊടുന്ന ഒരു ഓർമ്മക്കുറിപ്പ്</div>
+        </header>
+
+        <article>
+            <p>
+                പിരിഞ്ഞുപോയശേഷം പിന്നീടൊരിക്കൽ നിങ്ങൾ നിങ്ങളുടെ പൂർവ്വ കാമുകിയെ അഥവാ കാമുകനെ യാദൃശ്ചികമായി കണ്ടുമുട്ടിയിട്ടുണ്ടോ? തിരക്കുകൾക്കിടയിൽ, ഒരുപക്ഷേ മറ്റൊരിടത്ത് വെച്ച് തനിച്ചിരുന്ന് സംസാരിച്ചിട്ടുണ്ടോ?
+            </p>
+            <p>
+                വാക്കുകൾക്കപ്പുറം, പോയൊരു കാലത്തിന്റെ ഓർമകളൊക്കെയും നനഞ്ഞ് നിൽക്കുന്ന <span class="emotional-text">അയാളുടെ കണ്ണുകളിലേക്ക് തന്നെ നോക്കിയിരുന്ന് പോയിട്ടുണ്ടോ?</span>
+            </p>
+            <p>
+                ആ നോട്ടത്തിൽ ലോകത്ത് മറ്റൊരാളോടും കിട്ടിയിട്ടില്ലാത്ത, ഇനി ഒരിക്കലും കിട്ടാത്തൊരു അടുപ്പം ആ കണ്ണുകളും നിങ്ങളുടെ കണ്ണുകളും തമ്മിലുണ്ടെന്ന് നിങ്ങൾക്കപ്പോൾ തോന്നാം.
+            </p>
+
+            <blockquote>
+                "ലോകത്ത് മറ്റൊരാളോടും സാധ്യമായിട്ടില്ലാത്ത വിധം സുഖകരമായി, വാക്കുകളാലും വാക്കുകളേക്കാൾ വാചാലമായ മൗനം കൊണ്ടും വിചാരങ്ങളും വികാരങ്ങളും പങ്ക് വെക്കാൻ കഴിയുന്ന ഒരേയൊരു പ്രപഞ്ചം."
+            </blockquote>
+
+            <p>
+                തനിക്കേറ്റവും കംഫർട്ടബിളായ, ആടയാഭരണങ്ങളില്ലാതെ, മുഖംമൂടികളില്ലാതെ ഓടിയെത്താൻ കഴിയുന്ന ഒരു വീടാണ് അയാളെന്ന് നിങ്ങൾക്ക് തോന്നിപ്പോകും. അത്രമേൽ സുരക്ഷിതമായൊരിടം!
+            </p>
+
+            <p>
+                എന്നിട്ടും ഞാനയാളെ, എന്റെ ജീവവായുവായ ആ മനുഷ്യനെ നഷ്ടപ്പെടുത്തികളഞ്ഞല്ലോയെന്ന് ആ നിമിഷം വല്ലാത്തൊരു കുറ്റബോധം നിങ്ങളെ വേട്ടയാടിയേക്കാം. അവിടെ നിന്നാണ് മനസ്സ് ഭൂതകാലത്തെ വിചാരണ ചെയ്യാൻ തുടങ്ങുന്നത്. <span class="highlight">What If...?</span> എന്ന ചോദ്യങ്ങൾ ഒരു കൊടുങ്കാറ്റുപോലെ മനസ്സിലേക്ക് ഇരച്ചുകയറുന്നു.
+            </p>
+
+            <p>
+                പൂർവ്വ പങ്കാളിയെ വീണ്ടും കണ്ട് മുട്ടിയവരിൽ മാത്രമല്ല, പ്രണയനഷ്ടത്തിന്റെ വേദനയിൽ ഉരുകി കഴിയുന്നവരെയെല്ലാം നിരന്തരം വേട്ടയാടുന്ന ചില ചോദ്യങ്ങളാണിവ:
+            </p>
+
+            <ul class="what-ifs">
+                <li>ഇന്നെനിക്കുള്ള ഭൗതിക സാഹചര്യങ്ങൾ അന്നുണ്ടായിരുന്നെങ്കിൽ—പണവും ജോലിയുമുണ്ടായിരുന്നെങ്കിൽ എനിക്കയാളെ നഷ്ടപ്പെടുമായിരുന്നോ?</li>
+                <li>വികാരങ്ങളെ ഇന്നത്തെ പോലെ പക്വതയോടെ പ്രകടിപ്പിക്കാൻ കഴിയുമായിരുന്നെങ്കിൽ നമ്മൾ പിരിയുമായിരുന്നോ?</li>
+                <li>സ്നേഹത്തേയും പ്രണയത്തെയും കുറിച്ചുള്ള എന്റെ സങ്കൽപ്പനങ്ങൾ ഇന്നത്തേത് പോലെ മെച്ചപ്പെട്ടതായിരുന്നെങ്കിൽ?</li>
+                <li>ഒരേസ്ഥലത്ത് ഒരുമിച്ചുണ്ടായിരുന്നെങ്കിൽ, Long distance അല്ലായിരുന്നെങ്കിൽ?</li>
+                <li>മറ്റുള്ളവരുടെ ജഡ്ജ്മന്റുകളെ ഭയക്കാതെ, മതങ്ങളുടെ വേലിക്കെട്ടുകളില്ലാതെ പ്രണയിക്കാൻ കഴിഞ്ഞിരുന്നെങ്കിൽ?</li>
+            </ul>
+
+            <p>
+                ഇങ്ങനെ കുറെ 'എങ്കിലുകളിലൂടെ' ഭാവനയിൽ നിങ്ങൾ നിങ്ങളുടെ നഷ്ടപ്രണയത്തെ തിരികെ പിടിക്കാൻ ശ്രമിക്കും. അന്നങ്ങനെ ചെയ്തിരുന്നെങ്കിൽ, അല്ലെങ്കിൽ ചെയ്യാതിരുന്നെങ്കിൽ വിധി മറ്റൊന്നകുമായിരുന്നില്ലേ എന്ന് വെറുതെ മോഹിക്കും.
+            </p>
+
+            <p>
+                പക്ഷേ, അത് ഭാവനയിൽ മാത്രമേ സാധ്യമാകൂ എന്ന് ഉള്ളിന്റെയുള്ളിൽ നിങ്ങൾക്കറിയാം. പല കാരണങ്ങൾ കൊണ്ട് യഥാർത്ഥ ജീവിതത്തിൽ ഇനിയത് സാധ്യമല്ല. അതുകൊണ്ട് തന്നെ നാം ഒരു കാൽപ്പനികമായ സമാശ്വാസം കണ്ടെത്തും:
+            </p>
+            
+            <blockquote>
+                "Maybe in another life, I would never miss this person."
+            </blockquote>
+
+            <p>
+                മറ്റൊരു ജീവിതത്തിൽ, ശരിയായ സമയത്ത് തന്നെ അയാളെ കണ്ട്മുട്ടുമെന്ന് പ്രത്യാശിക്കാം. കാലത്തിന്റെ ക്രൂരവിനോദമായ <span class="highlight">'Right person at wrong time'</span> ആ ജീവിതത്തിലെങ്കിലും സംഭവിക്കില്ലെന്ന് മോഹിക്കാം.
+            </p>
+
+            <p>
+                എന്നാൽ, കാൽപ്പനികത വിട്ട് യാഥാർത്ഥ്യത്തിലേക്ക് വന്നാൽ, ഈ <b>'what if'</b>-കളെല്ലാം വെറും തോന്നലുകളാണെന്ന് നാം തിരിച്ചറിയേണ്ടതുണ്ട്. അവയെ താലോലിക്കുന്നതും റൊമാന്റിസൈസ് ചെയ്യുന്നതും നിരർത്ഥകമാണ്. നിങ്ങളെ പിന്നോട്ട് മാത്രം വലിക്കുന്ന, നഷ്ടബോധത്തിന്റെ ഇടുങ്ങിയ കോണിൽ നിന്നും കാണുന്ന വെറും കെട്ട്കാഴ്ചകൾ മാത്രമാണവ.
+            </p>
+
+            <hr class="author-separator">
+
+            <div class="author-container">
+                <div class="author-info">
+                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgdUDJBbezFz1-UKmlPgeEHVzidBU0ZQa_vgfI4BP7PDodOdh6AXbzfDFPrL3Z-7DvYawFjPTTmUFP1oZfuEd-j4kqOIiCaNcayT9CUrRQolzVY_45utqfwI5251xN55yhuEC_YYqf57qW25X3cNVoRXcHcUzOU59yuVBEVQuLKMSjMfjaiLC4FugyZHHw9/s1724/12199.jpg" alt="Author Profile" class="author-img">
+                    
+                    <div class="author-text">
+                        <span class="written-by">Written By</span>
+                        <a href="../index.html" class="author-name">ലെ വരികൾ...</a>
+                        <span style="font-size: 0.95rem; color: #666; margin-top: 5px;">വാക്കുകൾ, വിചാരങ്ങൾ, വരികൾ.</span>
+                    </div>
+                </div>
+
+                <div class="share-section">
+                    <button class="share-btn">Share</button>
+                    <button class="share-btn">Copy Link</button>
+                </div>
+            </div>
+
+            <div class="footer-note">
+                After all, life is too short to live in 'what ifs'.<br>
+                What matters is what next.<br>
+                <span style="font-size: 1rem; font-weight: 400; opacity: 0.8; display:block; margin-top:10px;">അത് പ്രണയത്തിലായാലും മറ്റെന്തിലായാലും!</span>
+            </div>
+
+        </article>
+    </div>
+
+</body>
+</html>
+
+
