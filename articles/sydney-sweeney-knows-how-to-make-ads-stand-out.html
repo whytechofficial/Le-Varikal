@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
+<script>try{var _t=localStorage.getItem("lv-theme");if(!_t){_t=matchMedia("(prefers-color-scheme: light)").matches?"light":"dark"}document.documentElement.setAttribute("data-theme",_t)}catch(e){document.documentElement.setAttribute("data-theme","dark")}</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sydney Sweeney Knows How to Make Ads Stand Out &mdash; Le Varikal</title>
@@ -24,12 +25,35 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 :root{--blk:#0b0b0d;--blk2:#131316;--gry:#8b8f98;--gry2:#2b2d33;--wht:#f4f2ed;--paper:#e9e6df;--dim:#a7aab2}
+[data-theme="light"]{--blk:#f4f2ed;--blk2:#fdfcf8;--gry:#5f6269;--gry2:#d9d4c7;--wht:#141416;--paper:#ece4d0;--dim:#71747c}
+[data-theme="light"] .mini-top{background:rgba(244,242,237,.88)}
+[data-theme="light"] .mini-top a:hover{color:#000}
+[data-theme="light"] .slide.cover{background:#e8e2d2}
+[data-theme="light"] .cover-hint{color:#3f3d38;background:rgba(244,242,237,.65);border-color:#c9c2b0}
+[data-theme="light"] .s-black{background:#e9e2cf}
+[data-theme="light"] .body-p{color:#3f3d38}
+[data-theme="light"] .vcard p{color:#4a463c}
+[data-theme="light"] .note{color:#7a7568}
+[data-theme="light"] .statx.hot b{color:rgba(20,18,14,.1)}
+[data-theme="light"] .sequence span:nth-child(2){color:#a8abb3}
+[data-theme="light"] .sequence span:nth-child(3){color:#cfcdc8}
+[data-theme="light"] .theme-toggle{border-color:var(--gry2);background:#ece4d0;color:#5f6269}
+body{transition:background .35s,color .35s}
 html{scroll-behavior:smooth}
 body{background:var(--blk);color:var(--wht);font-family:Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
 .mini-top{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:14px 22px;background:rgba(11,11,13,.82);backdrop-filter:blur(10px);border-bottom:1px solid var(--gry2)}
 .mini-top a{color:var(--wht);text-decoration:none;font-size:.72rem;letter-spacing:.26em;text-transform:uppercase;font-weight:600}
 .mini-top a:hover{color:#fff}
 .mini-top span{font-size:.66rem;letter-spacing:.26em;text-transform:uppercase;color:var(--gry)}
+.mini-top .right{display:flex;align-items:center;gap:14px}
+.theme-toggle{width:36px;height:36px;border-radius:50%;border:1px solid var(--gry2);background:transparent;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--gry);transition:all .3s}
+.theme-toggle:hover{color:var(--wht);border-color:var(--gry);transform:rotate(15deg)}
+.theme-toggle svg{width:16px;height:16px}
+.theme-toggle .moon{display:none}
+[data-theme="dark"] .theme-toggle .moon{display:block}
+[data-theme="dark"] .theme-toggle .sun{display:none}
+[data-theme="light"] .theme-toggle .sun{display:block}
+[data-theme="light"] .theme-toggle .moon{display:none}
 .slide{min-height:100svh;display:flex;align-items:center;justify-content:center;padding:96px 22px 70px;position:relative}
 .inner{width:100%;max-width:880px}
 .kicker{font-size:.68rem;letter-spacing:.34em;text-transform:uppercase;color:var(--gry);margin-bottom:26px;font-weight:600}
@@ -117,7 +141,7 @@ footer a{color:var(--wht);text-decoration:none;font-weight:600}
 <body>
 <header class="mini-top">
   <a href="../index.html">&larr; Le Varikal</a>
-  <span>Gender &amp; Society</span>
+  <div class="right"><span>Gender &amp; Society</span><button class="theme-toggle" id="themeBtn" aria-label="Toggle light and dark mode"><svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg><svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button></div>
 </header>
 
 <section class="slide cover">
@@ -270,5 +294,13 @@ footer a{color:var(--wht);text-decoration:none;font-weight:600}
 })();
 </script>
 
+<script>
+document.getElementById("themeBtn").addEventListener("click", function(){
+  var d = document.documentElement;
+  var t = d.getAttribute("data-theme") === "light" ? "dark" : "light";
+  d.setAttribute("data-theme", t);
+  try{ localStorage.setItem("lv-theme", t); }catch(e){}
+});
+</script>
 </body>
 </html>
