@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="ml" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="ഇരയും വേട്ടക്കാരനും: ഒരു മനഃശാസ്ത്ര വിശകലനം">
+    <meta property="og:description" content="ഇമോഷണലി വൾണറിബിൾ ആയ മനുഷ്യരും, അവരെ വേട്ടയാടുന്ന നാർസിസിസ്റ്റുകളും തമ്മിലുള്ള സങ്കീർണ്ണമായ ബന്ധത്തിന്റെ നേർക്കാഴ്ച.">
+    <title>The Vulnerable & The Predator | Le Varikal</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Malayalam:wght@300;400;700&family=Playfair+Display:wght@700&family=Manrope:wght@400;600&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <style>
+        /* --- THEME VARIABLES --- */
+        :root {
+            /* Dark Mode (Default) */
+            --bg-color: #121212;
+            --text-color: #e0e0e0;
+            --title-color: #ffffff;
+            --subtitle-color: #888;
+            --accent-red: #ff5252;
+            --accent-gold: #ffd700;
+            --accent-blue: #64b5f6;
+            --card-bg: #1e1e1e;
+            --quote-border: #ffd700;
+            --author-bg-gradient: linear-gradient(180deg, rgba(30,30,30,0) 0%, rgba(30,30,30,0.5) 100%);
+            --share-btn-bg: #2a2a2a;
+            --share-btn-text: #ccc;
+            --svg-hand-fill: #e0e0e0;
+            --svg-string: #555;
+            --svg-bg-glow: rgba(255, 82, 82, 0.05);
+            --toggle-bg: #333;
+            --toggle-icon: #ffd700;
+        }
+
+        [data-theme="light"] {
+            /* Light Mode Overrides */
+            --bg-color: #f4f6f8;
+            --text-color: #333333;
+            --title-color: #1a1a1a;
+            --subtitle-color: #555;
+            --accent-red: #d32f2f;
+            --accent-gold: #b8860b; /* Darker gold for visibility on white */
+            --accent-blue: #1976d2;
+            --card-bg: #ffffff;
+            --quote-border: #b8860b;
+            --author-bg-gradient: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(0,0,0,0.05) 100%);
+            --share-btn-bg: #e0e0e0;
+            --share-btn-text: #444;
+            --svg-hand-fill: #333333;
+            --svg-string: #999;
+            --svg-bg-glow: rgba(211, 47, 47, 0.05);
+            --toggle-bg: #e0e0e0;
+            --toggle-icon: #333;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: var(--font-body);
+            line-height: 1.9;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px 20px 60px 20px;
+            position: relative;
+        }
+
+        /* --- THEME TOGGLE BUTTON --- */
+        .theme-toggle {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--toggle-bg);
+            color: var(--toggle-icon);
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            z-index: 100;
+        }
+        
+        .theme-toggle:hover {
+            transform: rotate(15deg) scale(1.1);
+        }
+
+        /* --- COVER IMAGE (SVG) --- */
+        .cover-art-container {
+            width: 100%;
+            height: auto;
+            margin-bottom: 2rem;
+            display: flex;
+            justify-content: center;
+            opacity: 0.9;
+            margin-top: 30px; /* Space for toggle button on mobile */
+        }
+
+        svg.cover-art {
+            max-width: 100%;
+            height: auto;
+            max-height: 300px;
+            /* Use CSS vars for SVG colors */
+            --stroke-gold: var(--accent-gold);
+            --stroke-string: var(--svg-string);
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(5px); }
+            100% { transform: translateY(0px); }
+        }
+        .string-group {
+            animation: float 4s ease-in-out infinite;
+        }
+
+        /* Typography */
+        h1 {
+            font-family: var(--font-body);
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--title-color);
+            letter-spacing: -0.5px;
+            line-height: 1.3;
+            transition: color 0.3s ease;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            margin-top: 3rem;
+            margin-bottom: 1.5rem;
+            color: var(--accent-gold);
+            border-bottom: 1px solid rgba(150, 150, 150, 0.2);
+            padding-bottom: 10px;
+            display: inline-block;
+        }
+
+        p {
+            margin-bottom: 1.5rem;
+            font-size: 1.15rem;
+            font-weight: 300;
+            text-align: justify;
+        }
+
+        /* Stylish Elements */
+        .subtitle {
+            font-size: 1.1rem;
+            color: var(--subtitle-color);
+            margin-bottom: 3rem;
+            font-style: italic;
+            border-left: 3px solid var(--accent-red);
+            padding-left: 15px;
+        }
+
+        .highlight-red { color: var(--accent-red); font-weight: 700; }
+        .highlight-blue { color: var(--accent-blue); font-weight: 600; }
+
+        .text-bg-highlight {
+            background: linear-gradient(120deg, var(--accent-gold) 0%, var(--accent-gold) 100%);
+            background-color: rgba(255,215,0,0.15); /* Fallback */
+            background: linear-gradient(120deg, rgba(255, 215, 0, 0.15) 0%, rgba(255, 215, 0, 0.15) 100%);
+            /* Adjust gradient opacity for text visibility if needed */
+            padding: 0 4px;
+            border-radius: 3px;
+            color: var(--title-color); /* Ensure contrast */
+        }
+        
+        /* Specific override for light mode highlight to ensure readability */
+        [data-theme="light"] .text-bg-highlight {
+            background: rgba(184, 134, 11, 0.15);
+            color: #000;
+        }
+
+        .pull-quote {
+            margin: 3rem 0;
+            padding: 2rem;
+            background: var(--card-bg);
+            border-left: 4px solid var(--quote-border);
+            border-radius: 0 8px 8px 0;
+            font-size: 1.3rem;
+            font-weight: 400;
+            color: var(--title-color);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+
+        .term {
+            font-family: var(--font-ui);
+            font-size: 0.8em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--subtitle-color);
+            border: 1px solid var(--svg-string);
+            padding: 2px 6px;
+            border-radius: 4px;
+            margin-right: 5px;
+            font-weight: 600;
+        }
+
+        hr {
+            border: 0;
+            height: 1px;
+            background-image: linear-gradient(to right, rgba(150, 150, 150, 0), rgba(150, 150, 150, 0.3), rgba(150, 150, 150, 0));
+            margin: 4rem 0;
+        }
+
+        /* --- AUTHOR SECTION --- */
+        .author-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            margin-top: 3rem;
+            padding: 2rem;
+            background: var(--author-bg-gradient);
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .author-img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--accent-gold);
+            margin-bottom: 1rem;
+            background-color: #333; 
+        }
+
+        .author-name {
+            font-family: var(--font-display);
+            font-size: 1.8rem;
+            color: var(--title-color);
+            text-decoration: none;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .author-name:hover {
+            color: var(--accent-gold);
+        }
+
+        .author-motto {
+            font-family: var(--font-body);
+            font-size: 1rem;
+            color: var(--subtitle-color);
+            margin-top: 0.5rem;
+            font-style: italic;
+        }
+
+        /* --- SHARE BUTTONS --- */
+        .share-section {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--share-btn-bg);
+        }
+        
+        .share-label {
+            font-family: var(--font-ui);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--subtitle-color);
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .share-buttons-container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .share-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: var(--share-btn-bg);
+            color: var(--share-btn-text);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 1.2rem;
+            cursor: pointer;
+            border: none;
+        }
+
+        .share-btn:hover {
+            transform: translateY(-3px);
+            color: #fff;
+        }
+
+        .share-btn.whatsapp:hover { background: #25D366; }
+        .share-btn.facebook:hover { background: #1877F2; }
+        
+        /* Twitter Button: Works for both themes */
+        .share-btn.twitter:hover { 
+            background: #000000; 
+            color: #ffffff;
+        }
+        [data-theme="dark"] .share-btn.twitter:hover {
+            background: #ffffff;
+            color: #000000;
+        }
+        
+        .share-btn.telegram:hover { background: #0088cc; }
+        .share-btn.copy:hover { background: var(--accent-gold); color: #000; }
+
+        .footer {
+            margin-top: 5rem;
+            text-align: center;
+            font-size: 0.8rem;
+            color: var(--subtitle-color);
+            font-family: var(--font-ui);
+        }
+
+        @media (max-width: 600px) {
+            h1 { font-size: 2rem; }
+            .pull-quote { font-size: 1.1rem; padding: 1.5rem; }
+            .cover-art-container { margin-bottom: 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle Dark Mode">
+            <i class="fas fa-sun"></i>
+        </button>
+
+        <div class="cover-art-container">
+            <svg class="cover-art" viewBox="0 0 400 250" xmlns="http://www.w3.org/2000/svg">
+                
+                <circle cx="200" cy="125" r="100" style="fill: var(--svg-bg-glow);" />
+                
+                <path d="M140 20 L260 20 L240 60 L160 60 Z" style="fill: var(--svg-hand-fill); opacity: 0.1;" />
+                
+                <path d="M180 20 L180 80" style="stroke: var(--accent-gold); stroke-width: 2; stroke-linecap: round;"/>
+                <path d="M220 20 L220 80" style="stroke: var(--accent-gold); stroke-width: 2; stroke-linecap: round;"/>
+                <circle cx="200" cy="20" r="10" style="fill: var(--accent-gold); opacity: 0.5;"/>
+
+                <g class="string-group">
+                    <line x1="180" y1="80" x2="160" y2="160" style="stroke: var(--svg-string); stroke-width: 1; stroke-dasharray: 4;" />
+                    <line x1="220" y1="80" x2="240" y2="160" style="stroke: var(--svg-string); stroke-width: 1; stroke-dasharray: 4;" />
+                    <line x1="200" y1="20" x2="200" y2="140" style="stroke: var(--svg-string); stroke-width: 1; stroke-dasharray: 4;" />
+
+                    <path d="M200 150 C 160 130, 140 160, 200 210 C 260 160, 240 130, 200 150" fill="none" style="stroke: var(--accent-red); stroke-width: 2;" />
+                    <circle cx="200" cy="180" r="3" style="fill: var(--accent-red);">
+                        <animate attributeName="opacity" values="0.2;1;0.2" duration="3s" repeatCount="indefinite" />
+                    </circle>
+                    
+                    <path d="M150 160 Q 130 200 150 230" style="stroke: var(--svg-string); stroke-width: 2; fill: none;" />
+                    <path d="M250 160 Q 270 200 250 230" style="stroke: var(--svg-string); stroke-width: 2; fill: none;" />
+                </g>
+            </svg>
+        </div>
+
+        <h1>ഇരയും വേട്ടക്കാരനും: <br><span style="color: var(--accent-gold); font-size: 0.8em;">ഒരു മനഃശാസ്ത്ര വിശകലനം</span></h1>
+        <div class="subtitle">
+            ഇമോഷണലി വൾണറിബിൾ ആയ മനുഷ്യരും, അവരെ വേട്ടയാടുന്ന നാർസിസിസ്റ്റുകളും തമ്മിലുള്ള സങ്കീർണ്ണമായ ബന്ധത്തിന്റെ നേർക്കാഴ്ച.
+        </div>
+
+        <p>
+            ഇമോഷണലി വൾണറിബിൾ (Emotionally Vulnerable) ആയി നിൽക്കുന്ന മനുഷ്യരെ പറ്റിക്കാൻ എളുപ്പമാണ്. അവരെ ഇളക്കി വിടാനും, വൈകാരികമായി തകർക്കാനും വലിയ അധ്വാനമൊന്നും ആവശ്യമില്ല. 
+            ഏത് വലിയ നുണ പറഞ്ഞാലും, എത്ര ക്രൂരമായി <span class="highlight-blue">മാനിപുലേറ്റ് (Manipulate)</span> ചെയ്താലും, അവസാനം "എല്ലാം എന്റെ തെറ്റാണ്" എന്ന് വിശ്വസിച്ച് അവർ കീഴടങ്ങിക്കോളും.
+        </p>
+
+        <p>
+            ആദ്യത്തെ ഒരു പൊട്ടിത്തെറി മാറ്റിനിർത്തിയാൽ, പിന്നീട് വരുന്ന ആ "Low Mood"-ൽ അവർ സ്വയം കുറ്റപ്പെടുത്താൻ തുടങ്ങും. 
+            നിങ്ങൾ പറയേണ്ട <span class="term">SORRY</span> പോലും അവർ ഇങ്ങോട്ട് പറഞ്ഞ്, നിങ്ങളുടെ കാല്ക്കൽ വച്ച് തരും. 
+            <span class="text-bg-highlight">ചവിട്ടാൻ കനമുള്ള മണ്ണില്ലാത്തവരുടെ തല താഴ്ന്ന‌് പോവാൻ എളുപ്പമാണ്.</span> 
+            ഒരല്പം സ്നേഹം, അല്ലെങ്കിൽ സ്നേഹമാണെന്ന് തോന്നിക്കുന്ന ഒരു ചെറിയ പരിഗണന—അതിന്റെ ഓർമ്മയിൽ അവർ നിങ്ങൾക്കു വേണ്ടി ജീവിതകാലം മുഴുവൻ മുട്ടുകുത്തി നിന്നോളും.
+        </p>
+
+        <hr>
+
+        <h2>നാർസിസിസ്റ്റുകളുടെ പ്രിയപ്പെട്ട ഇരകൾ</h2>
+
+        <p>
+            അത്യന്തം അപകടകാരികളായ, 'സൈക്കോപാത്തുകൾ' എന്ന് വിളിക്കാവുന്ന കുറെ മനുഷ്യരെ ഈ കാലയളവിനുള്ളിൽ ഞാൻ കണ്ടിട്ടുണ്ട്. 
+            കൃത്യമായി പറഞ്ഞാൽ <span class="highlight-red">നാർസിസിസ്റ്റുകൾ (Narcissists)</span>. 
+            അവരുടെ ഇഷ്ട വേട്ടമൃഗങ്ങൾ എപ്പോഴും ഇമോഷണലി വൾണറിബിളായ മനുഷ്യരാണ്.
+        </p>
+
+        <p>
+             എന്തെങ്കിലും മെന്റൽ ഹെൽത്ത് ഇഷ്യൂസുള്ളവർ, പാസ്റ്റ് ട്രോമയിൽ (Past Trauma) കുടുങ്ങി കിടക്കുന്നവർ, 
+             അല്ലെങ്കിൽ വിഷാദത്തിലേക്കും ആത്മഹത്യയിലേക്കും ചായ്‌വുള്ളവർ. ഇവരെയാണ് അവർ തിരഞ്ഞുപിടിക്കുന്നത്. 
+             കാരണം ലളിതമാണ്: <span class="highlight-blue">അവനവനെത്തന്നെ ബ്ലെയിം ചെയ്യാനുള്ള ടെൻഡൻസി</span> ഇക്കൂട്ടർക്കുണ്ട്.
+        </p>
+
+        <div class="pull-quote">
+            "വാശിയുള്ള ഇമോഷണലി വൾണറിബിളായ മനുഷ്യരെ ചൊറിയാൻ പോയാൽ അവർ മാന്തി വിടാനേ സാധ്യതയുള്ളു. അത് വേട്ടക്കാർക്ക് ഇഷ്ടമല്ല."
+        </div>
+
+        <p>
+            ആ ചായ്വ് ഞാൻ എടുത്തു പറഞ്ഞതാണ്. ഇമോഷണലി വീക്ക് ആണെങ്കിലും, ദേഷ്യവും അഹങ്കാരവും ഉള്ള, 
+            എങ്ങനെയെങ്കിലും ജീവിക്കണം എന്ന വാശിയുള്ളവരെ ഇവർ ഒഴിവാക്കും. 
+            കാരണം അവരെ മെരുക്കാൻ പാടാണ്. 
+            വളരെ കുറഞ്ഞ ഇന്ധനത്തിൽ തിരിച്ച് സ്നേഹിക്കാനും, വിധേയരാവാനും (Faithful) സാധ്യതയുള്ളവരെയാണ് ചൂഷണത്തിന് എളുപ്പം.
+        </p>
+
+        <hr>
+
+        <h2>മുഖംമൂടികൾ: പാട്രിക് ബേറ്റ്മാനും എമിയും</h2>
+
+        <p>
+            പുറംലോകത്തിന് ഇവർ അത്ഭുതങ്ങളാണ്. <span class="term">AMERICAN PSYCHO</span>-യിലെ പാട്രിക് ബേറ്റ്മാനെപ്പോലെ, 
+            അല്ലെങ്കിൽ <span class="term">GONE GIRL</span>-ലെ അമേസിങ് എമിയെപ്പോലെ. 
+            പുറത്തു നിന്ന് നോക്കുമ്പോൾ perfectly balanced ആയ, മനോഹരമായ ജീവിതവും സ്വഭാവവും. 
+            ആ ചിരിയ്ക്കും മാന്യതയ്ക്കും പുറകിലെ ഐഡന്റിറ്റിയിൽ, അവരുടെ ടോർച്ചർ റൂമിൽ, 
+            ഏറ്റവുമടുത്ത സ്ഥാനം കൊടുത്ത ഏതെങ്കിലും ഒരു മനുഷ്യന്റെ ജീവിതം അവർ പച്ചയ്ക്ക് കത്തിച്ചു കൊണ്ടിരിക്കുകയാവും.
+        </p>
+
+        <p>
+            ഇവരുടെ ഏക ലക്ഷ്യം <span class="highlight-red">ഈഗോ സാറ്റിസ്ഫൈ (Ego Satisfaction)</span> ചെയ്യുക എന്നത് മാത്രമാണ്.
+            എനിക്ക് Worth ഉണ്ട്, ഞാൻ അടിപൊളിയാണ്, ഞാനാണ് ശരി, ഞാൻ പോസിറ്റീവ് ആണ്—ഇതൊക്കെ അവനവന് തന്നെ തോന്നിക്കാൻ അവർക്ക് ചുറ്റും കുറെ മനുഷ്യരെ വേണം. 
+            ഒരു രാജാവിനെപ്പോലെ, അല്ലെങ്കിൽ രാജ്ഞിയെപ്പോലെ ട്രീറ്റ് ചെയ്യാൻ അടിമകളെ വേണം. 
+            അവർക്കത് തോന്നിപ്പിക്കാൻ കഴിയാതെ വരുമ്പോഴോ, അല്ലെങ്കിൽ ഇരകൾ അവരേക്കാൾ നന്നായി <span class="highlight-blue">Outperform</span> ചെയ്യുമ്പോഴോ 
+            സമനില തെറ്റി അവരെ നശിപ്പിച്ച് വിടുന്ന പ്രവണത ഇക്കൂട്ടർക്കുണ്ട്.
+        </p>
+
+        <hr>
+
+        <h2>പവർ റിലേഷൻസും സോഷ്യൽ ക്യാപിറ്റലും</h2>
+
+        <p>
+            ഒരാളുടെ സോഷ്യൽ ക്യാപിറ്റൽ, പണം, സൗന്ദര്യം, ക്രിയേറ്റിവിറ്റി—ഇതെല്ലാം എങ്ങനെ സ്വന്തം വളർച്ചയ്ക്ക് ഉപയോഗിക്കാം എന്ന് മാത്രം ചിന്തിക്കുന്നത് 
+            കാര്യമായ നാർസിസ്സിസമാണ്. ജനാധിപത്യപരമല്ലാതെ, ഒരുതരം <span class="term">POWER RELATION</span>-ൽ 
+            എല്ലാം അംഗീകരിച്ച് തരേണ്ട റോളിൽ ഒരു മനുഷ്യനെ നിർത്തുക.
+        </p>
+        
+        <p>
+            <em>"ഞാൻ പറയുന്നതെല്ലാം സമ്മതിക്കണം, എന്നെ അംഗീകരിക്കണം, തിരിച്ച് വിമർശനമോ വിയോജിപ്പോ സഹിക്കാൻ പറ്റില്ല."</em> 
+            ഇതാണ് അവരുടെ ലൈൻ.
+        </p>
+
+        <p>
+            അവർക്ക് കണക്റ്റാവാൻ എളുപ്പം ഇമോഷണലി വീക്കായ മനുഷ്യരുമായാണ്. 
+            ഒരിത്തിരി പരിഗണന കിട്ടിയാൽ അതിതീവ്രമായി തിരിച്ചയാളെ 'സെലിബ്രേറ്റ്' ചെയ്യാൻ കഴിയുന്നത് ഓവർ ഇമോഷണലായ ആളുകൾക്കാണ്. 
+            ആ ഈഗോ സാറ്റിസ്ഫൈ ചെയ്യപ്പെട്ടു കഴിഞ്ഞാൽ പിന്നെ അവരെ ഒഴിവാക്കാനും എളുപ്പമാണ്.
+        </p>
+
+        <hr>
+
+        <h2>റിയാക്റ്റീവ് അബ്യൂസ്: ആസൂത്രിതമായ പൊട്ടിത്തെറി</h2>
+
+        <p>
+            ഇതാണ് ഇതിലെ ഏറ്റവും വലിയ ട്രാപ്പ്. ആരുമറിയാതെ, ഒരു നടുക്കടലിനോളം അയാളെ ഉപദ്രവിച്ച് മാനിപുലേറ്റ് ചെയ്യും. 
+            സഹികെട്ട്, മുകളിലെ തിര പോലെ എല്ലാവരേയും അറിയിച്ച് <span class="highlight-red">അയാൾ തന്നെ പൊട്ടിതെറിക്കും (Reactive Abuse).</span>
+        </p>
+
+        <p>
+            അപ്പോൾ സമൂഹം എന്ത് ചെയ്യും? ആളുകൾ ആ ഇമോഷണൽ ഇമ്മെച്യൂരിറ്റിയെ ജഡ്ജ് ചെയ്തോളും. 
+            വേട്ടക്കാരന് ഒന്നുമറിയാത്ത പോലെ മാറി നിൽക്കാം. 
+            <span class="text-bg-highlight">"കണ്ടില്ലേ, അയാളല്ലേ ഇമോഷണലി പ്രശ്‌നമുള്ളയാൾ? അയാൾക്ക് ഭ്രാന്താണ്."</span> 
+            സംഗതി ക്ലീൻ.
+        </p>
+
+        <p>
+            ഉപദ്രവിക്കപ്പെടുകയും, അതിന്റെ പേരിൽ കരഞ്ഞാലോ നിലത്തു കിടന്നുരുണ്ടാലോ, 
+            പിന്നെയും അതിന്റെ പേരിൽ മാത്രം ചുറ്റുമുള്ളവരാൽ വീണ്ടും ഉപദ്രവിക്കപ്പെടുകയും ചെയ്യുന്ന ദുരിതമാണ് ചില മനുഷ്യർക്ക്.
+        </p>
+
+        <hr>
+
+        <h2>അവസാനമില്ലാത്ത വൃത്തം</h2>
+
+        <p>
+            മനുഷ്യബന്ധങ്ങളിൽപ്പെട്ട് ജീവിതം നാശമായി പോയ, <span class="term">LOW SELF ESTEEM</span>-ൽ കുടുങ്ങിയ കുറച്ച് മനുഷ്യർ നമുക്ക് ചുറ്റുപാടുമുണ്ട്. 
+            അവെയങ്ങനെ പാതിവഴിയിൽ തള്ളിയിട്ട്, അടുത്ത മനുഷ്യനിലേക്കോ സർക്കിളിലേക്കോ പുതിയ "ഇരക്കഥയുമായി" പോവുന്നവരേയും നമ്മൾ കാണുന്നുണ്ട്.
+        </p>
+
+        <p>
+            <strong>എന്ത് ചെയ്യാൻ?</strong> 
+            ഒന്നും ചെയ്യാനില്ല. സത്യം ഏകദേശം അറിഞ്ഞു വരുന്നവരെയൊക്കെ എന്നേ അവർ ഒതുക്കി നിർത്തിയിട്ടുണ്ടാവും. 
+            ജീവിതം കുളം തോണ്ടി കൊടുക്കാനുള്ള 'എവിഡൻസ്' കഴുത്തിൽ വച്ച് മിണ്ടാതെയാക്കിയിട്ടുണ്ടാവും. 
+            അല്ലെങ്കിൽ സ്നേഹം നടിച്ച് കൂടെ നിർത്തിയിട്ടുണ്ടാവും.
+        </p>
+
+        <p style="text-align: center; font-weight: bold; margin-top: 50px; color: var(--accent-red);">
+            അനുഭവിച്ചറിയുക എന്നല്ലാതെ ഒന്നും ചെയ്യാനില്ല.
+        </p>
+
+
+        <hr>
+        <div class="author-section">
+            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgdUDJBbezFz1-UKmlPgeEHVzidBU0ZQa_vgfI4BP7PDodOdh6AXbzfDFPrL3Z-7DvYawFjPTTmUFP1oZfuEd-j4kqOIiCaNcayT9CUrRQolzVY_45utqfwI5251xN55yhuEC_YYqf57qW25X3cNVoRXcHcUzOU59yuVBEVQuLKMSjMfjaiLC4FugyZHHw9/s1724/12199.jpg" alt="Le Varikal" class="author-img">
+            
+            <a href="../index.html" class="author-name">
+                Le Varikal...
+            </a>
+            
+            <div class="author-motto">
+                വാക്കുകൾ, വിചാരങ്ങൾ, വരികൾ.
+            </div>
+        </div>
+
+        <div class="share-section">
+            <span class="share-label">Share this thought</span>
+            <div class="share-buttons-container">
+                <button onclick="shareTo('whatsapp')" class="share-btn whatsapp" title="Share to WhatsApp">
+                    <i class="fab fa-whatsapp"></i>
+                </button>
+                <button onclick="shareTo('facebook')" class="share-btn facebook" title="Share to Facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </button>
+                <button onclick="shareTo('twitter')" class="share-btn twitter" title="Share to X">
+                    <i class="fab fa-x-twitter"></i>
+                </button>
+                <button onclick="shareTo('telegram')" class="share-btn telegram" title="Share to Telegram">
+                    <i class="fab fa-telegram-plane"></i>
+                </button>
+                <button onclick="copyLink()" class="share-btn copy" title="Copy Link">
+                    <i class="fas fa-link"></i>
+                </button>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="footer">
+        &copy; 2025 Le Varikal. All rights reserved.
+    </div>
+
+    <script>
+        // --- THEME TOGGLE LOGIC ---
+        const toggleBtn = document.getElementById('theme-toggle');
+        const icon = toggleBtn.querySelector('i');
+        const html = document.documentElement;
+
+        // Check local storage
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            html.setAttribute('data-theme', savedTheme);
+            updateIcon(savedTheme);
+        }
+
+        toggleBtn.addEventListener('click', () => {
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateIcon(newTheme);
+        });
+
+        function updateIcon(theme) {
+            if (theme === 'light') {
+                icon.classList.remove('fa-sun');
+                icon.classList.add('fa-moon');
+            } else {
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
+            }
+        }
+
+        // --- SHARE LOGIC ---
+        function shareTo(platform) {
+            const url = encodeURIComponent(window.location.href);
+            const title = encodeURIComponent("ഇരയും വേട്ടക്കാരനും: ഒരു മനഃശാസ്ത്ര വിശകലനം");
+            const author = encodeURIComponent(" - Le Varikal...");
+            let link = "";
+
+            switch(platform) {
+                case 'whatsapp':
+                    link = `https://api.whatsapp.com/send?text=${title}${author}%0A%0A${url}`;
+                    break;
+                case 'facebook':
+                    link = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
+                    break;
+                case 'twitter':
+                    link = `https://twitter.com/intent/tweet?text=${title}&url=${url}`;
+                    break;
+                case 'telegram':
+                    link = `https://t.me/share/url?url=${url}&text=${title}`;
+                    break;
+            }
+
+            if (link) {
+                window.open(link, '_blank');
+            }
+        }
+
+        function copyLink() {
+            navigator.clipboard.writeText(window.location.href).then(() => {
+                alert("Link copied to clipboard!");
+            }).catch(err => {
+                console.error('Failed to copy: ', err);
+            });
+        }
+    </script>
+
+</body>
+</html>
