@@ -1,20 +1,28 @@
 /* Le Varikal — cinematic theme */
 :root{
-  --black:#0b0a09; --coal:#141210; --card:#161311; --card2:#100d0b;
-  --ivory:#f3ead9; --muted:#a89e8d; --faint:#6e6455;
-  --ember:#ff3b1f; --amber:#ffb02e; --rose:#ff6b8a;
-  --line:rgba(243,234,217,.14);
-  --h1hi:#fff6e8; --prose:#e8dfcd; --prose-strong:#fff; --shade:#0c0a09;
+  --black:#130d18; --coal:#1a1224; --card:#201527; --card2:#181020;
+  --ivory:#f4edfb; --muted:#b3a4c4; --faint:#7d6c90;
+  --ember:#ff3b1f; --amber:#e8b64c; --rose:#ff6b8a;
+  --violet:#c9a7f5; --violet-deep:#8b5fd6; --gold:#e8b64c;
+  --line:rgba(201,167,245,.16);
+  --h1hi:#fdf8ff; --prose:#e6d9f2; --prose-strong:#fff; --shade:#100a15;
+  --glass-bg:linear-gradient(135deg,rgba(201,167,245,.18),rgba(201,167,245,.07) 45%,rgba(24,16,32,.6));
+  --glass-brd:rgba(201,167,245,.28);
+  --glow1:rgba(139,95,214,.16); --glow2:rgba(201,167,245,.10);
   --serif:'Cormorant Garamond','Noto Serif Malayalam',Georgia,serif;
   --sans:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;
   --ml:'Noto Serif Malayalam','Cormorant Garamond',serif;
 }
 [data-theme="light"]{
-  --black:#f5f0e4; --coal:#ece3cf; --card:#fffdf7; --card2:#f0e8d3;
-  --ivory:#241b10; --muted:#6d604c; --faint:#9c8f78;
+  --black:#f3edf9; --coal:#e9def5; --card:#fffdfb; --card2:#f1e7f7;
+  --ivory:#2b2033; --muted:#6f5f7d; --faint:#9a8aa8;
   --ember:#cf3a17; --amber:#a5731b; --rose:#c9506f;
-  --line:rgba(36,27,16,.16);
-  --h1hi:#4a3410; --prose:#3d3427; --prose-strong:#191207; --shade:#ece2cb;
+  --violet:#7c4fc4; --violet-deep:#6a3fb5; --gold:#a5731b;
+  --line:rgba(60,40,90,.16);
+  --h1hi:#3a2a4d; --prose:#453752; --prose-strong:#1d1426; --shade:#e8ddf2;
+  --glass-bg:linear-gradient(135deg,rgba(124,79,196,.16),rgba(124,79,196,.07) 45%,rgba(255,253,251,.62));
+  --glass-brd:rgba(124,79,196,.3);
+  --glow1:rgba(139,95,214,.14); --glow2:rgba(201,167,245,.12);
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
@@ -202,3 +210,18 @@ footer .fbrand{font-family:var(--serif);font-style:italic;font-size:1.5rem;color
 [data-theme="light"] .theme-toggle .sun{display:block}
 [data-theme="light"] .theme-toggle .moon{display:none}
 body{transition:background .35s,color .35s}
+
+/* ===== purple theme (2026-10-03): violet accents, original layout ===== */
+::selection{background:var(--violet-deep);color:#fff}
+.glow{background:
+   radial-gradient(900px 480px at 12% -4%, var(--glow1), transparent 60%),
+   radial-gradient(760px 520px at 88% 8%, var(--glow2), transparent 60%),
+   radial-gradient(1000px 700px at 50% 110%, var(--glow1), transparent 60%)}
+.nav a:hover{color:var(--violet)}
+.theme-toggle:hover{color:var(--violet);border-color:var(--violet)}
+.hero .kicker{color:var(--violet)}
+.hero h1{background:linear-gradient(100deg,var(--h1hi) 5%,var(--violet) 45%,var(--gold) 85%);
+  -webkit-background-clip:text;background-clip:text;
+  filter:drop-shadow(0 6px 42px rgba(139,95,214,.35))}
+.hero p.lede em{border-bottom-color:var(--violet)}
+.card:hover{border-color:color-mix(in srgb,var(--ac,#ff3b1f) 55%,transparent)}
