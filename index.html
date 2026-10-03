@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
+<script>try{var _t=localStorage.getItem('lv-theme');if(!_t){_t=matchMedia('(prefers-color-scheme: light)').matches?'light':'dark'}document.documentElement.setAttribute('data-theme',_t)}catch(e){document.documentElement.setAttribute('data-theme','dark')}</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Le Varikal — Voice. Vision. Verse.</title>
@@ -25,7 +26,10 @@
 <div class="wrap">
   <div class="topbar">
     <a class="brand" href="index.html">Le Varikal<small>VOICE · VISION · VERSE</small></a>
-    <div class="nav"><a href="#fire">Fire</a><a href="#voice">Voice</a><a href="#heart">Heart</a></div>
+    <div class="top-actions">
+      <div class="nav"><a href="#fire">Fire</a><a href="#voice">Voice</a><a href="#heart">Heart</a></div>
+      <button class="theme-toggle" id="themeBtn" aria-label="Toggle light and dark mode"><svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg><svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
+    </div>
   </div>
   <div class="hero">
     <div class="kicker">Essays · Stories · Poems</div>
@@ -53,7 +57,7 @@
       <span class="idx">30</span>
       <h3 class="ml">ഡിപ്രഷനിലായ സുഹൃത്തിനോട് എങ്ങനെ പെരുമാറണം</h3>
       <p>വിഷാദത്തിലായ പ്രിയപ്പെട്ടവരോട് എന്ത് പറയണം, എന്ത് പറയരുത് — കേൾക്കാനും കൂടെ നിൽക്കാനും സഹായം തേടാനുമുള്ള ഒരു കുറിപ്പ്.</p>
-      <div class="meta"><span class="chip">മലയാളം</span><span class="read">Read <i>&rarr;</i></span></div>
+      <div class="meta"><span class="chip">മലയാളം · English</span><span class="read">Read <i>&rarr;</i></span></div>
     </a>
     <a class="card" style="--ac:#ffb02e;--gl:rgba(255,176,46,.5)" href="articles/sydney-sweeney-knows-how-to-make-ads-stand-out.html">
       <span class="idx">29</span>
@@ -299,7 +303,7 @@
       <span class="idx">30</span>
       <h3 class="ml">ഡിപ്രഷനിലായ സുഹൃത്തിനോട് എങ്ങനെ പെരുമാറണം</h3>
       <p>വിഷാദത്തിലായ പ്രിയപ്പെട്ടവരോട് എന്ത് പറയണം, എന്ത് പറയരുത് — കേൾക്കാനും കൂടെ നിൽക്കാനും സഹായം തേടാനുമുള്ള ഒരു കുറിപ്പ്.</p>
-      <div class="meta"><span class="chip">മലയാളം</span><span class="read">Read <i>&rarr;</i></span></div>
+      <div class="meta"><span class="chip">മലയാളം · English</span><span class="read">Read <i>&rarr;</i></span></div>
     </a>
     </div>
   </div>
@@ -356,5 +360,13 @@
     <div style="text-align:right">Essays &amp; stories by Aadil Samjeed<br><span style="color:var(--faint)">Read something that stays with you.</span></div>
   </footer>
 </div>
+<script>
+document.getElementById("themeBtn").addEventListener("click", function(){
+  var d = document.documentElement;
+  var t = d.getAttribute("data-theme") === "light" ? "dark" : "light";
+  d.setAttribute("data-theme", t);
+  try{ localStorage.setItem("lv-theme", t); }catch(e){}
+});
+</script>
 </body>
 </html>
