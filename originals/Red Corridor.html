@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="ml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Red Corridor: The Unseen War Within India</title>
+    <meta name="description" content="നമ്മുടെ ഇന്ത്യയുടെ ഉള്ളിൽ എവിടെയോ ചോര വാർക്കുന്ന ഒരു മുറിവുണ്ട്. അതാണ് നക്സലിസം. റെഡ് കോറിഡോറിനെക്കുറിച്ചുള്ള ഒരു അന്വേഷണം.">
+    <meta name="author" content="Le Varikal">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://taplink.cc/levarikal"> <meta property="og:title" content="Red Corridor: The Unseen War Within India">
+    <meta property="og:description" content="പുതിയ ഇന്ത്യയുടെ തിളക്കത്തിനിടയിലും ചോര വാർക്കുന്ന ഒരു മുറിവ്. ജനാധിപത്യത്തിന് നേരെ ഉയരുന്ന ചോദ്യചിഹ്നം.">
+    <meta property="og:image" content="https://blogger.googleusercontent.com/img/a/AVvXsEhXvqKXIf_TIOeyJCVtRuci3B9bjn7iHGz3Zmh0sl1kUvrD6WRrlRkrTN7Tqv23hxmAQQgDKwOTYqs4Ed33MpIRlTcTjDRrsJydbU2Nc1BSpfQtvVt1MLt0gM5RMBAbu8k8nnzCHAo56FEvrfLtlVY-_TAFrwdwYlWqoLtt4D8pLikJ_6br3GOv-yHLSIyo">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale" content="ml_IN">
+
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://taplink.cc/levarikal">
+    <meta property="twitter:title" content="Red Corridor: The Unseen War Within India">
+    <meta property="twitter:description" content="A deep dive into the Naxalite conflict within India's Red Corridor.">
+    <meta property="twitter:image" content="https://blogger.googleusercontent.com/img/a/AVvXsEhXvqKXIf_TIOeyJCVtRuci3B9bjn7iHGz3Zmh0sl1kUvrD6WRrlRkrTN7Tqv23hxmAQQgDKwOTYqs4Ed33MpIRlTcTjDRrsJydbU2Nc1BSpfQtvVt1MLt0gM5RMBAbu8k8nnzCHAo56FEvrfLtlVY-_TAFrwdwYlWqoLtt4D8pLikJ_6br3GOv-yHLSIyo">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manjari:wght@100;400;700&family=Noto+Serif+Malayalam:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        :root {
+            --primary-red: #b91c1c; 
+            --dark-bg: #1a1a1a;
+            --light-bg: #fdfbf7;
+            --text-color: #333333;
+            --accent-gold: #fbbf24;
+            --quote-grey: #555;
+            --link-color: #2563eb;
+        }
+
+        body {
+            font-family: 'Manjari', sans-serif;
+            background-color: var(--light-bg);
+            color: var(--text-color);
+            line-height: 1.8;
+            margin: 0;
+            padding: 0;
+            font-size: 19px;
+            overflow-x: hidden; /* Prevent horizontal scroll */
+        }
+
+        /* --- READING PROGRESS BAR --- */
+        .progress-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: transparent;
+            z-index: 9999;
+        }
+
+        .progress-bar {
+            height: 5px;
+            background: var(--primary-red);
+            width: 0%;
+            transition: width 0.1s ease-out;
+            box-shadow: 0 0 10px rgba(185, 28, 28, 0.5);
+        }
+
+        /* --- SCROLL ANIMATIONS --- */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* --- Cover Image Styling --- */
+        .cover-image-wrapper {
+            margin-bottom: 40px;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(185, 28, 28, 0.15); 
+            opacity: 0; 
+            animation: fadeIn 1.5s ease-out forwards;
+        }
+
+        @keyframes fadeIn { from { opacity: 0; transform: scale(0.98); } to { opacity: 1; transform: scale(1); } }
+
+        .cover-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+            max-height: 500px; 
+        }
+
+        /* --- Header Styling --- */
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+            padding-bottom: 40px;
+        }
+
+        .category-tag {
+            background-color: var(--primary-red);
+            color: white;
+            padding: 4px 12px;
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            border-radius: 4px;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            font-family: 'Noto Serif Malayalam', serif;
+            font-size: 2.8rem;
+            color: var(--dark-bg);
+            margin-top: 10px;
+            margin-bottom: 15px;
+            line-height: 1.3;
+        }
+
+        .subtitle {
+            font-size: 1.3rem;
+            color: var(--quote-grey);
+            font-weight: 400;
+            font-style: italic;
+            border-bottom: 1px solid #e5e5e5;
+            padding-bottom: 30px;
+        }
+
+        /* --- Content Styling --- */
+        p { margin-bottom: 25px; }
+
+        .drop-cap::first-letter {
+            font-family: 'Noto Serif Malayalam', serif;
+            font-size: 4.5rem;
+            color: var(--primary-red);
+            float: left;
+            line-height: 0.8;
+            margin-right: 12px;
+            padding-top: 5px;
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, #f6d36566 0%, #fda08566 100%);
+            padding: 0 4px;
+            border-radius: 3px;
+            font-weight: 600;
+        }
+
+        .red-text { color: var(--primary-red); font-weight: bold; }
+
+        h2 {
+            font-family: 'Noto Serif Malayalam', serif;
+            color: var(--primary-red);
+            font-size: 2rem;
+            margin-top: 60px;
+            margin-bottom: 25px;
+            position: relative;
+        }
+        
+        h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: var(--dark-bg);
+            margin-top: 8px;
+        }
+
+        blockquote {
+            background-color: #f4f4f4;
+            border-left: 6px solid var(--primary-red);
+            margin: 40px 0;
+            padding: 25px 35px;
+            font-style: italic;
+            font-family: 'Noto Serif Malayalam', serif;
+            font-size: 1.25rem;
+            color: #444;
+            border-radius: 0 8px 8px 0;
+        }
+
+        ul { list-style: none; padding: 0; }
+        ul li { position: relative; padding-left: 30px; margin-bottom: 18px; }
+        ul li::before {
+            content: "➤";
+            color: var(--primary-red);
+            font-size: 1rem;
+            position: absolute;
+            left: 0;
+            top: 4px;
+        }
+
+        /* Cards */
+        .grid-section {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 25px;
+            margin: 45px 0;
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            border-top: 5px solid var(--primary-red);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover { transform: translateY(-5px); box-shadow: 0 15px 35px rgba(0,0,0,0.1); }
+        .card h3 { margin-top: 0; color: var(--dark-bg); font-family: 'Playfair Display', serif; }
+
+        /* --- AUTHOR SECTION STYLING --- */
+        .author-section-wrapper {
+            margin-top: 80px;
+            background-color: white;
+            border: 1px solid #eee;
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+            text-align: center;
+        }
+
+        .separator-line {
+            border: 0;
+            height: 1px;
+            background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0));
+            margin-bottom: 30px;
+        }
+
+        .author-profile {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .author-img {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid white;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            display: block;
+        }
+
+        .author-info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .author-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #999;
+            margin-bottom: 5px;
+        }
+
+        .author-name-link {
+            font-family: 'Noto Serif Malayalam', serif;
+            font-size: 1.8rem;
+            color: var(--dark-bg);
+            text-decoration: none;
+            font-weight: 700;
+            transition: color 0.3s ease;
+            line-height: 1.2;
+        }
+
+        .author-name-link:hover { color: var(--primary-red); }
+
+        .author-motto {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 1rem;
+            color: var(--quote-grey);
+            margin: 5px 0 0 0;
+        }
+
+        /* --- Share Section --- */
+        .share-label {
+            display: block;
+            margin-top: 35px;
+            margin-bottom: 15px;
+            font-size: 0.85rem;
+            color: #888;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .share-container {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .share-btn {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: white;
+            font-size: 1.2rem;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: none;
+            cursor: pointer;
+            outline: none;
+        }
+
+        .share-btn:hover { transform: translateY(-3px) scale(1.1); box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
+
+        .btn-whatsapp { background-color: #25D366; }
+        .btn-facebook { background-color: #1877F2; }
+        .btn-x { background-color: #000000; }
+        .btn-copy { background-color: #555; position: relative; }
+        
+        .tooltip-text {
+            visibility: hidden;
+            width: 80px;
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            border-radius: 4px;
+            padding: 5px 0;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            margin-left: -40px;
+            opacity: 0;
+            transition: opacity 0.3s;
+            font-size: 0.75rem;
+            font-family: sans-serif;
+        }
+        .btn-copy.active .tooltip-text { visibility: visible; opacity: 1; }
+        .btn-copy.active { background-color: #27ae60; }
+
+        .footer {
+            margin-top: 50px;
+            text-align: center;
+            font-size: 0.8rem;
+            color: #aaa;
+            padding-bottom: 20px;
+        }
+
+        @media (min-width: 768px) {
+            .grid-section { grid-template-columns: 1fr 1fr; }
+            h1 { font-size: 3.5rem; }
+            .author-profile {
+                flex-direction: row;
+                text-align: left;
+                justify-content: center;
+                gap: 25px;
+            }
+            .author-info { align-items: flex-start; }
+            .share-container { justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="progress-container">
+        <div class="progress-bar" id="myBar"></div>
+    </div>
+
+    <div class="container">
+        
+        <div class="cover-image-wrapper">
+            <img src="https://blogger.googleusercontent.com/img/a/AVvXsEhXvqKXIf_TIOeyJCVtRuci3B9bjn7iHGz3Zmh0sl1kUvrD6WRrlRkrTN7Tqv23hxmAQQgDKwOTYqs4Ed33MpIRlTcTjDRrsJydbU2Nc1BSpfQtvVt1MLt0gM5RMBAbu8k8nnzCHAo56FEvrfLtlVY-_TAFrwdwYlWqoLtt4D8pLikJ_6br3GOv-yHLSIyo" 
+                 alt="Red Corridor Abstract Illustration" 
+                 class="cover-image">
+        </div>
+
+        <header class="reveal">
+            <span class="category-tag">Deep Dive</span>
+            <h1>റെഡ് കോറിഡോർ:<br>ഇന്ത്യക്കുള്ളിൽ ഇന്നും പുകയുന്ന യുദ്ധം</h1>
+            <p class="subtitle">പുതിയ ഇന്ത്യയുടെ തിളക്കത്തിനിടയിലും ചോര വാർക്കുന്ന ചില മുറിവുകൾ. ജനാധിപത്യത്തിന് നേർക്ക് ഉയരുന്ന ചോദ്യചിഹ്നം.</p>
+        </header>
+
+        <article>
+            <p class="drop-cap reveal">നമ്മുടെ ഇന്ത്യ ലോകരാജ്യങ്ങളിൽ ഒരു വൻശക്തിയായി മാറിക്കൊണ്ടിരിക്കുകയാണല്ലോ. ചന്ദ്രയാൻ കുതിച്ചുയരുമ്പോഴും, ജി20 വേദികളിൽ ലോകനേതാക്കൾ കൈകോർക്കുമ്പോഴും, ഈ തിളക്കത്തിനിടയിലും രാജ്യത്തിന്റെ ഉള്ളിൽ എവിടെയോ ചോര വാർക്കുന്ന ഒരു മുറിവുണ്ട്. അതാണ് <span class="red-text">നക്സലിസം</span>.</p>
+            
+            <p class="reveal">ഇത് വെറുമൊരു കലാപം മാത്രമല്ല, നമ്മുടെ ജനാധിപത്യത്തിന് നേരെ ഉയരുന്ന വലിയൊരു ചോദ്യ ചിഹ്നം തന്നെയാണ്. നമ്മുടെ ഇന്ത്യക്ക് രണ്ട് മുഖങ്ങളുണ്ട് എന്ന് സങ്കൽപ്പിക്കുക:</p>
+
+            <blockquote class="reveal">
+                "ഒന്ന്, വന്ദേ ഭാരത് ട്രെയിനുകളും, വമ്പൻ സ്മാർട്ട് സിറ്റികളും, 5G ഇന്റർനെറ്റ് വിപ്ലവവുമുള്ള <span class="highlight">'പുതിയ ഇന്ത്യ'</span>. 
+                എന്നാൽ ഇതിനപ്പുറം മറ്റൊരു ഇന്ത്യയുണ്ട്. ഛത്തീസ്ഗഢ്, ജാർഖണ്ഡ്, ഒഡീഷ, മഹാരാഷ്ട്ര തുടങ്ങിയ സംസ്ഥാനങ്ങളിലെ കൊടുംകാടുകൾക്കുള്ളിൽ ഒളിച്ചിരിക്കുന്ന, സൂര്യപ്രകാശം പോലും കടന്നു ചെല്ലാൻ ഭയക്കുന്ന ഇന്ത്യ."
+            </blockquote>
+
+            <p class="reveal">അവിടെ ഭരണഘടനയല്ല, <span class="highlight">കാട്ടിലെ നിയമമാണ്</span> നടക്കുന്നത്. അവിടെ നീതി നടപ്പാക്കുന്നത് കോടതികളല്ല, മരച്ചുവട്ടിലെ ജനകീയ വിചാരണകളാണ്. ഈ പ്രദേശത്തെയാണ് <strong>"റെഡ് കോറിഡോർ"</strong> അഥവാ 'ചുവപ്പ് ഇടനാഴി' എന്ന് വിളിക്കുന്നത്. ഇവിടെയാണ് ഇന്ത്യ കണ്ടിട്ടുള്ളതിൽ വെച്ച് ഏറ്റവും വലിയ ആഭ്യന്തര യുദ്ധം നടക്കുന്നത്.</p>
+
+            <h2 class="reveal">എവിടെ നിന്നാണ് ഈ തീപ്പൊരി ഉണ്ടായത്?</h2>
+            <p class="reveal">ഫോണിൽ ഈ വാർത്ത വായിക്കുന്ന നമ്മളെ സംബന്ധിച്ചിടത്തോളം നക്സലിസം ഒരു പഴയ കഥയായി തോന്നാം. എന്നാൽ 'നക്സലൈറ്റ്' എന്നത് വെറുതെ ഉണ്ടായ ഒരു പേരല്ല. പശ്ചിമ ബംഗാളിലെ <strong>നക്സൽബാരി</strong> എന്ന ചെറിയ ഗ്രാമത്തിൽ നിന്നാണ് ആ പേര് വരുന്നത്.</p>
+
+            <p class="reveal">1967 കാലഘട്ടം. ഇന്ത്യ സ്വതന്ത്രമായെങ്കിലും പാവപ്പെട്ട കർഷകരുടെ അവസ്ഥ അന്നും ദയനീയമായിരുന്നു. ഭൂമി മുഴുവൻ ജന്മിമാരുടെ കൈയ്യിൽ. പാവങ്ങൾ പട്ടിണിയിലും. ഈ സമയത്താണ് ചാരു മജുംദാർ, കനു സന്യാൽ എന്നിവരുടെ നേതൃത്വത്തിൽ ഒരു കൂട്ടം കർഷകർ ആയുധമെടുത്ത് പോരാടാൻ തുടങ്ങിയത്. <span class="highlight">"ഭൂമി കർഷകന്"</span> എന്നതായിരുന്നു അവരുടെ മുദ്രാവാക്യം.</p>
+            
+            <p class="reveal">പോലീസ് അന്ന് ആ കലാപത്തെ അടിച്ചമർത്തി. പക്ഷേ, ആ 'ആശയ'ത്തെ അടിച്ചമർത്താൻ അവർക്ക് കഴിഞ്ഞില്ല. അത് കാട്ടുതീ പോലെ ഇന്ത്യയുടെ മധ്യഭാഗത്തുള്ള കാടുകളിലേക്ക് പടരുകയാണ് ചെയ്തത്. ചൈനയിലെ മാവോ സെതൂങ്ങിന്റെതിന് സമാനമായ ചിന്താഗതിയായിരുന്നു (Maoism) അവർ സ്വീകരിച്ചിരുന്നത്. അവരുടെ തത്വം ലളിതവും എന്നാൽ ക്രൂരവുമാണ്: <em>"അധികാരം തോക്കിൻകുഴലിലൂടെ."</em></p>
+
+            <h2 class="reveal">എന്താണ് അവരുടെ ആവശ്യം? (Ideology)</h2>
+            <div class="card reveal" style="border-top-color: var(--accent-gold);">
+                <ul>
+                    <li><strong>വോട്ടിംഗിൽ ഉള്ള അവിശ്വാസം:</strong> വോട്ട് ചെയ്തിട്ട് കാര്യമില്ല, തോക്കെടുത്ത് പോരാടിയാലേ പാവങ്ങൾക്ക് നീതി കിട്ടൂ എന്നാണ് അവരുടെ പക്ഷം.</li>
+                    <li><strong>വർഗ്ഗസമരം:</strong> ജാതിയേക്കാൾ ഉപരി അവർ സമൂഹത്തെ തന്നെ രണ്ടായിട്ടാണ് കാണുന്നത്. ഒന്ന് പണക്കാർ (ഭരിക്കുന്നവർ, മുതലാളിമാർ), രണ്ട് പാവപ്പെട്ടവർ (കർഷകർ, ആദിവാസികൾ).</li>
+                    <li><strong>നഗരങ്ങളെ വളയുക:</strong> ഗ്രാമങ്ങളിൽ ശക്തി നേടി മെല്ലെ നഗരങ്ങളെ വളഞ്ഞ് അധികാരം പിടിച്ചെടുക്കുക എന്നതാണ് അവരുടെ തന്ത്രം.</li>
+                    <li><strong>ജൽ, ജംഗിൾ, ജമീൻ:</strong> കാടും, വെള്ളവും, ഭൂമിയും അവിടുത്തെ ആദിവാസികൾക്ക് ഉള്ളതാണ്, അല്ലാതെ ഖനനം ചെയ്യാൻ വരുന്ന കോർപ്പറേറ്റുകൾക്ക് ഉള്ളതല്ല എന്ന നയം.</li>
+                </ul>
+            </div>
+
+            <h2 class="reveal">ഇരുവശങ്ങളുള്ള നാണയം</h2>
+            <p class="reveal">50 വർഷമായിട്ടും, ഇത്രയൊക്കെ സൈനിക നീക്കം നടന്നിട്ടും നക്സലുകൾ എങ്ങനെ അവിടെ പിടിച്ചുനിൽക്കുന്നു? ഇതിന് രണ്ട് ഉത്തരങ്ങളുണ്ട്. ഒന്ന് അവരെ അനുകൂലിക്കുന്നതും, എന്നാൽ മറ്റൊന്ന് അവരുടെ ഭീകരമുഖം വെളിപ്പെടുത്തുന്നതുമാണ്.</p>
+
+            <div class="grid-section">
+                <div class="card reveal">
+                    <h3>The 'Good' (അവർ പിടിച്ചുനിൽക്കുന്ന കാരണം)</h3>
+                    <p>സർക്കാർ തിരിഞ്ഞുനോക്കാത്ത ഇടങ്ങളിലാണ് നക്സലുകൾ വേരുറപ്പിച്ചത്. ആദിവാസി ഊരുകളിൽ സ്കൂളില്ല, ആശുപത്രിയില്ല, റോഡില്ല. എന്നാൽ ആദിവാസികളെ ഉപദ്രവിക്കാൻ ചില ഉദ്യോഗസ്ഥരും പോലീസും അവിടെ ഉണ്ടായിരുന്നു താനും.</p>
+                    <p>വൻകിട കമ്പനികൾ ഖനനത്തിനായി ഭൂമി പിടിച്ചെടുക്കാൻ തുടങ്ങിയപ്പോൾ, ആദിവാസികൾക്ക് ഒരു <span class="highlight">'സംരക്ഷകന്റെ'</span> വേഷത്തിൽ നക്സലുകൾ അവിടെ അവതരിച്ചു. കോടതിയിൽ പോയാൽ വർഷങ്ങൾ എടുക്കുന്ന കേസുകൾ, നക്സലുകളുടെ കോടതിയിൽ (Jan Adalat) നിമിഷങ്ങൾക്കുള്ളിൽ തീർപ്പാക്കി കൊടുത്തു.</p>
+                </div>
+
+                <div class="card reveal" style="border-top-color: #333;">
+                    <h3>The 'Bad & Ugly' (യഥാർത്ഥ മുഖം)</h3>
+                    <p>വികസനം തടയുന്നു എന്നതാണ് പ്രധാന പ്രശ്നം. കാട്ടിലേക്ക് റോഡ് വന്നാൽ പോലീസ് വരും, സ്കൂൾ വന്നാൽ കുട്ടികൾക്ക് വിവരം വയ്ക്കും. ഇത് രണ്ടും നക്സലുകൾക്ക് പേടിയാണ്. അതുകൊണ്ട് അവർ സ്കൂളുകളും റോഡുകളും ബോംബ് വെച്ച് തകർക്കുകയും ഉപരോധിക്കുകയും ചെയ്തു.</p>
+                    <p><span class="red-text">കുട്ടികളെ ഉപയോഗിക്കുന്നു:</span> സ്കൂളിൽ പോകേണ്ട പ്രായത്തിലുള്ള ആദിവാസി കുട്ടികളെ തട്ടിക്കൊണ്ടുപോയി കയ്യിൽ തോക്ക് കൊടുക്കുന്നതാണ് ഇതിലെ ഏറ്റവും വലിയ ക്രൂരത. കൂടാതെ, വമ്പൻ കോൺട്രാക്ടർമാരിൽ നിന്ന് പണം പിരിക്കുന്ന ഒരു 'ബിസിനസ്' കൂടിയായി ഇന്ന് ഇത് മാറിയിരിക്കുന്നു.</p>
+                </div>
+            </div>
+
+            <h2 class="reveal">ആനകൾക്കിടയിലെ ഉറുമ്പുകൾ</h2>
+            <p class="reveal">സർക്കാർ ഇതിനെ നേരിടുന്നത് <strong>CoBRA</strong> കമാൻഡോകളെ ഉപയോഗിച്ചാണ്. മറുവശത്ത് റോഡുകളും പാലങ്ങളും പണിത് വികസനം എത്തിക്കാൻ ശ്രമിക്കുന്നു. പക്ഷേ, ഇവിടെയും രണ്ട് ആനകൾ തമ്മിൽ പോരടിക്കുമ്പോൾ ഇടയിൽ പെടുന്ന ഉറുമ്പിനെ പോലെ പെട്ടുപോകുന്നത് പാവം ആദിവാസികളാണ്. .</p>
+            
+            <p class="highlight reveal">'നക്സലുകളെ സഹായിച്ചു' എന്ന് പറഞ്ഞ് പോലീസ് പിടിച്ചുകൊണ്ടുപോകുന്നു, 'പോലീസിനെ സഹായിച്ചു' എന്ന് പറഞ്ഞ് നക്സലുകൾ കൊല്ലുന്നു.</p>
+
+            <h2 class="reveal">ഉപസംഹാരം: പരിഹാരം എവിടെ?</h2>
+            <p class="reveal">വായനക്കാരായ നിങ്ങൾക്ക് ഇപ്പോൾ ഒരു സംശയം തോന്നാം. പാവങ്ങൾക്ക് വേണ്ടി സംസാരിക്കുന്ന നക്സലൈറ്റ് ആണോ ശരി? അതോ ജനാധിപത്യം പറയുന്ന സർക്കാരാണോ ശരി?</p>
+            <p class="reveal">സത്യം പറഞ്ഞാൽ, രണ്ടുപേരും പൂർണ്ണമായും ശരിയല്ല. അസമത്വം, ചൂഷണം എന്നീ പ്രശ്നങ്ങൾ സത്യമാണ്. പക്ഷേ അതിനുള്ള പരിഹാരം അക്രമമല്ല. സ്കൂളുകൾ തകർത്തും മനുഷ്യരെ കൊന്നും നല്ലൊരു നാളെ ഉണ്ടാക്കാൻ കഴിയില്ല.</p>
+            <p class="reveal">അതേസമയം, തോക്ക് കൊണ്ട് മാത്രം ഈ പ്രശ്നം തീർക്കാൻ സർക്കാരിനും കഴിയില്ല. മുംബൈയിലെയോ ഡൽഹിയിലെയോ ഒരു പൗരന് കിട്ടുന്ന അതേ പരിഗണനയും നീതിയും ഛത്തീസ്ഗഢിലെ കാട്ടിലുള്ള ആദിവാസിക്കും എന്ന് കിട്ടുന്നുവോ, അന്ന് മാത്രമേ ഈ ചോരക്കളി അവസാനിക്കൂ. നീതിയും വികസനവും ആ കാടിനുള്ളിലേക്ക് എത്തുന്നതുവരെ, ഈ ചുവന്ന ഭീഷണി ഇന്ത്യയെ വേട്ടയാടിക്കൊണ്ടേയിരിക്കും.</p>
+        </article>
+
+        <div class="author-section-wrapper reveal">
+            <hr class="separator-line">
+            
+            <div class="author-profile">
+                <img src="https://blogger.googleusercontent.com/img/a/AVvXsEjqpLadYdybrF5HalPwqYrGnLWjqHOak_oYKbxtEXp0wGwwnLDM_SjA28jsNtRmoM4c979Q82L67s7M61b3lfdBOpaP-QRT7N7LLS8neJ73pa0-4w53FyDoBid9a1HKu6rizfPcOzlHTnbA0t1aRs8HcuMkokIScoJGwSKoJ7vgCZRRlqdRYC4qAA-zNuJw" 
+                     alt="Le Varikal" 
+                     class="author-img">
+                
+                <div class="author-info">
+                    <span class="author-label">Written By</span>
+                    <a href="../index.html" class="author-name-link">
+                        ലെ വരികൾ
+                    </a>
+                    <p class="author-motto">Voice. Vision. Verse.</p>
+                </div>
+            </div>
+
+            <span class="share-label">Share this article</span>
+            <div class="share-container">
+                <a href="#" onclick="share('whatsapp')" class="share-btn btn-whatsapp" title="Share on WhatsApp">
+                    <i class="fa-brands fa-whatsapp"></i>
+                </a>
+                <a href="#" onclick="share('facebook')" class="share-btn btn-facebook" title="Share on Facebook">
+                    <i class="fa-brands fa-facebook-f"></i>
+                </a>
+                <a href="#" onclick="share('x')" class="share-btn btn-x" title="Share on X">
+                    <i class="fa-brands fa-x-twitter"></i>
+                </a>
+                <button onclick="copyLink()" class="share-btn btn-copy" title="Copy Link">
+                    <i class="fa-solid fa-link"></i>
+                    <span class="tooltip-text" id="copyTooltip">Copied!</span>
+                </button>
+            </div>
+        </div>
+
+        <div class="footer reveal">
+            <p>© 2025 India In-Depth | Thoughtfully Curated by Le Varikal</p>
+        </div>
+    </div>
+
+    <script>
+        // Reading Progress Bar
+        window.onscroll = function() {
+            let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            let scrolled = (winScroll / height) * 100;
+            document.getElementById("myBar").style.width = scrolled + "%";
+            
+            // Trigger Reveal Animation
+            reveal();
+        };
+
+        // Reveal Animations
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 100; // Trigger point
+
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                }
+            }
+        }
+        
+        // Initial call to reveal elements already in view
+        reveal();
+
+        // Copy Link
+        function copyLink() {
+            const url = window.location.href;
+            navigator.clipboard.writeText(url).then(() => {
+                const btn = document.querySelector('.btn-copy');
+                btn.classList.add('active'); 
+                setTimeout(() => {
+                    btn.classList.remove('active');
+                }, 2000);
+            });
+        }
+
+        // Share
+        function share(platform) {
+            const url = encodeURIComponent(window.location.href);
+            const text = encodeURIComponent("Read this amazing article regarding the Red Corridor in India: ");
+            let link = "";
+
+            switch(platform) {
+                case 'whatsapp':
+                    link = `https://wa.me/?text=${text}%20${url}`;
+                    break;
+                case 'facebook':
+                    link = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
+                    break;
+                case 'x':
+                    link = `https://twitter.com/intent/tweet?text=${text}&url=${url}`;
+                    break;
+            }
+            if(link) window.open(link, '_blank');
+        }
+    </script>
+
+</body>
+</html>

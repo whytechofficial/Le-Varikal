@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="ml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>മഴ ഒഴിഞ്ഞ ആകാശവും, നനവുള്ള മണ്ണും - തൂവാനതുമ്പികൾ ഒരു പുനർവായന</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manjari:wght@100;400;700&family=Noto+Serif+Malayalam:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        :root {
+            --bg-color: #fcfbf9;
+            --text-color: #333333;
+            --clara-color: #2c5f6e; /* Rainy Teal */
+            --radha-color: #8c4b36; /* Earthy Terracotta */
+            --accent-bg: #e8f4f6;
+            --highlight-marker: #fff3cd;
+            --link-hover: #b56b54;
+        }
+
+        body {
+            font-family: 'Manjari', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.8;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0;
+            background: #fff;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            margin-top: 40px;
+            margin-bottom: 40px;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        /* SVG Cover Image Styling */
+        .svg-header {
+            width: 100%;
+            display: block;
+            border-bottom: 4px solid var(--radha-color);
+        }
+
+        /* Header Styling */
+        header {
+            text-align: center;
+            margin: 40px 0 50px 0;
+            padding: 0 20px;
+        }
+
+        h1 {
+            font-family: 'Noto Serif Malayalam', serif;
+            font-size: 2.2rem;
+            color: var(--radha-color);
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: var(--clara-color);
+            font-weight: 600;
+            margin-top: 0;
+            letter-spacing: 0.5px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .subtitle::after {
+            content: '';
+            display: block;
+            width: 40px;
+            height: 2px;
+            background: var(--clara-color);
+            margin: 10px auto 0;
+            opacity: 0.5;
+        }
+
+        /* Body Text Styling */
+        .content {
+            padding: 0 40px;
+        }
+
+        p {
+            font-size: 1.15rem;
+            margin-bottom: 28px;
+            text-align: justify;
+            color: #444;
+        }
+
+        /* Highlighted Sections */
+        .highlight-box {
+            background-color: var(--accent-bg);
+            padding: 30px;
+            border-left: 4px solid var(--clara-color);
+            margin: 40px 0;
+            border-radius: 0 8px 8px 0;
+            font-style: italic;
+            font-family: 'Noto Serif Malayalam', serif;
+            color: #2c3e50;
+            font-size: 1.1rem;
+        }
+
+        .marker {
+            background-color: var(--highlight-marker);
+            padding: 0 6px;
+            border-radius: 4px;
+        }
+
+        .clara-text { color: var(--clara-color); font-weight: bold; }
+        .radha-text { color: var(--radha-color); font-weight: bold; }
+
+        h2 {
+            font-family: 'Noto Serif Malayalam', serif;
+            color: #222;
+            margin-top: 60px;
+            margin-bottom: 25px;
+            font-size: 1.6rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        h2::before {
+            content: '';
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background-color: var(--radha-color);
+            border-radius: 50%;
+            margin-right: 15px;
+        }
+
+        .pull-quote {
+            font-size: 1.5rem;
+            text-align: center;
+            color: var(--radha-color);
+            margin: 50px 0;
+            font-weight: bold;
+            line-height: 1.5;
+            font-family: 'Noto Serif Malayalam', serif;
+            padding: 0 20px;
+        }
+
+        /* Horizontal Separator */
+        .separator {
+            border: 0;
+            height: 1px;
+            background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0));
+            margin: 60px 0 50px 0;
+        }
+
+        /* Author Section */
+        .author-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 30px;
+            background-color: #fafafa;
+            border-top: 1px solid #eee;
+        }
+
+        .author-img-wrapper {
+            position: relative;
+            margin-bottom: 15px;
+            margin-top: -60px;
+            background: #fff;
+            padding: 5px;
+            border-radius: 50%;
+        }
+
+        .author-img {
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 1px solid #ddd;
+            display: block;
+        }
+
+        .author-info h3 {
+            margin: 10px 0 5px 0;
+            font-size: 1.5rem;
+        }
+
+        .author-link {
+            text-decoration: none;
+            color: var(--radha-color);
+            font-family: 'Noto Serif Malayalam', serif;
+            font-weight: 700;
+            transition: color 0.3s;
+        }
+
+        .author-link:hover {
+            color: var(--link-hover);
+        }
+
+        .author-motto {
+            margin: 5px 0 20px 0;
+            font-size: 1rem;
+            color: #888;
+            font-style: italic;
+            font-family: 'Noto Serif Malayalam', serif;
+        }
+
+        /* Share Buttons */
+        .share-container {
+            margin-top: 15px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            width: 100%;
+            text-align: center;
+        }
+
+        .share-label {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #aaa;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .share-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            margin: 0 6px;
+            color: white; /* Ensures icon is white */
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 1.2rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .share-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.15);
+        }
+
+        .whatsapp { background-color: #25D366; }
+        .facebook { background-color: #1877F2; }
+        .twitter { background-color: #000000; } /* Black background for X */
+        .copy-link { background-color: #607D8B; cursor: pointer;}
+        
+        .copy-link:active { background-color: #455A64; }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            h1 { font-size: 1.8rem; }
+            .container { margin-top: 0; margin-bottom: 0; border-radius: 0; box-shadow: none; }
+            .content { padding: 0 20px; }
+            .highlight-box { margin: 30px 0; padding: 20px; }
+            .author-img-wrapper { margin-top: -50px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <svg class="svg-header" viewBox="0 0 800 350" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+            <defs>
+                <linearGradient id="rainGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" style="stop-color:#1a3540;stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:#2c5f6e;stop-opacity:1" />
+                </linearGradient>
+            </defs>
+            
+            <rect width="100%" height="100%" fill="url(#rainGradient)"/>
+            
+            <g stroke="#aabfc6" stroke-width="1.5" opacity="0.3">
+                <line x1="100" y1="20" x2="80" y2="60" />
+                <line x1="250" y1="50" x2="230" y2="90" />
+                <line x1="400" y1="10" x2="380" y2="50" />
+                <line x1="550" y1="80" x2="530" y2="120" />
+                <line x1="700" y1="30" x2="680" y2="70" />
+                <line x1="150" y1="150" x2="130" y2="190" />
+                <line x1="320" y1="120" x2="300" y2="160" />
+                <line x1="600" y1="180" x2="580" y2="220" />
+                <line x1="50" y1="250" x2="30" y2="290" />
+                <line x1="450" y1="220" x2="430" y2="260" />
+            </g>
+
+            <path d="M0,350 C200,320 600,300 800,330 L800,350 L0,350 Z" fill="#8c4b36" opacity="0.9"/>
+            
+            <circle cx="200" cy="200" r="2" fill="#fff3cd" opacity="0.6" />
+            <circle cx="220" cy="180" r="1.5" fill="#fff3cd" opacity="0.5" />
+            <circle cx="600" cy="150" r="3" fill="#fff3cd" opacity="0.7" />
+            <circle cx="650" cy="250" r="2" fill="#fff3cd" opacity="0.4" />
+        </svg>
+
+        <header>
+            <h1>മഴ ഒഴിഞ്ഞ ആകാശവും,<br>നനവുള്ള മണ്ണും</h1>
+            <p class="subtitle">പ്രണയത്തിൽ രണ്ടാമതായിപ്പോയവരുടെ നോവുകൾ</p>
+        </header>
+
+        <div class="content">
+            <p>ചില സിനിമകൾ അങ്ങനെയാണ്, നമ്മൾ തേടിച്ചെല്ലുന്നതിനേക്കാൾ, നമ്മൾ പാകമാകുന്ന ഒരു നിമിഷത്തിൽ അവ നമ്മളെ തേടിവരും. 1987 ജൂലൈ 31-ന് പത്മരാജൻ  വെള്ളിത്തിരയിൽ വരച്ചിട്ട <strong>'തൂവാനതുമ്പികൾ'</strong> എന്ന മഴചിത്രം മനസ്സിലാകും വിധം കാണാൻ എനിക്ക് 2025 വരെ കാത്തിരിക്കേണ്ടി വന്നത് അതുകൊണ്ടാവാം. ഒരുപക്ഷേ, <span class="clara-text">ക്ലാരയെന്ന മഴവില്ലിന്റെ</span> സൗന്ദര്യത്തേക്കാൾ, <span class="radha-text">രാധയെന്ന മണ്ണിന്റെ</span> മൗനത്തെയും സഹനത്തെയും മനസ്സിലാക്കാൻ എന്റെ മനസ്സ് പാകപ്പെട്ടത് ഇപ്പോഴായിരിക്കാം.</p>
+
+            <p>കാലങ്ങളായി സുഹൃത്തുക്കളും സിനിമാപ്രേമികളും "തൂവാനതുമ്പികൾ ഇഷ്ടമല്ലേ?" എന്ന് അത്ഭുതത്തോടെ ചോദിക്കുമ്പോൾ, നിർവികാരമായി "ഇല്ല" എന്ന് പറഞ്ഞിരുന്നവനാണ് ഞാൻ. എനിക്ക് പ്രിയപ്പെട്ട 'മായാനദി'യിലെ അപ്പുവിനെക്കുറിച്ചും മാത്തനെക്കുറിച്ചും സംസാരിക്കുമ്പോഴൊക്കെ ഈ ചോദ്യം ഒരു മുഴക്കമായി കേട്ടിരുന്നു. ഈയടുത്താണ് ആ ചോദ്യത്തിന് വിരാമമിട്ടത്. എന്നാൽ, സ്ക്രീനിൽ മഴ തോർന്നിട്ടും എന്റെ ഉള്ളിൽ അവശേഷിച്ചത് ജയകൃഷ്ണനോ ക്ലാരയോ ആയിരുന്നില്ല; അത് <span class="radha-text">രാധ</span>യായിരുന്നു.</p>
+
+            <h2>നിഴലിൽ നിൽക്കുന്നവർ</h2>
+
+            <p>സിനിമ കണ്ടിറങ്ങുന്ന ഭൂരിഭാഗം പേരും ജയകൃഷ്ണന്റെയും ക്ലാരയുടെയും അനശ്വര പ്രണയത്തെക്കുറിച്ച് വാചാലരാകുമ്പോൾ, എന്റെ കണ്ണ് ഉടക്കിനിന്നത് രാധയിലാണ്. ജയകൃഷ്ണൻ ക്ലാരയെ കാണാൻ പോകുന്ന ഓരോ നിമിഷത്തിലും, അവർ തമ്മിലുള്ള പ്രണയനിമിഷങ്ങളിലും ഞാൻ ചിന്തിച്ചത് രാധയെക്കുറിച്ചാണ്. <em>തന്റെ പ്രിയപ്പെട്ടവൻ, തന്റേത് മാത്രമാകേണ്ടവൻ, മറ്റൊരാളുടെ ഓർമ്മകളിൽ അഭിരമിക്കാൻ പോകുമ്പോൾ രാധയുടെ ഉള്ളിൽ എന്തായിരുന്നു?</em></p>
+
+            <div class="highlight-box">
+                പ്രണയത്തിൽ <span class="marker">"രണ്ടാമതായിപ്പോയവർ"</span> (The second choice) അനുഭവിക്കുന്ന ഒരു വല്ലാത്ത അരക്ഷിതാവസ്ഥയുണ്ട്. ജയകൃഷ്ണന്റെ ഹൃദയത്തിൽ തനിക്കുള്ളതിനേക്കാൾ ഒരു പടി മുകളിലാണ് ക്ലാരയുടെ സ്ഥാനം എന്നറിഞ്ഞിട്ടും, അത് സമ്മതിച്ചു കൊടുത്ത് അവിടെത്തന്നെ നിൽക്കുന്ന രാധ.
+            </div>
+
+            <p>"അവൾക്ക് അവനെ ഇഷ്ടമാണ്, പക്ഷേ അവന് അവളെ ഇഷ്ടമാണോ?" എന്ന സംശയത്തിൽ നിന്ന്, "അവന് അവളെയാണ് കൂടുതൽ ഇഷ്ടം" എന്ന സത്യത്തിലേക്ക് എത്തുമ്പോഴും രാധ പിന്മാറുന്നില്ല. രാധയുടെ സ്ഥാനത്ത് മറ്റൊരാളായിരുന്നെങ്കിൽ ആത്മാഭിമാനത്തിന്റെ പേരിൽ ജയകൃഷ്ണന്റെ ജീവിതത്തിൽ നിന്നും എന്നേ പടിയിറങ്ങിപ്പോയേനെ.</p>
+
+            <h2>"അവൾ പോയില്ലായിരുന്നെങ്കിൽ..."</h2>
+
+            <div class="pull-quote">
+                "ക്ലാര പോയില്ലായിരുന്നെങ്കിൽ രാധ വരില്ലായിരുന്നു..."
+            </div>
+
+            <p>വളരെ ലളിതമെന്ന് തോന്നുന്ന, എന്നാൽ അതികഠിനമായ ഒരു സത്യമാണിത്. പ്രണയത്തിൽ രണ്ടാമതായി വരുന്നവർ എപ്പോഴും നേരിടുന്ന ഒരു ചോദ്യമുണ്ട്, അല്ലെങ്കിൽ ഒരു തിരിച്ചറിവുണ്ട്: <strong>"അവൾ/അവൻ പോയതുകൊണ്ടല്ലേ ഞാൻ വന്നത്? അവൾ ഉണ്ടായിരുന്നെങ്കിൽ എനിക്ക് നിന്റെ ജീവിതത്തിൽ എന്ത് പ്രസക്തി?"</strong></p>
+            
+            <p>നമ്മൾ ജീവന് തുല്യം സ്നേഹിക്കുന്ന ഒരാൾ, അയാൾക്ക് ഏറ്റവും പ്രിയപ്പെട്ട മറ്റൊരാളെക്കുറിച്ച് (അതൊരു എക്സ് ലവർ ആവാം) വാതോരാതെ സംസാരിക്കുമ്പോൾ കേട്ടിരിക്കേണ്ടി വരുന്ന ഗതികേട് വലുതാണ്. ആ നിമിഷങ്ങളിൽ നമ്മൾ ആരാണ് എന്ന ചോദ്യം തൊണ്ടക്കുഴിയിൽ വന്നു തടയും.</p>
+
+            <p>പക്ഷേ, <span class="radha-text">രാധമാരായ നമ്മൾ</span> അത് ചോദിക്കില്ല. ആ ചോദ്യം വിഴുങ്ങിക്കളയും. കാരണം, ആ ചോദ്യം ചോദിച്ചാൽ നഷ്ടപ്പെടുന്നത് ചിലപ്പോൾ ആ മനുഷ്യനെത്തന്നെയാകും എന്ന ഭയം. ഒരുപക്ഷേ, ആ മൗനമാണ് രാധയുടെ ഏറ്റവും വലിയ പ്രണയം.</p>
+
+            <h2>ഭൂമിയോളം ക്ഷമിക്കുന്നവൾ</h2>
+
+            <p>ജയകൃഷ്ണനെ രാധ മനസ്സിലാക്കുന്നുണ്ട്. അതൊരുപക്ഷേ ജയകൃഷ്ണൻ പോലും പ്രതീക്ഷിക്കുന്നതിലും അപ്പുറമാണ്. അയാളുടെ ഉള്ളിലെ ക്ലാരയോടുള്ള വികാരം, ആ ഭ്രാന്തമായ സ്നേഹം എല്ലാം രാധ കാണുന്നുണ്ട്. എന്നിട്ടും അവൾ വെറുക്കുന്നില്ല. ക്ലാരയുടെ കത്തുകൾ വരുമ്പോഴും, ഒടുവിൽ അവളെ കാണാൻ പോകുമ്പോഴും രാധ കാത്തിരിക്കുകയാണ്. ഹൃദയത്തിൽ തൊട്ട പ്രണയത്തെ ആർക്കും അത്ര പെട്ടെന്ന് ഉപേക്ഷിക്കാനാവില്ല എന്നതിന്റെ ഉത്തമ ഉദാഹരണമാണ് രാധ.</p>
+
+            <p>മായാനദിയിലെ അപ്പുവിനെപ്പോലെ, നഷ്ടപ്പെടുമെന്ന് ഉറപ്പുള്ളപ്പോഴും സ്നേഹിക്കാൻ തയ്യാറാവുന്ന മനസ്സാണ് രാധയുടേത്. <span class="clara-text">ക്ലാര ഒരു മഴയാണ്.</span> അത് ആർത്തലച്ചു പെയ്യും, കുളിർപ്പിക്കും, പിന്നെ തോർന്നുപോകും. മഴ പോയാലും ആ നനവ് നെഞ്ചിലേറ്റിക്കൊണ്ട്, പിന്നെയും വെയിൽ കൊള്ളാൻ തയ്യാറായി നിൽക്കുന്ന <span class="radha-text">ഭൂമിയാണ് രാധ.</span> ജയകൃഷ്ണന്മാർക്ക് മഴയോടാകും പ്രിയം, പക്ഷേ ജീവിക്കാൻ അവർക്ക് ആ മണ്ണ് കൂടിയേ തീരൂ.</p>
+
+            <h2>രാധമാരുടെ മൗനപ്രാർത്ഥനകൾ</h2>
+
+            <p>സിനിമയുടെ ഒടുവിൽ ജയകൃഷ്ണനെ നോക്കിനിൽക്കുന്ന രാധയുടെ ആ നിൽപ്പുണ്ടല്ലോ, അത് വല്ലാതെ നൊമ്പരപ്പെടുത്തി. "ദോ ആ കത്തിനിൽക്കുന്നവൻ സൂര്യനാണെങ്കിൽ ആ വിവാഹം നടന്നേനേ" എന്ന് ജയകൃഷ്ണൻ പറയുമ്പോൾ രാധ അനുഭവിക്കുന്ന ആശ്വാസമുണ്ട്.</p>
+
+            <div class="highlight-box">
+                ക്ലാരയെപ്പോലെ ചുരുക്കം ചിലരേ ഉള്ളൂ എങ്കിലും, രാധയെപ്പോലുള്ളവർ നമുക്കിടയിൽ ഒരുപാടുണ്ട്. പ്രണയിക്കുന്ന വ്യക്തിയുടെ വായിൽ നിന്നും മറ്റൊരുവളുടെ പേര് കേൾക്കേണ്ടിവന്ന, അത് കേട്ട് ചിരിച്ചുകൊണ്ട് ഉള്ളിൽ കരയുന്ന രാധമാർ.
+            </div>
+
+            <p>പ്രണയത്തിൽ രണ്ടാമതായിപ്പോയവർക്ക് ഒരു രഹസ്യ ആഗ്രഹമുണ്ടാകും. തന്റെ പങ്കാളി, അയാളുടെ പഴയ കാമുകിയെ സ്നേഹിച്ചിരുന്നതുപോലെ, അല്ലെങ്കിൽ അതിലും തീവ്രമായി തന്നെയും സ്നേഹിച്ചിരുന്നെങ്കിൽ എന്ന്. അവർക്ക് ആ 'മുൻ കാമുകി'യോട് ദേഷ്യമായിരിക്കില്ല, മറിച്ച് അസൂയ കലർന്ന ഒരു ആദരവാകും. <em>"എങ്ങനെയാണ് അയാൾ അവളെ ഇത്രമേൽ സ്നേഹിച്ചത്? അതേ അളവിൽ എന്നെയും സ്നേഹിക്കാൻ അയാൾക്ക് കഴിയുമോ?"</em> എന്ന ആധി.</p>
+
+            <p>അവൾ പോയില്ലായിരുന്നെങ്കിൽ താൻ വരില്ലായിരുന്നു എന്ന ബോധ്യം, ഒരു മുറിപ്പാടുപോലെ എപ്പോഴും കൂടെയുണ്ടാകും. എങ്കിലും, പ്രണയമെന്നത് സ്വന്തമാക്കലല്ല, മറിച്ച് മനസ്സിലാക്കലാണ് എന്ന് രാധ നമ്മളെ പഠിപ്പിക്കുന്നു. <span class="clara-text">ക്ലാര മഴവില്ലായി ആകാശത്ത് മാഞ്ഞുപോകുമ്പോൾ,</span> <span class="radha-text">രാധ വിളക്കായി മണ്ണിൽ തെളിഞ്ഞുനിൽക്കുന്നു.</span></p>
+        </div>
+
+        <hr class="separator">
+
+        <div class="author-section">
+            <div class="author-img-wrapper">
+                <img src="https://images.unsplash.com/photo-1455390582262-044cdead277a?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Le Varikal" class="author-img">
+            </div>
+            <div class="author-info">
+                <h3><a href="../index.html" class="author-link">ലെ വരികൾ...</a></h3>
+                <p class="author-motto">വാക്കുകൾ, ചിന്തകൾ, വരികൾ.</p>
+            </div>
+
+            <div class="share-container">
+                <span class="share-label">Share This Article</span>
+                <a href="#" class="share-btn whatsapp" onclick="shareTo('whatsapp', event)" title="Share on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                <a href="#" class="share-btn facebook" onclick="shareTo('facebook', event)" title="Share on Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="share-btn twitter" onclick="shareTo('twitter', event)" title="Share on X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="#" class="share-btn copy-link" onclick="copyLink(event)" title="Copy Link"><i class="fas fa-link"></i></a>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // Script to handle sharing dynamically based on the current page URL
+        function shareTo(platform, event) {
+            event.preventDefault();
+            const url = encodeURIComponent(window.location.href);
+            const title = encodeURIComponent(document.title);
+            
+            let shareUrl = '';
+
+            if (platform === 'whatsapp') {
+                // WhatsApp web/app link
+                shareUrl = `https://api.whatsapp.com/send?text=${title}%20-%20${url}`;
+            } else if (platform === 'facebook') {
+                shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
+            } else if (platform === 'twitter') {
+                shareUrl = `https://twitter.com/intent/tweet?text=${title}&url=${url}`;
+            }
+
+            if (shareUrl) {
+                window.open(shareUrl, '_blank', 'width=600,height=400');
+            }
+        }
+
+        function copyLink(event) {
+            event.preventDefault();
+            navigator.clipboard.writeText(window.location.href).then(function() {
+                // Visual feedback
+                const btn = document.querySelector('.copy-link');
+                const originalContent = btn.innerHTML;
+                
+                btn.innerHTML = '<i class="fas fa-check"></i>';
+                btn.style.backgroundColor = '#4CAF50';
+                
+                setTimeout(() => {
+                    btn.innerHTML = originalContent;
+                    btn.style.backgroundColor = '#607D8B';
+                }, 2000);
+                
+                alert('Link copied to clipboard!');
+            }, function(err) {
+                console.error('Could not copy text: ', err);
+            });
+        }
+    </script>
+
+</body>
+</html>

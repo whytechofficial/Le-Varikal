@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="ml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>സാവർക്കർ: ചരിത്രത്തിന്റെ ഇരുളും വെളിച്ചവും | ലെ വരികൾ</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manjari:wght@100;400;700&family=Noto+Serif+Malayalam:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- THEME VARIABLES --- */
+        :root {
+            /* Default Light Mode Variables */
+            --primary-color: #2c3e50;
+            --accent-color: #d35400;
+            --bg-color: #fdfbf7;
+            --text-color: #333333;
+            --secondary-text: #555555;
+            --highlight-bg: #fff3cd;
+            --highlight-text: #856404;
+            --container-bg: #ffffff;
+            --box-bg: #edf2f7;
+            --box-border: #cbd5e0;
+            --quote-bg: #f8f9fa;
+            --author-bg: #fafafa;
+            --author-border: #eee;
+            
+            /* Social Colors (Constant) */
+            --whatsapp-color: #25D366;
+            --facebook-color: #1877F2;
+            --x-color: #000000;
+            --copy-color: #7f8c8d;
+        }
+
+        /* Dark Mode Overrides */
+        [data-theme="dark"] {
+            --primary-color: #ecf0f1;
+            --accent-color: #e67e22;
+            --bg-color: #121212;
+            --text-color: #e0e0e0;
+            --secondary-text: #b0b0b0;
+            --highlight-bg: #4a3b00;
+            --highlight-text: #ffd700;
+            --container-bg: #1e1e1e;
+            --box-bg: #2d3748;
+            --box-border: #4a5568;
+            --quote-bg: #2b2b2b;
+            --author-bg: #252525;
+            --author-border: #333;
+            --x-color: #ffffff; /* X logo needs to be white in dark mode */
+        }
+
+        body {
+            font-family: 'Noto Serif Malayalam', serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.8;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        /* --- TOGGLE BUTTON STYLES --- */
+        .theme-toggle-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: none;
+            background-color: var(--container-bg);
+            color: var(--text-color);
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s ease, background-color 0.3s;
+        }
+
+        .theme-toggle-btn:hover {
+            transform: scale(1.1);
+        }
+
+        .theme-toggle-btn svg {
+            width: 24px;
+            height: 24px;
+            fill: currentColor;
+            transition: opacity 0.3s ease;
+        }
+        
+        /* Hide/Show icons based on theme */
+        [data-theme="dark"] .icon-moon { display: none; }
+        [data-theme="dark"] .icon-sun { display: block; }
+        
+        [data-theme="light"] .icon-moon { display: block; }
+        [data-theme="light"] .icon-sun { display: none; }
+
+
+        /* --- EXISTING STYLES (Updated to use Variables) --- */
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--container-bg);
+            box-shadow: 0 4px 25px rgba(0,0,0,0.08);
+            position: relative;
+            opacity: 0;
+            animation: pageLoad 1s ease-out forwards;
+            transition: background-color 0.3s ease;
+        }
+
+        @keyframes pageLoad {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .cover-image-container {
+            width: 100%;
+            height: 450px; 
+            position: relative;
+            overflow: hidden;
+            background-color: #1a252f;
+        }
+
+        .cover-photo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 20%; 
+            transform: scale(1.15); 
+            opacity: 0;
+            animation: slowZoomIn 2s ease-out forwards, subtleDrift 20s linear infinite alternate;
+        }
+
+        .cover-image-container::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 50%; 
+            background: linear-gradient(to bottom, transparent 0%, var(--container-bg) 90%);
+            pointer-events: none;
+            z-index: 2;
+            transition: background 0.3s ease;
+        }
+
+        @keyframes slowZoomIn {
+            from { opacity: 0; transform: scale(1.2); filter: blur(5px); }
+            to { opacity: 1; transform: scale(1.15); filter: blur(0); }
+        }
+
+        @keyframes subtleDrift {
+            0% { transform: scale(1.15) translateY(0); }
+            100% { transform: scale(1.25) translateY(-15px); }
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .content-wrapper {
+            padding: 40px 30px;
+            position: relative;
+            z-index: 3; 
+            margin-top: -20px;
+        }
+
+        h1.article-title {
+            font-family: 'Manjari', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            line-height: 1.3;
+            text-align: center;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: var(--secondary-text);
+            font-style: italic;
+            margin-bottom: 30px;
+            text-align: center;
+            display: block;
+        }
+
+        p {
+            font-size: 1.15rem;
+            margin-bottom: 1.5em;
+            text-align: justify;
+            color: var(--text-color);
+        }
+
+        p.intro::first-letter {
+            font-size: 3.8em;
+            float: left;
+            margin-right: 12px;
+            margin-top: -5px;
+            line-height: 0.8;
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        h2 {
+            font-family: 'Manjari', sans-serif;
+            color: var(--primary-color);
+            font-size: 1.6rem;
+            margin-top: 40px;
+            margin-bottom: 15px;
+            border-left: 4px solid var(--accent-color);
+            padding-left: 15px;
+        }
+
+        .highlight {
+            background-color: var(--highlight-bg);
+            padding: 2px 4px;
+            border-radius: 3px;
+            color: var(--highlight-text);
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .text-accent {
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        blockquote {
+            background: var(--quote-bg);
+            border-left: 5px solid var(--accent-color);
+            margin: 30px 0;
+            padding: 20px 30px;
+            font-style: italic;
+            font-family: 'Manjari', sans-serif;
+            font-size: 1.2rem;
+            color: var(--secondary-text);
+            position: relative;
+            z-index: 1;
+            transition: background-color 0.3s ease;
+        }
+        
+        blockquote::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 0%; height: 100%;
+            background: rgba(211, 84, 0, 0.05); /* Slightly adjusted for dark mode visibility */
+            transition: width 0.5s ease;
+            z-index: -1;
+        }
+        blockquote:hover::after {
+            width: 100%;
+        }
+
+        .concept-box {
+            background-color: var(--box-bg);
+            border: 1px solid var(--box-border);
+            border-radius: 8px;
+            padding: 25px;
+            margin: 30px 0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s;
+        }
+
+        .concept-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+
+        .concept-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .concept-list li {
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .concept-list li::before {
+            content: "➤";
+            color: var(--accent-color);
+            position: absolute;
+            left: 0;
+            font-size: 0.9em;
+        }
+
+        /* --- Author Section --- */
+        .separator {
+            border: 0;
+            height: 1px;
+            background-image: linear-gradient(to right, rgba(0, 0, 0, 0), var(--secondary-text), rgba(0, 0, 0, 0));
+            opacity: 0.3;
+            margin: 50px 0 30px 0;
+        }
+
+        .author-box {
+            display: flex;
+            align-items: center;
+            background-color: var(--author-bg);
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid var(--author-border);
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+            transition: transform 0.3s ease, background-color 0.3s, border-color 0.3s;
+        }
+
+        .author-box:hover {
+            border-color: var(--accent-color);
+        }
+
+        .author-img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--container-bg);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            margin-right: 20px;
+            flex-shrink: 0;
+            transition: transform 0.3s ease;
+        }
+        
+        .author-box:hover .author-img {
+            transform: scale(1.05) rotate(3deg);
+        }
+
+        .author-details {
+            flex-grow: 1;
+        }
+
+        .author-name {
+            font-family: 'Manjari', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+            display: inline-block;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .author-name::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: var(--accent-color);
+            transition: width 0.3s ease;
+        }
+
+        .author-name:hover {
+            color: var(--accent-color);
+        }
+        
+        .author-name:hover::after {
+            width: 100%;
+        }
+
+        .author-motto {
+            font-size: 0.95rem;
+            color: var(--secondary-text);
+            margin: 5px 0 0 0;
+            font-style: italic;
+        }
+
+        /* --- Share Section --- */
+        .share-container {
+            margin-top: 15px;
+            width: 100%;
+        }
+
+        .share-label {
+            font-family: 'Manjari', sans-serif;
+            font-size: 0.9rem;
+            color: var(--secondary-text);
+            margin-bottom: 10px;
+            display: block;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .share-buttons {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .share-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8px 16px;
+            border-radius: 50px;
+            text-decoration: none;
+            color: white;
+            font-family: sans-serif;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: none;
+            cursor: pointer;
+            outline: none;
+        }
+
+        .share-btn svg {
+            width: 18px;
+            height: 18px;
+            margin-right: 6px;
+            fill: currentColor;
+        }
+
+        .share-btn:hover {
+            transform: translateY(-4px) scale(1.05);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .share-btn:active {
+            transform: translateY(0) scale(0.95);
+        }
+
+        .btn-whatsapp { background-color: var(--whatsapp-color); color: #fff; }
+        .btn-facebook { background-color: var(--facebook-color); color: #fff; }
+        .btn-x { background-color: var(--x-color); color: #fff; }
+        /* X Button Text Color Override for Dark Mode */
+        [data-theme="dark"] .btn-x { color: #000; }
+        
+        .btn-copy { background-color: var(--copy-color); color: #fff; }
+
+        @media (max-width: 600px) {
+            .cover-image-container { height: 300px; } 
+            h1.article-title { font-size: 1.8rem; }
+            .content-wrapper { padding: 25px 15px; }
+            .author-box { text-align: center; flex-direction: column; }
+            .author-img { margin-right: 0; margin-bottom: 15px; }
+            .share-buttons { justify-content: center; }
+            p.intro::first-letter { font-size: 3em; }
+            
+            /* Adjust toggle position on mobile to not cover text */
+            .theme-toggle-btn {
+                top: 15px;
+                right: 15px;
+                width: 40px;
+                height: 40px;
+            }
+        }
+    </style>
+</head>
+<body data-theme="light">
+
+<button class="theme-toggle-btn" id="theme-toggle" aria-label="Toggle Dark Mode">
+    <svg class="icon-moon" viewBox="0 0 24 24">
+        <path d="M12.3,4.9c0.4-0.2,0.6-0.7,0.5-1.1S12.2,3,11.7,3C6.8,3.1,3,7.1,3,12c0,5,4,9,9,9c3.8,0,7.1-2.4,8.4-5.9c0.2-0.4,0-0.9-0.4-1.2c-0.4-0.3-0.9-0.2-1.2,0.1c-1,0.9-2.3,1.4-3.7,1.4c-3.1,0-5.7-2.5-5.7-5.7C9.4,7.8,10.5,5.9,12.3,4.9z"/>
+    </svg>
+    <svg class="icon-sun" viewBox="0 0 24 24">
+        <path d="M12,7c-2.8,0-5,2.2-5,5s2.2,5,5,5s5-2.2,5-5S14.8,7,12,7z M12,15c-1.7,0-3-1.3-3-3s1.3-3,3-3s3,1.3,3,3S13.7,15,12,15z M12,2c0.6,0,1,0.4,1,1v3c0,0.6-0.4,1-1,1s-1-0.4-1-1V3C11,2.4,11.4,2,12,2z M12,20c-0.6,0-1,0.4-1,1v3c0,0.6,0.4,1,1,1s1-0.4,1-1v-3C13,20.4,12.6,20,12,20z M5,11H2c-0.6,0-1,0.4-1,1s0.4,1,1,1h3c0.6,0,1-0.4,1-1S5.6,11,5,11z M22,11h-3c-0.6,0-1,0.4-1,1s0.4,1,1,1h3c0.6,0,1-0.4,1-1S22.6,11,22,11z M4.9,4.9c0.4-0.4,0.4-1,0-1.4s-1-0.4-1.4,0l-2.1,2.1c-0.4,0.4-0.4,1,0,1.4s1,0.4,1.4,0L4.9,4.9z M20.5,19.1c0.4-0.4,0.4-1,0-1.4s-1-0.4-1.4,0l-2.1,2.1c-0.4,0.4-0.4,1,0,1.4s1,0.4,1.4,0L20.5,19.1z M18.4,4.9l2.1-2.1c0.4-0.4,0.4-1,0-1.4s-1-0.4-1.4,0l-2.1,2.1c-0.4,0.4-0.4,1,0,1.4S18,5.3,18.4,4.9z M2.8,19.1l2.1,2.1c0.4,0.4,1,0.4,1.4,0s0.4-1,0-1.4l-2.1-2.1c-0.4-0.4-1-0.4-1.4,0S2.4,18.7,2.8,19.1z"/>
+    </svg>
+</button>
+
+<div class="container">
+    <div class="cover-image-container">
+        <img src="https://blogger.googleusercontent.com/img/a/AVvXsEgYN0UPAmc0S6gBcLKkRNvgmkY3SS02NQMtn66sABlsCqLo3KXDJC33-NgQnROJ93oB_PAKRJz816AVmNYXWIoKOw1tBRZ307WH4s_J46a6lMq15WuNFTzaKj4odY19RMrO29Yd6Drcc8xMwcOL4FbgLGRwnR6LcMoJP5eZe_lJSh15NRDiSXUrIavyXiZF" alt="Vinayak Damodar Savarkar" class="cover-photo">
+    </div>
+
+    <div class="content-wrapper">
+        <h1 class="article-title reveal">വിനായക് ദാമോദർ സാവർക്കർ:<br>ചരിത്രം മറച്ചുവെച്ച വിപ്ലവകാരിയോ, അതോ വെറുക്കപ്പെട്ട വർഗ്ഗീയവാദിയോ?</h1>
+        <span class="subtitle reveal">ഇന്ത്യൻ സ്വാതന്ത്ര്യസമര ചരിത്രത്തിലെ ഏറ്റവും സങ്കീർണ്ണമായ അധ്യായത്തിലൂടെ ഒരു യാത്ര</span>
+
+        <article>
+            <p class="intro reveal">
+                ഇന്ത്യൻ പാർലമെന്റിന്റെ സെൻട്രൽ ഹാളിലേക്ക് ഒന്ന് കണ്ണോടിച്ചാൽ ആധുനിക ഇന്ത്യയുടെ ഏറ്റവും വലിയ വിരോധാഭാസങ്ങളിൽ ഒന്ന് നിങ്ങൾക്ക് കാണാൻ സാധിക്കും. അവിടെ, രാഷ്ട്രപിതാവായ മഹാത്മാഗാന്ധിയുടെ ഛായാചിത്രത്തിന് നേരെ എതിർവശത്തായി മറ്റൊരു ചിത്രമുണ്ട്. അത് <span class="text-accent">വിനായക് ദാമോദർ സാവർക്കറുടേതാണ്.</span> ഗാന്ധിയെ കൊന്ന തോക്കിന് പിന്നിലെ ആസൂത്രകൻ എന്ന് ചരിത്രം സംശയിച്ച ഒരാൾ, ഗാന്ധിക്കൊപ്പം തന്നെ ആദരിക്കപ്പെടുന്ന കാഴ്ച. ആരാണ് യഥാർത്ഥത്തിൽ സാവർക്കർ? പാഠപുസ്തകങ്ങളിലെ 'വീരനായകനാണോ', അതോ രാഷ്ട്രീയ ചർച്ചകളിലെ 'മാപ്പ്' എഴുതി നൽകിയ വില്ലനാണോ?
+            </p>
+
+            <p class="reveal">
+                കോളേജ് ക്യാമ്പസുകളിലും ചായക്കടകളിലും സാവർക്കർ ഇന്നും ചൂടേറിയ ചർച്ചാവിഷയമാണ്. ഒരു വശത്ത് ആരാധനയും മറുവശത്ത് വെറുപ്പും ഏറ്റുവാങ്ങുന്ന ഈ മനുഷ്യന്റെ ജീവിതം, ഇന്ത്യയുടെ സ്വാതന്ത്ര്യസമര ചരിത്രത്തിലെ ഏറ്റവും സങ്കീർണ്ണമായ അധ്യായമാണ്. നമുക്ക് ആ ചരിത്രത്തിലൂടെ ഒന്ന് സഞ്ചരിക്കാം.
+            </p>
+
+            <h2 class="reveal">വിപ്ലവത്തിന്റെ അഗ്നിപർവ്വതം</h2>
+            <p class="reveal">
+                സാവർക്കറുടെ കഥ തുടങ്ങുന്നത് ഒരു വില്ലനായല്ല, മറിച്ച് സിരകളിൽ തിളയ്ക്കുന്ന ചോരയുമായി നടക്കുന്ന ഒരു യുവ വിപ്ലവകാരിയായാണ്. 1900-കളുടെ തുടക്കത്തിൽ ലണ്ടനിലെ <span class="highlight">'ഇന്ത്യാ ഹൗസ്'</span> ഇന്ത്യൻ വിപ്ലവകാരികളുടെ താവളമായിരുന്നു. അവിടെ, മസീനിയെന്ന ഇറ്റാലിയൻ വിപ്ലവകാരിയുടെ ചിന്തകളിൽ ആകൃഷ്ടനായ ഒരു നിയമവിദ്യാർത്ഥിയുണ്ടായിരുന്നു - സാവർക്കർ.
+            </p>
+            <p class="reveal">
+                അഹിംസയിലോ സമാധാനപരമായ ചർച്ചകളിലോ അയാൾ വിശ്വസിച്ചിരുന്നില്ല. ബ്രിട്ടീഷുകാരെ ഇന്ത്യയിൽ നിന്ന് ഓടിക്കാൻ തോക്കും ബോംബും തന്നെയാണ് വേണ്ടതെന്ന് അയാൾ ഉറച്ചുവിശ്വസിച്ചു. 1857-ൽ നടന്ന സിപ്പായി ലഹളയെ ബ്രിട്ടീഷുകാർ വെറുമൊരു 'ലഹള'യായി എഴുതിത്തള്ളിയപ്പോൾ, അതിനെ <span class="highlight">"ഇന്ത്യയുടെ ഒന്നാം സ്വാതന്ത്ര്യസമരം"</span> എന്ന് വിളിച്ചു ചരിത്രത്തെ തിരുത്തിയെഴുതിയത് ഈ യുവാവാണ്.
+            </p>
+
+            <h2 class="reveal">കാലാപാനിയും മാറ്റത്തിന്റെ നിഴലുകളും</h2>
+            <p class="reveal">
+                പക്ഷേ, സാവർക്കർ എന്ന വിപ്ലവകാരിയുടെ വീരഗാഥകൾക്ക് ഒരു ഫുൾസ്റ്റോപ്പ് വീഴുന്നത് ആൻഡമാനിലെ സെല്ലുലാർ ജയിലിലാണ്. 'കാലാപാനി' എന്നറിയപ്പെട്ട ആ നരകതുല്യമായ ജയിലിലെ ജീവിതം ആരെയും തകർക്കുന്നതായിരുന്നു. അവിടെ വെച്ചാണ് ചരിത്രത്തിലെ ഏറ്റവും വിവാദപരമായ സംഭവം നടക്കുന്നത്. തടവറയിലെ കൊടും പീഡനങ്ങൾ താങ്ങാനാവാതെ സാവർക്കർ ബ്രിട്ടീഷ് അധികാരികൾക്ക് തുടർച്ചയായി <span class="highlight">ക്ഷമാപണ അപേക്ഷകൾ (Mercy Petitions)</span> അയക്കുന്നു.
+            </p>
+
+            <blockquote class="reveal">
+                ചരിത്രം ഇവിടെ രണ്ടായി പിളരുന്നു. വിമർശകർ ഇതിനെ കാണുന്നത് ഒരു ഭീരുവിന്റെ കീഴടങ്ങലായാണ്. എന്നാൽ അനുകൂലികൾ ഇതിനെ കാണുന്നത് ശിവാജിയുടെ തന്ത്രപരമായ പിന്മാറ്റം (Strategic Retreat) ആയാണ്.
+            </blockquote>
+
+            <p class="reveal">
+                ജയിലിൽ കിടന്ന് നശിക്കുന്നതിനേക്കാൾ പുറത്തിറങ്ങി രാഷ്ട്രീയം കളിക്കുന്നതാണ് ബുദ്ധിയെന്ന് സാവർക്കർ ചിന്തിച്ചിട്ടുണ്ടാകാം. പക്ഷേ ഒന്ന് ഉറപ്പാണ്, ആൻഡമാനിൽ നിന്ന് പുറത്തുവന്ന സാവർക്കർ പഴയ ബ്രിട്ടീഷ് വിരുദ്ധ പോരാളിയായിരുന്നില്ല. അദ്ദേഹത്തിന്റെ ശത്രുപക്ഷത്ത് ബ്രിട്ടീഷുകാർക്ക് പകരം, മുസ്ലീങ്ങളും ഗാന്ധിയുടെ കോൺഗ്രസും സ്ഥാനം പിടിച്ചു.
+            </p>
+
+            <h2 class="reveal">എന്താണ് ഈ 'ഹിന്ദുത്വ'?</h2>
+            <p class="reveal">
+                ഇന്ന് നമ്മൾ കേൾക്കുന്ന 'ഹിന്ദുത്വ' എന്ന വാക്കും ആശയവും സാവർക്കറുടെ തലച്ചോറിൽ ഉദിച്ചതാണ്. 1923-ൽ പ്രസിദ്ധീകരിച്ച <i>"ഹിന്ദുത്വ: ആരാണ് ഒരു ഹിന്ദു?"</i> എന്ന പുസ്തകത്തിലൂടെ അദ്ദേഹം ഇന്ത്യയുടെ രാഷ്ട്രീയ ഭൂപടം തന്നെ മാറ്റിവരച്ചു. ശ്രദ്ധിക്കേണ്ട ഒരു കാര്യമുണ്ട്; 'ഹിന്ദുയിസം' എന്ന മതമല്ല സാവർക്കറുടെ 'ഹിന്ദുത്വ'. അതൊരു <span class="text-accent">രാഷ്ട്രീയ തന്ത്രമായിരുന്നു (Political Tool).</span>
+            </p>
+
+            <div class="concept-box reveal">
+                <span class="concept-title">സാവർക്കറുടെ നിർവചനപ്രകാരം ഒരാൾ ഇന്ത്യക്കാരനാകാൻ:</span>
+                <ul class="concept-list">
+                    <li><strong>പിതൃഭൂമി (Fatherland):</strong> ഇന്ത്യ അവന്റെ അച്ഛനപ്പൂപ്പന്മാരുടെ നാടായിരിക്കണം.</li>
+                    <li><strong>പുണ്യഭൂമി (Holy Land):</strong> അവന്റെ മതത്തിന്റെ വേരുകളും പുണ്യസ്ഥലങ്ങളും ഇന്ത്യയിലായിരിക്കണം.</li>
+                </ul>
+            </div>
+
+            <p class="reveal">
+            	ഈ നിർവചനം വളരെ തന്ത്രപരമായിരുന്നു. ഇതനുസരിച്ച് ബുദ്ധ, ജൈന, സിഖ് മതക്കാർ 'ഹിന്ദു' എന്ന വിശാല അർത്ഥത്തിൽ വരും. എന്നാൽ <span class="highlight">മുസ്ലീങ്ങളെയും ക്രിസ്ത്യാനികളെയും ഇത് കൃത്യമായി പുറത്താക്കുന്നു.</span> ഇന്ത്യയിൽ ജനിച്ചവരാണെങ്കിലും, അവരുടെ പുണ്യസ്ഥലങ്ങൾ (മെക്ക, ജറുസലേം) വിദേശത്തായതുകൊണ്ട് അവർക്ക് ഇന്ത്യയോട് പൂർണ്ണ കൂറുണ്ടാകില്ലെന്ന് സാവർക്കർ വാദിച്ചു.
+            </p>
+
+            <h2 class="reveal">ഗാന്ധിയും സാവർക്കറും: ഇന്ത്യയുടെ ആത്മാവിനായുള്ള പോരാട്ടം</h2>
+            <p class="reveal">
+                സ്വാതന്ത്ര്യസമര കാലത്ത് ഇന്ത്യ രണ്ട് ആശയങ്ങൾ തമ്മിലുള്ള യുദ്ധഭൂമിയായിരുന്നു. ഗാന്ധിയുടെ മതേതര ഇന്ത്യയും, സാവർക്കറുടെ ഹിന്ദു രാഷ്ട്രവും. ഗാന്ധിജി അഹിംസയിൽ വിശ്വസിച്ചപ്പോൾ, സാവർക്കർ അഹിംസയെ 'ഭീരുത്വം' എന്ന് വിളിച്ചു പരിഹസിച്ചു. 
+            </p>
+            <blockquote class="reveal">
+                "ഹിന്ദുക്കളെ സൈനികവൽക്കരിക്കുക, രാഷ്ട്രീയം ഹിന്ദുത്വവൽക്കരിക്കുക" - ഇതായിരുന്നു സാവർക്കറുടെ മുദ്രാവാക്യം.
+            </blockquote>
+
+            <h2 class="reveal">ഉപസംഹാരം: ഇന്നും ജീവിക്കുന്ന സാവർക്കർ</h2>
+            <p class="reveal">
+                സാവർക്കർ ഒരിക്കലും ഇന്ത്യയുടെ ഭരണാധികാരിയായിട്ടില്ല. പക്ഷേ, ഇന്ന് തിരിഞ്ഞുനോക്കുമ്പോൾ ഒരു കാര്യം വ്യക്തമാണ് - ഗാന്ധിയുടെ ആശയങ്ങളേക്കാൾ ഇന്ന് ഇന്ത്യൻ രാഷ്ട്രീയത്തെ സ്വാധീനിക്കുന്നത് സാവർക്കറുടെ ചിന്തകളാണ്.
+            </p>
+            <p class="reveal">
+                സാവർക്കർ ഒരു 'ഹീറോ' ആണോ 'വില്ലൻ' ആണോ എന്നത് നിങ്ങളുടെ രാഷ്ട്രീയ കാഴ്ചപ്പാട് അനുസരിച്ചിരിക്കും. എന്നാൽ, അദ്ദേഹത്തെ തള്ളിക്കളഞ്ഞുകൊണ്ട് ആധുനിക ഇന്ത്യയെ മനസ്സിലാക്കാൻ കഴിയില്ല. <span class="highlight">ചരിത്രം എന്നത് കറുപ്പും വെളുപ്പും മാത്രമല്ല, ചാരനിറം കലർന്ന അനേകം ഏടുകൾ ചേർന്നതാണെന്ന് സാവർക്കറുടെ ജീവിതം നമ്മെ ഓർമ്മിപ്പിക്കുന്നു.</span>
+            </p>
+        </article>
+
+        <hr class="separator">
+
+        <div class="author-box reveal">
+            <img src="https://blogger.googleusercontent.com/img/a/AVvXsEjqpLadYdybrF5HalPwqYrGnLWjqHOak_oYKbxtEXp0wGwwnLDM_SjA28jsNtRmoM4c979Q82L67s7M61b3lfdBOpaP-QRT7N7LLS8neJ73pa0-4w53FyDoBid9a1HKu6rizfPcOzlHTnbA0t1aRs8HcuMkokIScoJGwSKoJ7vgCZRRlqdRYC4qAA-zNuJw" alt="Le Varikal Profile" class="author-img">
+            
+            <div class="author-details">
+                <a href="../index.html" class="author-name" title="Visit Le Varikal Profile">ലെ വരികൾ...</a>
+                <p class="author-motto">വാക്കുകൾ, ചിന്തകൾ, വരികൾ.</p>
+                
+                                <div class="share-container">
+                    <span class="share-label">Share this article:</span>
+                    <div class="share-buttons">
+                        <button class="share-btn btn-whatsapp" onclick="shareToWhatsapp()">
+                            <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                            WhatsApp
+                        </button>
+
+                        <button class="share-btn btn-facebook" onclick="shareToFacebook()">
+                            <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                            Facebook
+                        </button>
+
+                        <button class="share-btn btn-x" onclick="shareToX()">
+                            <svg viewBox="0 0 24 24"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg>
+                            X
+                        </button>
+
+                        <button class="share-btn btn-copy" onclick="copyLink()">
+                            <svg viewBox="0 0 24 24"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
+                            Copy Link
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // --- THEME TOGGLE LOGIC ---
+    const toggleBtn = document.getElementById('theme-toggle');
+    const body = document.body;
+
+    // 1. Check local storage
+    const savedTheme = localStorage.getItem('theme');
+
+    // 2. Check system preference if no local storage
+    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+    // Apply initial theme
+    if (savedTheme) {
+        body.setAttribute('data-theme', savedTheme);
+    } else if (systemPrefersDark) {
+        body.setAttribute('data-theme', 'dark');
+    }
+
+    toggleBtn.addEventListener('click', () => {
+        const currentTheme = body.getAttribute('data-theme');
+        let newTheme = 'light';
+
+        if (currentTheme === 'light') {
+            newTheme = 'dark';
+        }
+
+        body.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+    });
+
+
+    // --- Scroll Reveal Animation ---
+    function reveal() {
+        var reveals = document.querySelectorAll(".reveal");
+        
+        for (var i = 0; i < reveals.length; i++) {
+            var windowHeight = window.innerHeight;
+            var elementTop = reveals[i].getBoundingClientRect().top;
+            var elementVisible = 100; 
+
+            if (elementTop < windowHeight - elementVisible) {
+                reveals[i].classList.add("active");
+            }
+        }
+    }
+
+    window.addEventListener("scroll", reveal);
+    window.addEventListener("load", reveal);
+
+    // --- Share Functionality ---
+    const pageTitle = encodeURIComponent(document.title);
+    const pageUrl = encodeURIComponent(window.location.href);
+
+    function shareToWhatsapp() {
+        window.open(`https://wa.me/?text=${pageTitle}%20${pageUrl}`, '_blank');
+    }
+
+    function shareToFacebook() {
+        window.open(`https://www.facebook.com/sharer/sharer.php?u=${pageUrl}`, '_blank');
+    }
+
+    function shareToX() {
+        window.open(`https://twitter.com/intent/tweet?text=${pageTitle}&url=${pageUrl}`, '_blank');
+    }
+
+    function copyLink() {
+        navigator.clipboard.writeText(window.location.href).then(() => {
+            const btn = document.querySelector('.btn-copy');
+            const originalText = btn.innerHTML;
+            btn.innerHTML = '✓ Copied!';
+            btn.style.backgroundColor = '#27ae60';
+            setTimeout(() => {
+                btn.innerHTML = originalText;
+                btn.style.backgroundColor = ''; 
+            }, 2000);
+        }).catch(err => {
+            console.error('Failed to copy: ', err);
+            alert("Link copy failed.");
+        });
+    }
+</script>
+
+</body>
+</html>
