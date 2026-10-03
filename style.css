@@ -172,3 +172,11 @@ footer .fbrand{font-family:var(--serif);font-style:italic;font-size:1.5rem;color
   .word-seq span:nth-child(3){margin-left:12%}
   .word-seq span:nth-child(4){margin-left:18%}
 }
+
+/* latest + picks strips */
+.strip{margin:84px 0}
+.strip .sec-head{margin-bottom:6px}
+.card{position:relative}
+.new-badge{position:absolute;top:14px;right:14px;font-size:.58rem;letter-spacing:.26em;text-transform:uppercase;font-weight:700;color:#141210;background:var(--amber);padding:7px 13px;border-radius:999px;box-shadow:0 4px 18px rgba(255,176,46,.4)}
+.card.is-new{border-color:rgba(255,176,46,.55)}
+.card.is-new:hover{border-color:var(--amber)}
