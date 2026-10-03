@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>India 2025 Wrapped | ലെ വരികൾ...</title>
+    <meta property="og:title" content="India 2025 Wrapped">
+    <meta property="og:description" content="A chronicle of the crises that shaped us this year. Memory is resistance.">
+    <style>
+        /* --- GLOBAL VARIABLES --- */
+        :root {
+            --bg-color: #0a0a0a;
+            --card-bg: #141414;
+            --text-main: #f0f0f0;
+            --text-muted: #a0a0a0;
+            --accent-red: #e74c3c;
+            --accent-gold: #f1c40f;
+            --highlight-bg: rgba(241, 196, 15, 0.15);
+            --font-display: 'Georgia', serif;
+            --font-body: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            --font-malayalam: 'Arial Unicode MS', sans-serif; /* Fallback for Malayalam */
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: var(--font-body);
+            line-height: 1.7;
+            font-size: 18px;
+            overflow-x: hidden; /* Prevent horizontal scroll */
+        }
+
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+        
+        /* --- ANIMATIONS --- */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- HEADER & COVER IMAGE --- */
+        header {
+            position: relative;
+            height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+            margin-bottom: 40px;
+        }
+
+        /* The Cover Image */
+        .cover-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /* Using a dark abstract crowd/smoke image to fit the theme */
+            background-image: url('https://images.unsplash.com/photo-1495020686660-95e85eb43627?q=80&w=1920&auto=format&fit=crop'); 
+            background-size: cover;
+            background-position: center;
+            z-index: 0;
+            filter: grayscale(100%) contrast(120%) brightness(50%);
+        }
+
+        .header-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(10,10,10,0.3) 0%, rgba(10,10,10,1) 100%);
+            z-index: 1;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 2;
+            padding: 20px;
+            max-width: 900px;
+        }
+
+        .main-title {
+            font-family: var(--font-display);
+            font-size: 4rem;
+            text-transform: uppercase;
+            letter-spacing: -2px;
+            line-height: 1;
+            margin-bottom: 15px;
+            text-shadow: 0 4px 30px rgba(0,0,0,0.8);
+            border-bottom: 4px solid var(--accent-red);
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            color: #ddd;
+            font-style: italic;
+            font-weight: 300;
+            margin-top: 10px;
+        }
+
+        /* --- CONTAINER --- */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px 100px 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* --- AUTHOR PROFILE SECTION --- */
+        .author-card {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            margin: -60px auto 60px auto; /* Pull up into header fade */
+            text-align: center;
+            position: relative;
+            z-index: 3;
+        }
+
+        .profile-img-container {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            padding: 4px;
+            background: linear-gradient(45deg, var(--accent-red), #333);
+            margin-bottom: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .profile-img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--bg-color);
+        }
+
+        .author-name {
+            font-family: var(--font-malayalam), sans-serif;
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--text-main);
+            margin-bottom: 5px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .author-name:hover {
+            color: var(--accent-red);
+            text-shadow: 0 0 15px rgba(231, 76, 60, 0.5);
+        }
+
+        .author-motto {
+            font-family: var(--font-malayalam), serif;
+            font-size: 1rem;
+            color: var(--text-muted);
+            letter-spacing: 1px;
+        }
+
+        .separator {
+            width: 80px;
+            height: 2px;
+            background: var(--accent-red);
+            margin: 30px auto;
+            border-radius: 2px;
+        }
+
+        /* --- MANIFESTO --- */
+        .manifesto {
+            background: #181818;
+            border-left: 4px solid var(--accent-red);
+            padding: 30px;
+            margin-bottom: 60px;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .manifesto p {
+            font-size: 1.25rem;
+            font-family: var(--font-display);
+        }
+
+        /* --- ARTICLES --- */
+        .entry {
+            margin-bottom: 60px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid #333;
+        }
+
+        .entry-number {
+            font-size: 0.85rem;
+            color: var(--accent-red);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .entry h2 {
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+            color: white;
+            line-height: 1.2;
+        }
+
+        .category-tag {
+            display: inline-block;
+            font-size: 0.75rem;
+            background: #222;
+            border: 1px solid #333;
+            color: #ccc;
+            padding: 4px 10px;
+            border-radius: 50px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .entry p {
+            color: #d1d1d1;
+            font-size: 1.15rem;
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, rgba(231, 76, 60, 0.2) 0%, rgba(231, 76, 60, 0.2) 100%);
+            background-repeat: no-repeat;
+            background-size: 100% 40%;
+            background-position: 0 88%;
+            color: white;
+            padding: 0 2px;
+        }
+
+        .red-text {
+            color: var(--accent-red);
+            font-weight: bold;
+        }
+
+        /* --- SHARE SECTION --- */
+        .share-section {
+            text-align: center;
+            margin-top: 60px;
+            padding: 40px;
+            background: #141414;
+            border-radius: 12px;
+            border: 1px solid #333;
+        }
+
+        .share-title {
+            font-size: 1.2rem;
+            margin-bottom: 25px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .share-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .share-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 24px;
+            border-radius: 50px;
+            color: white;
+            font-weight: bold;
+            font-size: 0.9rem;
+            cursor: pointer;
+            border: none;
+            transition: transform 0.2s, opacity 0.2s;
+        }
+
+        .share-btn:hover {
+            transform: translateY(-3px);
+            opacity: 0.9;
+        }
+
+        .btn-wa { background-color: #25D366; }
+        .btn-fb { background-color: #1877F2; }
+        .btn-x { background-color: #000; border: 1px solid #333; }
+        .btn-copy { background-color: #444; }
+
+        /* --- FOOTER --- */
+        .footer-note {
+            text-align: center;
+            margin-top: 50px;
+            font-size: 0.9rem;
+            color: #555;
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 600px) {
+            .main-title { font-size: 2.5rem; }
+            header { height: 60vh; }
+            .entry h2 { font-size: 1.8rem; }
+            .author-card { margin-top: -40px; }
+            .share-buttons { gap: 10px; }
+            .share-btn { padding: 10px 16px; font-size: 0.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="cover-bg"></div>
+    <div class="header-overlay"></div>
+    <div class="header-content reveal active">
+        <h1 class="main-title">India 2025 Wrapped</h1>
+        <p class="subtitle">A chronicle of the crises that shaped us this year.</p>
+    </div>
+</header>
+
+<div class="container">
+
+    <div class="author-card reveal">
+        <div class="profile-img-container">
+            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh6IDLN6CM1_VhgJsfy_RJ6FwR2Yh4uRxAv9qkHxDxDW4aIwOoZlp76yi4Yik4wi5Q1zJ1w4gRB1XW5uvM_ul_dABlG7-jpgQonhtge5x3trZOx0fC0RtX3RaIPPK2qA_9vqWJbBif7P9CvozUQOlQ6dzSmhUgaWA5BW-BDregNqlGHxJGZK_bEgLBBalyW/s1724/12199.jpg" alt="Author" class="profile-img">
+        </div>
+        
+        <a href="../index.html" class="author-name">
+            LE VARIKAL
+        </a>
+        
+        <p class="author-motto">Voice. Vision. Verse.</p>
+        
+        <div class="separator"></div>
+    </div>
+
+    <section class="manifesto reveal">
+        <h3 style="color: var(--accent-red); margin-bottom: 10px; letter-spacing: 2px; font-size: 0.9rem; text-transform: uppercase;">Introduction</h3>
+        <p>
+            2025 produced political turmoil, environmental rollbacks, rights violations, economic stress and security crises. 
+            <span class="highlight">Many faded from headlines within days.</span> 
+            This wrap restores them to public memory—because forgetting benefits power, not people.
+        </p>
+        <br>
+        <p style="margin-bottom: 0; font-weight: bold;">
+            Attention is political. Memory is resistance.
+        </p>
+    </section>
+
+    <div id="content-list">
+        <article class="entry reveal">
+            <span class="entry-number">01 / Security</span>
+            <h2>Pahalgam Attack and Aftermath</h2>
+            <span class="category-tag">Kashmir</span> <span class="category-tag">Conflict</span>
+            <p>The April 22 attack killed at least 26 civilians in Kashmir. India blamed Pakistan for supporting LeT-linked militants. Diplomatic ties collapsed, the Indus Waters Treaty was suspended, and cross-border strikes followed. <span class="highlight">Tourist arrivals in Kashmir fell by over 50 percent compared to 2024.</span> The crisis exposed long-standing security and intelligence vulnerabilities, while ordinary civilians paid the price.</p>
+        </article>
+
+        <article class="entry reveal">
+            <span class="entry-number">02 / Democracy</span>
+            <h2>Vote Chori Allegations</h2>
+            <span class="category-tag">Elections</span>
+            <p>In 2025, allegations emerged of vote manipulation and irregularities in election results in key states. Opposition parties demanded investigations into Electronic Voting Machine data, booth-wise discrepancies and differential turnout patterns. The Election Commission’s responses were limited, and no comprehensive public hearings were conducted, <span class="red-text">deepening mistrust in the electoral process.</span></p>
+        </article>
+
+        <article class="entry reveal">
+            <span class="entry-number">03 / Human Rights</span>
+            <h2>Manipur Was Abandoned</h2>
+            <span class="category-tag">Northeast India</span>
+            <p>Manipur entered 2025 carrying the wounds of nearly two years of unchecked violence. The Union Government imposed President’s Rule only after the elected government failed to restore even basic law and order. Even under President’s Rule, militarisation increased while rehabilitation, reconciliation and accountability remained painfully slow. <span class="highlight">Manipur became a reminder of what happens when a crisis fades from national memory.</span></p>
+        </article>
+
+        <article class="entry reveal">
+            <span class="entry-number">04 / Agriculture</span>
+            <h2>Farmers’ Protests Returned</h2>
+            <span class="category-tag">Protest</span>
+            <p>Farmers returned to protest sites across multiple states demanding a legal guarantee for Minimum Support Price, rollback of trade liberalisation measures and relief from rising input costs. Detentions, barricades and internet shutdowns echoed the 2020–21 protests, exposing how <span class="highlight">unresolved agrarian distress keeps resurfacing</span> despite repeated assurances.</p>
+        </article>
+
+        <article class="entry reveal">
+            <span class="entry-number">05 / Environment</span>
+            <h2>Heatwaves and Climate Deaths</h2>
+            <span class="category-tag">Climate Change</span>
+            <p>2025 witnessed one of the deadliest heatwave seasons in recent history. Temperatures crossed survivability thresholds across North and Central India. Outdoor workers, the elderly and the urban poor were most affected. Heat action plans proved inadequate, revealing that <span class="red-text">climate collapse is already a public health emergency—not a future scenario.</span></p>
+        </article>
+
+        <article class="entry reveal">
+            <span class="entry-number">06 / Pollution</span>
+            <h2>Environmental Decline and Pollution</h2>
+            <span class="category-tag">Urban</span>
+            <p>Delhi and several northern cities spent extended periods in the “severe” AQI category. Water bodies showed alarming contamination levels. Large infrastructure and mining projects received expedited clearances despite ecological risks. Environmental regulation weakened even as pollution reached crisis levels.</p>
+        </article>
+
+        <article class="entry reveal">
+            <span class="entry-number">07 / Conservation</span>
+            <h2>Aravalli Hills Redefined</h2>
+            <span class="category-tag">Land Rights</span>
+            <p>The government introduced a definition recognising only landforms 100 metres above surrounding ground as Aravalli Hills. Experts estimate that <span class="highlight">over 90 percent of the range lost protection</span> under this rule, opening vast areas to mining, deforestation and groundwater depletion across North India.</p>
+        </article>
+
+        <article class="entry reveal">
+            <span class="entry-number">08 / Society</span>
+            <h2>Nagpur Communal Violence</h2>
+            <span class="category-tag">Communalism</span>
+            <p>Nagpur erupted in communal violence after a right-wing mobilisation demanded the removal of Mughal emperor Aurangzeb’s tomb and rumours spread that a holy book had been desecrated. Crowds clashed with police; vehicles and buildings were set on fire; stones and petrol bombs were thrown. Curfews were imposed across multiple areas.</p>
+        </article>
+
+        <article class="entry reveal">
+            <span class="entry-number">09 / Culture</span>
+            <h2>Religious Places and History as Flashpoints</h2>
+            <span class="category-tag">Judiciary</span>
+            <p>Beyond Nagpur, several towns saw tensions over temples, mosques, tombs and historical reinterpretations. Courts, police and local administrations increasingly became arbiters of religious disputes, <span class="highlight">accelerating the politicisation of faith and history</span> in everyday governance.</p>
+        </article>
+
+        <article class="entry reveal">
+            <span class="entry-number">10 / Federalism</span>
+            <h2>Ladakh Protests and Wangchuk’s Arrest</h2>
+            <span class="category-tag">Statehood</span>
+            <p>Ladakh witnessed mass protests demanding statehood and Sixth Schedule protections. Clashes in Leh on September 24 led to four deaths and dozens of injuries. Internet services were shut down. Activist Sonam Wangchuk was arrested under the National Security Act, and his NGO lost its FCRA licence—raising serious concerns about dissent suppression in a strategically sensitive region.</p>
+        </article>
+
+        <article class="entry reveal">
+            <span class="entry-number">11 / Digital Rights</span>
+            <h2>DPDP Act and Digital Rights</h2>
+            <span class="category-tag">Privacy</span>
+            <p>The Digital Personal Data Protection Act came into force in 2025 amid strong criticism from privacy advocates. The law grants limited user rights while providing broad exemptions for the state, intelligence agencies and private entities. With no independent data regulator and weak safeguards, critics warned that <span class="red-text">surveillance would expand with little accountability.</span></p>
+        </article>
+
+        <article class="entry reveal">
+            <span class="entry-number">12 / Surveillance</span>
+            <h2>Expansion of Surveillance and Internet Shutdowns</h2>
+            <span class="category-tag">Civil Liberties</span>
+            <p>Facial recognition systems, predictive policing tools and centralised databases expanded rapidly. Oversight remained minimal. India continued to lead the world in internet shutdowns, often imposed during protests, exams or communal tensions. Shutdowns increasingly became a first response, disrupting livelihoods, education and emergency communication.</p>
+        </article>
+
+        <article class="entry reveal">
+            <span class="entry-number">13 / Media</span>
+            <h2>Press Freedom Under Pressure</h2>
+            <span class="category-tag">Journalism</span>
+            <p>Journalists faced arrests, raids, legal harassment and online intimidation—especially while reporting on communal violence, Kashmir, corruption and environmental conflicts. <span class="highlight">Self-censorship deepened as legal risks increased</span>, narrowing the space for independent journalism.</p>
+        </article>
+
+        <article class="entry reveal">
+            <span class="entry-number">14 / Law</span>
+            <h2>Criminal Law Overhaul and Civil Liberties</h2>
+            <span class="category-tag">Justice</span>
+            <p>The rollout of new criminal law codes continued, with lawyers and civil rights groups warning of expanded police powers, diluted safeguards and vague definitions open to abuse. Implementation gaps and lack of judicial preparedness raised fears of arbitrary detention and procedural injustice.</p>
+        </article>
+
+        <article class="entry reveal">
+            <span class="entry-number">15 / Economy</span>
+            <h2>Unemployment and Informal Work Crisis</h2>
+            <span class="category-tag">Jobs</span>
+            <p>Youth unemployment and underemployment remained persistently high. Gig work insecurity, contractualisation and stagnant wages defined the labour market. Despite headline GDP growth, <span class="highlight">job creation lagged sharply</span>, exposing the widening gap between economic data and lived reality.</p>
+        </article>
+
+        <article class="entry reveal">
+            <span class="entry-number">16 / Education</span>
+            <h2>Education System Strain and Student Distress</h2>
+            <span class="category-tag">Students</span>
+            <p>Universities and exam systems faced allegations of paper leaks, evaluation irregularities, fee hikes and campus policing. Student protests were met with suspensions, FIRs and disciplinary action, deepening alienation among young citizens.</p>
+        </article>
+
+        <article class="entry reveal">
+            <span class="entry-number">17 / Industrial</span>
+            <h2>Ethanol Plant Protests Turn Violent</h2>
+            <span class="category-tag">Rajasthan</span>
+            <p>In Hanumangarh, Rajasthan, protests against a proposed ethanol plant escalated into arson, police action and mass detentions. Locals feared groundwater depletion, land loss and contamination. The unrest reflected growing distrust of rushed industrial projects in ecologically fragile regions.</p>
+        </article>
+
+        <article class="entry reveal">
+            <span class="entry-number">18 / Tragedy</span>
+            <h2>Air India Crash</h2>
+            <span class="category-tag">Disaster</span>
+            <p>Air India Flight 171, a Boeing 787-8 Dreamliner, crashed seconds after takeoff from Ahmedabad, killing 241 people onboard and 19 on the ground. Only one passenger survived. Preliminary findings revealed both engines lost thrust after fuel control switches moved to the OFF position, but investigators have yet to explain why.</p>
+        </article>
+
+        <article class="entry reveal">
+            <span class="entry-number">19 / Judiciary</span>
+            <h2>Shoe Thrown at CJI Gavai</h2>
+            <span class="category-tag">Supreme Court</span>
+            <p>A senior advocate attempted to throw a shoe at Chief Justice Gavai during a Supreme Court hearing. The unprecedented incident exposed the <span class="red-text">intensity of political and ideological polarisation</span> entering even the highest judicial spaces.</p>
+        </article>
+
+        <article class="entry reveal">
+            <span class="entry-number">20 / Federalism</span>
+            <h2>The Southern Fiscal Blockade</h2>
+            <span class="category-tag">South India</span>
+            <p>In early 2025, Chief Ministers from Tamil Nadu, Kerala, and Karnataka staged an unprecedented joint sit-in at Jantar Mantar. They protested the Union’s refusal to release disaster relief funds and the shrinking share of tax devolutions. The protest highlighted the widening "North-South divide," with southern leaders accusing the Centre of penalising their states for better development indices.</p>
+        </article>
+
+        <article class="entry reveal">
+            <span class="entry-number">21 / Urban Crisis</span>
+            <h2>Bengaluru’s ‘Day Zero’ Riots</h2>
+            <span class="category-tag">Water Crisis</span>
+            <p>Bengaluru’s water crisis hit a breaking point in May, leading to what locals called <span class="highlight">"Water Apartheid."</span> While tanker mafias charged exorbitant rates in gated communities, peri-urban areas and slum settlements faced dry taps for weeks. Tensions boiled over into skirmishes between residents and water tanker operators.</p>
+        </article>
+
+        <article class="entry reveal">
+            <span class="entry-number">22 / Representation</span>
+            <h2>The Delimitation Anxiety</h2>
+            <span class="category-tag">Democracy</span>
+            <p>As the freeze on parliamentary delimitation neared its end, anxiety gripped South India. Civil society groups and political parties launched campaigns fearing that the 2026 delimitation would <span class="highlight">punish southern states for successful population control</span> by reducing their Lok Sabha seats. The silence of the Union Government on guaranteeing a non-punitive formula turned this demographic concern into an existential political crisis.</p>
+        </article>
+
+        <article class="entry reveal">
+            <span class="entry-number">23 / Rehabilitation</span>
+            <h2>Wayanad Rehabilitation Failures</h2>
+            <span class="category-tag">Kerala</span>
+            <p>A year after the devastating landslides, survivors in Wayanad staged protests alleging that promised rehabilitation packages had not materialized. Like Joshimath before it, the region saw temporary shelters turning permanent, with the ecologically sensitive zone being reopened for tourism and construction despite expert warnings.</p>
+        </article>
+
+        <article class="entry reveal">
+            <span class="entry-number">24 / Technology</span>
+            <h2>The AI Layoff Wave</h2>
+            <span class="category-tag">Labor</span>
+            <p>The IT corridors of Hyderabad, Bengaluru, and Pune witnessed the first mass mobilisations of white-collar workers. Major tech firms executed silent layoffs attributed to "AI restructuring," leaving thousands of mid-level employees jobless without severance transparency. The crisis <span class="highlight">shattered the "middle-class safety" myth</span> of the IT sector.</p>
+        </article>
+
+        <article class="entry reveal">
+            <span class="entry-number">25 / Social Justice</span>
+            <h2>The Caste Census Standoff</h2>
+            <span class="category-tag">Politics</span>
+            <p>The demand for a nationwide Caste Census became the year’s most volatile political football. While several states initiated their own surveys, the Union Government’s refusal to release updated national data led to confusing, contradictory policy implementations. In Bihar and Maharashtra, this led to massive counter-mobilisations.</p>
+        </article>
+
+        <article class="entry reveal">
+            <span class="entry-number">26 / Environment</span>
+            <h2>Sterlite 2.0: The Coastal Protests</h2>
+            <span class="category-tag">Tamil Nadu</span>
+            <p>In coastal Tamil Nadu, renewed protests against the expansion of a petrochemical project were met with heavy-handed police action. Villagers cited rising cancer rates and loss of marine life. The administration invoked Section 144 for months, effectively silencing dissent and preventing media access to the affected fishing hamlets.</p>
+        </article>
+
+        <article class="entry reveal">
+            <span class="entry-number">27 / Healthcare</span>
+            <h2>The Doctor Safety Movement</h2>
+            <span class="category-tag">Medical</span>
+            <p>Following another brutal assault on a resident doctor in a government hospital in Kolkata, the medical fraternity launched a nationwide strike that paralyzed healthcare for days. The demand for a Central Protection Act was met with assurances but no legislation. The strike highlighted the collapsing infrastructure of public health.</p>
+        </article>
+
+    </div>
+
+    <div class="share-section reveal">
+        <h3 class="share-title">Share this Chronicle</h3>
+        <div class="share-buttons">
+            <button class="share-btn btn-wa" onclick="shareTo('whatsapp')">WhatsApp</button>
+            <button class="share-btn btn-x" onclick="shareTo('twitter')">X / Twitter</button>
+            <button class="share-btn btn-fb" onclick="shareTo('facebook')">Facebook</button>
+            <button class="share-btn btn-copy" onclick="copyLink()">Copy Link</button>
+        </div>
+        <p id="copy-msg" style="margin-top:10px; font-size: 0.8rem; color: #4caf50; display: none;">Link copied to clipboard!</p>
+    </div>
+
+    <footer class="footer-note">
+        <p>India 2025 Wrapped • Curated by <a href="../index.html" style="color: var(--accent-red)">Le Varikal</a></p>
+    </footer>
+
+</div>
+
+<script>
+    // 1. Scroll Reveal Animation
+    document.addEventListener('DOMContentLoaded', () => {
+        const reveals = document.querySelectorAll('.reveal');
+
+        const revealOnScroll = () => {
+            const windowHeight = window.innerHeight;
+            const elementVisible = 100;
+
+            reveals.forEach((reveal) => {
+                const elementTop = reveal.getBoundingClientRect().top;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveal.classList.add('active');
+                }
+            });
+        };
+
+        window.addEventListener('scroll', revealOnScroll);
+        // Trigger once on load
+        revealOnScroll();
+    });
+
+    // 2. Share Functionality
+    const pageUrl = encodeURIComponent(window.location.href);
+    const pageTitle = encodeURIComponent("India 2025 Wrapped: A Chronicle of Crisis");
+
+    function shareTo(platform) {
+        let url = '';
+        if (platform === 'whatsapp') {
+            url = `https://wa.me/?text=${pageTitle}%20${pageUrl}`;
+        } else if (platform === 'twitter') {
+            url = `https://twitter.com/intent/tweet?text=${pageTitle}&url=${pageUrl}`;
+        } else if (platform === 'facebook') {
+            url = `https://www.facebook.com/sharer/sharer.php?u=${pageUrl}`;
+        }
+        window.open(url, '_blank');
+    }
+
+    // 3. Copy Link Functionality
+    function copyLink() {
+        navigator.clipboard.writeText(window.location.href).then(() => {
+            const msg = document.getElementById('copy-msg');
+            msg.style.display = 'block';
+            setTimeout(() => {
+                msg.style.display = 'none';
+            }, 3000);
+        }).catch(err => {
+            console.error('Failed to copy: ', err);
+        });
+    }
+</script>
+
+</body>
+</html>

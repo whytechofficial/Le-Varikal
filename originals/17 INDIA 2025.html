@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="ml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>India 2025 Wrapped: ഒരു നേർചിത്രം</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manjari:wght@100;400;700&family=Noto+Serif+Malayalam:wght@400;700;900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <style>
+        :root {
+            --bg-dark: #0f0f0f;
+            --bg-card: #1a1a1a;
+            --text-main: #e0e0e0;
+            --text-muted: #a0a0a0;
+            --accent-red: #ff4757;
+            --accent-yellow: #ffa502;
+            --accent-blue: #3742fa;
+            --highlight-bg: #ffeaa7;
+            --highlight-text: #2d3436;
+            --border-color: #333;
+            --author-link: #74b9ff;
+        }
+
+        /* --- Global Reset & Base --- */
+        * { box-sizing: border-box; }
+
+        body {
+            font-family: 'Manjari', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            margin: 0;
+            padding: 0;
+            line-height: 1.7;
+            font-size: 18px;
+            overflow-x: hidden;
+        }
+
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+
+        /* --- Animations --- */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-enter {
+            animation: fadeInUp 0.8s ease-out forwards;
+            opacity: 0; /* Start hidden */
+        }
+
+        /* Stagger delays for initial load */
+        .delay-1 { animation-delay: 0.1s; }
+        .delay-2 { animation-delay: 0.3s; }
+        .delay-3 { animation-delay: 0.5s; }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px 40px 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* --- Cover Image --- */
+        .cover-wrapper {
+            position: relative;
+            width: 100%;
+            height: 60vh; /* Takes up 60% of viewport height */
+            overflow: hidden;
+            margin-bottom: -100px; /* Pull content up slightly */
+        }
+
+        .cover-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            /* Using a thematic Unsplash image (crowd/silhouettes/moody) */
+            background-image: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop'); 
+            background-position: center;
+            background-size: cover;
+            filter: grayscale(80%) contrast(110%) brightness(60%);
+        }
+
+        .cover-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, transparent 0%, var(--bg-dark) 100%);
+        }
+
+        /* --- Header --- */
+        header {
+            text-align: left;
+            margin-bottom: 60px;
+            padding-top: 20px;
+        }
+
+        h1 {
+            font-family: 'Noto Serif Malayalam', serif;
+            font-size: 3.5rem;
+            line-height: 1.1;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            background: linear-gradient(45deg, #fff, #b2bec3);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .subhead {
+            font-size: 1.4rem;
+            color: var(--accent-red);
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* --- Content Styling --- */
+        .intro-section {
+            border-left: 4px solid var(--accent-red);
+            background: linear-gradient(90deg, rgba(255, 71, 87, 0.05) 0%, transparent 100%);
+            padding: 30px;
+            border-radius: 0 12px 12px 0;
+            margin-bottom: 60px;
+            font-size: 1.2rem;
+        }
+
+        .section-title {
+            font-family: 'Noto Serif Malayalam', serif;
+            font-size: 2rem;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 15px;
+            margin-top: 80px;
+            margin-bottom: 40px;
+            display: flex;
+            align-items: center;
+            color: #fff;
+        }
+        
+        .section-title::before {
+            content: '';
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            background-color: var(--accent-red);
+            margin-right: 15px;
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--accent-red);
+        }
+
+        /* Cards & Grid */
+        .feature-card {
+            background-color: var(--bg-card);
+            padding: 35px;
+            border-radius: 16px;
+            margin-bottom: 30px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            border-color: #555;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .grid-item {
+            background-color: var(--bg-card);
+            padding: 25px;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            transition: 0.3s;
+        }
+        
+        .grid-item:hover {
+            background-color: #252525;
+        }
+
+        .grid-item h3 {
+            font-size: 1.3rem;
+            margin-top: 0;
+            margin-bottom: 15px;
+            color: var(--accent-yellow);
+            font-family: 'Noto Serif Malayalam', serif;
+        }
+
+        .tag {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            color: #7f8c8d;
+            letter-spacing: 1.5px;
+            margin-bottom: 12px;
+            display: block;
+            font-weight: bold;
+        }
+
+        /* Typography Highlights */
+        .highlight { background-color: var(--highlight-bg); color: var(--highlight-text); padding: 0 6px; font-weight: 700; border-radius: 2px; }
+        .text-red { color: var(--accent-red); font-weight: bold; }
+        .text-blue { color: #54a0ff; font-weight: bold; }
+
+        /* --- SEPARATOR --- */
+        .separator {
+            border: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--border-color), transparent);
+            margin: 80px 0;
+        }
+
+        /* --- AUTHOR SECTION --- */
+        .author-section {
+            background: linear-gradient(145deg, #1a1a1a, #111);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            margin: 40px 0;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .author-section::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; height: 4px;
+            background: linear-gradient(90deg, var(--accent-red), var(--accent-blue));
+        }
+
+        .author-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--bg-dark);
+            box-shadow: 0 0 0 2px var(--border-color);
+            margin-bottom: 20px;
+            transition: transform 0.3s;
+        }
+
+        .author-img:hover {
+            transform: scale(1.05) rotate(2deg);
+        }
+
+        .author-name {
+            font-family: 'Noto Serif Malayalam', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin: 0;
+            display: inline-block;
+            text-decoration: none;
+            position: relative;
+        }
+
+        .author-name:hover {
+            color: var(--author-link);
+        }
+
+        .author-motto {
+            font-size: 1rem;
+            color: var(--text-muted);
+            margin-top: 10px;
+            font-style: italic;
+            letter-spacing: 0.5px;
+        }
+
+        /* --- SHARE BUTTONS --- */
+        .share-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+            padding-top: 30px;
+            border-top: 1px dashed var(--border-color);
+        }
+
+        .share-label {
+            width: 100%;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .share-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+            color: white;
+            font-size: 1.4rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+            text-decoration: none;
+        }
+
+        .share-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .btn-wa { background: #25D366; }
+        .btn-fb { background: #1877F2; }
+        .btn-x { background: #000; border: 1px solid #333; }
+        .btn-copy { background: #333; color: #fff; }
+
+        /* Notification Toast */
+        .toast {
+            visibility: hidden;
+            min-width: 250px;
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            border-radius: 8px;
+            padding: 16px;
+            position: fixed;
+            z-index: 99;
+            left: 50%;
+            bottom: 30px;
+            transform: translateX(-50%);
+            font-size: 17px;
+            opacity: 0;
+            transition: opacity 0.3s, bottom 0.3s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+            border: 1px solid var(--accent-green);
+        }
+
+        .toast.show {
+            visibility: visible;
+            opacity: 1;
+            bottom: 50px;
+        }
+
+        /* --- Footer --- */
+        .footer {
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(0deg, #0a0a0a 0%, transparent 100%);
+            margin-top: 50px;
+        }
+        
+        .footer-tagline {
+            font-family: 'Noto Serif Malayalam', serif;
+            font-size: 1.5rem;
+            color: #fff;
+            margin-bottom: 20px;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            .cover-wrapper { height: 40vh; }
+            .grid-container { grid-template-columns: 1fr; }
+            .container { padding: 20px; }
+            .author-section { padding: 25px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="cover-wrapper animate-enter">
+        <div class="cover-image"></div>
+        <div class="cover-overlay"></div>
+    </div>
+
+    <div class="container">
+        
+        <header class="animate-enter delay-1">
+            <h1>India 2025: <br>ഒരു നേർചിത്രം</h1>
+            <div class="subhead">INDIA 2025 WRAPPED: നമ്മളെ മാറ്റിമറിച്ച പ്രതിസന്ധികളുടെ നാൾവഴി</div>
+        </header>
+
+        <div class="intro-section animate-enter delay-2">
+            <p><strong>ഇതിൻ്റെ പ്രാധാന്യം എന്ത്?</strong></p>
+            <p>രാഷ്ട്രീയ അനിശ്ചിതത്വങ്ങളും, പാരിസ്ഥിതിക തകർച്ചകളും, അവകാശ ലംഘനങ്ങളും, സാമ്പത്തിക പ്രതിസന്ധികളും, സുരക്ഷാ വീഴ്ചകളും നിറഞ്ഞ ഒരു വർഷമായിരുന്നു 2025. ഇതിൽ പലതും ദിവസങ്ങൾക്കുള്ളിൽ തന്നെ വാർത്തകളിൽ നിന്ന് മാഞ്ഞുപോയി.</p>
+            <p>ഈ ഓർമ്മപ്പെടുത്തൽ അവയെ വീണ്ടും പൊതുജനസമക്ഷം കൊണ്ടുവരുന്നു—കാരണം മറവി എന്നത് അധികാരത്തെയാണ് സഹായിക്കുന്നത്, ജനങ്ങളെയല്ല. നിങ്ങളുടെ ശ്രദ്ധയെന്നത് ഒരു രാഷ്ട്രീയ നിലപാടാണ്. <span class="highlight">ഓർമ്മ എന്നത് ഒരു പ്രതിരോധമാണ്.</span></p>
+        </div>
+
+        <div class="section-title animate-enter delay-3">സംഘർഷങ്ങളും രാഷ്ട്രീയവും</div>
+
+        <div class="feature-card animate-enter">
+            <h3>പഹൽഗാം ആക്രമണവും അനന്തരഫലങ്ങളും</h3>
+            <p>ഏപ്രിൽ 22-ന് കശ്മീരിലുണ്ടായ ആക്രമണത്തിൽ <span class="text-red">26 സാധാരണക്കാർ കൊല്ലപ്പെട്ടു.</span> ലഷ്കർ-ഇ-തൊയ്ബയുമായി ബന്ധമുള്ള തീവ്രവാദികളെ പാകിസ്ഥാൻ സഹായിക്കുന്നുവെന്ന് ഇന്ത്യ ആരോപിച്ചു. നയതന്ത്ര ബന്ധങ്ങൾ തകർന്നു, സിന്ധു നദീജല കരാർ മരവിപ്പിച്ചു, അതിർത്തി കടന്നുള്ള പ്രത്യാക്രമണങ്ങൾ നടന്നു. 2024-നെ അപേക്ഷിച്ച് കശ്മീരിലേക്കുള്ള വിനോദസഞ്ചാരികളുടെ വരവ് 50 ശതമാനത്തിലധികം കുറഞ്ഞു.</p>
+        </div>
+
+        <div class="grid-container">
+            <div class="grid-item animate-enter">
+                <span class="tag">Politics</span>
+                <h3>വോട്ട് അട്ടിമറി ആരോപണങ്ങൾ</h3>
+                <p>പ്രധാന സംസ്ഥാനങ്ങളിലെ തിരഞ്ഞെടുപ്പ് ഫലങ്ങളിൽ വോട്ട് അട്ടിമറിയും ക്രമക്കേടുകളും നടന്നെന്ന ആരോപണങ്ങൾ 2025-ൽ ഉയർന്നു. EVM ഡാറ്റ, ബൂത്തുകളിലെ കണക്കുകളിലെ പൊരുത്തക്കേടുകൾ എന്നിവ അന്വേഷിക്കണമെന്ന ആവശ്യത്തോട് തിരഞ്ഞെടുപ്പ് കമ്മീഷൻ മുഖം തിരിച്ചു.</p>
+            </div>
+            <div class="grid-item animate-enter">
+                <span class="tag">Human Rights</span>
+                <h3>മണിപ്പൂർ: ഉപേക്ഷിക്കപ്പെട്ട ജനത</h3>
+                <p>നിയന്ത്രണമില്ലാത്ത കലാപങ്ങളുടെ മുറിവുകളുമായാണ് മണിപ്പൂർ 2025-ലേക്ക് കടന്നത്. രാഷ്ട്രപതി ഭരണം ഏർപ്പെടുത്തിയിട്ടും സൈനികവൽക്കരണം കൂടിയതല്ലാതെ, ജനങ്ങളുടെ പുനരധിവാസമോ സമാധാനമോ എങ്ങുമെത്തിയില്ല. <span class="text-red">ദേശീയ ഓർമ്മകളിൽ നിന്ന് ഒരു ജനത മാഞ്ഞുപോയി.</span></p>
+            </div>
+            <div class="grid-item animate-enter">
+                <span class="tag">Protest</span>
+                <h3>ലഡാക്ക് പ്രക്ഷോഭവും അറസ്റ്റും</h3>
+                <p>ലഡാക്കിന് സംസ്ഥാന പദവിയും ആറാം ഷെഡ്യൂൾ സംരക്ഷണവും ആവശ്യപ്പെട്ട് വൻ പ്രക്ഷോഭങ്ങൾ നടന്നു. സെപ്തംബർ 24-ന് ലേയിലുണ്ടായ സംഘർഷത്തിൽ നാല് പേർ മരിച്ചു. പ്രശസ്ത ആക്ടിവിസ്റ്റ് <span class="text-blue">സോനം വാംഗ്ചുക്കിനെ</span> NSA പ്രകാരം അറസ്റ്റ് ചെയ്തത് വലിയ പ്രതിഷേധത്തിന് വഴിവെച്ചു.</p>
+            </div>
+            <div class="grid-item animate-enter">
+                <span class="tag">Agriculture</span>
+                <h3>കർഷക സമരങ്ങളുടെ തിരിച്ചുവരവ്</h3>
+                <p>താങ്ങുവില (MSP) നിയമമാക്കുക എന്ന ആവശ്യവുമായി കർഷകർ വീണ്ടും തെരുവിലിറങ്ങി. 2020-21 ലെ സമരങ്ങളെ ഓർമ്മിപ്പിക്കും വിധം ബാരിക്കേഡുകളും, ഇൻ്റർനെറ്റ് റദ്ദാക്കലും, അറസ്റ്റുകളും ഉണ്ടായി.</p>
+            </div>
+        </div>
+
+        <div class="section-title animate-enter">പരിസ്ഥിതിയും ദുരന്തങ്ങളും</div>
+
+        <div class="feature-card animate-enter" style="border-left: 5px solid #ff9f43;">
+            <h3>ഉഷ്ണതരംഗവും മരണങ്ങളും</h3>
+            <p>സമീപകാല ചരിത്രത്തിലെ ഏറ്റവും കൊടിയ ചൂടാണ് 2025-ൽ ഇന്ത്യ കണ്ടത്. ഉത്തരേന്ത്യയിലും മധ്യേന്ത്യയിലും താപനില അതിജീവന പരിധിയും കടന്നു. കാലാവസ്ഥാ വ്യതിയാനം ഭാവിയിലെ വെല്ലുവിളിയല്ല, മറിച്ച് ഇന്നത്തെ <strong>പൊതുജനാരോഗ്യ അടിയന്തരാവസ്ഥയാണെന്ന്</strong> ഇത് തെളിയിച്ചു.</p>
+        </div>
+
+        <div class="grid-container">
+            <div class="grid-item animate-enter">
+                <h3>പരിസ്ഥിതി തകർച്ച</h3>
+                <p>ഡൽഹിയിലും ഉത്തരേന്ത്യൻ നഗരങ്ങളിലും വായു ഗുണനിലവാരം (AQI) "അതീവ ഗുരുതരം" എന്ന അവസ്ഥയിലായി. പരിസ്ഥിതി ചട്ടങ്ങൾ ലഘൂകരിക്കപ്പെട്ടതോടെ മലിനീകരണം നിയന്ത്രണാതീതമായി.</p>
+            </div>
+            <div class="grid-item animate-enter">
+                <h3>ആരവല്ലിയുടെ മരണം</h3>
+                <p>ചുറ്റുമുള്ള നിരപ്പിൽ നിന്ന് 100 മീറ്റർ ഉയരമുള്ള ഭൂപ്രദേശങ്ങളെ മാത്രമേ ആരവല്ലി മലനിരകളായി കണക്കാക്കൂ എന്ന പുതിയ നിർവ്വചനം വന്നു. ഇതോടെ <span class="highlight">90 ശതമാനത്തിലധികം മലനിരകൾക്കും സംരക്ഷണം നഷ്ടപ്പെട്ടു.</span></p>
+            </div>
+            <div class="grid-item animate-enter">
+                <h3>എയർ ഇന്ത്യ ദുരന്തം</h3>
+                <p>അഹമ്മദാബാദിൽ നിന്ന് പറന്നുയർന്ന Flight 171, ബോയിംഗ് 787-8 എയർ ഇന്ത്യ വിമാനം തകർന്നുവീണ് <span class="text-red">241 പേർ മരിച്ചു.</span> സാങ്കേതിക തകരാറാണ് കാരണമെന്ന് പ്രാഥമിക അന്വേഷണം പറഞ്ഞെങ്കിലും വ്യക്തമായ ഉത്തരം ലഭിച്ചില്ല.</p>
+            </div>
+            <div class="grid-item animate-enter">
+                <h3>ബെംഗളൂരുവിലെ ജലക്ഷാമം</h3>
+                <p>മെയ് മാസത്തിൽ ബെംഗളൂരു കടുത്ത ജലക്ഷാമത്തിലായി. ടാങ്കർ മാഫിയ കൊള്ളലാഭം കൊയ്തപ്പോൾ സാധാരണക്കാർ കുടിവെള്ളമില്ലാതെ വലഞ്ഞു. നഗരാസൂത്രണത്തിലെ പിഴവുകൾ തുറന്നുകാട്ടപ്പെട്ടു.</p>
+            </div>
+        </div>
+
+        <div class="section-title animate-enter">നിയമങ്ങളും പൗരാവകാശങ്ങളും</div>
+
+        <div class="grid-container">
+            <div class="grid-item animate-enter">
+                <h3>DPDP നിയമം & സ്വകാര്യത</h3>
+                <p>സ്വകാര്യതയ്ക്കായുള്ള വാദങ്ങളെ തള്ളിക്കൊണ്ട് 2025-ൽ DPDP നിയമം പ്രാബല്യത്തിൽ വന്നു. സർക്കാരിനും ഏജൻസികൾക്കും പൗരന്മാരുടെ വിവരങ്ങളിൽ അമിതാധികാരം നൽകുന്നതാണ് ഈ നിയമമെന്ന് വിമർശനങ്ങൾ ഉയർന്നു.</p>
+            </div>
+            <div class="grid-item animate-enter">
+                <h3>ഇൻ്റർനെറ്റ് റദ്ദാക്കൽ</h3>
+                <p>മുഖം തിരിച്ചറിയൽ സാങ്കേതികവിദ്യയും നിരീക്ഷണ സംവിധാനങ്ങളും വ്യാപകമായി. പ്രതിഷേധങ്ങൾക്കും പരീക്ഷകൾക്കും ഇടയിൽ പോലും ഇൻ്റർനെറ്റ് റദ്ദാക്കുന്നതിൽ ഇന്ത്യ ലോകത്ത് ഒന്നാമത് തുടർന്നു.</p>
+            </div>
+            <div class="grid-item animate-enter">
+                <h3>മാധ്യമസ്വാതന്ത്ര്യം ഭീഷണിയിൽ</h3>
+                <p>വർഗീയ കലാപങ്ങൾ, കശ്മീർ വിഷയം, അഴിമതി എന്നിവ റിപ്പോർട്ട് ചെയ്യുന്ന മാധ്യമപ്രവർത്തകർ അറസ്റ്റുകളും ഭീഷണികളും നേരിട്ടു. സ്വതന്ത്ര പത്രപ്രവർത്തനത്തിനുള്ള ഇടം ചുരുങ്ങി.</p>
+            </div>
+            <div class="grid-item animate-enter">
+                <h3>ക്രിമിനൽ നിയമ പരിഷ്കരണം</h3>
+                <p>പുതിയ ക്രിമിനൽ നിയമങ്ങൾ നടപ്പിലായതോടെ പോലീസിന് അമിതാധികാരം ലഭിച്ചുവെന്നും പൗരാവകാശങ്ങൾ ഹനിക്കപ്പെടുമെന്നും നിയമവിദഗ്ധർ മുന്നറിയിപ്പ് നൽകി.</p>
+            </div>
+            <div class="grid-item animate-enter">
+                <h3>ചീഫ് ജസ്റ്റിസിന് നേരെ ഷൂ ഏറ്</h3>
+                <p>സുപ്രീം കോടതി വാദം കേൾക്കുന്നതിനിടെ ചീഫ് ജസ്റ്റിസ് ഗവായിക്ക് നേരെ ഒരു മുതിർന്ന അഭിഭാഷകൻ ഷൂ എറിഞ്ഞു. നീതിന്യായ വ്യവസ്ഥയിലെ ധ്രുവീകരണം ഇത് വെളിപ്പെടുത്തി.</p>
+            </div>
+        </div>
+
+        <div class="section-title animate-enter">സാമൂഹിക അസ്വസ്ഥതകൾ</div>
+
+        <div class="feature-card animate-enter">
+            <h3>നാഗ്പൂർ വർഗീയ കലാപം</h3>
+            <p>മുഗൾ ചക്രവർത്തി ഔറംഗസീബിൻ്റെ ശവകുടീരം നീക്കം ചെയ്യണമെന്നാവശ്യപ്പെട്ട് നടന്ന റാലിക്കിടെ നാഗ്പൂരിൽ വർഗീയ കലാപം പൊട്ടിപ്പുറപ്പെട്ടു. മതഗ്രന്ഥത്തെ അപമാനിച്ചെന്ന അഭ്യൂഹങ്ങൾ സ്ഥിതി വഷളാക്കി. പലയിടത്തും കർഫ്യൂ ഏർപ്പെടുത്തി.</p>
+        </div>
+
+        <div class="grid-container">
+            <div class="grid-item animate-enter">
+                <h3>ആരാധനാലയ തർക്കങ്ങൾ</h3>
+                <p>ക്ഷേത്രങ്ങൾ, പള്ളികൾ, സ്മാരകങ്ങൾ എന്നിവയെ ചൊല്ലി തർക്കങ്ങളുണ്ടായി. കോടതികളും പോലീസും മതപരമായ തർക്കങ്ങളുടെ വിധികർത്താക്കളായി മാറുന്ന കാഴ്ച 2025-ൽ സാധാരണമായി.</p>
+            </div>
+            <div class="grid-item animate-enter">
+                <h3>ജാതി സെൻസസ് തർക്കം</h3>
+                <p>ദേശീയതലത്തിൽ ജാതി സെൻസസ് നടത്താൻ കേന്ദ്രം വിസമ്മതിച്ചത് വലിയ രാഷ്ട്രീയ വിവാദമായി. ബീഹാറിലും മഹാരാഷ്ട്രയിലും ഇത് സമുദായങ്ങൾ തമ്മിലുള്ള സംഘർഷത്തിന് വഴിവെച്ചു.</p>
+            </div>
+        </div>
+
+        <div class="section-title animate-enter">സാമ്പത്തിക പ്രതിസന്ധിയും ദക്ഷിണേന്ത്യയും</div>
+
+        <div class="feature-card animate-enter">
+            <h3>ദക്ഷിണേന്ത്യയുടെ പ്രതിഷേധം & ആശങ്ക</h3>
+            <p>ദുരന്ത നിവാരണ ഫണ്ടുകളും നികുതി വിഹിതവും തടഞ്ഞുവെക്കുന്ന കേന്ദ്ര നിലപാടിനെതിരെ കേരളം, തമിഴ്‌നാട്, കർണാടക മുഖ്യമന്ത്രിമാർ ജന്തർ മന്തറിൽ സത്യാഗ്രഹം നടത്തി. അതോടൊപ്പം, 2026-ലെ <span class="highlight">മണ്ഡല പുനർനിർണ്ണയം (Delimitation)</span> ദക്ഷിണേന്ത്യൻ സംസ്ഥാനങ്ങളുടെ ലോക്സഭാ സീറ്റുകൾ കുറയ്ക്കുമോ എന്ന ആശങ്ക ശക്തമായി.</p>
+        </div>
+
+        <div class="grid-container">
+            <div class="grid-item animate-enter">
+                <h3>തൊഴിലില്ലായ്മ</h3>
+                <p>യുവാക്കൾക്കിടയിലെ തൊഴിലില്ലായ്മ രൂക്ഷമായി തുടർന്നു. ജിഡിപി വളർച്ചയുടെ കണക്കുകളും സാധാരണക്കാരുടെ ജീവിത യാഥാർത്ഥ്യങ്ങളും തമ്മിലുള്ള അന്തരം വലുതായി.</p>
+            </div>
+            <div class="grid-item animate-enter">
+                <h3>വിദ്യാഭ്യാസ പ്രതിസന്ധി</h3>
+                <p>സർവ്വകലാശാലകളിലും പരീക്ഷാ സംവിധാനങ്ങളിലും ചോദ്യപേപ്പർ ചോർച്ചയും ക്രമക്കേടുകളും പതിവായി. ഫീസ് വർദ്ധനവിനെതിരെ പ്രതിഷേധിച്ച വിദ്യാർത്ഥികൾക്കെതിരെ അച്ചടക്ക നടപടികളുണ്ടായി.</p>
+            </div>
+            <div class="grid-item animate-enter">
+                <h3>IT മേഖല: AI പിരിച്ചുവിടലുകൾ</h3>
+                <p>ഹൈദരാബാദ്, ബെംഗളൂരു, പൂനെ എന്നിവിടങ്ങളിൽ "AI പുനഃക്രമീകരണം" എന്ന പേരിൽ വൻതോതിൽ ജീവനക്കാരെ പിരിച്ചുവിട്ടു. മധ്യവർഗത്തിൻ്റെ സുരക്ഷിതത്വ ബോധം ഇതോടെ തകർന്നു.</p>
+            </div>
+            <div class="grid-item animate-enter">
+                <h3>വയനാട്: മറവിയിലേക്ക്</h3>
+                <p>ഉരുൾപൊട്ടൽ ദുരന്തത്തിന് ഒരു വർഷം തികയുമ്പോഴും വയനാട്ടിലെ അതിജീവിതർക്ക് വാഗ്ദാനം ചെയ്ത സഹായങ്ങൾ ലഭിച്ചില്ല. ടൂറിസത്തിന് മുന്നിൽ ദുരന്തബാധിതർ അവഗണിക്കപ്പെട്ടു.</p>
+            </div>
+        </div>
+
+        <div class="section-title animate-enter">പ്രാദേശിക പ്രതിഷേധങ്ങൾ</div>
+
+        <div class="grid-container">
+            <div class="grid-item animate-enter">
+                <h3>എഥനോൾ പ്ലാന്റ് പ്രതിഷേധം</h3>
+                <p>രാജസ്ഥാനിലെ ഹനുമാൻഗഢിൽ എഥനോൾ പ്ലാന്റിനെതിരെ നടന്ന പ്രതിഷേധം അക്രമാസക്തമായി. ഭൂഗർഭജലം വറ്റുമെന്നും ഭൂമി നഷ്ടപ്പെടുമെന്നും ഭയന്ന ജനങ്ങൾ തെരുവിലിറങ്ങി.</p>
+            </div>
+            <div class="grid-item animate-enter">
+                <h3>സ്റ്റെർലൈറ്റ് 2.0</h3>
+                <p>തമിഴ്‌നാട്ടിൽ പെട്രോകെമിക്കൽ പദ്ധതിക്കെതിരെ നടന്ന പ്രതിഷേധത്തെ പോലീസ് അടിച്ചമർത്തി. ക്യാൻസർ രോഗികൾ കൂടുന്നതും കടൽ സമ്പത്ത് നശിക്കുന്നതും ചൂണ്ടിക്കാട്ടിയിരുന്നു ഗ്രാമീണർ പ്രതിഷേധിച്ചത്.</p>
+            </div>
+            <div class="grid-item animate-enter">
+                <h3>ഡോക്ടർമാരുടെ സുരക്ഷ</h3>
+                <p>കൊൽക്കത്തയിൽ ഡോക്ടർ ആക്രമിക്കപ്പെട്ടതിനെ തുടർന്ന് രാജ്യവ്യാപകമായി ഡോക്ടർമാർ പണിമുടക്കി. ഡോക്ടർമാരുടെ സുരക്ഷയ്ക്കായി കേന്ദ്ര നിയമം വേണമെന്ന ആവശ്യം ശക്തമായി.</p>
+            </div>
+        </div>
+
+        <hr class="separator animate-enter">
+
+        <div class="author-section animate-enter">
+            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh6IDLN6CM1_VhgJsfy_RJ6FwR2Yh4uRxAv9qkHxDxDW4aIwOoZlp76yi4Yik4wi5Q1zJ1w4gRB1XW5uvM_ul_dABlG7-jpgQonhtge5x3trZOx0fC0RtX3RaIPPK2qA_9vqWJbBif7P9CvozUQOlQ6dzSmhUgaWA5BW-BDregNqlGHxJGZK_bEgLBBalyW/s1724/12199.jpg" alt="Author" class="author-img">
+            <div>
+                <a href="../index.html" class="author-name">ലെ വരികൾ...</a>
+            </div>
+            <div class="author-motto">"വാക്കുകൾ, ചിന്തകൾ, വരികൾ."</div>
+
+            <div class="share-container">
+                <div class="share-label">Share this article</div>
+                
+                <a href="#" onclick="shareTo('whatsapp'); return false;" class="share-btn btn-wa" title="Share on WhatsApp">
+                    <i class="ph ph-whatsapp-logo"></i>
+                </a>
+                
+                <a href="#" onclick="shareTo('facebook'); return false;" class="share-btn btn-fb" title="Share on Facebook">
+                    <i class="ph ph-facebook-logo"></i>
+                </a>
+                
+                <a href="#" onclick="shareTo('x'); return false;" class="share-btn btn-x" title="Share on X">
+                    <i class="ph ph-x-logo"></i>
+                </a>
+                
+                <button onclick="copyLink()" class="share-btn btn-copy" title="Copy Link">
+                    <i class="ph ph-link"></i>
+                </button>
+            </div>
+        </div>
+
+        <footer class="footer animate-enter">
+            <div class="footer-tagline">നിങ്ങളുടെ ശ്രദ്ധ വെറുമൊരു കാഴ്ചയല്ല.<br>അതൊരു രാഷ്ട്രീയ നിലപാടാണ്.</div>
+            <p style="color: #a0a0a0; font-size: 1.1rem;">നിങ്ങളുടെ ഓർമ്മകളാണ് നിങ്ങളുടെ ആയുധം.<br>ഇത് മറക്കാൻ പാടില്ലാത്തവരെ ഓർമ്മിപ്പിക്കുക.</p>
+            <p style="margin-top: 30px; color: var(--accent-yellow);">2025-ൽ നമ്മൾ മറക്കാൻ പാടില്ലാത്ത മറ്റ് സംഭവങ്ങൾ കമൻ്റ് ചെയ്യുക.</p>
+        </footer>
+
+    </div>
+
+    <div id="toast" class="toast">Link copied to clipboard!</div>
+
+    <script>
+        // Simple Intersection Observer to trigger animations when elements scroll into view
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationPlayState = 'running';
+                }
+            });
+        });
+
+        // Copy Link Function
+        function copyLink() {
+            const url = window.location.href;
+            navigator.clipboard.writeText(url).then(() => {
+                showToast();
+            }).catch(err => {
+                console.error('Failed to copy: ', err);
+            });
+        }
+
+        // Share Functions
+        function shareTo(platform) {
+            const url = encodeURIComponent(window.location.href);
+            const title = encodeURIComponent(document.title);
+            let shareUrl = '';
+
+            if (platform === 'whatsapp') {
+                shareUrl = `https://api.whatsapp.com/send?text=${title}%20${url}`;
+            } else if (platform === 'facebook') {
+                shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
+            } else if (platform === 'x') {
+                shareUrl = `https://twitter.com/intent/tweet?url=${url}&text=${title}`;
+            }
+
+            if (shareUrl) {
+                window.open(shareUrl, '_blank', 'width=600,height=400');
+            }
+        }
+
+        // Toast Notification
+        function showToast() {
+            var x = document.getElementById("toast");
+            x.className = "toast show";
+            setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+        }
+    </script>
+</body>
+</html>
