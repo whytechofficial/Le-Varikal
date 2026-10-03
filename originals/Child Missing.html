@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="ml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>അപ്രത്യക്ഷമാകുന്ന ബാല്യം: ഒരു അന്വേഷണം</title>
+    <link href="https://fonts.googleapis.com/css2?family=Manjari:wght@400;700&family=Noto+Sans+Malayalam:wght@400;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        /* --- CSS Variables & Reset --- */
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #c0392b; /* Deep Red */
+            --link-color: #3498db;
+            --text-color: #333;
+            --bg-color: #f4f7f6;
+            --wa-color: #25D366;
+            --fb-color: #1877F2;
+            --x-color: #000000;
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            font-family: 'Manjari', 'Noto Sans Malayalam', sans-serif;
+            line-height: 1.8;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden; /* Prevent horizontal scroll */
+        }
+
+        /* --- Reading Progress Bar --- */
+        .progress-container {
+            width: 100%;
+            height: 5px;
+            background: #e0e0e0;
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .progress-bar {
+            height: 5px;
+            background: linear-gradient(90deg, var(--accent-color), #e74c3c);
+            width: 0%;
+            transition: width 0.1s ease-out;
+        }
+
+        /* --- Scroll Reveal Animation Classes --- */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- Main Container --- */
+        .container {
+            max-width: 850px;
+            margin: 40px auto;
+            background: #ffffff;
+            padding: 40px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            border-radius: 16px;
+            overflow: hidden;
+            animation: fadeIn 1s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* --- Cover Image --- */
+        .cover-image-container {
+            margin: -40px -40px 30px -40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cover-image {
+            width: 100%;
+            height: auto;
+            max-height: 450px;
+            object-fit: cover;
+            display: block;
+            border-bottom: 5px solid var(--accent-color);
+            transition: transform 0.5s ease;
+        }
+
+        .cover-image:hover {
+            transform: scale(1.02);
+        }
+
+        /* --- Typography --- */
+        h1 {
+            color: var(--primary-color);
+            font-size: 2.2em;
+            text-align: center;
+            margin-bottom: 15px;
+            line-height: 1.3;
+            font-weight: 700;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #7f8c8d;
+            font-size: 1.15em;
+            margin-bottom: 35px;
+        }
+
+        h2 {
+            color: var(--accent-color);
+            border-left: 5px solid var(--accent-color);
+            padding-left: 15px;
+            margin-top: 45px;
+            font-size: 1.6em;
+        }
+
+        h3 {
+            color: #2980b9;
+            margin-top: 30px;
+            font-size: 1.3em;
+        }
+
+        p, li {
+            font-size: 1.15em;
+            text-align: justify;
+            margin-bottom: 20px;
+        }
+
+        /* --- Author Section --- */
+        .author-section {
+            display: flex;
+            align-items: center;
+            margin-bottom: 40px;
+            padding-bottom: 25px;
+            border-bottom: 2px solid #eee;
+        }
+
+        .author-img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 20px;
+            border: 3px solid var(--accent-color);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            transition: transform 0.3s;
+        }
+
+        .author-img:hover {
+            transform: rotate(5deg) scale(1.05);
+        }
+
+        .author-details {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .author-name {
+            font-family: 'Noto Sans Malayalam', sans-serif;
+            font-size: 1.4em;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .author-name:hover {
+            color: var(--accent-color);
+        }
+
+        .author-moto {
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.95em;
+            color: #666;
+            font-style: italic;
+            margin-top: 2px;
+        }
+
+        /* --- Highlights & Boxes --- */
+        .highlight-box {
+            background-color: #fff8e1;
+            border: 1px solid #ffe082;
+            padding: 30px;
+            border-radius: 12px;
+            margin: 35px 0;
+            font-style: italic;
+            position: relative;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+        }
+        .highlight-box::before { content: "❝"; font-size: 4em; color: #ffc107; position: absolute; top: -30px; left: 20px; opacity: 0.4; font-family: serif; }
+        
+        .alert-box { 
+            background-color: #ffebee; 
+            border-left: 5px solid #e57373; 
+            padding: 25px; 
+            margin: 30px 0; 
+            border-radius: 0 8px 8px 0; 
+        }
+        
+        .success-box { 
+            background-color: #e0f2f1; 
+            border-left: 5px solid #26a69a; 
+            padding: 25px; 
+            margin: 30px 0; 
+            border-radius: 0 8px 8px 0; 
+        }
+
+        /* --- Data Table --- */
+        .table-container { 
+            overflow-x: auto; 
+            margin: 30px 0; 
+            border-radius: 10px; 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05); 
+        }
+        table { width: 100%; min-width: 600px; border-collapse: collapse; background: white; }
+        th { background-color: var(--primary-color); color: white; padding: 16px; text-align: left; font-size: 1.05em; }
+        td { padding: 16px; border-bottom: 1px solid #eee; color: #444; }
+        tr:nth-child(even) { background-color: #f9fafb; }
+        tr:hover { background-color: #f1f1f1; transition: background 0.3s; }
+
+        /* --- Lists --- */
+        ul.custom-list { list-style: none; padding-left: 0; }
+        ul.custom-list li { position: relative; padding-left: 35px; margin-bottom: 15px; }
+        ul.custom-list li::before { content: "➤"; color: var(--accent-color); position: absolute; left: 0; top: 5px; font-size: 0.9em; }
+
+        /* --- Share Section --- */
+        .share-container {
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 1px solid #eee;
+            text-align: center;
+        }
+        .share-title {
+            font-weight: bold;
+            margin-bottom: 20px;
+            display: block;
+            color: #555;
+            font-size: 1.1em;
+        }
+        .share-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        .share-btn {
+            display: flex;
+            align-items: center;
+            padding: 12px 24px;
+            border-radius: 50px;
+            text-decoration: none;
+            color: white;
+            font-weight: 600;
+            font-family: 'Poppins', sans-serif;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 0.95em;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .share-btn:hover { transform: translateY(-3px); box-shadow: 0 7px 15px rgba(0,0,0,0.2); }
+        .share-btn svg { width: 20px; height: 20px; margin-right: 10px; fill: currentColor; }
+        .btn-wa { background-color: var(--wa-color); }
+        .btn-fb { background-color: var(--fb-color); }
+        .btn-x { background-color: var(--x-color); }
+        .btn-copy { background-color: #607d8b; color: white; }
+        .btn-copy.copied { background-color: #43a047; }
+
+
+        /* --- Footer --- */
+        .footer-credits {
+            text-align: center;
+            margin-top: 50px;
+            padding: 30px;
+            background-color: #f0f3f4;
+            border-radius: 12px;
+            font-size: 0.95em;
+            color: #555;
+        }
+        .footer-credits a { color: var(--accent-color); text-decoration: none; font-weight: bold; position: relative; }
+        .footer-credits a::after {
+            content: ''; position: absolute; width: 100%; transform: scaleX(0); height: 2px; bottom: 0; left: 0;
+            background-color: var(--accent-color); transform-origin: bottom right; transition: transform 0.25s ease-out;
+        }
+        .footer-credits a:hover::after { transform: scaleX(1); transform-origin: bottom left; }
+
+        /* --- Mobile Responsiveness --- */
+        @media (max-width: 768px) {
+            .container { padding: 25px; margin: 15px; width: auto; }
+            .cover-image-container { margin: -25px -25px 25px -25px; }
+            h1 { font-size: 1.8em; }
+            h2 { font-size: 1.4em; }
+            .author-section { flex-direction: row; text-align: left; }
+            .share-btn { padding: 10px 18px; font-size: 0.85em; }
+            .highlight-box::before { font-size: 3em; top: -20px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="progress-container">
+    <div class="progress-bar" id="myBar"></div>
+</div>
+
+<div class="container">
+    <div class="cover-image-container reveal">
+        <img src="https://blogger.googleusercontent.com/img/a/AVvXsEgdWDXYkZXb2uhjS88KW5iuBq_5UqmiQzpuNxyQI9DxLBOecS9wHxlsjHUIe1KckrKpDemEJJoYqsnMDqFWtgX8OCAWIH601K_uAOrWvoQHaJnHMGNQ4So9ijrOB_mcXXzRpPZLZWYGJy4-eD-tEUeCDdLZKDWImMhagmYswYjyn1D8DWH7VWxZE7ewnjWt" alt="Cover Image missing child concept" class="cover-image">
+    </div>
+
+    <h1 class="reveal">അപ്രത്യക്ഷമാകുന്ന ബാല്യങ്ങൾ: കണക്കുകൾക്കും അപ്പുറമുള്ള യാഥാർത്ഥ്യങ്ങൾ</h1>
+    <div class="subtitle reveal">കാണാതാകുന്ന ആയിരക്കണക്കിന് കുട്ടികൾ, മൗനം പാലിക്കുന്ന അധികാരികൾ, ഭയപ്പെടുത്തുന്ന മാഫിയകൾ. ഒരു സമഗ്ര അന്വേഷണം.</div>
+
+    <div class="author-section reveal">
+        <img src="https://blogger.googleusercontent.com/img/a/AVvXsEjqpLadYdybrF5HalPwqYrGnLWjqHOak_oYKbxtEXp0wGwwnLDM_SjA28jsNtRmoM4c979Q82L67s7M61b3lfdBOpaP-QRT7N7LLS8neJ73pa0-4w53FyDoBid9a1HKu6rizfPcOzlHTnbA0t1aRs8HcuMkokIScoJGwSKoJ7vgCZRRlqdRYC4qAA-zNuJw" alt="Author Profile" class="author-img">
+        <div class="author-details">
+            <a href="../index.html" class="author-name">ലെ വരികൾ</a>
+            <span class="author-moto">Voice. Vision. Verse.</span>
+        </div>
+    </div>
+
+    <p class="reveal">ഇന്ത്യയുടെ തെരുവുകളിൽ നിന്നും ഗ്രാമങ്ങളിൽ നിന്നും ഓരോ എട്ട് മിനിറ്റിലും ഒരു കുട്ടി വീതം അപ്രത്യക്ഷമാകുന്നു എന്ന ഞെട്ടിക്കുന്ന യാത്ഥാർത്ഥ്യം നാം എത്രത്തോളം ഗൗരവത്തോടെ കാണുന്നുണ്ട്? 2023 എന്ന ഒരൊറ്റ വർഷം മാത്രം രാജ്യത്ത് അന്വേഷണ ഏജൻസികൾക്ക് കണ്ടെത്താനാകാതെ പോയത് <strong>48,820</strong> കുട്ടികളെയാണ്..! ഇത് അതിശയോക്തിയല്ല, മറിച്ച് പാർലമെന്റിൽ സമർപ്പിക്കപ്പെട്ട ഔദ്യോഗിക രേഖകളാണ്.</p>
+
+    <div class="highlight-box reveal">
+        "ഇതിന്ത്യയാണ് സാർ, ഇവിടെ ഇങ്ങനെയാണ്..!" എന്ന് പറഞ്ഞ് തള്ളിക്കളയാൻ വരട്ടെ. കാണാതാകുന്ന ഓരോ കുട്ടിയും പൊലിഞ്ഞുപോകുന്ന ഒരു കുടുംബത്തിന്റെ പ്രതീക്ഷയാണ്.
+    </div>
+
+    <h2 class="reveal">കണക്കുകളിലെ ക്രൂരമായ സത്യം</h2>
+    <p class="reveal">കേന്ദ്രസർക്കാർ രാജ്യസഭയിൽ നൽകിയ മറുപടിയിൽ (Unstarred Question No. 474), കാണാതായ കുട്ടികളിൽ ഭൂരിഭാഗവും പെൺകുട്ടികളാണ് എന്നത് വിഷയത്തിന്റെ ഗൗരവം വർദ്ധിപ്പിക്കുന്നു. കണക്കുകൾ കുറച്ചു കാണിക്കാൻ വേണ്ടി ഘട്ടം ഘട്ടമായാണ് പലപ്പോഴും വിവരങ്ങൾ പുറത്തുവിടുന്നത്. NCRB-യുടെയും രാജ്യസഭാ രേഖകളുടെയും അടിസ്ഥാനത്തിലുള്ള കണക്കുകൾ താഴെ നൽകുന്നു:</p>
+
+    <div class="table-container reveal">
+        <table>
+            <thead>
+                <tr>
+                    <th>സംസ്ഥാനം/വർഷം</th>
+                    <th>കാണാതായ ആകെ കുട്ടികൾ (2022)</th>
+                    <th>കണ്ടെത്താത്തവർ (Untraced)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>മധ്യപ്രദേശ്</td>
+                    <td>15,087</td>
+                    <td>3,926</td>
+                </tr>
+                <tr>
+                    <td>പശ്ചിമ ബംഗാൾ</td>
+                    <td>19,540</td>
+                    <td>6,994</td>
+                </tr>
+                <tr>
+                    <td>ഡൽഹി (തലസ്ഥാനം)</td>
+                    <td>11,880</td>
+                    <td>6,040</td>
+                </tr>
+                <tr>
+                    <td>ബീഹാർ</td>
+                    <td>12,600</td>
+                    <td>6,781</td>
+                </tr>
+                <tr>
+                    <td><strong>ഇന്ത്യ മൊത്തത്തിൽ</strong></td>
+                    <td><strong>1,27,874</strong></td>
+                    <td><strong>47,313</strong></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <p class="reveal" style="font-size: 0.9em; color: #666; text-align: center; margin-top: -15px;">(അവലംബം: രാജ്യസഭാ രേഖകൾ, L.S.US.Q.NO 467)</p>
+
+    <p class="reveal">ഇന്ത്യയുടെ തലസ്ഥാന നഗരി, കേന്ദ്രസർക്കാരിന്റെ പോലീസ് നേരിട്ട് ഭരിക്കുന്ന <strong>ഡൽഹിയിൽ</strong> പോലും അയ്യായിരത്തിലധികം കുട്ടികളെ ഒരു വർഷം കാണാതാകുന്നു എന്നത് ഭരണകൂടത്തിന്റെ പരാജയം തന്നെയല്ലേ?</p>
+
+    <h2 class="reveal">മാഫിയകളുടെ കരങ്ങൾ: എങ്ങോട്ടാണ് ഈ കുട്ടികൾ പോകുന്നത്?</h2>
+    <p class="reveal">ഈ കാണാതാകുന്ന കുട്ടികൾ ഒന്നും ആകാശത്തേക്ക് അലിഞ്ഞു ചേരുന്നില്ല. അവർ കൃത്യമായി ആസൂത്രണം ചെയ്യപ്പെട്ട മാഫിയകളുടെ കൈകളിലാണ് എത്തിച്ചേരുന്നത്.</p>
+    <ul class="custom-list reveal">
+        <li><strong>ലൈംഗിക അടിമത്തം:</strong> പെൺകുട്ടികളിൽ വലിയൊരു ശതമാനവും എത്തിപ്പെടുന്നത് ചുവന്ന തെരുവുകളിലെ നരകതുല്യമായ ജീവിതത്തിലേക്കാണ്.</li>
+        <li><strong>അടിമപ്പണി:</strong> ഉത്തരേന്ത്യൻ സംസ്ഥാനങ്ങളിലെ അനധികൃത ഫാക്ടറികളിലും ഖനികളിലും കുട്ടികളെക്കൊണ്ട് രാപ്പകൽ പണിയെടുപ്പിക്കുന്നുണ്ട്.</li>
+        <li><strong>അവയവക്കടത്ത്:</strong> ഔദ്യോഗികമായി സ്ഥിരീകരിക്കാൻ മടിക്കുന്നുണ്ടെങ്കിലും, കുട്ടികളുടെ അവയവങ്ങൾക്കായി പ്രവർത്തിക്കുന്ന അന്താരാഷ്ട്ര റാക്കറ്റുകൾ ഇവിടെ സജീവം തന്നെയാണ്.</li>
+        <li><strong>ഭിക്ഷാടന മാഫിയ:</strong> തട്ടിക്കൊണ്ടുപോകുന്ന കുരുന്നുകളെ അംഗവൈകല്യം വരുത്തി തെരുവിലിറക്കി പണം സമ്പാദിക്കുന്ന സംഘങ്ങൾ ഇന്നും നിർബാധം വിഹരിക്കുന്നു.</li>
+    </ul>
+
+    <h2 class="reveal">മാധ്യമങ്ങളുടെ മൗനവും രാഷ്ട്രീയ നിസ്സംഗതയും</h2>
+    <p class="reveal">രാജ്യ സുരക്ഷയെക്കുറിച്ചും 'വിശ്വഗുരു' ആകുന്നതിനെക്കുറിച്ചും വാതോരാതെ ഇവർ പ്രസംഗിക്കുമ്പോൾ മറുവശത്ത് ഇത്തരം കണക്കുകൾ ആർത്ത് അട്ടഹസിക്കുകയാണ്. എന്നാൽ നമ്മുടെ മാധ്യമങ്ങൾ ഇതിൽ എവിടെയാണ്?</p>
+    
+    <div class="alert-box reveal">
+        സെലിബ്രിറ്റികളുടെ വിവാഹമോ, രാഷ്ട്രീയ കുതിരക്കച്ചവടമോ ചർച്ച ചെയ്യുന്ന പ്രൈം ടൈം ചർച്ചകളിൽ ഈ 48,000 കുട്ടികൾക്ക് ഇടമില്ല. അധികാരികളെ പിണക്കാതിരിക്കാൻ വാർത്തകൾ 'മുക്കിയും' 'ഒതുക്കിയും' നൽകുന്നതാണല്ലോ പുതിയ മാധ്യമ ധർമ്മം.
+    </div>
+    
+    <p class="reveal">കുട്ടികളെ തട്ടിക്കൊണ്ടു പോകുന്നവരെ ശിക്ഷിക്കുന്നതിൽ പോലും ചില സംസ്ഥാനങ്ങൾ അമ്പേ പരാജയപ്പെട്ടു കൊണ്ടിരിക്കുന്നു എന്ന കോടതിയുടെ നിരീക്ഷണങ്ങൾ പോലും അധികാരികളുടെ കണ്ണ് തുറപ്പിക്കുന്നില്ല.</p>
+
+    <h2 class="reveal">രക്ഷിതാക്കൾക്കുള്ള ജാഗ്രതാ നിർദ്ദേശങ്ങൾ</h2>
+    <p class="reveal">ഭരണകൂടത്തെ മാത്രം പഴിച്ചിരുന്നിട്ട് കാര്യമില്ല. നമ്മുടെ കുട്ടികളുടെ സുരക്ഷ നമ്മുടെ കൂടി ഉത്തരവാദിത്തമാണ്. താഴെ പറയുന്ന കാര്യങ്ങൾ ശ്രദ്ധിക്കുക:</p>
+
+    <div class="success-box reveal">
+        <h3>✅ രക്ഷിതാക്കൾ ചെയ്യേണ്ടത്:</h3>
+        <ul class="custom-list">
+            <li><strong>വിവരങ്ങൾ പഠിപ്പിക്കുക:</strong> കുട്ടിയുടെ പേര്, മാതാപിതാക്കളുടെ പേര്, ഫോൺ നമ്പർ, വീട്ടു വിലാസം എന്നിവ കുട്ടിയെ കാണാപ്പാഠം പഠിപ്പിക്കുക.</li>
+            <li><strong>സീക്രട്ട് കോഡ് (Secret Code):</strong> കുടുംബത്തിന് മാത്രമായി ഒരു 'രഹസ്യ വാക്ക്' ഉണ്ടാക്കുക. മാതാപിതാക്കൾ അല്ലാതെ മറ്റാരെങ്കിലും കൂട്ടിക്കൊണ്ടുപോകാൻ വന്നാൽ ഈ കോഡ് ചോദിക്കാൻ കുട്ടിയെ ശീലിപ്പിക്കുക.</li>
+            <li><strong>ഡിജിറ്റൽ ജാഗ്രത:</strong> യൂണിഫോമിട്ട ഫോട്ടോകൾ, വീടിന്റെ ലൊക്കേഷൻ എന്നിവ സോഷ്യൽ മീഡിയയിൽ ഇടുന്നത് ഒഴിവാക്കുക.</li>
+            <li><strong>Childline 1098:</strong> ആപത്തുഘട്ടത്തിൽ വിളിക്കാനുള്ള <strong>1098</strong> എന്ന നമ്പർ കുട്ടിയെ പഠിപ്പിക്കുക.</li>
+            <li><strong>Stranger Danger:</strong> അപരിചിതർ നൽകുന്ന മിഠായിയോ സമ്മാനങ്ങളോ വാങ്ങരുതെന്ന് കർശനമായി പറയുക.</li>
+        </ul>
+    </div>
+
+    <h3 class="reveal">ഉപസംഹാരം</h3>
+    <p class="reveal">കുട്ടികൾ മുതൽ മുതിർന്നവർ വരെ ആർക്ക് എപ്പോൾ വേണമെങ്കിലും എന്തും സംഭവിക്കാം എന്ന അവസ്ഥയിലേക്കാണ് നാം പോയിക്കൊണ്ടിരിക്കുന്നത്. ഭരിക്കുന്നവർ ഇന്ത്യയെ ലോകോത്തര നിലവാരത്തിലേക്ക് ഉയർത്തുമെന്ന വാഗ്ദാനങ്ങൾക്ക് പുറകെയാണ്. എന്നാൽ, ഭാവിയാകേണ്ട കുരുന്നുകളിൽ അപ്രത്യക്ഷമാകുന്നവരുടെ എണ്ണം ഒരു വലിയ ചോദ്യചിഹ്നമായി എപ്പോഴും അവശേഷിക്കുന്നു.</p>
+    
+    <p class="reveal"><strong>ചോദ്യം ചോദിക്കേണ്ടവർ മൗനത്തിലും. ഉത്തരം പറയേണ്ടവർ ഇരുട്ടിലുമാണെന്നതാണ് ഏറ്റവും വലിയ തമാശ.</strong></p>
+
+    <div class="share-container reveal">
+        <span class="share-title">മറ്റുള്ളവരുമായി പങ്കുവെക്കൂ:</span>
+        <div class="share-buttons">
+            <a href="#" id="share-wa" target="_blank" class="share-btn btn-wa">
+                <svg viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.682 2.472 2.562-.675c.997.551 2.645 1.019 3.861 1.019 3.182 0 5.768-2.587 5.768-5.766.001-3.187-2.575-5.77-5.76-5.77zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217.117 0 .231.001.361.01.13.008.304-.051.475.364.174.415.591 1.445.642 1.548.052.104.087.225.014.37-.072.144-.108.248-.217.38-.108.131-.228.288-.325.386-.107.107-.217.224-.094.44.123.216.544.896 1.172 1.451.806.713 1.487.937 1.697 1.043.211.105.336.087.462-.052.13-.138.548-.636.693-.853.145-.217.304-.18.521-.095.217.087 1.374.649 1.61.765.236.117.393.173.447.268.056.094.056.548-.087.953z"/></svg>
+                WhatsApp
+            </a>
+            <a href="#" id="share-fb" target="_blank" class="share-btn btn-fb">
+                <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                Facebook
+            </a>
+             <a href="#" id="share-x" target="_blank" class="share-btn btn-x">
+                <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                Post
+            </a>
+            <button id="copy-link-btn" class="share-btn btn-copy">
+                <svg viewBox="0 0 24 24"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
+                <span id="copy-text">Copy Link</span>
+            </button>
+        </div>
+    </div>
+
+    <div class="footer-credits reveal">
+        കടപ്പാട്: <a href="https://www.instagram.com/p/DSSnRQcEjXz/" target="_blank">അപൂർണ്ണ ചിന്തകൾ</a>
+        <br><br>
+        &copy; 2025 Investigative Report. All Rights Reserved.
+    </div>
+</div>
+
+<script>
+    // --- Reading Progress Bar Script ---
+    window.onscroll = function() {myFunction()};
+
+    function myFunction() {
+      var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+      var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      var scrolled = (winScroll / height) * 100;
+      document.getElementById("myBar").style.width = scrolled + "%";
+    }
+
+    // --- Dynamic Share Links Script ---
+    const currentPageUrl = encodeURIComponent(window.location.href);
+    const currentPageTitle = encodeURIComponent(document.title);
+
+    // WhatsApp
+    document.getElementById('share-wa').href = `https://wa.me/?text=${currentPageTitle}%20-%20${currentPageUrl}`;
+    // Facebook
+    document.getElementById('share-fb').href = `https://www.facebook.com/sharer/sharer.php?u=${currentPageUrl}`;
+    // X (Twitter)
+    document.getElementById('share-x').href = `https://twitter.com/intent/tweet?text=${currentPageTitle}&url=${currentPageUrl}`;
+
+    // Copy Link Functionality
+    const copyBtn = document.getElementById('copy-link-btn');
+    const copyText = document.getElementById('copy-text');
+
+    copyBtn.addEventListener('click', () => {
+        navigator.clipboard.writeText(window.location.href).then(() => {
+            copyBtn.classList.add('copied');
+            copyText.textContent = 'Link Copied!';
+            setTimeout(() => {
+                copyBtn.classList.remove('copied');
+                copyText.textContent = 'Copy Link';
+            }, 3000); // Reset after 3 seconds
+        }).catch(err => {
+            console.error('Failed to copy: ', err);
+        });
+    });
+
+    // --- Scroll Reveal Animation Script ---
+    function reveal() {
+      var reveals = document.querySelectorAll(".reveal");
+      for (var i = 0; i < reveals.length; i++) {
+        var windowHeight = window.innerHeight;
+        var elementTop = reveals[i].getBoundingClientRect().top;
+        var elementVisible = 100; // Trigger when 100px of element is visible
+
+        if (elementTop < windowHeight - elementVisible) {
+          reveals[i].classList.add("active");
+        } else {
+          // Optional: Remove 'active' class to re-animate when scrolling up
+          // reveals[i].classList.remove("active");
+        }
+      }
+    }
+
+    // Trigger reveal on scroll and on load
+    window.addEventListener("scroll", reveal);
+    window.addEventListener("load", reveal);
+</script>
+
+</body>
+</html>
