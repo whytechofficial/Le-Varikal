@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="ml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>എല്ലാം മറന്നു പോകുമോയെന്ന് പേടി തോന്നുന്നു... | ലെ വരികൾ</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Malayalam:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Serif Malayalam', serif;
+            background-color: #1c1917; /* Stone 900 */
+            color: #e7e5e4; /* Stone 200 */
+            line-height: 2.3; /* Slightly increased for better balance */
+        }
+
+        /* Drop Cap */
+        .drop-cap::first-letter {
+            font-size: 3.5rem;
+            float: left;
+            margin-right: 0.75rem;
+            margin-top: -0.2rem;
+            line-height: 0.8;
+            color: #d97706; /* Amber 600 */
+        }
+
+        /* Highlight Text */
+        .highlight-text {
+            color: #fbbf24;
+            font-weight: 600;
+            text-shadow: 0 0 15px rgba(251, 191, 36, 0.2);
+        }
+
+        /* Section Break */
+        .section-break {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 3rem 0;
+            opacity: 0.4;
+        }
+        .section-break::before, .section-break::after {
+            content: "";
+            height: 1px;
+            width: 50px;
+            background-color: currentcolor;
+            margin: 0 10px;
+        }
+
+        /* Selection Color */
+        ::selection {
+            background: #d97706;
+            color: #fff;
+        }
+
+        /* Smooth Link Transition */
+        a { transition: all 0.3s ease; }
+        
+        /* Animation for cover image */
+        .cover-animate {
+            animation: draw 2s ease-out forwards;
+            stroke-dasharray: 1000;
+            stroke-dashoffset: 1000;
+        }
+        
+        @keyframes draw {
+            to {
+                stroke-dashoffset: 0;
+            }
+        }
+
+        /* Balanced Text Wrapping */
+        h1 {
+            text-wrap: balance;
+        }
+        p {
+            text-wrap: pretty;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col items-center py-12 px-6 sm:px-8 lg:px-12">
+
+    <article class="max-w-prose w-full mx-auto">
+        
+        <!-- Cover Image (SVG Illustration) -->
+        <div class="mb-12 flex justify-center w-full">
+            <svg viewBox="0 0 400 300" class="w-full max-w-md h-auto opacity-90" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#d97706;stop-opacity:0.2" />
+                        <stop offset="100%" style="stop-color:#1c1917;stop-opacity:0" />
+                    </linearGradient>
+                </defs>
+                
+                <!-- Background Glow -->
+                <circle cx="200" cy="150" r="100" fill="url(#grad1)" />
+
+                <!-- Artistic Lines representing the embrace -->
+                <!-- Woman's outline (Comforting figure) -->
+                <path d="M220,80 Q250,90 260,130 Q270,180 280,250" 
+                      fill="none" stroke="#57534e" stroke-width="2" stroke-linecap="round" class="cover-animate"/>
+                <path d="M220,80 Q190,90 185,130" 
+                      fill="none" stroke="#57534e" stroke-width="2" stroke-linecap="round" class="cover-animate"/>
+                
+                <!-- Her hand on his head/shoulder -->
+                <path d="M185,130 Q170,140 160,160" 
+                      fill="none" stroke="#fbbf24" stroke-width="2" stroke-linecap="round" class="cover-animate"/>
+
+                <!-- Man's outline (Leaning in) -->
+                <path d="M120,250 Q130,180 150,160 Q170,140 190,170" 
+                      fill="none" stroke="#a8a29e" stroke-width="2" stroke-linecap="round" class="cover-animate"/>
+                
+                <!-- Abstract connection -->
+                <path d="M190,120 Q180,140 190,160" 
+                      fill="none" stroke="#fbbf24" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/>
+                
+                <!-- Malayalam Title in SVG -->
+                <text x="200" y="280" font-family="'Noto Serif Malayalam', serif" font-size="12" fill="#78716c" text-anchor="middle" letter-spacing="2">സ്നേഹത്തിന്റെ ഓർമ്മ</text>
+            </svg>
+        </div>
+
+        <!-- Header -->
+        <header class="text-center mb-16">
+            <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight mb-6 text-stone-100">
+                എല്ലാം മറന്നു പോകുമോയെന്ന് <br>
+                <span class="text-amber-500">പേടി തോന്നുന്നു...</span>
+            </h1>
+            <p class="text-stone-500 italic text-sm tracking-wider">ഒരു ലഘു കഥ</p>
+        </header>
+
+        <!-- Story Content: Left Aligned & Pretty Wrapped for Balance -->
+        <div class="text-lg sm:text-xl text-stone-300 space-y-8 text-left">
+            <p class="drop-cap">
+                പിണക്കത്തിന് ശേഷം മുറിയിലേക്ക് കയറിയ ഭാര്യയെ ആശ്വസിപ്പിക്കണമെന്ന് എനിക്ക് തോന്നി. അതിനായി, ചാരിയ ആ കതക് തുറന്നപ്പോഴാണ് ഒരു കാര്യം മനസ്സിലാകുന്നത്. അവളുടെ പേര് ഞാൻ മറന്നിരിക്കുന്നു! അപകടം തിരിച്ചറിഞ്ഞപ്പോൾ ഞാൻ വല്ലാത്തൊരു ഭയത്തോടെ പിൻവാങ്ങി.
+            </p>
+
+            <p>
+                തമാശയായി തോന്നുന്നുണ്ടല്ലേ...? ശരിയാണ്. ഈയിടെയായി മറവി ഇത്തിരി കൂടിയിട്ടുണ്ട്. പുറമേ നിന്ന് ശ്രദ്ധിച്ചാൽ ആർക്കും ചിരി വരുന്ന വിധമാണ് എന്റെ പ്രവർത്തികൾ.
+            </p>
+
+            <p>
+                "അല്ല മനുഷ്യാ.. കുറേ നേരമായല്ലോ നിങ്ങള് ഇവിടെ ഉടുപ്പൊക്കെയിട്ട് ചുറ്റിത്തിരിയുന്നേ...! പോണില്ലേ...? അത്യാവശ്യമായി എങ്ങാണ്ടോ പോകാനുണ്ടെന്നല്ലേ രാത്രിയിൽ പറഞ്ഞേ..."
+            </p>
+
+            <p>
+                കഴിഞ്ഞാഴ്ച ഭാര്യ ചോദിച്ചതാണ്. ഉത്തരമില്ലാതെ ഞാൻ തല ചൊറിഞ്ഞു. എന്ത് പറ്റിയെന്ന് ചോദിച്ച് അവൾ കുറച്ച് കൂടി അടുത്തേക്ക് വന്നു. "എവിടേക്കാണ് പോകേണ്ടതെന്ന് പറഞ്ഞിരുന്നോ...?"
+            </p>
+
+            <p>
+                ചിമ്മാതെ നോക്കുന്ന അവളുടെ കണ്ണുകളിലേക്ക് നോക്കി ഞാൻ നിസ്സഹായനായി നിന്നു. നിങ്ങൾക്കെന്ത് പറ്റിയെന്ന് ചോദിച്ച് അവൾ ആ നേരം എന്നെ പിടിച്ച് കുലുക്കുകയായിരുന്നു. ഞാൻ ഉലഞ്ഞ് പോയി. <em>വാലും തലയുമില്ലാത്ത ഒരായിരം ഓർമ്മകൾ വവ്വാൽ കൂട്ടം പോലെ തലയിൽ പാറുകയാണ്.</em> ചിന്തകൾ തല കീഴായി തൂങ്ങി കാതിൽ കൂവുന്നത് പോലെയൊക്കെ തോന്നിയപ്പോൾ ഞാൻ മുറിയിലേക്ക് പോയി.
+            </p>
+
+            <p>
+                കിടക്കയിൽ കമിഴ്ന്ന് കിടക്കുമ്പോൾ ആശുപത്രിയിലേക്ക് പോകണമോയെന്ന് ചോദിച്ച് അവളും അടുത്തെത്തി. ഞാൻ മലർന്ന് കിടന്നു. ഒന്നിലും ഉറച്ച് നിൽക്കാതെ പായുന്ന തലയുടെ പരവേശവും വെപ്രാളവും കണ്ടപ്പോൾ അവൾ എൻ്റെ നെഞ്ചിൽ കൈ വെച്ചു. "വേദനിക്കുന്നുണ്ടോ...?"
+            </p>
+
+            <p>
+                ഇല്ലെന്ന് പറഞ്ഞ് അവളുടെ കൈയ്യിൽ പിടിക്കുമ്പോൾ പാവത്തിൻ്റെ കണ്ണ് നിറഞ്ഞു. വല്ല അറ്റാക്കും വന്ന് ഞാൻ തട്ടി പോകുമെന്ന് കരുതിയിട്ടുണ്ടാകും. അല്ലെങ്കിൽ പിന്നെ ഉണരാത്ത മോനെ വിളിക്കാൻ അവൾ അവിടെ നിന്ന് ഓടി പോകില്ലായിരുന്നുവല്ലോ.
+            </p>
+
+            <p>
+                തന്നോളം വളർന്ന മോൻ്റെ കരുതലിൽ ഞാൻ ആശുപത്രിയിലെത്തി. ഡോക്‌ടറെ കണ്ടു. ചില ടെസ്റ്റുകളൊക്കെ നടത്തിയപ്പോൾ ഭയപ്പെടാനുള്ള ശാരീരിക പ്രശ്‌നങ്ങളൊന്നുമില്ലെന്ന് അയാൾ പറഞ്ഞു. ഉറക്കമില്ലായ്മ പ്രശ്‌നമാണ്. വിറ്റാമിൻ്റെ കുറവുമുണ്ട്. മനഃശാസ്ത്രജ്ഞനെ കാണണം പോലും! ഭാര്യയും മോനും മുഖത്തോട് മുഖം നോക്കി. എനിക്ക് വട്ടായി പോയോയെന്ന സംശയമാണ് പിന്നീട് അവരുടെ കണ്ണുകളിൽ കാണാൻ സാധിച്ചത്. അങ്ങനെ ഞങ്ങൾ മനസ്സിനെ ചികിൽസിക്കുന്ന ആളിലേക്ക് നടന്നു.
+            </p>
+
+            <p class="pl-4 border-l-2 border-stone-700 italic text-stone-400">
+                "എടീ, പോകാനുണ്ടായിരുന്നത് പാർട്ടീ ഓഫിസിലേക്കാ... കമ്മിറ്റിയുണ്ടായിരുന്നു..."
+            </p>
+
+            <p>
+                അത് നിങ്ങളില്ലെങ്കിലും നടന്നോളുമെന്നേ അവൾക്ക് പറയാൻ ഉണ്ടായിരുന്നുള്ളു... മറന്നതിനെ തേടിപ്പിടിച്ചപ്പോൾ ബോധത്തിലെ ബഹളം കുറഞ്ഞിരിക്കുന്നു. ആ തലയുമായാണ് ഡോക്‌ടറെ കണ്ടത്. ഭാര്യയേയും മോനെയും പുറത്ത് നിർത്തി അയാൾ എന്നോട് ഏറെ നേരം സംസാരിച്ചു. മരുന്നും കുറിച്ച് തന്നു. ഇത്തരത്തിലൊരു ബുദ്ധിമുട്ട് തുടർന്നും ഉണ്ടായാൽ വരണമെന്ന നിർദ്ദേശവും നൽകി.
+            </p>
+
+            <p>
+                "അച്ഛൻ ഇനി പുറത്തേക്കൊന്നും പോകണ്ട. ഓർമ്മയില്ലാതെ വല്ല അപകടവും സംഭവിക്കും..." വീട്ടിലെത്തിയപ്പോൾ മോൻ പറഞ്ഞതാണ്. ഒരു കുഞ്ഞിനെ പോലെ ഞാൻ തലയാട്ടി. നിങ്ങള് പേടിക്കേണ്ട മനുഷ്യായെന്ന് പറഞ്ഞ് ആ രാത്രിയിൽ പതിവിലും കൂടുതൽ ഭാര്യ എന്നിലേക്ക് ചേർന്നിരുന്നു. പിന്നീടുള്ള ജീവിതം ബാല്യം പോലെ മാറി. അവൾ കൂടുതൽ പരിഗണന നൽകുന്നത് പോലെ. എന്നിരുന്നാലും, എൻ്റെ മുഖം മാറിയാൽ പെണ്ണ് വാടും. അത്രമേൽ അവൾ എന്നെ സ്നേഹിക്കുന്നു.
+            </p>
+
+            <p>
+                ഇന്നലകളിലെ രംഗങ്ങൾ മറന്ന് പോകുന്നുവെന്ന അനുഭവത്തോടെയാണ് ഓരോ നാളും പിന്നീട് മറിഞ്ഞ് പോയത്. ഭാര്യയും മോനും ചോദിക്കുമ്പോഴൊക്കെ പറയത്തക്ക പ്രശ്‌നങ്ങളൊന്നും ഇല്ലെന്നേ പറയാറുള്ളൂ... പലതും മറന്നിരിക്കുന്നുവെന്ന ചിന്തയിൽ താമസിക്കുമ്പോൾ ദേഷ്യം വരും. അത് പ്രകടിപ്പിക്കുമ്പോൾ ഭാര്യയ്ക്ക് സങ്കടമാകും. ആ പുണ്യത്തിന്റെ പേരാണ് ഞാൻ ഇപ്പോൾ മറന്നിരിക്കുന്നത്.
+            </p>
+
+            <p>
+                മുറിയിൽ ഭാര്യ ഇല്ലായിരുന്നുവെങ്കിൽ അലമാരയിലെ കടലാസിൽ പരതാമായിരുന്നു. ആരോടെങ്കിലും ചോദിക്കാനും പറ്റില്ല. വരുന്നത് വരട്ടേയെന്ന് കരുതി തുറന്ന് പറഞ്ഞാൽ അവൾക്ക് സങ്കടമാകും. 'ഇത്രേയുള്ളുവല്ലേ'യെന്ന് വിതുമ്പി കണ്ണീര് ഒഴുക്കാൻ അത് മതി. ഞാൻ ആ ഡോക്‌ടറെ ഒന്നുകൂടി കാണാൻ തീരുമാനിച്ചു. ഓർമ്മയില്ലായ്‌മയുടെ അപകടം പതിയേ തിരിച്ചറിയുകയാണ്. ഡിമെൻഷ്യയുടെയോ അൽഷിമേഴ്സ‌ിന്റെയോ തുടക്കമായിരിക്കാമെന്നും അന്ന് ആ ഡോക്‌ടർ പറഞ്ഞിരുന്നു...
+            </p>
+
+            <div class="section-break">✦</div>
+
+            <p>
+                രാത്രിയായി. മോൻ വന്നപ്പോൾ ജിലേബി കൊണ്ട് വന്നിരുന്നു. എന്റെ കൈയ്യിലാണ് തന്നത്. ചിറിയിൽ പഞ്ചസാര പശ ഒട്ടുന്നത് വരെ കഴിച്ചു. ഭാര്യക്കും കൊടുത്തേക്കാമെന്ന ചിന്തയിൽ കൊണ്ട് പോയപ്പോൾ അവൾ വാങ്ങിയില്ല. എന്ത് പറ്റിയെന്ന് ചോദിച്ചിട്ടും ഉത്തരമില്ല. മുന്നിൽ നിന്നാൽ പെണ്ണ് മാറി പോകുകയാണ്. ആ ചലനത്തിലാണ് പകലിൽ പിണങ്ങി നിന്ന കാര്യവും, തുടർന്ന് അവളുടെ പേര് മറന്നതും ഓർക്കുന്നത്. പെട്ടെന്ന്, മൂടൽമഞ്ഞ് മാറുംപോലെ ഗീതയെന്നാണ് ഭാര്യയുടെ പേരെന്ന് തലയിൽ തെളിഞ്ഞു.
+            </p>
+
+            <p class="text-center text-2xl font-medium my-8 highlight-text">
+                "ഗീതേ...!"
+            </p>
+
+            <p>
+                "ഒന്നും പറയേണ്ട... ഇത്രേം നേരമായിട്ടും എന്നോടൊന്ന് മിണ്ടാൻ തോന്നിയില്ലല്ലോ.. ഞാനൊക്കെ ഇല്ലാണ്ടായാലേ നിങ്ങള് പഠിക്കൂ..." ഞാൻ പറഞ്ഞില്ലേ... ഇത്രേ ഉള്ളൂ ഗീത. അവളോട് യാതൊന്നും ഒളിക്കാൻ തോന്നിയില്ല.
+            </p>
+
+            <p>
+                "പിണങ്ങി പോയപ്പോൾ പിന്നാലെ വന്നതാണ്. കതകിൽ ചാരി വിളിക്കാൻ നോക്കിയപ്പോൾ പേര് മറന്ന് പോയി..."
+            </p>
+
+            <p>
+                കരച്ചില് നിർത്തി ഗീത എൻ്റെ കണ്ണുകളിലേക്ക് നോക്കുകയാണ്. എല്ലാം മറന്ന് പോകുന്നെടിയെന്ന് പറഞ്ഞ്, ഞാൻ ആ നിമിഷം അവളെ ചേർത്തുപിടിച്ച് തലകുനിച്ചു. "ചോദിക്കുമ്പോഴെല്ലാം കുഴപ്പമില്ലാന്ന് പറഞ്ഞിട്ട്...!"
+            </p>
+
+            <p>
+                എനിക്ക് ഉത്തരം ഉണ്ടായിരുന്നില്ല. നാളെ ആ ഡോക്‌ടറെ കാണാൻ പോകാമെന്ന മറുപടിയിൽ അവൾ ഇത്തിരി ആശ്വാസം പ്രകടിപ്പിച്ചു. ശേഷം, മുഖത്തോട് മുഖം മുട്ടുമെന്ന വിധം അടുത്തേക്ക് വന്നു. കൺപീലികൾ നനഞ്ഞ് തിളങ്ങുകയാണ്. അവളുടെ കണ്ണുകളിൽ ഞാൻ കലങ്ങിയിരിക്കുന്നു.
+            </p>
+
+            <p>
+                "എന്റെ പേര് മാത്രമേ മറന്നുള്ളൂ...! അതോ...! സാരമില്ല. ഒന്നും ആലോചിക്കാതെയിരിക്ക്. എല്ലാം ശരിയാകും... "
+            </p>
+
+            <p>
+                അതുകേട്ടപ്പോൾ ഹൃദയസ്‌പർശിയായി ഗീതയെ ഞാൻ പുണർന്നു. ക്ഷമിക്കൂവെന്ന് പറഞ്ഞു. പ്രാണനായി കരുതുന്ന ഭാര്യയുടെ പേര് മറന്ന് പോയ നിമിഷങ്ങളെ ഓർത്ത് ലജ്ജിക്കുകയാണ്. തലയിൽ ഭൂകമ്പങ്ങൾ ഉണ്ടാകുന്നത് പോലെ... തത്സമയം ശാന്തമായിട്ടും, ദൂരേ നിന്ന് എന്നിലേക്ക് മാത്രമായി ഏതോ ഒരു കാറ്റടിക്കുന്നത് പോലെ.
+            </p>
+            
+            <p class="italic text-stone-400">
+                "എല്ലാം മറന്ന് പോകുമോയെന്ന് പേടിയാകുന്നു ഗീതേ..."
+            </p>
+
+            <p>
+                ഞാൻ വിങ്ങുന്നുണ്ടെന്ന് കണ്ടപ്പോൾ ഗീത എന്നെ അടർത്തി മാറ്റി മുഖം കോരിയെടുത്തു. നിങ്ങള് മറന്നാലും തനിക്ക് എല്ലാം ഓർമ്മയുണ്ടല്ലോയെന്ന് പറഞ്ഞ് അവൾ എൻ്റെ വിടർന്ന ചുണ്ടുകളിൽ അമർത്തി ചുംബിച്ചു.
+            </p>
+
+            <p>
+                മിഴിച്ച കണ്ണുകളുമായാണ് പെണ്ണ് പിറകിലോട്ട് മുഖം വലിച്ചത്. ശേഷം, <span class="highlight-text">എന്തൊരു മധുരമെന്ന്</span> ആശ്ചര്യപ്പെട്ട് അന്തംവിട്ടു നിൽക്കുകയാണ്. മോൻ തന്ന ജിലേബിയുടെ രുചിയാണ് അതെന്ന് എന്തുകൊണ്ടോ ആ നേരം പറയാൻ ഞാൻ മറന്ന് പോയി...
+            </p>
+
+            <p class="text-center font-bold mt-12 mb-8 text-stone-100">
+                അറിഞ്ഞപ്പോൾ, ഗീതയോടൊപ്പം ഞാനും ചിരിച്ച് പോയിരുന്നു..!!!
+            </p>
+        </div>
+
+        <!-- Horizontal Separator -->
+        <hr class="border-stone-800 my-12">
+
+        <!-- Author Information Section -->
+        <footer class="flex flex-col items-center justify-center text-center space-y-6">
+            
+            <!-- Circular Profile Image -->
+            <div class="relative group">
+                <div class="absolute -inset-1 bg-gradient-to-r from-amber-600 to-orange-600 rounded-full blur opacity-25 group-hover:opacity-75 transition duration-1000 group-hover:duration-200"></div>
+                <!-- Placeholder Image -->
+                <img src="https://images.unsplash.com/photo-1455390582262-044cdead277a?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" 
+                     alt="Author Profile" 
+                     class="relative w-24 h-24 object-cover rounded-full border-2 border-stone-800 shadow-xl">
+            </div>
+
+            <!-- Author Name and Motto -->
+            <div class="space-y-2">
+                <a href="../index.html" 
+                   
+                   rel="noopener noreferrer"
+                   class="inline-block text-2xl font-bold text-amber-500 hover:text-amber-400 hover:scale-105 transition-transform duration-300">
+                   ലെ വരികൾ...
+                </a>
+                <p class="text-sm text-stone-500 tracking-widest font-light">
+                    വാക്കുകൾ, ചിന്തകൾ, വരികൾ.
+                </p>
+            </div>
+
+            <!-- Share Buttons -->
+            <div class="pt-4 flex items-center space-x-6">
+                
+                <!-- WhatsApp Share (Updated Icon & Styling) -->
+                <button onclick="shareToWhatsApp()" class="text-stone-500 hover:text-green-500 transition-colors" title="Share on WhatsApp">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+                    </svg>
+                </button>
+
+                <!-- Facebook Share -->
+                <button onclick="shareToFacebook()" class="text-stone-500 hover:text-blue-500 transition-colors" title="Share on Facebook">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                    </svg>
+                </button>
+
+                <!-- Copy Link -->
+                <button onclick="copyLink()" class="text-stone-500 hover:text-stone-200 transition-colors" title="Copy Link">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
+                    </svg>
+                </button>
+            </div>
+            
+            <!-- Notification Toast (Hidden by default) -->
+            <div id="toast" class="fixed bottom-5 left-1/2 transform -translate-x-1/2 bg-stone-800 text-amber-500 px-4 py-2 rounded-full text-sm opacity-0 transition-opacity duration-300 pointer-events-none shadow-lg border border-stone-700">
+                Link Copied!
+            </div>
+
+        </footer>
+
+    </article>
+
+    <script>
+        function shareToWhatsApp() {
+            const url = encodeURIComponent(window.location.href);
+            const text = encodeURIComponent("വായിക്കൂ... മനോഹരമായ ഒരു കഥ: ");
+            window.open(`https://wa.me/?text=${text}${url}`, '_blank');
+        }
+
+        function shareToFacebook() {
+            const url = encodeURIComponent(window.location.href);
+            window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}`, '_blank');
+        }
+
+        function copyLink() {
+            const url = window.location.href;
+            navigator.clipboard.writeText(url).then(() => {
+                const toast = document.getElementById('toast');
+                toast.classList.remove('opacity-0');
+                setTimeout(() => {
+                    toast.classList.add('opacity-0');
+                }, 2000);
+            }).catch(err => {
+                console.error('Failed to copy: ', err);
+            });
+        }
+    </script>
+</body>
+</html>
+
+
